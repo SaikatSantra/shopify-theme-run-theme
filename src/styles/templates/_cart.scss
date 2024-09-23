@@ -1,0 +1,142 @@
+.cart {
+  $itemRowLayoutBreakPoint: 1100px;
+  padding: 24px 0;
+
+  @media screen and (min-width: $large) {
+    padding: 60px 0;
+  }
+
+  &__title {
+    margin-bottom: 24px;
+  }
+
+  &__content {
+    display: grid;
+    gap: 40px;
+
+    @media screen and (min-width: $large) {
+      grid-template-columns: 2fr 1fr;
+      gap: 20px;
+    }
+  }
+
+  &__items {
+    margin: 0 0 60px;
+  }
+
+  &__total-price {
+    padding-left: 8px;
+    display: none;
+
+    @media screen and (min-width: $navBreakPoint) {
+      display: block;
+    }
+  }
+
+  &__item {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 16px;
+    padding: 20px 0;
+    border-bottom: 1px solid $colorBorder;
+
+    @media screen and (min-width: $large) {
+      align-items: center;
+      grid-template-columns: 148px 1fr;
+      padding: 30px 0;
+    }
+  }
+
+  &__item-image {
+    a,
+    img {
+      display: block;
+    }
+  }
+
+  &__item-details-wrapper {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+
+    @media screen and (min-width: $large) {
+      gap: 20px;
+      grid-template-columns: 4fr 110px 2fr 1fr;
+    }
+  }
+
+  &__item-details {
+    &#{&}--title {
+      @media screen and (max-width: $largeMinusOne) {
+        grid-column: -1/1;
+        margin: 0 0 12px;
+      }
+    }
+
+    &#{&}--quantity {
+      text-align: center;
+      position: relative;
+      display: grid;
+      gap: 8px;
+    }
+
+    &#{&}--price {
+      text-align: center;
+    }
+
+    &#{&}--remove {
+      text-align: right;
+    }
+  }
+
+  &__item-update {
+  }
+
+  &__item-preorder {
+    display: block;
+    color: $colorMain4;
+    margin-top: 12px;
+  }
+
+  &__summary-container {
+  }
+
+  &__subtotal,
+  &__savings,
+  &__total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__summary {
+    background: $colorWhite;
+    padding: 16px;
+    margin-bottom: 24px;
+  }
+
+  &__summary-preorder {
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 16px;
+  }
+
+  &__notes {
+    .text-input {
+      width: 100%;
+      margin-bottom: 16px;
+      border-radius: 6px;
+      min-width: 0;
+    }
+
+    small {
+      font-weight: 500;
+      color: $colorMain2;
+    }
+  }
+
+  .payment-icons-container {
+    padding: 0 0 8px;
+  }
+}

@@ -1,0 +1,47 @@
+.env
+node_modules/
+**/*/node_modules/**/*
+
+dist/
+
+.bck/
+.awcache
+
+# Configs
+src/config.yml
+
+# Re enable on production
+yarn.lock
+
+
+.ds_store
+.DS_Store
+**/*/.ds_store
+**/*/.DS_Store
+
+# Remove css and JS builds
+theme/assets/bb-*.dev.js
+theme/assets/vendors@*.dev.js
+theme/assets/theme.dev.css
+theme/assets/*.LICENSE.*
+theme/assets/vendors-node_modules_*_js.dev.js
+theme/snippets/script-tags-dev.liquid
+theme-base/assets/bb-*.dev.js
+theme-base/assets/vendors@*.dev.js
+theme-base/assets/vendors-node_modules_*_js.dev.js
+theme-base/assets/theme.dev.css
+theme-base/assets/bs-*.dev.css
+theme-base/assets/*.LICENSE.*
+theme-base/snippets/script-tags-dev.liquid
+stats.html
+
+# Ignore yarn
+app-layer/yarn.lock
+cypress/videos/**/*.mp4
+cypress/screenshots/**/*.png
+yarn-error.log
+
+integration/cypress/videos
+
+# IDEs
+.idea/

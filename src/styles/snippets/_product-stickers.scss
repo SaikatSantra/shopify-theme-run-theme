@@ -1,0 +1,26 @@
+.product-stickers {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  &#{&}--overlay {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    flex-wrap: wrap;
+    z-index: 1;
+  }
+
+  &#{&}--pdp {
+    margin: 0 0 16px;
+  }
+
+  &__sticker {
+    padding: 6px;
+    background: var(--bg, $colorMain1);
+    color: var(--color, $colorMain2);
+    white-space: nowrap;
+    font-size: 12px;
+    border-radius: 5px;
+  }
+}

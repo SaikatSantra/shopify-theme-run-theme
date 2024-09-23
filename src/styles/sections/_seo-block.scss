@@ -1,0 +1,11 @@
+.seo-block {
+  padding: 32px 8px;
+
+  @media screen and (min-width: $large) {
+    padding: 40px 0;
+  }
+
+  &__btn {
+    text-decoration: underline;
+  }
+}

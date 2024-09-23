@@ -1,0 +1,23 @@
+.blog {
+  &__title {
+    margin-bottom: 16px;
+
+    @media screen and (min-width: $medium) {
+      margin-bottom: 32px;
+    }
+  }
+
+  &__listing {
+    display: grid;
+    gap: 24px;
+
+    @media screen and (min-width: $medium) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media screen and (min-width: $large) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px 24px;
+    }
+  }
+}

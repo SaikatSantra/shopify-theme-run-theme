@@ -1,0 +1,11 @@
+.rotating-text-bar {
+  width: 100%;
+  background-color: $colorMain1;
+  color: $colorMain3;
+  text-align: center;
+  padding: 16px 0;
+
+  .label {
+    margin: 0;
+  }
+}

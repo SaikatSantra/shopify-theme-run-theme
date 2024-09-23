@@ -1,0 +1,54 @@
+// see animations.ts for JS
+
+[data-anim] {
+  transition-duration: 333ms;
+  transition-timing-function: ease-in-out;
+
+  &.anim-delay-333 {
+    transition-delay: 333ms;
+  }
+
+  &.anim-delay-666 {
+    transition-delay: 666ms;
+  }
+
+  &.anim-delay-999 {
+    transition-delay: 999ms;
+  }
+
+  &.anim-fade-in {
+    opacity: 0;
+    transition-property: opacity;
+
+    @media screen and (prefers-reduced-motion: reduce) {
+      opacity: 1;
+    }
+
+    &.anim-active {
+      opacity: 1;
+    }
+  }
+
+  &.anim-slide-in-left {
+    transform: translateX(66px);
+    transition-property: transform, opacity;
+    opacity: 0;
+
+    @media screen and (prefers-reduced-motion: reduce) {
+      opacity: 1;
+      transform: none;
+    }
+
+    &.anim-active {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    &.anim-active {
+      // User has disabled transitions in their OS.
+      transition: none;
+    }
+  }
+}

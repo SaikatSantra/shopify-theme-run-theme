@@ -1,0 +1,27 @@
+.product-detail {
+  padding: 20px 0 0;
+
+  &#{&}--gift-cards {
+  }
+
+  &__grid {
+    display: grid;
+    align-items: start;
+    gap: 24px;
+
+    @media screen and (min-width: $large) {
+      grid-template-columns: 44.25% 1fr;
+      gap: 80px;
+      position: relative;
+    }
+  }
+
+  &__col {
+    &#{&}--gallery {
+      @media screen and (min-width: $large) {
+        position: sticky;
+        top: 105px;
+      }
+    }
+  }
+}

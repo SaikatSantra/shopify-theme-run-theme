@@ -1,0 +1,19 @@
+import FILTER_SEARCH from '../../../consts'
+
+const { SORT_TYPES } = FILTER_SEARCH
+
+
+//SEE: https://developers.klevu.com/api/#sorting
+const sortMap = {
+  [SORT_TYPES.RELEVANCE]: 'RELEVANCE',
+  [SORT_TYPES.PRICE_ASC]: 'PRICE_ASC',
+  [SORT_TYPES.PRICE_DESC]: 'PRICE_DESC',
+  [SORT_TYPES.NAME_ASC]: 'NAME_ASC',
+  [SORT_TYPES.NAME_DESC]: 'NAME_DESC',
+  [SORT_TYPES.RATING_ASC]: 'RATING_ASC',
+  [SORT_TYPES.RATING_DESC]: 'RATING_DESC',
+  [SORT_TYPES.NEW_ARRIVAL_ASC]: 'RATING_ASC',
+  [SORT_TYPES.NEW_ARRIVAL_DESC]: 'RATING_DESC'
+}
+
+export default sortMap;

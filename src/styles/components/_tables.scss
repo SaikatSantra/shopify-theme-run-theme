@@ -1,0 +1,7 @@
+// Mobile table headers are taken from the data-label="Row Label" on the td, real headers hidden on mobile
+
+// shopfy tables from the WYSIWYG are a bit shit so table-base only is applied to .rte styles
+
+.responsive-table {
+  @include responsive-table;
+}

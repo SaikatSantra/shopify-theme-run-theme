@@ -1,0 +1,301 @@
+@mixin label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 7px;
+}
+
+@mixin form-fields-shared {
+  font-size: rem(16px); // This needs to remain 16px on mobile to prevent zoom on iOS
+  padding: 12px 24px;
+  color: $colorFont1;
+  font-family: $fontBody;
+  font-weight: 500;
+  border: 1px solid $colorBorder;
+  line-height: 1;
+  margin-bottom: 24px;
+  width: 100%;
+  border-radius: 4px;
+
+  &::placeholder {
+    color: $colorMidGrey;
+  }
+
+  &:focus {
+    outline: none;
+    border: 1px solid $colorMain2;
+  }
+}
+
+@mixin text-input {
+  @include form-fields-shared;
+
+  &::placeholder {
+    color: $colorMain2;
+    border-color: $colorMain2;
+  }
+
+  // Validation taken from from https://css-tricks.com/snippets/css/form-validation-styling-on-input-focus/
+
+  &:not(:focus):not(:placeholder-shown):invalid {
+    color: $colorError;
+    border-color: $colorError;
+  }
+
+  &:not(:focus):not(:placeholder-shown):not([value='']):valid {
+    color: $colorSuccess;
+    border-color: $colorSuccess;
+  }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px $colorMain3 inset !important;
+  }
+}
+
+@mixin hide-input {
+  position: absolute;
+  left: -1000px;
+  z-index: -1;
+  height: 0;
+  width: 0;
+}
+
+@mixin psuedo-radio-check-shared($size: 24px) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $colorWhite;
+  height: $size;
+  border: 1px solid $colorBorder;
+  width: $size;
+
+  input:checked + & {
+    background-color: #333;
+    border: 1px solid #333;
+  }
+}
+
+@mixin pseudo-checkbox {
+  @include psuedo-radio-check-shared;
+  border-radius: 3px;
+
+  input:checked + & {
+    content: '✓';
+    color: $colorWhite;
+    font-size: rem(22px);
+  }
+}
+
+@mixin pseudo-radio($size: 24px) {
+  @include psuedo-radio-check-shared($size);
+  border-radius: 100%;
+  box-shadow: inset 0 0 0 $size/2 $colorWhite;
+  @include transition(box-shadow);
+
+  input:checked + & {
+    box-shadow: inset 0 0 0 4px $colorWhite;
+  }
+}
+
+@mixin checkbox-radio-label-shared {
+  @include label;
+  display: flex;
+  align-items: center;
+  margin: 0;
+
+  &::before {
+    content: '';
+    margin-right: 6px;
+  }
+}
+
+@mixin checkbox-label {
+  @include checkbox-radio-label-shared;
+
+  &::before {
+    @include pseudo-checkbox;
+  }
+}
+
+@mixin radio-label {
+  @include checkbox-radio-label-shared;
+
+  &::before {
+    @include pseudo-radio;
+  }
+}
+
+@mixin select {
+  @include form-fields-shared;
+  font-weight: 600;
+  appearance: none;
+  border-radius: 0;
+  cursor: pointer;
+  background: #fff url('icon-arrow-down.svg') right 15px center / 11px 6px no-repeat;
+}
+
+@mixin text-area {
+  @include form-fields-shared;
+}
+
+@mixin radio-wrapper {
+  display: inline-flex;
+  justify-content: left;
+  padding: 7px 25px 7px 15px;
+  border: 1px solid $colorBorder;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+@mixin checkbox-toggle($width: 55px, $height: 24px, $font-size: 12px, $margin: 2px, $transition-speed: 0.2s) {
+  display: inline-block;
+  width: $width;
+  height: $height;
+  border-radius: $height;
+  background-color: #525252;
+  @include transition(background-color);
+  position: relative;
+  cursor: pointer;
+
+  &::before {
+    content: '';
+    border-radius: 100%;
+    position: absolute;
+    background-color: white;
+    @include transition(left);
+    top: $margin;
+    left: $margin;
+    display: block;
+    height: $height - ($margin * 2);
+    width: $height - ($margin * 2);
+  }
+
+  &::after {
+    color: $colorWhite;
+    font-weight: 500;
+    margin: 0 0.5em;
+    text-transform: uppercase;
+    font-size: rem($font-size);
+    top: ($height - $font-size) / 2;
+    right: 0;
+    line-height: rem($font-size);
+    position: absolute;
+    content: attr(data-off-text);
+  }
+
+  input:checked + & {
+    background-color: #56c568;
+
+    &::before {
+      left: $width - $height + $margin;
+    }
+
+    &::after {
+      content: attr(data-on-text);
+      left: 0;
+    }
+  }
+}
+
+.input-wrapper {
+  &#{&}--full {
+    grid-column: 1 / -1;
+  }
+}
+
+.label {
+  @include label;
+}
+
+.text-input {
+  @include text-input;
+}
+
+.input-feedback {
+  &#{&}--success {
+    color: $colorSuccess;
+  }
+
+  &#{&}--info {
+    color: $colorInfo;
+  }
+
+  &#{&}--error {
+    color: $colorError;
+  }
+
+  &#{&}--warning {
+    color: $colorWarning;
+  }
+}
+
+.validated {
+  .text-input,
+  .text-area {
+    &:invalid {
+      box-shadow: none;
+      outline: none;
+      border: 1px solid $colorError;
+    }
+  }
+}
+
+.select {
+  @include select;
+}
+
+.select-wrapper {
+  position: relative;
+  margin-bottom: 24px;
+
+  .select {
+    width: 100%;
+    margin-bottom: 0;
+  }
+}
+
+.text-area {
+  @include text-area;
+}
+
+.checkbox,
+.radio {
+  @include hide-input;
+}
+
+.checkbox-label {
+  @include checkbox-label;
+}
+
+.radio-label {
+  @include radio-label;
+}
+
+.radio-wrapper {
+  @include radio-wrapper;
+}
+
+.checkbox-toggle {
+  @include checkbox-toggle;
+}
+
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+
+  input[type='checkbox'] {
+    padding: 0;
+    margin: 0;
+    margin-right: 16px;
+    display: block;
+    width: 24px;
+    height: 24px;
+  }
+
+  label {
+    margin-bottom: 0;
+  }
+}

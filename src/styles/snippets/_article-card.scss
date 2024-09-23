@@ -1,0 +1,14 @@
+.article-card {
+  display: grid;
+  gap: 12px;
+
+  .heading-4 {
+    margin: 0;
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

@@ -1,0 +1,190 @@
+//button colours, add a new one in here to create more
+$buttonColours: (
+  "primary": (
+    "initial": (
+      "bg": $BtnPrimaryBg,
+      "text": $BtnPrimaryFont,
+      "border": $BtnPrimaryBorder
+    ),
+    "hover": (
+      "bg": $BtnPrimaryBgHover,
+      "text": $BtnPrimaryFontHover,
+      "border": $BtnPrimaryBorderHover
+    )
+  ),
+  "secondary": (
+    "initial": (
+      "bg": $BtnSecondaryBg,
+      "text": $BtnSecondaryFont,
+      "border": $BtnSecondaryBorder
+    ),
+    "hover": (
+      "bg": $BtnSecondaryBgHover,
+      "text": $BtnSecondaryFontHover,
+      "border": $BtnSecondaryBorderHover
+    )
+  ),
+  "tertiary": (
+    "initial": (
+      "bg": $BtnTertiaryBg,
+      "text": $BtnTertiaryFont,
+      "border": $BtnTertiaryBorder
+    ),
+    "hover": (
+      "bg": $BtnTertiaryBgHover,
+      "text": $BtnTertiaryFontHover,
+      "border": $BtnTertiaryBorderHover
+    )
+  )
+);
+
+@mixin button-style($chosen: "primary") {
+  @each $type, $button in $buttonColours {
+    @if ($type == $chosen) {
+      $button-initial: map-get($button, "initial");
+      $button-hover: map-get($button, "hover");
+      color: map-get($button-initial, "text");
+      background-color: map-get($button-initial, "bg");
+      border-color: map-get($button-initial, "border");
+
+      &:hover {
+        color: map-get($button-hover, "text");
+        background-color: map-get($button-hover, "bg");
+        border-color: map-get($button-hover, "border");
+      }
+    }
+  }
+}
+
+//button sizes
+
+@mixin button-size($size) {
+  @if ($size == "md") {
+    padding: 12px 24px;
+  } @else if ($size == "sm") {
+    padding: 8px 20px;
+  } @else if ($size == "lg") {
+    padding: 16px 60px;
+  }
+}
+
+//base button settings
+
+@mixin button-base {
+  border-radius: 4px;
+  display: inline-flex;
+  line-height: 1;
+  cursor: pointer;
+  text-align: center;
+  text-transform: capitalize;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid transparent;
+  font-family: $fontBody;
+  font-size: rem(14);
+  line-height: 1.35;
+  font-weight: 800;
+  @include transition(all);
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 5px auto Highlight;
+    outline: 5px auto -webkit-focus-ring-color;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
+
+@mixin button($chosen: "primary", $size: "md") {
+  @include button-style($chosen);
+  @include btn-base;
+  @include button-size($size);
+}
+
+//base class with modifiers:
+
+.btn {
+  @include button-base;
+  @include button-size("md");
+
+  &#{&}--primary {
+    @include button-style("primary");
+  }
+
+  &#{&}--secondary {
+    @include button-style("secondary");
+  }
+
+  &#{&}--tertiary {
+    @include button-style("tertiary");
+  }
+
+  &#{&}--inherit {
+    background: var(--bg);
+    border-color: var(--border);
+    color: var(--color);
+
+    &:hover {
+      border-color: var(--border);
+      color: var(--color);
+      background: transparent;
+    }
+  }
+
+  &#{&}--inherit-radius {
+    background: var(--bg);
+    border-color: var(--border);
+    color: var(--color);
+    border-radius: 40px;
+
+    &:hover {
+      border-color: var(--border);
+      color: var(--color);
+      background: transparent;
+    }
+  }
+
+  &#{&}--lg {
+    @include button-size("lg");
+  }
+
+  &#{&}--sm {
+    @include button-size("sm");
+  }
+
+  &#{&}--block {
+    display: block;
+    width: 100%;
+  }
+
+  &#{&}--fit {
+    width: fit-content;
+  }
+
+  &#{&}--center {
+    display: block;
+    margin: 0 auto;
+  }
+
+  &#{&}--no-hover {
+    pointer-events: none;
+  }
+
+  &#{&}--search {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+    @media screen and (min-width: $navBreakPoint) {
+      position: static;
+    }
+  }
+}

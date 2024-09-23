@@ -1,0 +1,111 @@
+.account {
+  &__heading {
+    @media screen and (min-width: $large) {
+      margin: 0 0 20px;
+    }
+  }
+
+  &__description {
+    margin: 0 0 20px;
+  }
+
+  &__container {
+    display: grid;
+    padding: 30px 16px;
+
+    @media screen and (min-width: $large) {
+      grid-template-columns: repeat(2, 1fr);
+      padding: 0;
+    }
+  }
+
+  &__image {
+    display: none;
+
+    @media screen and (min-width: $large) {
+      display: block;
+    }
+  }
+
+  & .image-snippet {
+    height: 100%;
+  }
+
+  &__wrapper {
+    @media screen and (min-width: $large) {
+      padding: 60px 80px;
+    }
+  }
+
+  &__content {
+    &#{&}--login,
+    &#{&}--recover,
+    &#{&}--form {
+      border-bottom: 1px solid $colorBorder;
+      margin: 0 0 30px;
+      padding: 0 0 30px;
+
+      @media screen and (min-width: $large) {
+        margin: 0 0 40px;
+        padding: 0 0 40px;
+      }
+    }
+  }
+
+  &__input {
+    width: 100%;
+    min-width: 220px;
+    margin: 0 0 20px;
+
+    &::placeholder {
+      color: $colorMain2;
+    }
+  }
+
+  &__form {
+    @media screen and (min-width: $large) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 16px;
+    }
+  }
+
+  &__form-submit {
+    width: 100%;
+
+    @media screen and (min-width: $large) {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__password {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  &__alert {
+    margin: 0 0 20px;
+    width: 100%;
+
+    &#{&}--full {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__bullets-list {
+    padding: 0 0 0 14px;
+    margin: 0 0 20px;
+  }
+
+  &__bullets-item {
+    list-style: disc;
+    margin: 0 0 10px;
+  }
+}
+
+#MainContent .login-section,
+#MainContent .register-section,
+#MainContent .password-reset-section {
+  margin: 0;
+}

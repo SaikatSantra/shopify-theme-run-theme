@@ -1,0 +1,85 @@
+$headerHeightMB: var(--header-height-mb);
+$headerHeightTB: var(--header-height-tb);
+$headerHeightDT: var(--header-height-dt);
+
+$imageAspectRatio: var(--image-aspect-ratio);
+
+$fontBody: var(--font-family);
+$fontHeading: var(--font-heading);
+
+// Button Colors
+$BtnPrimaryFont: var(--btn-primary-font-color);
+$BtnPrimaryFontHover: var(--btn-primary-font-color-hover);
+$BtnPrimaryBg: var(--btn-primary-bg-color);
+$BtnPrimaryBgHover: var(--btn-primary-bg-color-hover);
+$BtnPrimaryBorder: var(--btn-primary-border-color);
+$BtnPrimaryBorderHover: var(--btn-primary-border-color-hover);
+$BtnSecondaryFont: var(--btn-secondary-font-color);
+$BtnSecondaryFontHover: var(--btn-secondary-font-color-hover);
+$BtnSecondaryBg: var(--btn-secondary-bg-color);
+$BtnSecondaryBgHover: var(--btn-secondary-bg-color-hover);
+$BtnSecondaryBorder: var(--btn-secondary-border-color);
+$BtnSecondaryBorderHover: var(--btn-secondary-border-color-hover);
+$BtnTertiaryFont: var(--btn-tertiary-font-color);
+$BtnTertiaryFontHover: var(--btn-tertiary-font-color-hover);
+$BtnTertiaryBg: var(--btn-tertiary-bg-color);
+$BtnTertiaryBgHover: var(--btn-tertiary-bg-color-hover);
+$BtnTertiaryBorder: var(--btn-tertiary-border-color);
+$BtnTertiaryBorderHover: var(--btn-tertiary-border-color-hover);
+
+// Colours
+$colorMain1: var(--color-main-1);
+$rgbMain1: var(--rgb-main-1);
+$colorMain2: var(--color-main-2);
+$rgbMain2: var(--rgb-main-2);
+$colorMain3: var(--color-main-3);
+$rgbMain3: var(--rgb-main-3);
+$colorMain4: var(--color-main-4);
+$rgbMain4: var(--rgb-main-4);
+$colorMain5: var(--color-main-5);
+$rgbMain5: var(--rgb-main-5);
+$colorMain6: var(--color-main-6);
+$rgbMain6: var(--rgb-main-6);
+
+$colorSuccess: var(--color-success);
+$colorInfo: var(--color-info);
+$colorWarning: var(--color-warning);
+$colorError: var(--color-error);
+
+$colorBorder: rgba(var(--rgb-main-2), 0.2);
+
+$colorFont1: var(--color-font-1);
+$colorFont2: var(--color-font-2);
+
+//Other colours
+$colorWhite: #fff;
+$colorBlack: #212a2f;
+$colorDarkGrey: #717171;
+$colorMidGrey: #959595;
+$colorLightGrey: #f2f2f2;
+$colorGrey: #828282;
+
+// layout
+$containerWidth: 1312px; // .container max width including total padding width
+$containerSm: 828px; // max-width used for container on pages
+
+// Dividers
+$border: 1px solid $colorBorder;
+
+//media-queries
+$medium: rem(768px);
+$mediumMinusOne: rem(767px);
+$large: rem(1024px);
+$largeMinusOne: rem(1023px);
+$xLarge: rem(1280px);
+$xLargeMinusOne: rem(1279px);
+$xxLarge: rem(1440px);
+$xxLargeMinusOne: rem(1439px);
+
+// Navigation
+$navBreakPoint: $large;
+$navBreakPointMinusOne: $largeMinusOne;
+
+// Footer
+$footerBreakPoint: $large;
+$footerBreakPointMinusOne: $largeMinusOne;

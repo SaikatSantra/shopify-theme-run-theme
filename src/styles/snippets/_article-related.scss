@@ -1,0 +1,19 @@
+.article-related {
+  &#{&}--articles {
+  }
+
+  &#{&}--collections {
+  }
+
+  &#{&}--products {
+  }
+
+  &__collection {
+    display: grid;
+    gap: 12px;
+
+    .heading-4 {
+      margin: 0;
+    }
+  }
+}

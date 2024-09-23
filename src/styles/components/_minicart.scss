@@ -1,0 +1,256 @@
+.minicart {
+  $b: &;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  // see appHeight.js for how/where/why this var gets set
+  height: var(--app-height, 100vh);
+  width: calc(100% - 52px);
+  display: flex;
+  flex-direction: column;
+  background: white;
+  @include transition(right);
+  right: -100%;
+
+  @media screen and (min-width: $medium) {
+    width: 463px;
+    right: -463px;
+  }
+
+  .minicart-open & {
+    right: 0;
+  }
+
+  &__underlay {
+    z-index: 99;
+    position: fixed;
+    display: block;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(black, 0.2);
+    display: none;
+
+    .minicart-open & {
+      display: block;
+    }
+  }
+
+  &__main {
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__scroll-area {
+    overflow: auto;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__scroll-area-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+  }
+
+  &__close-button {
+    background: url(icon-close.svg) center / 22px 22px no-repeat;
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+
+    &:active,
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__header {
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .heading-2 {
+      margin-bottom: 0;
+    }
+
+    svg {
+      //loading icon
+      height: 20px;
+      width: 20px;
+    }
+  }
+
+  .promo-bar {
+    padding: 0 16px;
+    margin: 0 0 16px;
+  }
+
+  &__item {
+    border-bottom: 1px solid $colorBorder;
+    display: grid;
+    align-items: flex-start;
+    gap: 16px;
+    grid-template-columns: 100px 1fr;
+
+    @media screen and (min-width: $large) {
+      grid-template-columns: 148px 1fr;
+      padding: 0 0 16px;
+      margin: 0 0 16px;
+    }
+
+    &.removing {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .product-price {
+      font-size: rem(14px);
+      margin-bottom: 16px;
+
+      > s,
+      > span {
+        margin-right: 4px;
+      }
+
+      s {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  &__item-last {
+    display: inline-block;
+    background-color: $colorWarning;
+    margin-bottom: 16px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: rem(13px);
+  }
+
+  &__item-title {
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  &__item-remove {
+    display: block;
+    font-size: rem(14px);
+    color: #959595;
+    text-decoration: underline;
+    cursor: pointer;
+
+    &:active,
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__item-image-wrap {
+    a,
+    img {
+      display: block;
+    }
+  }
+
+  &__item-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 12px 0 0;
+
+    @media screen and (min-width: $large) {
+      margin: 15px 0 0;
+    }
+  }
+
+  &__item-quantity-number {
+    svg {
+      width: 28px;
+      height: 28px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &__accordion {
+    max-height: 40px;
+    overflow: hidden;
+    flex: 0 0 auto;
+    @include transition(max-height);
+
+    &#{&}--open {
+      max-height: 500px;
+
+      #{$b}__accordion-toggle {
+        background-image: url('icon-arrow-up.svg');
+      }
+    }
+  }
+
+  &__accordion-toggle {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    background: $colorMain2 url('icon-arrow-down.svg') right 24px center / 12px 8px no-repeat;
+    cursor: pointer;
+  }
+
+  &__accordion-content {
+    padding: 16px;
+
+    .text-input {
+      margin: 0;
+    }
+  }
+
+  &__summary {
+    background-color: $colorMain2;
+    padding: 0 16px;
+  }
+
+  &__summary-title {
+    padding: 12px 0;
+    border-bottom: 1px solid white;
+  }
+
+  &__footer-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 24px 0;
+    font-size: rem(16px);
+  }
+
+  &__totals {
+    font-weight: bold;
+    font-size: rem(18px);
+  }
+
+  &__ctas {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 12px;
+    border-bottom: 1px solid white;
+  }
+
+  &__cta {
+    width: 100%;
+    margin-bottom: 12px;
+  }
+
+  &__additional-text {
+    font-size: rem(14px);
+    padding: 24px 0;
+  }
+}

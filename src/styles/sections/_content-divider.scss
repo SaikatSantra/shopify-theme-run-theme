@@ -1,0 +1,10 @@
+.content-divider {
+  display: block;
+  width: 100%;
+  clear: both;
+  height: var(--height-m);
+
+  @media screen and (min-width: $large) {
+    height: var(--height-d);
+  }
+}

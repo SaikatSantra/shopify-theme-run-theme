@@ -1,0 +1,28 @@
+.product-swatches {
+  $b: &;
+  display: flex;
+  gap: 6px;
+  padding: 0;
+  flex-wrap: wrap;
+
+  &#{&}--pdp {
+    #{$b}__swatch {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  &__swatch {
+    text-decoration: none;
+    display: block;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    background: var(--bg) center no-repeat;
+    border: 1px solid $colorBorder;
+
+    &#{&}--active {
+      border-color: $colorMain1;
+    }
+  }
+}

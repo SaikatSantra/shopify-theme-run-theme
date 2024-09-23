@@ -1,0 +1,210 @@
+@mixin base-text {
+  color: $colorFont1;
+  font-family: $fontBody;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 1.625;
+  font-weight: 350;
+}
+
+html {
+  @include base-text;
+}
+
+@mixin heading {
+  font-family: $fontHeading;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.heading {
+  @include heading;
+}
+
+@mixin heading-1 {
+  font-size: rem(32);
+  line-height: 1.2;
+
+  @media screen and (min-width: $medium) {
+    font-size: rem(40);
+    line-height: 1.2;
+  }
+}
+
+.heading-1 {
+  @include heading;
+  @include heading-1;
+}
+
+@mixin heading-2 {
+  font-size: rem(24);
+
+  @media screen and (min-width: $medium) {
+    font-size: rem(32);
+  }
+}
+
+.heading-2 {
+  @include heading;
+  @include heading-2;
+}
+
+@mixin heading-3 {
+  font-size: rem(20);
+
+  @media screen and (min-width: $medium) {
+    font-size: rem(24);
+  }
+}
+
+.heading-3 {
+  @include heading;
+  @include heading-3;
+}
+
+@mixin heading-4 {
+  font-size: rem(18);
+
+  @media screen and (min-width: $medium) {
+    font-size: rem(20);
+  }
+}
+
+.heading-4 {
+  @include heading;
+  @include heading-4;
+}
+
+@mixin heading-5 {
+  font-size: rem(16);
+
+  @media screen and (min-width: $medium) {
+    font-size: rem(18);
+  }
+}
+
+.heading-5 {
+  @include heading;
+  @include heading-5;
+}
+
+@mixin subheading {
+  font-family: $fontBody;
+  font-weight: 800;
+  margin-bottom: 12px;
+  line-height: 1.375;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+@mixin subheading-1 {
+  font-size: rem(16);
+}
+
+.subheading-1 {
+  @include subheading;
+  @include subheading-1;
+}
+
+@mixin subheading-2 {
+  font-size: rem(14);
+}
+
+.subheading-2 {
+  @include subheading;
+  @include subheading-2;
+}
+
+@mixin small-paragraph {
+  font-size: rem(14);
+}
+
+.paragraph-sm,
+.paragraph--sm,
+.small-paragraph,
+.small,
+small {
+  @include small-paragraph;
+}
+
+.cta {
+  font-weight: 800;
+  font-size: rem(14);
+  line-height: 1.375;
+  font-family: $fontBody;
+  position: relative;
+  cursor: pointer;
+
+  &:not(.btn):visited,
+  &:not(.btn):focus {
+    color: $colorMain2;
+  }
+
+  &[disabled] {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    bottom: -3px;
+    right: 0;
+    left: 0;
+    @include transition;
+  }
+
+  &:hover {
+    opacity: 0.8;
+
+    &::after {
+      opacity: 0.8;
+    }
+  }
+
+  &#{&}--ltr,
+  &#{&}--rtl {
+    &::after {
+      bottom: 0;
+    }
+
+    &:hover {
+      &::after {
+        width: 0;
+      }
+    }
+  }
+
+  &#{&}--ltr {
+    &::after {
+      left: unset;
+      right: 0;
+    }
+  }
+
+  &#{&}--rtl {
+    &::after {
+      left: 0;
+      right: unset;
+    }
+  }
+}
+
+.link,
+.rte p a {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+
+  &:hover {
+    text-decoration-color: $colorMain1;
+  }
+}
+
+.error {
+  color: $colorError;
+}

@@ -1,0 +1,131 @@
+.hotspots-banner {
+  &__container {
+    @media screen and (min-width: $large) {
+      @include container;
+    }
+  }
+
+  &__image {
+    position: relative;
+  }
+
+  &__spot {
+    position: absolute;
+    top: var(--top-mob);
+    left: var(--left-mob);
+    border: 4px solid $colorMain1;
+    background: $colorMain3;
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    border-radius: 50%;
+    @include transition;
+
+    @media screen and (min-width: $large) {
+      top: var(--top);
+      left: var(--left);
+    }
+
+    &:hover {
+      border-color: $colorMain3;
+      background: $colorMain1;
+    }
+
+    &#{&}--active {
+      transform: scale(1.5);
+    }
+  }
+
+  &__product {
+    display: none;
+    position: absolute;
+    bottom: 40px;
+    right: 16px;
+    z-index: 10;
+    width: 200px;
+
+    @media screen and (min-width: $large) {
+      right: 40px;
+      top: 50%;
+      translate: 0 -50%;
+      bottom: unset;
+      width: 350px;
+    }
+
+    &#{&}--active {
+      display: block;
+    }
+
+    .product-card {
+      gap: 1px;
+
+      &__info {
+        background: $colorMain1;
+      }
+    }
+  }
+
+  &__close {
+    cursor: pointer;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 16px;
+    height: 16px;
+    z-index: 1;
+
+    svg {
+      stroke: black;
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &__footer {
+    display: grid;
+    gap: 32px;
+    align-items: center;
+    padding: 40px 16px;
+
+    @media screen and (min-width: $large) {
+      display: flex;
+      padding: 20px 0;
+    }
+
+    &#{&}--left,
+    &#{&}--center,
+    &#{&}--right {
+      text-align: center;
+    }
+
+    &#{&}--left {
+      @media screen and (min-width: $large) {
+        justify-content: flex-start;
+      }
+    }
+
+    &#{&}--center {
+      @media screen and (min-width: $large) {
+        justify-content: center;
+      }
+    }
+
+    &#{&}--right {
+      @media screen and (min-width: $large) {
+        justify-content: flex-end;
+      }
+    }
+
+    .heading-2 {
+      margin: 0;
+    }
+
+    .btn {
+      margin: 0 auto;
+
+      @media screen and (min-width: $large) {
+        margin: unset;
+      }
+    }
+  }
+}

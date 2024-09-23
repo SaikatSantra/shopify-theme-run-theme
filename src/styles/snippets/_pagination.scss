@@ -1,0 +1,41 @@
+.pagination {
+  margin: 40px 0;
+
+  @media screen and (min-width: $medium) {
+    margin: 62px 0;
+  }
+
+  &__heading {
+    text-align: center;
+    margin: 0 0 30px;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__item {
+    display: flex;
+
+    &#{&}--active {
+      padding: 4px 8px;
+      color: $colorMain3;
+      border: 1px solid $colorError;
+    }
+  }
+
+  &__link {
+    color: $colorMain2;
+  }
+
+  &__page-number {
+    margin: 0;
+  }
+
+  &__arrow-link {
+    display: flex;
+  }
+}

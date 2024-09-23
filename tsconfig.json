@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noImplicitAny": false,
+    "sourceMap": false,
+    "target": "es5",
+    "jsx": "react",
+    "allowJs": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "declaration": true,
+    "module": "es2015",
+    "downlevelIteration": true,
+    "lib": [ "es2019", "DOM", "ES6" ,"DOM.Iterable", "ScriptHost"],
+    "outDir": "theme/assets"
+  },
+  "include": [
+    "src/app-layer/**/*",
+    "src/scripts/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "integration",
+    "theme/assets"
+  ]
+}

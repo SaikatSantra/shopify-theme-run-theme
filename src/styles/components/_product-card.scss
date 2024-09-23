@@ -1,0 +1,155 @@
+.product-card {
+  $b: &;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 8px;
+  border-radius: 4px;
+  border: 1px solid var(--color-main-3-light-grey, #eee);
+  background: var(--color-main-4-white, #fff);
+
+  &#{&}--simple {
+    .product-stickers,
+    .product-swatches {
+      display: none;
+    }
+  }
+
+  &__image-container {
+    position: relative;
+    padding: 8px 10px 0;
+
+    &:hover {
+      #{$b}__quick-add {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__image {
+    position: relative;
+    margin-bottom: 5px;
+    aspect-ratio: $imageAspectRatio;
+
+    .image-snippet,
+    #{$b}__img,
+    .loader__icon {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .loader__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        height: 30px;
+      }
+    }
+
+    .img-hover {
+      opacity: 0;
+      visibility: hidden;
+      @include transition;
+    }
+  }
+
+  &:hover {
+    .img-hover {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  .infinite-scroll & {
+    //fixing these heights so that placeholder products take up the right amount of room
+
+    #{$b}__info {
+      // height: 81px;
+    }
+
+    #{$b}__quick-add {
+      // height: 50px;
+    }
+  }
+
+  .product-swatches {
+    justify-content: center;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0 14px;
+
+    &-bottom {
+      margin-top: auto;
+    }
+  }
+
+  &__title,
+  &__price {
+    font-weight: 500;
+    font-size: rem(15px);
+    line-height: 27px;
+  }
+
+  &__title {
+    // &#{&}--main {
+    //   display: none;
+    // }
+  }
+
+  &__price {
+    display: none;
+  }
+
+  .product-price {
+    color: $colorMidGrey;
+  }
+
+  .price-variation {
+    color: $colorMain2;
+  }
+
+  &__log-icon {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include transition;
+    z-index: 10;
+
+    svg {
+      width: 32px;
+      height: 32px;
+      padding: 8px;
+      border-radius: 2px;
+      border: 1px solid rgba(51, 51, 51, 0.2);
+      background: $colorMain6;
+    }
+  }
+
+  &__quick-add {
+    position: absolute;
+    bottom: 24px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    @include transition;
+    z-index: 10;
+  }
+}

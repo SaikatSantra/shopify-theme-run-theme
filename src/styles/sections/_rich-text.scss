@@ -1,0 +1,19 @@
+.rich-text {
+  padding: 32px 8px;
+
+  @media screen and (min-width: $large) {
+    padding: 40px 0;
+  }
+
+  &__heading {
+    text-align: var(--heading, left);
+  }
+
+  &__content {
+    text-align: var(--content, left);
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+}

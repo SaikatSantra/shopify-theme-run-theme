@@ -1,0 +1,242 @@
+.header {
+  width: 100%;
+  border-bottom: 1px solid #f8f8f8;
+  background-color: $colorWhite;
+
+  &__group-parent {
+    position: sticky;
+    top: -38px;
+    z-index: 100;
+  }
+
+  &__header {
+    position: relative;
+  }
+
+  &__search {
+    display: none;
+
+    @media screen and (min-width: $navBreakPoint) {
+      display: block;
+    }
+  }
+
+  &__inner {
+    display: grid;
+    // Assuming a logo width of 50px and icons sat on the r/h side
+    grid-template-columns: 104px 214px;
+    // Assuming a centered logo with a width of 50px, equal columns either side
+    // Could also be used for logo, centralised search, icons
+    // grid-template-columns: 1fr 50px 1fr;
+    align-items: center;
+    padding: 16px 0;
+    justify-content: space-between;
+    width: 100%;
+
+    @media screen and (min-width: $xLarge) {
+      grid-template-columns: 154px 553px 318px;
+    }
+
+    @media (min-width: $navBreakPoint) and (max-width: $xLargeMinusOne) {
+      grid-template-columns: 134px 533px 300px;
+    }
+
+    &#{&}--loggedin {
+      @media screen and (min-width: $large) {
+        grid-template-columns: 150px 451px 335px;
+      }
+
+      @media screen and (min-width: $xLarge) {
+        grid-template-columns: 154px 553px 408px;
+      }
+    }
+  }
+
+  &__logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media screen and (min-width: $navBreakPoint) {
+      justify-content: flex-start;
+    }
+  }
+
+  &__logo-image {
+    display: block;
+    width: 100%;
+  }
+
+  &__icons {
+    display: flex;
+    gap: 16px;
+    flex: 1;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+
+    @media screen and (min-width: $navBreakPoint) {
+      gap: 12px;
+    }
+  }
+
+  &__account {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: center;
+
+    .link {
+      display: none;
+
+      @media screen and (min-width: $navBreakPoint) {
+        display: block;
+      }
+    }
+  }
+
+  &__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // height: 100%;
+
+    .link {
+      white-space: nowrap;
+    }
+
+    &#{&}--stockist {
+      width: 100%;
+      display: none;
+
+      @media screen and (min-width: $navBreakPoint) {
+        display: flex;
+      }
+    }
+
+    &#{&}--cartwrapper {
+      display: block;
+      position: relative;
+    }
+
+    &#{&}--login {
+      padding: 10px 24px;
+      vertical-align: middle;
+      display: flex;
+      position: relative;
+      display: none;
+
+      &::after {
+        height: 19px;
+        width: 1px;
+        background-color: $colorMain2;
+        position: absolute;
+        content: "";
+        left: 0;
+      }
+
+      @media screen and (min-width: $navBreakPoint) {
+        display: block;
+      }
+    }
+
+    &#{&}--register {
+      padding: 10px 16px;
+      white-space: nowrap;
+      display: none;
+
+      @media screen and (min-width: $navBreakPoint) {
+        display: block;
+      }
+    }
+
+    &#{&}--login-register {
+      display: block;
+      padding: 8px 12px;
+      white-space: nowrap;
+
+      @media screen and (min-width: $navBreakPoint) {
+        display: none;
+      }
+    }
+
+    &#{&}--cart {
+      position: relative;
+      height: 28px;
+
+      .cart-count-badge {
+        position: absolute;
+        top: 8px;
+        right: 10px;
+        width: 7px;
+        height: 16px;
+        border-radius: 50%;
+        line-height: 18px;
+        text-align: center;
+        font-size: rem(12);
+        font-weight: 350;
+      }
+    }
+
+    &#{&}--customer {
+    }
+
+    &#{&}--hamburger {
+      justify-content: flex-start;
+
+      @media screen and (min-width: $navBreakPoint) {
+        display: none;
+      }
+    }
+
+    &#{&}--search {
+      width: 24px;
+      height: 24px;
+
+      @media screen and (min-width: $navBreakPoint) {
+        display: none;
+      }
+
+      .svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+
+  &__icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    svg {
+      // width: 20px;
+      // height: 20px;
+    }
+  }
+}
+
+// Skip to content button
+
+.skip-link {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 10px;
+  border: 0;
+  background-color: #fff;
+  border: 3px solid red;
+  clip: rect(0 0 0 0);
+
+  &:focus {
+    position: absolute;
+    overflow: auto;
+    width: auto;
+    height: auto;
+    margin: 0;
+    clip: auto;
+  }
+}

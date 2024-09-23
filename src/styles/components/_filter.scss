@@ -1,0 +1,379 @@
+.filter {
+  $b: &;
+
+  &__loading {
+    text-align: center;
+
+    svg {
+      height: 100px;
+      width: 100px;
+    }
+  }
+
+  &__container {
+    @media screen and (min-width: $large) {
+      .search-filters__filters--horizontal & {
+        display: flex;
+        gap: 12px;
+      }
+    }
+  }
+
+  &__filter {
+    padding: 6px 16px;
+    border-top: 1px solid $colorBorder;
+
+    &:last-child {
+      border-bottom: 1px solid $colorBorder;
+    }
+
+    @media screen and (min-width: $large) {
+      .search-filters__filters--horizontal & {
+        position: relative;
+        padding: unset;
+        border: unset;
+      }
+    }
+  }
+
+  &__options-header {
+    // This is the same as &__header in search-filters.scss
+    padding: 12px 16px;
+    display: flex;
+    gap: 6px;
+    justify-content: space-between;
+    color: white;
+    background-color: black;
+    align-items: center;
+  }
+
+  &__options-back,
+  &__options-close {
+    // This is the same as &__header-close in search-filters.scss
+    height: 30px;
+    width: 30px;
+    display: block;
+    cursor: pointer;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__options-close {
+    margin-left: auto;
+  }
+
+  &__title {
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    background: url('icon-plus.svg') center right 10px / 10px 10px no-repeat;
+
+    @media screen and (min-width: $large) {
+      .search-filters__filters--horizontal & {
+        position: relative;
+        padding: 0 16px 0 0;
+        background: unset;
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          right: 0;
+          height: 10px;
+          width: 10px;
+          transform: translateY(-50%);
+          background: url('icon-chevron.svg') center right / 10px 10px no-repeat;
+          @include transition;
+        }
+      }
+    }
+
+    &#{&}--open {
+      background-image: url('icon-minus.svg');
+
+      @media screen and (min-width: $large) {
+        .search-filters__filters--horizontal & {
+          background: unset;
+
+          &::after {
+            transform: rotate(180deg) translateY(50%);
+          }
+        }
+      }
+    }
+  }
+
+  &__options {
+    display: grid;
+    gap: 6px;
+    margin: 6px 0 0;
+
+    @media screen and (min-width: $large) {
+      .search-filters__filters--horizontal & {
+        position: absolute;
+        top: 100%;
+        min-width: 300px;
+        padding: 16px 0 0;
+        background: $colorWhite;
+      }
+    }
+  }
+
+  &__items {
+    display: grid;
+    gap: 6px;
+
+    &#{&}--box {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+
+      #{$b}__label {
+        width: 100%;
+        height: 40px;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid $colorBorder;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+
+      #{$b}__label::before,
+      #{$b}__label::after,
+      #{$b}__label-count {
+        display: none;
+      }
+    }
+
+    @media screen and (min-width: $large) {
+      .search-filters__filters--horizontal & {
+        max-height: 300px;
+        overflow-y: scroll;
+        padding: 0 16px;
+        // Padding also needs to be adjusted on __clear-apply
+
+        &::-webkit-scrollbar {
+          width: 2px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background: $colorBlack;
+        }
+      }
+    }
+  }
+
+  &__option {
+    &#{&}--selected {
+      #{$b}__label {
+        &::after {
+          background: $colorFont1;
+        }
+      }
+    }
+
+    &#{&}--disabled {
+      opacity: 0.5;
+    }
+
+    &#{&}--swatch {
+      display: flex;
+      gap: 6px;
+    }
+  }
+
+  &__label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: '';
+      width: 20px;
+      height: 20px;
+      border-radius: 3px;
+    }
+
+    &::before {
+      border: 1px solid $colorBorder;
+      order: 0;
+    }
+
+    &::after {
+      position: absolute;
+      left: 3px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 14px;
+      height: 14px;
+      background: transparent;
+      @include transition(background);
+    }
+  }
+
+  &__option-label {
+    display: flex;
+    gap: 6px;
+  }
+
+  &__label-count {
+    margin-left: auto;
+  }
+
+  &__clear-apply {
+    display: grid;
+    gap: 6px;
+    padding: 16px;
+    margin-top: auto;
+
+    .search-filters__filters .filter__options & {
+      // Hides clear/apply buttons nested within a filter option (accordion)
+      // Can be removed if required
+      display: none;
+    }
+
+    @media screen and (min-width: $large) {
+      // Horizontal settings
+
+      .search-filters__filters--horizontal .filter__options & {
+        // Shows the clear/apply buttons nested within the dropdown
+        display: grid;
+      }
+
+      .search-filters__filters--horizontal > & {
+        // Hides the clear/apply buttons outside the dropdown
+        display: none;
+      }
+
+      // Vertical settings
+
+      .search-filters__filters--vertical .filter__options &,
+      .search-filters__filters--vertical > & {
+        // Hides all clear/apply buttons
+        // If you want them to show when a filter is
+        // selected then remove .search-filters__filters--vertical > &
+        // If you want them to show within the accordion
+        // then remove .search-filters__filters--vertical .filter__options &
+        display: none;
+      }
+    }
+  }
+
+  &__rating {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__stars {
+    display: flex;
+    gap: 6px;
+  }
+
+  &__count {
+    margin-left: auto;
+  }
+
+  &__swatches {
+    flex: 1 auto;
+    display: flex;
+  }
+
+  &__swatches-inner {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6px;
+  }
+
+  &__swatch {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    position: relative;
+    display: inline-block;
+    flex: 0 0 30px;
+    overflow: hidden;
+
+    img {
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      object-fit: cover;
+      border-radius: 100%;
+    }
+
+    .filter__option--selected & {
+      border-color: $colorFont1;
+    }
+  }
+
+  &__quick-removes {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 0;
+
+    @media screen and (min-width: $large) {
+      padding: 24px 0;
+    }
+  }
+
+  &__quick-remove {
+    background: $colorLightGrey;
+    border-radius: 50px;
+    font-size: rem(12px);
+    padding: 7px 12px;
+    font-weight: 300;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    cursor: pointer;
+    flex: 0 0 auto;
+  }
+
+  &__quick-removes-filters {
+    flex: 1 auto;
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    padding: 0 16px 0 0;
+
+    &::-webkit-scrollbar {
+      height: 2px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: $colorBlack;
+    }
+
+    > span:last-child {
+      align-self: center;
+    }
+  }
+
+  &__quick-remove-icon {
+    font-size: rem(13px);
+    margin-left: 10px;
+  }
+
+  &__quick-removes-clear {
+    font-size: rem(14px);
+    font-weight: 500;
+    text-decoration: underline;
+    flex: 0 0 auto;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}

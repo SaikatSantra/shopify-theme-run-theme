@@ -1,0 +1,85 @@
+.header-page-contact {
+  .container {
+    max-width: 858px;
+  }
+}
+
+.page-template-contact {
+  .container {
+    max-width: 858px;
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+
+    @media screen and (min-width: $medium) {
+      flex-wrap: nowrap;
+    }
+
+    .col {
+      flex: 1 auto;
+      width: 100%;
+      margin-bottom: 24px;
+
+      p {
+        a {
+          text-decoration: underline;
+        }
+      }
+
+      @media screen and (min-width: $medium) {
+        margin-right: 24px;
+        margin-bottom: 0;
+
+        &:last-of-type {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  .shopify-section .rte {
+    margin-bottom: 24px;
+
+    p {
+      font-weight: 500;
+      font-size: rem(18px);
+      line-height: rem(32px);
+      text-transform: none;
+    }
+
+    @media screen and (min-width: $medium) {
+      margin-bottom: 50px;
+    }
+  }
+
+  .form-container {
+    border-top: 1px solid $colorBorder;
+    padding: 40px 0;
+
+    .row {
+      justify-content: space-between;
+    }
+
+    .col {
+      margin-right: 0;
+      width: 32%;
+      flex: none;
+    }
+
+    .text-input,
+    .select {
+      width: 100%;
+    }
+
+    .text-input {
+      min-width: none;
+    }
+
+    @media screen and (min-width: $medium) {
+      padding: 60px 0;
+    }
+  }
+}

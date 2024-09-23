@@ -1,0 +1,22 @@
+.blog-articles {
+  padding: 48px 0;
+
+  &__heading {
+    margin-bottom: 24px;
+  }
+
+  &__articles {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+
+    @media screen and (min-width: $medium) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media screen and (min-width: $large) {
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px 24px;
+    }
+  }
+}

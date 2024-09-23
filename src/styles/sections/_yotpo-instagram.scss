@@ -1,0 +1,26 @@
+.yotpo-instagram {
+  &__header {
+    text-align: center;
+    margin: 0 0 20px;
+
+    @media screen and (min-width: $xLarge) {
+      margin: 0 0 30px;
+    }
+
+    .heading-2 {
+      margin: 0 0 8px;
+    }
+
+    .heading-5 {
+      margin: 0;
+
+      a {
+        color: $colorMain1;
+
+        &:hover {
+          color: $colorMain3;
+        }
+      }
+    }
+  }
+}

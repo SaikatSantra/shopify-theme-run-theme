@@ -1,0 +1,133 @@
+.customer-top-picks {
+  &__col-brand-main {
+    border: 1px solid rgba(51, 51, 51, 0.2);
+    border-left: none;
+    border-right: none;
+  }
+
+  &__content {
+    padding: 16px;
+    max-width: 1280px;
+
+    @media screen and (min-width: $large) {
+      padding: 24px 0;
+      max-width: 1280px;
+    }
+  }
+
+  &__heading {
+    margin-bottom: 0;
+  }
+
+  &__collection-brand-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    @media screen and (min-width: $large) {
+      grid-template-columns: 1fr 1fr;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+  }
+
+  &__top-collection {
+    border-right: 1px solid rgba(51, 51, 51, 0.2);
+  }
+
+  &__top-brand,
+  &__top-collection {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 24px 16px;
+
+    @media screen and (min-width: $large) {
+      padding: 40px;
+    }
+
+    @media screen and (min-width: $xLarge) {
+      padding: 40px 80px;
+    }
+
+    .heading-3 {
+      width: 100%;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+
+    @media screen and (min-width: $large) {
+      width: 115px;
+      height: 128px;
+    }
+  }
+
+  &__parent {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 24px 16px;
+    width: 100%;
+
+    @media screen and (min-width: $xLarge) {
+      grid-gap: 24px;
+    }
+
+    @media screen and (min-width: $xLarge) {
+      grid-gap: 24px 40px;
+      width: unset;
+    }
+  }
+
+  &__img-content-wrap {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-direction: column;
+
+    @media screen and (min-width: $large) {
+      flex-direction: row;
+      gap: 20px;
+    }
+  }
+
+  &__info {
+    width: 100%;
+
+    @media screen and (min-width: $large) {
+      width: unset;
+    }
+  }
+}
+
+.featured-products {
+  &__title {
+    margin-bottom: 0;
+  }
+
+  &__header {
+    max-width: 1280px;
+    margin-bottom: 24px;
+
+    @media screen and (min-width: $large) {
+      margin-bottom: 0;
+    }
+  }
+
+  .swiper-slide-visible {
+    opacity: 1;
+
+    @media screen and (min-width: $large) {
+      &:not(.swiper-slide-fully-visible) {
+        opacity: 0.4;
+      }
+    }
+  }
+
+  spark-product-card {
+    display: none;
+  }
+}

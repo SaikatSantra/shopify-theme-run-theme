@@ -1,0 +1,114 @@
+.header-standard-snippet {
+  padding-top: 24px;
+  padding-bottom: 24px;
+  text-align: center;
+  margin: 0 auto;
+  background: $colorLightGrey;
+  color: $colorBlack;
+  margin-bottom: 40px;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+
+  @media screen and (min-width: $medium) {
+    margin-bottom: 60px;
+  }
+
+  .image-snippet,
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    object-fit: cover;
+  }
+
+  .header-standard-text-wrapper {
+    position: relative;
+    z-index: 1;
+  }
+
+  .header-standard-description {
+    margin-top: 12px;
+
+    @media screen and (min-width: $medium) {
+      margin-top: 22px;
+    }
+  }
+
+  .header-standard-heading,
+  p {
+    color: $colorBlack;
+  }
+
+  .container {
+    z-index: 1;
+  }
+
+  .header-standard-nav {
+    border-top: $border;
+    white-space: nowrap;
+    overflow-x: scroll;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    white-space: nowrap;
+    width: calc(100% + 32px);
+    margin-left: -16px;
+    padding: 0 16px;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @media screen and (min-width: $medium + 1) {
+      padding: 0;
+      width: 100%;
+      padding-right: 0;
+      margin-left: 0;
+    }
+
+    @media screen and (min-width: $medium) {
+      overflow-x: visible;
+    }
+
+    li {
+      display: inline-flex;
+    }
+
+    a {
+      padding: 24px 12px;
+      display: block;
+      font-weight: bold;
+      line-height: 18px;
+      font-size: rem(14);
+      text-transform: uppercase;
+      position: relative;
+
+      &::after {
+        content: "";
+        bottom: 0;
+        position: absolute;
+        left: 16px;
+        right: 16px;
+        height: 1px;
+        transform: scaleX(0);
+        @include transition(transform);
+        background-color: $colorBlack;
+      }
+
+      &.active,
+      &:hover {
+        position: relative;
+
+        &::after {
+          transform: scaleX(1);
+        }
+      }
+    }
+  }
+}

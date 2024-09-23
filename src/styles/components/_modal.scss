@@ -1,0 +1,23 @@
+.modal-underlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(61, 70, 67, 0.8);
+  z-index: 100;
+}
+
+.modal-visible .modal-underlay {
+  display: block;
+}
+
+.modal-visible.modal-menu .modal-underlay {
+  display: none;
+
+  @media screen and (min-width: $navBreakPoint) {
+    display: block;
+    z-index: 90;
+  }
+}

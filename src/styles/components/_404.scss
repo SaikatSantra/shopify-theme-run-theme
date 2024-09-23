@@ -1,0 +1,32 @@
+.four-0-four {
+  text-align: center;
+
+  &__upper {
+    position: relative;
+  }
+
+  &__overlay {
+    width: 100%;
+    padding: 40px 0;
+
+    &#{&}--with-image {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &__links {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 16px 0 0;
+  }
+
+  &__lower {
+    padding: 80px 0;
+  }
+}
