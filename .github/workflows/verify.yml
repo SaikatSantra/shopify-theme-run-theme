@@ -1,0 +1,36 @@
+# Workflow that verifies that none of the work pushed will conflict with what's on the subtree theme.
+
+name: Verify subtree conflicts
+
+on:
+  pull_request:
+    branches:
+      - 'main'
+      - 'release/*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.WF_ACTION_TOKEN }}
+          fetch-depth: 0
+
+      # Setup node
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+      - name: Debug GITHUB_REF
+        run: echo "${GITHUB_BASE_REF}"
+      # Setup git config
+      - name: setup git config
+        run: |
+          # setup the username and email.
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+          # setup alias to theme repo.
+          git remote add -f theme-origin https://github.com/${GITHUB_REPOSITORY}-theme.git
+          git subtree pull --prefix=theme theme-origin ${GITHUB_BASE_REF} --squash

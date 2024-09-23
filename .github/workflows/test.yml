@@ -1,0 +1,53 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Tests and linting
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the main branch
+on:
+  pull_request:
+    branches: [main]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  test:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
+      # Setup node
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      # Runs a single command using the runners shell
+      - name: Test JS scripts
+        run: |
+          npm run test:js
+
+      # Runs a set of commands using the runners shell
+      - name: Test schema
+        run: npm run test:schema
+
+      # Runs a set of commands using the runners shell
+      - name: Test a11y
+        run: npm run a11y:lint
+
+  theme-check:
+    name: Theme Check
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v3
+      - name: Theme Check
+        uses: shopify/theme-check-action@v1

@@ -1,0 +1,46 @@
+  
+# Add 'label1' to any changes within 'example' folder or any subfolders
+appLayer:
+  - src/app-layer/**/*
+
+scripts:
+  - src/scripts/**/*
+
+styles:
+  - src/styles/**/*
+
+config:
+  - theme/config/**/*
+
+layouts:
+- theme/layouts/**/*
+
+locales:
+- theme/locales/**/*
+
+sections:
+- theme/sections/**/*
+
+snippets:
+- theme/snippets/**/*
+
+templates:
+- theme/templates/**/*
+
+redux:
+- src/app-layer/store/**/*
+
+portals:
+- src/app-layer/components/portals/**/*
+
+package: 
+- package.json
+
+webpack: 
+- webpack.*.js
+
+tsconfig: 
+- tsconfig.json
+
+eslint:
+- .eslintrc.json

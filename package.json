@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "description": "Repo with the tooling used in the SilverClouding Shopify theme.",
   "private": true,
-  "author": "Blubolt",
+  "author": "Saikat",
   "license": "ISC",
   "scripts": {
     "watch:assets": "webpack --watch --env=dev --config webpack.dev.js",
