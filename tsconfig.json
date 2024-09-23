@@ -14,16 +14,9 @@
     "declaration": true,
     "module": "es2015",
     "downlevelIteration": true,
-    "lib": [ "es2019", "DOM", "ES6" ,"DOM.Iterable", "ScriptHost"],
+    "lib": ["es2019", "DOM", "ES6", "DOM.Iterable", "ScriptHost"],
     "outDir": "theme/assets"
   },
-  "include": [
-    "src/app-layer/**/*",
-    "src/scripts/**/*"
-  ],
-  "exclude": [
-    "node_modules",
-    "integration",
-    "theme/assets"
-  ]
+  "include": ["src/app-layer/**/*", "src/scripts/**/*"],
+  "exclude": ["node_modules", "integration", "theme/assets"]
 }

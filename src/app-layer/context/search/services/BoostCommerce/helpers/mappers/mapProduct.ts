@@ -1,10 +1,14 @@
-import getRoute from '../../../../../../../scripts/utils/getRoute';
-import { ISearchAndFilterProduct } from '../../../../types';
-import { ITemplateProductResponse } from '../../types';
-import getNativePrice from '../getNativePrice';
-import getProductPrice from '../getProductPrice';
+import getRoute from "../../../../../../../scripts/utils/getRoute";
+import { ISearchAndFilterProduct } from "../../../../types";
+import { ITemplateProductResponse } from "../../types";
+import getNativePrice from "../getNativePrice";
+import getProductPrice from "../getProductPrice";
 
-const mapProduct = (product: ITemplateProductResponse, index: number, pageIndex?: number): ISearchAndFilterProduct => {
+const mapProduct = (
+  product: ITemplateProductResponse,
+  index: number,
+  pageIndex?: number,
+): ISearchAndFilterProduct => {
   // Boost returns pricing more in line with Shopify data
   // so we have this getNativePrice function to use that
   const nativePriceObj = getNativePrice(product);
@@ -36,7 +40,7 @@ const mapProduct = (product: ITemplateProductResponse, index: number, pageIndex?
     meta: null,
     type: product.product_type,
     description: product.body_html,
-  }
+  };
 };
 
 export default mapProduct;

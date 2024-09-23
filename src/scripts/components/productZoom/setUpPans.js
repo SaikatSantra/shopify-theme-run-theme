@@ -9,5 +9,5 @@ const setUpPans = (coords, state) => {
   state.offset.x = 0;
   state.offset.y = 0;
   return state;
-}
+};
 export default setUpPans;

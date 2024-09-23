@@ -1,12 +1,21 @@
-import React from 'react'
-import { ISearchFilterOption } from '../../../../../context/search/types'
+import React from "react";
+import { ISearchFilterOption } from "../../../../../context/search/types";
 
 interface ITextFilter {
-  option: ISearchFilterOption
+  option: ISearchFilterOption;
 }
 
-const TextFilter: React.FunctionComponent<ITextFilter> = ({option}) => (
-  <div className='filter__label'>{isNaN(option.records) ? option.label : <>{option.label}<span className='filter__label-count'>({option.records})</span></>}</div>
-)
+const TextFilter: React.FunctionComponent<ITextFilter> = ({ option }) => (
+  <div className="filter__label">
+    {isNaN(option.records) ? (
+      option.label
+    ) : (
+      <>
+        {option.label}
+        <span className="filter__label-count">({option.records})</span>
+      </>
+    )}
+  </div>
+);
 
-export default TextFilter
+export default TextFilter;

@@ -1,19 +1,19 @@
 const CONSTANTS = {
-  CART_ACTIVE: 'CART:ACTIVATE',
-  CART_UPDATE: 'CART:UPDATE',
-  CART_ADD: 'CART:ADD',
-  CART_FAIL: 'CART:FAIL',
-  CART_REMOVEITEM: 'CART:REMOVEITEM',
-  CART_CLEAR: 'CART:CLEAR',
-  CART_OPEN_MINICART: 'CART:OPEN:MINICART',
-  CART_UPDATING: 'CART:UPDATING',
-  QUICKADD_OPEN: 'QUICKADD:OPEN',
-  QUICKADD_CLOSE: 'QUICKADD:CLOSE',
-  LOADING: 'LOADING',
-  TOAST_DISPATCH: 'TOAST:DISPATCH',
-  TOAST_SHOW: 'TOAST:SHOW',
-  TOAST_HIDE: 'TOAST:HIDE',
-  TOAST_DISMISS: 'TOAST:DISMISS',
+  CART_ACTIVE: "CART:ACTIVATE",
+  CART_UPDATE: "CART:UPDATE",
+  CART_ADD: "CART:ADD",
+  CART_FAIL: "CART:FAIL",
+  CART_REMOVEITEM: "CART:REMOVEITEM",
+  CART_CLEAR: "CART:CLEAR",
+  CART_OPEN_MINICART: "CART:OPEN:MINICART",
+  CART_UPDATING: "CART:UPDATING",
+  QUICKADD_OPEN: "QUICKADD:OPEN",
+  QUICKADD_CLOSE: "QUICKADD:CLOSE",
+  LOADING: "LOADING",
+  TOAST_DISPATCH: "TOAST:DISPATCH",
+  TOAST_SHOW: "TOAST:SHOW",
+  TOAST_HIDE: "TOAST:HIDE",
+  TOAST_DISMISS: "TOAST:DISMISS",
   PORTALS: {
     LOADING: 'data-app-layer-portal="loading"',
     TOAST: 'data-app-layer-portal="toast"',
@@ -36,12 +36,15 @@ const CONSTANTS = {
     SEARCH_PRODUCTS: 'data-app-layer-portal="search-products"',
     SEARCH_FILTERS: 'data-app-layer-portal="search-filters"',
     SEARCH_FILTER_COUNT: 'data-app-layer-portal="search-filter-count"',
-    SEARCH_FILTERED_PRODUCTS: 'data-app-layer-portal="search-filtered-products"',
+    SEARCH_FILTERED_PRODUCTS:
+      'data-app-layer-portal="search-filtered-products"',
     SEARCH_SORT_BY: 'data-app-layer-portal="search-sort-by"',
     RECENTLY_VIEWED: 'data-app-layer-portal="recently-viewed"',
-    SEARCH_FILTER_QUICK_REMOVES: 'data-app-layer-portal="search-filter-quick-removes"',
-    SEARCH_FILTER_JUST_APPLY: 'data-app-layer-portal="search-filter-just-apply"',
-  }
+    SEARCH_FILTER_QUICK_REMOVES:
+      'data-app-layer-portal="search-filter-quick-removes"',
+    SEARCH_FILTER_JUST_APPLY:
+      'data-app-layer-portal="search-filter-just-apply"',
+  },
 };
 
 export default CONSTANTS;

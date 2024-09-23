@@ -9,5 +9,5 @@ const startPan = (coords, onImage, state) => {
     }, 120);
   }
   return state;
-}
+};
 export default startPan;

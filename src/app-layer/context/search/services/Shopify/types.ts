@@ -1,4 +1,8 @@
-import { ISearchAndFilterProductImage, ISearchAndFilterProductMetafield, ISearchAndFilterVariant } from '../../types';
+import {
+  ISearchAndFilterProductImage,
+  ISearchAndFilterProductMetafield,
+  ISearchAndFilterVariant,
+} from "../../types";
 
 // Template
 
@@ -36,7 +40,7 @@ export interface ITemplateArticleResponse {
   url: string;
 }
 
-export type ISearchResultType = 'product' | 'page' | 'article';
+export type ISearchResultType = "product" | "page" | "article";
 
 export interface ITemplateProductResponse {
   id: number;
@@ -63,7 +67,9 @@ export interface ICollTemplateResponse {
   filters: IFilterResponse[];
 }
 
-type CombinedSearchResults = ITemplateProductResponse & ITemplatePageResponse & ITemplateArticleResponse;
+type CombinedSearchResults = ITemplateProductResponse &
+  ITemplatePageResponse &
+  ITemplateArticleResponse;
 
 export interface ISearchTemplateResponse {
   resultsCount: number;

@@ -192,7 +192,7 @@
       max-height: 500px;
 
       #{$b}__accordion-toggle {
-        background-image: url('icon-arrow-up.svg');
+        background-image: url("icon-arrow-up.svg");
       }
     }
   }
@@ -201,7 +201,8 @@
     display: block;
     width: 100%;
     padding: 16px;
-    background: $colorMain2 url('icon-arrow-down.svg') right 24px center / 12px 8px no-repeat;
+    background: $colorMain2 url("icon-arrow-down.svg") right 24px center / 12px
+      8px no-repeat;
     cursor: pointer;
   }
 

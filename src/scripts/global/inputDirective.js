@@ -10,44 +10,44 @@
  */
 
 const initInputDirectives = () => {
-  const forms = document.querySelectorAll('form');
+  const forms = document.querySelectorAll("form");
 
-  const addPristine = input => {
-    input.classList.add('dir-pristine');
+  const addPristine = (input) => {
+    input.classList.add("dir-pristine");
   };
 
-  const addTouched = input => {
-    input.classList.add('dir-touched');
-    input.classList.remove('dir-pristine');
+  const addTouched = (input) => {
+    input.classList.add("dir-touched");
+    input.classList.remove("dir-pristine");
   };
 
-  const addDirty = input => {
-    input.classList.add('dir-dirty');
-    input.classList.remove('dir-pristine');
+  const addDirty = (input) => {
+    input.classList.add("dir-dirty");
+    input.classList.remove("dir-pristine");
   };
 
-  const addInvalid = input => {
-    input.classList.add('dir-invalid');
-    input.classList.remove('dir-valid');
+  const addInvalid = (input) => {
+    input.classList.add("dir-invalid");
+    input.classList.remove("dir-valid");
   };
 
-  const addValid = input => {
-    input.classList.add('dir-valid');
-    input.classList.remove('dir-invalid');
+  const addValid = (input) => {
+    input.classList.add("dir-valid");
+    input.classList.remove("dir-invalid");
   };
 
-  const handleInput = input => {
+  const handleInput = (input) => {
     addPristine(input);
 
-    input.addEventListener('focusin', () => {
+    input.addEventListener("focusin", () => {
       addTouched(input);
     });
 
-    input.addEventListener('input', () => {
+    input.addEventListener("input", () => {
       addDirty(input);
     });
 
-    input.addEventListener('focusout', () => {
+    input.addEventListener("focusout", () => {
       if (input.value.length === 0) {
         addInvalid(input);
       } else {
@@ -60,8 +60,8 @@ const initInputDirectives = () => {
     });
   };
 
-  forms.forEach(form => {
-    const inputs = form.querySelectorAll('input');
+  forms.forEach((form) => {
+    const inputs = form.querySelectorAll("input");
     inputs.forEach(handleInput);
   });
 };

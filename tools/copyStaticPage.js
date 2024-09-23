@@ -1,17 +1,17 @@
 /**
  * Usage:
  * yarn create:static-page -- --num=1
- * 
+ *
  * `num` will be the number of new templates to create. Default is 1.
  * `fix` will override the content of the existing templates
  */
 
-const path = require('path');
-const fs = require('fs-extra');
-const args = require('yargs').argv;
+const path = require("path");
+const fs = require("fs-extra");
+const args = require("yargs").argv;
 
-const templatePath = path.resolve('./theme/templates');
-const sectionPath = path.resolve('./theme/sections');
+const templatePath = path.resolve("./theme/templates");
+const sectionPath = path.resolve("./theme/sections");
 
 /**
  * Determines the index of the last brand static page created.
@@ -21,7 +21,9 @@ const findLastTemplate = async () => {
   let foundLast = false;
   while (!foundLast && num < 50) {
     num++;
-    let fileExists = await fs.pathExists(`${templatePath}/page.static-${num}.liquid`);
+    let fileExists = await fs.pathExists(
+      `${templatePath}/page.static-${num}.liquid`,
+    );
     if (!fileExists) {
       foundLast = true;
     }
@@ -34,7 +36,6 @@ const findLastTemplate = async () => {
  * Copies the static master template and creates X amount of new duplicates
  */
 const copyStaticMasterTemplate = async () => {
-
   const times = args.num ? args.num : 1;
   const currentFileIndex = args.fix ? 1 : await findLastTemplate();
 
@@ -50,8 +51,8 @@ const copyStaticMasterTemplate = async () => {
         `${templatePath}/page.static-master.liquid`,
         newTemplateFileName,
         {
-          errorOnExists: true
-        }
+          errorOnExists: true,
+        },
       );
 
       // Create Section
@@ -59,24 +60,26 @@ const copyStaticMasterTemplate = async () => {
         `${sectionPath}/page-static-master.liquid`,
         newSectionFileName,
         {
-          errorOnExists: true
-        }
+          errorOnExists: true,
+        },
       );
 
       // Write section import
-      fs.writeFileSync(newTemplateFileName, `{% section 'page-static-${fileIndex}' %}`);
+      fs.writeFileSync(
+        newTemplateFileName,
+        `{% section 'page-static-${fileIndex}' %}`,
+      );
     } else {
       // If we are updating the existing templates, don't create new files
       fs.copySync(
         `${sectionPath}/page-static-master.liquid`,
         newSectionFileName,
         {
-          errorOnExists: true
-        }
+          errorOnExists: true,
+        },
       );
     }
-
   }
-}
+};
 
 copyStaticMasterTemplate();

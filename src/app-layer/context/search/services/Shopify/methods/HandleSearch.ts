@@ -1,13 +1,15 @@
-import { IHandleQuickSearchResult } from '../../../types';
-import queryPredictiveSearchApi from '../../../../../../scripts/utils/queryPredictiveSearchApi';
-import { IPredSearchResponse } from '../types';
-import mapPage from '../helpers/mappers/mapPage';
-import mapArticle from '../helpers/mappers/mapArticle';
-import mapCollection from '../helpers/mappers/mapCollection';
-import mapSuggestion from '../helpers/mappers/mapSuggestion';
-import mapPredSearchProduct from '../helpers/mappers/mapPredSearchProduct';
+import { IHandleQuickSearchResult } from "../../../types";
+import queryPredictiveSearchApi from "../../../../../../scripts/utils/queryPredictiveSearchApi";
+import { IPredSearchResponse } from "../types";
+import mapPage from "../helpers/mappers/mapPage";
+import mapArticle from "../helpers/mappers/mapArticle";
+import mapCollection from "../helpers/mappers/mapCollection";
+import mapSuggestion from "../helpers/mappers/mapSuggestion";
+import mapPredSearchProduct from "../helpers/mappers/mapPredSearchProduct";
 
-const HandleSearch = async (searchTerm: string): Promise<IHandleQuickSearchResult> => {
+const HandleSearch = async (
+  searchTerm: string,
+): Promise<IHandleQuickSearchResult> => {
   const mappedResponse: IHandleQuickSearchResult = {
     raw: null,
     typos: [],
@@ -15,19 +17,24 @@ const HandleSearch = async (searchTerm: string): Promise<IHandleQuickSearchResul
     collections: [],
     suggestions: [],
     pages: [],
-    articles: []
+    articles: [],
   };
 
   try {
     const res = await queryPredictiveSearchApi<IPredSearchResponse>(searchTerm);
 
-    const { collections, products, queries, pages, articles } = res.resources.results;
+    const { collections, products, queries, pages, articles } =
+      res.resources.results;
 
-    mappedResponse.collections = collections?.map(collection => mapCollection(collection));
-    mappedResponse.pages = pages?.map(page => mapPage(page));
-    mappedResponse.articles = articles?.map(article => mapArticle(article));
-    mappedResponse.suggestions = queries?.map(query => mapSuggestion(query));
-    mappedResponse.products = products?.map(product => mapPredSearchProduct(product));
+    mappedResponse.collections = collections?.map((collection) =>
+      mapCollection(collection),
+    );
+    mappedResponse.pages = pages?.map((page) => mapPage(page));
+    mappedResponse.articles = articles?.map((article) => mapArticle(article));
+    mappedResponse.suggestions = queries?.map((query) => mapSuggestion(query));
+    mappedResponse.products = products?.map((product) =>
+      mapPredSearchProduct(product),
+    );
 
     return mappedResponse;
   } catch (e) {

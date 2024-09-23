@@ -17,7 +17,9 @@
     @media screen and (max-width: $navBreakPointMinusOne) {
       position: fixed;
       left: -100%;
-      top: var(--header-height); // This needs to match the announcement bar height
+      top: var(
+        --header-height
+      ); // This needs to match the announcement bar height
       bottom: 0;
       width: 100%;
       background-color: #fff;
@@ -122,7 +124,8 @@
     padding: 16px 0;
     border-bottom: 1px solid $colorMain3;
     line-height: 1;
-    background: url("icon-arrow-full.svg") calc(100% - 8px) center/12px 12px no-repeat;
+    background: url("icon-arrow-full.svg") calc(100% - 8px) center/12px 12px
+      no-repeat;
 
     .subheading-1 {
       text-transform: capitalize;
@@ -323,7 +326,8 @@
 
     &#{&}--parent {
       @media screen and (max-width: $navBreakPointMinusOne) {
-        background: url("icon-arrow-full.svg") calc(100% - 8px) center/12px 12px no-repeat;
+        background: url("icon-arrow-full.svg") calc(100% - 8px) center/12px 12px
+          no-repeat;
       }
 
       @media screen and (min-width: $navBreakPoint) {

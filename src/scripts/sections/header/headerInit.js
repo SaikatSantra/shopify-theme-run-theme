@@ -1,8 +1,8 @@
-import { clickOrHoverToOpenMegaNav } from './clickOrHoverToOpenMegaNav';
-import { clickToEraseSearch } from './clickToEraseSearch';
+import { clickOrHoverToOpenMegaNav } from "./clickOrHoverToOpenMegaNav";
+import { clickToEraseSearch } from "./clickToEraseSearch";
 
 const headerInit = () => {
-  clickOrHoverToOpenMegaNav('hover');
+  clickOrHoverToOpenMegaNav("hover");
   clickToEraseSearch();
 };
 

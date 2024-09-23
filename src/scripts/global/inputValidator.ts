@@ -1,13 +1,13 @@
 const initInputValidator = (): void => {
-  const inputs = document.querySelectorAll('[data-validate-input]');
+  const inputs = document.querySelectorAll("[data-validate-input]");
 
   if (!inputs) {
     return;
   }
 
-  inputs.forEach(input => {
+  inputs.forEach((input) => {
     const validators = [];
-    const maxCharacters = input.getAttribute('data-max-chars');
+    const maxCharacters = input.getAttribute("data-max-chars");
 
     if (maxCharacters) {
       validators.push([
@@ -19,7 +19,7 @@ const initInputValidator = (): void => {
         (e) => {
           const str = e.target.value;
           e.target.value = str.substring(0, maxCharacters);
-        }
+        },
       ]);
     }
 
@@ -30,7 +30,7 @@ const initInputValidator = (): void => {
     //   });
     // }
 
-    input.addEventListener('keydown', event => {
+    input.addEventListener("keydown", (event) => {
       const ke = <KeyboardEvent>event;
       const keyPressed = String.fromCharCode(ke.which || ke.keyCode);
 
@@ -41,9 +41,9 @@ const initInputValidator = (): void => {
         if (!validator(value, keyPressed)) {
           resolve(event);
         }
-      })
-    })
+      });
+    });
   });
-}
+};
 
 export default initInputValidator;

@@ -1,22 +1,14 @@
-<% for (var i in htmlWebpackPlugin.files.js) { %>
-  <% var src = htmlWebpackPlugin.files.js[i].replace(/%40/g, '@') %>
-  <% var parts = src.split('@') %>
-  <% var templates = [] %>
-  <% for (var j in parts) { %>
-    <% var part = parts[j] %>
-    <% if (part.includes('template.')) { %>
-      <% templates.push(part.split('.')[1]) %>
-    <% } %>
-  <% } %>
-
-  <% var templates = templates.map(template => `template contains '${template}'`).join(' or ') %>
-  <% if (templates.length > 0 && parts.indexOf('bb-global') === -1 && parts.indexOf('bb-app-layer') === -1) { %>
-    {% if <%= templates %> %}
-      <script defer src="{{ '<%= src %>' | asset_url }}"></script>
-    {% else %}
-      <link rel="prefetch" href="{{ '<%= src %>' | asset_url }}" as="script">
-    {% endif %}
-  <% } else { %>
-    <script defer src="{{ '<%= src %>' | asset_url }}"></script>
-  <% } %>
-<% } %>
+<% for (var i in htmlWebpackPlugin.files.js) { %> <% var src =
+htmlWebpackPlugin.files.js[i].replace(/%40/g, '@') %> <% var parts =
+src.split('@') %> <% var templates = [] %> <% for (var j in parts) { %> <% var
+part = parts[j] %> <% if (part.includes('template.')) { %> <%
+templates.push(part.split('.')[1]) %> <% } %> <% } %> <% var templates =
+templates.map(template => `template contains '${template}'`).join(' or ') %> <%
+if (templates.length > 0 && parts.indexOf('bb-global') === -1 &&
+parts.indexOf('bb-app-layer') === -1) { %> {% if <%= templates %> %}
+<script defer src="{{ '<%= src %>' | asset_url }}"></script>
+{% else %}
+<link rel="prefetch" href="{{ '<%= src %>' | asset_url }}" as="script" />
+{% endif %} <% } else { %>
+<script defer src="{{ '<%= src %>' | asset_url }}"></script>
+<% } %> <% } %>

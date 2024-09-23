@@ -1,4 +1,4 @@
-import getCurrencyRoute from './getCurrencyRoute';
+import getCurrencyRoute from "./getCurrencyRoute";
 /*
   This can be used to get extra data from a Liquid template that returns JSON.
 
@@ -36,7 +36,12 @@ import getCurrencyRoute from './getCurrencyRoute';
   })();
 */
 
-const getTemplateJSON = async <T>(templatePath: string, handle: string, view: string, params?: string): Promise<T> => {
+const getTemplateJSON = async <T>(
+  templatePath: string,
+  handle: string,
+  view: string,
+  params?: string,
+): Promise<T> => {
   try {
     let url = `${templatePath}/${handle}?view=${view}`;
 

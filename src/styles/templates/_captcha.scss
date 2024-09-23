@@ -12,7 +12,7 @@
   }
 
   &__button {
-    @include button-style('primary');
+    @include button-style("primary");
     min-width: 300px;
   }
 

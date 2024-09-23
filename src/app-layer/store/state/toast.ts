@@ -9,7 +9,7 @@ export interface ToastStateInterface {
 export const toastInitialState: ToastStateInterface = {
   active: false,
   isShowing: false,
-  type: '',
+  type: "",
   data: [],
-  quantities: []
-}
+  quantities: [],
+};

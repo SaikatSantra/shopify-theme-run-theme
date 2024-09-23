@@ -1,15 +1,19 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from "react";
 
 const useGiftProduct = (): string => {
-  const [giftProductHandle, setGiftProductHandle] = useState<string | undefined>()
+  const [giftProductHandle, setGiftProductHandle] = useState<
+    string | undefined
+  >();
 
   useEffect(() => {
-    const giftProductElem = <HTMLElement>document.querySelector('[data-gift-product]')
-    const giftProduct = giftProductElem.dataset.giftProduct
-    setGiftProductHandle(giftProduct)
-  }, [giftProductHandle])
+    const giftProductElem = <HTMLElement>(
+      document.querySelector("[data-gift-product]")
+    );
+    const giftProduct = giftProductElem.dataset.giftProduct;
+    setGiftProductHandle(giftProduct);
+  }, [giftProductHandle]);
 
-  return giftProductHandle
-}
+  return giftProductHandle;
+};
 
-export default useGiftProduct
+export default useGiftProduct;

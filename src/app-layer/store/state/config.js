@@ -1,3 +1,3 @@
 export default {
-  appLayerConfigDebug: false
+  appLayerConfigDebug: false,
 };

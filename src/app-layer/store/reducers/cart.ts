@@ -1,10 +1,9 @@
-import initialState from '../state/cart';
-import { produce } from 'immer';
-import CONSTANTS from '../../_constants';
+import initialState from "../state/cart";
+import { produce } from "immer";
+import CONSTANTS from "../../_constants";
 
 export default produce((draft, action) => {
   switch (action.type) {
-
     case CONSTANTS.CART_ACTIVE:
       draft.cartActive = action.payload;
       return draft;
@@ -12,11 +11,11 @@ export default produce((draft, action) => {
     case CONSTANTS.CART_UPDATE:
       draft.current = action.payload;
       return draft;
-    
+
     case CONSTANTS.CART_OPEN_MINICART:
       draft.minicartOpen = action.payload;
       return draft;
-  
+
     case CONSTANTS.CART_UPDATING:
       draft.updating = action.payload;
       return draft;

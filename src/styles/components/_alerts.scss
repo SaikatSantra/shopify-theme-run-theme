@@ -1,11 +1,11 @@
 $alert-colours: (
-  'info': $colorInfo,
-  'success': $colorSuccess,
-  'error': $colorError,
-  'warning': $colorWarning
+  "info": $colorInfo,
+  "success": $colorSuccess,
+  "error": $colorError,
+  "warning": $colorWarning,
 );
 
-@mixin messages-shared($type: 'info') {
+@mixin messages-shared($type: "info") {
   font-size: rem(14px);
   font-weight: 500;
   line-height: 1;
@@ -16,7 +16,7 @@ $alert-colours: (
   align-items: center;
 
   &::before {
-    content: '';
+    content: "";
     display: block;
     height: 22px;
     width: 22px;
@@ -48,35 +48,35 @@ $alert-colours: (
   }
 }
 
-@mixin alert-base($type: 'info') {
+@mixin alert-base($type: "info") {
   background-color: map-get($alert-colours, $type);
   color: white;
 
   &::before {
-    content: '';
-    background-image: url('icon-#{$type}.svg');
+    content: "";
+    background-image: url("icon-#{$type}.svg");
   }
 }
 
-@mixin alert($type: 'info') {
+@mixin alert($type: "info") {
   @include messages-shared($type);
   @include alert-base($type);
 }
 
 .alert {
   &#{&}--success {
-    @include alert('success');
+    @include alert("success");
   }
 
   &#{&}--info {
-    @include alert('info');
+    @include alert("info");
   }
 
   &#{&}--error {
-    @include alert('error');
+    @include alert("error");
   }
 
   &#{&}--warning {
-    @include alert('warning');
+    @include alert("warning");
   }
 }

@@ -1,15 +1,31 @@
-import React from 'react';
-import { Handles, Rail, Slider, Tracks } from 'react-compound-slider';
-import { Handle, SliderRail, sliderStyle, Track } from './RangeSliderComponents';
+import React from "react";
+import { Handles, Rail, Slider, Tracks } from "react-compound-slider";
+import {
+  Handle,
+  SliderRail,
+  sliderStyle,
+  Track,
+} from "./RangeSliderComponents";
 
 interface Props {
-  range: [number, number],
-  values: [number, number],
-  onChange: (values: [number, number]) => void,
-  children: ({value, labelHandle} : {value: number, labelHandle: string}) => React.ReactElement // children should be function of value to display
+  range: [number, number];
+  values: [number, number];
+  onChange: (values: [number, number]) => void;
+  children: ({
+    value,
+    labelHandle,
+  }: {
+    value: number;
+    labelHandle: string;
+  }) => React.ReactElement; // children should be function of value to display
 }
 
-const DualRangeSlider: React.FunctionComponent<Props> = ({range, values, onChange, children}) => {
+const DualRangeSlider: React.FunctionComponent<Props> = ({
+  range,
+  values,
+  onChange,
+  children,
+}) => {
   const valueDisplay = children; //
   return (
     <div className="dual-range-slider">
@@ -54,14 +70,13 @@ const DualRangeSlider: React.FunctionComponent<Props> = ({range, values, onChang
         </Tracks>
       </Slider>
       <span className="dual-range-slider__label dual-range-slider__label--min">
-        { valueDisplay({value: values[0], labelHandle: 'min'}) }
+        {valueDisplay({ value: values[0], labelHandle: "min" })}
       </span>
       <span className="dual-range-slider__label dual-range-slider__label--max">
-        {valueDisplay({ value: values[1], labelHandle: 'max' })}
+        {valueDisplay({ value: values[1], labelHandle: "max" })}
       </span>
-
     </div>
-  )
-}
+  );
+};
 
-export default DualRangeSlider
+export default DualRangeSlider;

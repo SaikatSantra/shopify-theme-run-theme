@@ -10,4 +10,4 @@ This code may need some adjustement (for example it may not be desktop only that
 
 There are also some CSS settings related to the Clear/Apply buttons
 
-These can be found in src/styles/components/_filter.scss under the `&__clear-apply` selector
+These can be found in src/styles/components/\_filter.scss under the `&__clear-apply` selector

@@ -32,23 +32,25 @@ interface ISfApiConfig {
 }
 
 const queryStorefrontApi = async <T>(query: string): Promise<T> => {
-  const sfApiConfigStr: string = document.querySelector('[data-storefront-api-config]').textContent;
+  const sfApiConfigStr: string = document.querySelector(
+    "[data-storefront-api-config]",
+  ).textContent;
   const sfApiConfig: ISfApiConfig = JSON.parse(sfApiConfigStr);
 
-  const {shop, apiVersion, accessToken} = sfApiConfig;
+  const { shop, apiVersion, accessToken } = sfApiConfig;
 
   const url = `https://${shop}.myshopify.com/api/${apiVersion}/graphql.json`;
 
   const config = {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'X-Shopify-Storefront-Access-Token': accessToken,
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
+      "X-Shopify-Storefront-Access-Token": accessToken,
+      Accept: "application/json",
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      query
-    })
+      query,
+    }),
   };
 
   try {

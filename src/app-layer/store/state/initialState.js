@@ -1,7 +1,7 @@
 const initialState = {
   config: {
-    appLayerConfigDebug: false
+    appLayerConfigDebug: false,
   },
-}
+};
 
 export default initialState;

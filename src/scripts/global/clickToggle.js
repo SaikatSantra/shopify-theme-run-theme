@@ -1,5 +1,5 @@
-import { simpleListToArr } from '../utils/data';
-import safeJSONParse from '../utils/safeJsonParse';
+import { simpleListToArr } from "../utils/data";
+import safeJSONParse from "../utils/safeJsonParse";
 
 // Example:
 // data-click-toggle='[{"target": "body", "add": "account-open"},{"target": "#data-area", "remove": "active"}]'
@@ -20,25 +20,25 @@ const toggle = (toggleElement, config) => {
     return false;
   }
 
-  const allMethods = ['add', 'remove', 'toggle'];
+  const allMethods = ["add", "remove", "toggle"];
 
   const classlistByMethod = {};
   const configKeys = Object.keys(config);
-  configKeys.forEach(key => {
+  configKeys.forEach((key) => {
     if (allMethods.indexOf(key) > -1) {
       classlistByMethod[key] = simpleListToArr(config[key]);
     }
   });
 
-  toggleElement.addEventListener('click', e => {
+  toggleElement.addEventListener("click", (e) => {
     // e.stopImmediatePropagation();
     if (config.specific && toggleElement !== e.target) {
       return false;
     }
 
-    Object.keys(classlistByMethod).forEach(methodName => {
-      classlistByMethod[methodName].forEach(c => {
-        targets.forEach(target => target.classList[methodName](c));
+    Object.keys(classlistByMethod).forEach((methodName) => {
+      classlistByMethod[methodName].forEach((c) => {
+        targets.forEach((target) => target.classList[methodName](c));
       });
     });
   });
@@ -62,11 +62,11 @@ const setupToggle = (toggleElement, dataProperty) => {
  * Attaches the toggle event to all elements with the data-click-toggle data-property
  */
 const clickToggle = () => {
-  const toggles = document.querySelectorAll('[data-click-toggle]');
+  const toggles = document.querySelectorAll("[data-click-toggle]");
   if (!toggles) {
     return false;
   }
-  toggles.forEach(toggleElement => setupToggle(toggleElement, 'clickToggle'));
+  toggles.forEach((toggleElement) => setupToggle(toggleElement, "clickToggle"));
 };
 
 export { clickToggle, toggle };

@@ -5,7 +5,9 @@
 }
 
 @mixin form-fields-shared {
-  font-size: rem(16px); // This needs to remain 16px on mobile to prevent zoom on iOS
+  font-size: rem(
+    16px
+  ); // This needs to remain 16px on mobile to prevent zoom on iOS
   padding: 12px 24px;
   color: $colorFont1;
   font-family: $fontBody;
@@ -41,7 +43,7 @@
     border-color: $colorError;
   }
 
-  &:not(:focus):not(:placeholder-shown):not([value='']):valid {
+  &:not(:focus):not(:placeholder-shown):not([value=""]):valid {
     color: $colorSuccess;
     border-color: $colorSuccess;
   }
@@ -82,7 +84,7 @@
   border-radius: 3px;
 
   input:checked + & {
-    content: '✓';
+    content: "✓";
     color: $colorWhite;
     font-size: rem(22px);
   }
@@ -106,7 +108,7 @@
   margin: 0;
 
   &::before {
-    content: '';
+    content: "";
     margin-right: 6px;
   }
 }
@@ -133,7 +135,8 @@
   appearance: none;
   border-radius: 0;
   cursor: pointer;
-  background: #fff url('icon-arrow-down.svg') right 15px center / 11px 6px no-repeat;
+  background: #fff url("icon-arrow-down.svg") right 15px center / 11px 6px
+    no-repeat;
 }
 
 @mixin text-area {
@@ -150,7 +153,13 @@
   cursor: pointer;
 }
 
-@mixin checkbox-toggle($width: 55px, $height: 24px, $font-size: 12px, $margin: 2px, $transition-speed: 0.2s) {
+@mixin checkbox-toggle(
+  $width: 55px,
+  $height: 24px,
+  $font-size: 12px,
+  $margin: 2px,
+  $transition-speed: 0.2s
+) {
   display: inline-block;
   width: $width;
   height: $height;
@@ -161,7 +170,7 @@
   cursor: pointer;
 
   &::before {
-    content: '';
+    content: "";
     border-radius: 100%;
     position: absolute;
     background-color: white;
@@ -286,7 +295,7 @@
   display: flex;
   align-items: center;
 
-  input[type='checkbox'] {
+  input[type="checkbox"] {
     padding: 0;
     margin: 0;
     margin-right: 16px;

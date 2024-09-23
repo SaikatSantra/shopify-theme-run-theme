@@ -1,9 +1,8 @@
-import {ISearchService} from './types';
+import { ISearchService } from "./types";
 
 /**
  * Import the appropriate search provider server here based on store configuration
  */
-
 
 // TODO: Implement dynamic import?
 
@@ -24,10 +23,9 @@ import {ISearchService} from './types';
 
 // const Service = import(servicePath);
 
-
 // import Service from './services/Klevu';
 // import Service from './services/BoostCommerce';
-import Service from './services/Shopify';
+import Service from "./services/Shopify";
 
 const SearchService: ISearchService = {
   methods: {
@@ -37,6 +35,6 @@ const SearchService: ISearchService = {
     getCmsContent: Service.methods.getCmsContent,
     getSwatchData: Service.methods.getSwatchData,
   },
-}
+};
 
-export default SearchService
+export default SearchService;

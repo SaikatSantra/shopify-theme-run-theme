@@ -1,12 +1,14 @@
-import { IQuickSearchResultArticle } from '../../../../types';
-import { ITemplateArticleResponse } from '../../types';
+import { IQuickSearchResultArticle } from "../../../../types";
+import { ITemplateArticleResponse } from "../../types";
 
-const mapArticle = (articleInResp: ITemplateArticleResponse): IQuickSearchResultArticle => {
+const mapArticle = (
+  articleInResp: ITemplateArticleResponse,
+): IQuickSearchResultArticle => {
   return {
     id: articleInResp.id.toString(),
     handle: articleInResp.handle,
     title: articleInResp.title,
-    url: articleInResp.url
+    url: articleInResp.url,
   };
 };
 

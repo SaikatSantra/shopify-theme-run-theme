@@ -1,23 +1,22 @@
-import React from 'react'
-import useSearch from '../../../context/search/useSearch'
+import React from "react";
+import useSearch from "../../../context/search/useSearch";
 
 interface ISearchNoResultsComponent {
-  dataSet: DOMStringMap
+  dataSet: DOMStringMap;
 }
 
-const SearchNoResults: React.FC<ISearchNoResultsComponent> = ({dataSet}): JSX.Element => {
+const SearchNoResults: React.FC<ISearchNoResultsComponent> = ({
+  dataSet,
+}): JSX.Element => {
+  const { noResults } = dataSet;
+  const { quickSearchResultsProducts, quickSearchTerm } = useSearch();
 
-  const {noResults} = dataSet
-  const {
-    quickSearchResultsProducts,
-    quickSearchTerm
-  } = useSearch()
+  return quickSearchResultsProducts && !quickSearchResultsProducts.length ? (
+    <p className="paragraph">
+      {" "}
+      {noResults.replace(/\[\[searchword\]\]/g, `${quickSearchTerm}`)}
+    </p>
+  ) : null;
+};
 
-  return (
-    quickSearchResultsProducts && !quickSearchResultsProducts.length ? (
-      <p className="paragraph"> { noResults.replace(/\[\[searchword\]\]/g, `${quickSearchTerm}`) }</p>
-    ) : null
-  )
-}
-
-export default SearchNoResults
+export default SearchNoResults;

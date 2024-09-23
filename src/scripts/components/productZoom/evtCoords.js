@@ -1,4 +1,3 @@
-
 const evtCoords = (e) => {
   const coords = {};
   if (e.touches) {
@@ -9,6 +8,6 @@ const evtCoords = (e) => {
     coords.y = e.clientY;
   }
   return coords;
-}
+};
 
 export default evtCoords;

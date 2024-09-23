@@ -1,17 +1,19 @@
-import {ISearchFilter, ISearchFilterOption, ISearchFilterRangeOption} from '../../../types';
+import {
+  ISearchFilter,
+  ISearchFilterOption,
+  ISearchFilterRangeOption,
+} from "../../../types";
 
 const transformFilterLabel = (label) => {
   switch (label) {
-    case 'klevu_price':
-      return 'Price';
+    case "klevu_price":
+      return "Price";
     default:
-      return label
+      return label;
   }
-}
+};
 
-const mapFiltersFromResponse = (response: {
-  data: any
-}): ISearchFilter[] => {
+const mapFiltersFromResponse = (response: { data: any }): ISearchFilter[] => {
   return response.data.queryResults[0].filters.map((filter) => {
     const f: ISearchFilter = {
       identifier: filter.key,
@@ -21,37 +23,37 @@ const mapFiltersFromResponse = (response: {
       options: [],
       raw: filter,
       open: false,
-      displayType: null
-    }
+      displayType: null,
+    };
 
     switch (filter.type) {
-      case 'OPTIONS':
-        f.type = 'MULTI_OPTION'
-        f.displayType = 'TEXT'
+      case "OPTIONS":
+        f.type = "MULTI_OPTION";
+        f.displayType = "TEXT";
         f.options = filter.options.map((option) => {
           return <ISearchFilterOption>{
             identifier: option.value,
             label: option.name,
             selected: false,
-            records: option.count
-          }
-        })
+            records: option.count,
+          };
+        });
         break;
-      case 'SLIDER':
-        f.type = 'RANGE'
-        f.displayType = 'RANGE'
+      case "SLIDER":
+        f.type = "RANGE";
+        f.displayType = "RANGE";
         f.options[0] = <ISearchFilterRangeOption>{
           minimum: filter.min,
           maximum: filter.max,
           selectedMinimum: filter.min,
           selectedMaximum: filter.max,
-          selected: false
-        }
+          selected: false,
+        };
         break;
     }
 
-    return f
-  })
-}
+    return f;
+  });
+};
 
-export default mapFiltersFromResponse
+export default mapFiltersFromResponse;

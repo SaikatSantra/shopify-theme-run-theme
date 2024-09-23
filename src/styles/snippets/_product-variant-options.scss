@@ -75,7 +75,7 @@
       position: relative;
 
       &:before {
-        content: '';
+        content: "";
         border-style: solid;
         border-width: 10px 0 0 10px;
         border-color: transparent transparent transparent $colorInfo;
@@ -89,7 +89,7 @@
       position: relative;
 
       &:before {
-        content: '';
+        content: "";
         border-style: solid;
         border-width: 10px 0 0 10px;
         border-color: transparent transparent transparent $colorSuccess;

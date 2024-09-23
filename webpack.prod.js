@@ -1,11 +1,11 @@
-const path = require('path');
-const { merge } = require('webpack-merge');
-const common = require('./webpack.common');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
-const getChunkName = require('./tools/webpack/getChunkName');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require("path");
+const { merge } = require("webpack-merge");
+const common = require("./webpack.common");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
+const getChunkName = require("./tools/webpack/getChunkName");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 /**
  * Minified Production Builds go here. This is only required if multiple bundles are needed to be created. If you only
@@ -13,26 +13,26 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
  */
 const chunks = {};
 
-module.exports = env => {
+module.exports = (env) => {
   const newCommon = common(env);
-  const themeDirectory = env.output ? `-${env.output}` : '';
+  const themeDirectory = env.output ? `-${env.output}` : "";
   return merge(newCommon, {
-    mode: 'production',
+    mode: "production",
     // devtool: 'source-map',
     plugins: [
       new MiniCssExtractPlugin({
-        filename: '[name].min.css'
+        filename: "[name].min.css",
       }),
       new HtmlWebpackPlugin({
         inject: false,
-        publicPath: '',
+        publicPath: "",
         filename: `../snippets/script-tags-prod.liquid`,
-        template: path.resolve(__dirname, './tools/webpack/script-tags.html')
-      })
+        template: path.resolve(__dirname, "./tools/webpack/script-tags.html"),
+      }),
     ],
     output: {
       path: path.resolve(__dirname, `./theme${themeDirectory}/assets/`),
-      filename: '[name].min.js'
+      filename: "[name].min.js",
     },
     optimization: {
       minimize: true,
@@ -41,15 +41,15 @@ module.exports = env => {
           test: /\.js(\?.*)?$/i,
           parallel: true,
           terserOptions: {
-            ecma: 6
-          }
+            ecma: 6,
+          },
         }),
-        new CssMinimizerPlugin()
+        new CssMinimizerPlugin(),
       ],
       splitChunks: {
-        chunks: 'all',
-        name: getChunkName
-      }
-    }
+        chunks: "all",
+        name: getChunkName,
+      },
+    },
   });
 };

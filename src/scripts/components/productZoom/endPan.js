@@ -5,6 +5,6 @@ const endPan = (state) => {
   state.dragActive = false;
   state.container.dataset.dragging = false;
   return state;
-}
+};
 
 export default endPan;

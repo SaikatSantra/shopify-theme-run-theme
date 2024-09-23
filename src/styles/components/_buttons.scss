@@ -4,38 +4,38 @@ $buttonColours: (
     "initial": (
       "bg": $BtnPrimaryBg,
       "text": $BtnPrimaryFont,
-      "border": $BtnPrimaryBorder
+      "border": $BtnPrimaryBorder,
     ),
     "hover": (
       "bg": $BtnPrimaryBgHover,
       "text": $BtnPrimaryFontHover,
-      "border": $BtnPrimaryBorderHover
-    )
+      "border": $BtnPrimaryBorderHover,
+    ),
   ),
   "secondary": (
     "initial": (
       "bg": $BtnSecondaryBg,
       "text": $BtnSecondaryFont,
-      "border": $BtnSecondaryBorder
+      "border": $BtnSecondaryBorder,
     ),
     "hover": (
       "bg": $BtnSecondaryBgHover,
       "text": $BtnSecondaryFontHover,
-      "border": $BtnSecondaryBorderHover
-    )
+      "border": $BtnSecondaryBorderHover,
+    ),
   ),
   "tertiary": (
     "initial": (
       "bg": $BtnTertiaryBg,
       "text": $BtnTertiaryFont,
-      "border": $BtnTertiaryBorder
+      "border": $BtnTertiaryBorder,
     ),
     "hover": (
       "bg": $BtnTertiaryBgHover,
       "text": $BtnTertiaryFontHover,
-      "border": $BtnTertiaryBorderHover
-    )
-  )
+      "border": $BtnTertiaryBorderHover,
+    ),
+  ),
 );
 
 @mixin button-style($chosen: "primary") {

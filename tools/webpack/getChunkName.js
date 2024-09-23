@@ -1,12 +1,12 @@
-const crypto = require('crypto');
+const crypto = require("crypto");
 module.exports = function (module, chunks, cacheGroup) {
   let containsLayout = false;
-  const names = chunks
-    .map((chunk) => chunk.name);
+  const names = chunks.map((chunk) => chunk.name);
   names.sort();
   let name =
-    (cacheGroup && cacheGroup !== 'default' ? `${cacheGroup.replace('defaultVendors', 'vendors')}@` : '') +
-    names.join('@');
+    (cacheGroup && cacheGroup !== "default"
+      ? `${cacheGroup.replace("defaultVendors", "vendors")}@`
+      : "") + names.join("@");
   // Filenames and paths can't be too long otherwise an
   // ENAMETOOLONG error is raised. If the generated name is too
   // long, it is truncated and a hash is appended. The limit has
@@ -19,9 +19,5 @@ module.exports = function (module, chunks, cacheGroup) {
   return name;
 };
 function hashFilename(name) {
-  return crypto
-    .createHash('md4')
-    .update(name)
-    .digest('hex')
-    .slice(0, 8);
+  return crypto.createHash("md4").update(name).digest("hex").slice(0, 8);
 }

@@ -56,7 +56,10 @@
 
   &__inner {
     overflow-y: auto;
-    height: var(--app-height, 100vh); // see appHeight.js for how/where/why this var gets set
+    height: var(
+      --app-height,
+      100vh
+    ); // see appHeight.js for how/where/why this var gets set
     display: flex;
     flex-direction: column;
 

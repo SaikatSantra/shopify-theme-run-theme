@@ -1,16 +1,16 @@
-import { Cart, LineItem } from '../../util/typings';
+import { Cart, LineItem } from "../../util/typings";
 
 interface IFReduxCart {
   cartActive: boolean;
-  minicartOpen: boolean,
+  minicartOpen: boolean;
   current: Cart;
   updating: boolean;
   lastAdded?: LineItem;
 }
 
 const cart: Cart = {
-  token: '',
-  note: '',
+  token: "",
+  note: "",
   attributes: {},
   total_price: 0,
   total_weight: 0,
@@ -18,9 +18,9 @@ const cart: Cart = {
   original_total_price: 0,
   item_count: 0,
   requires_shipping: true,
-  currency: '',
+  currency: "",
   items: [],
-}
+};
 
 const cartInitialState: IFReduxCart = {
   cartActive: false,
@@ -28,7 +28,6 @@ const cartInitialState: IFReduxCart = {
   current: cart,
   updating: false,
   lastAdded: null,
-}
+};
 
-
-export default cartInitialState
+export default cartInitialState;

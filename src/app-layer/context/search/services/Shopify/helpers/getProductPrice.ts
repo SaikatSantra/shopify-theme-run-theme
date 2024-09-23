@@ -1,11 +1,11 @@
-import standardisePrice from '../../../../../util/standardisePrice';
-import { ISearchAndFilterProductPrice } from '../../../types';
+import standardisePrice from "../../../../../util/standardisePrice";
+import { ISearchAndFilterProductPrice } from "../../../types";
 
 const getProductPrice = (
   price: number | string,
   compareAtMax: number | string,
   priceMin: number | string,
-  priceMax: number | string
+  priceMax: number | string,
 ): ISearchAndFilterProductPrice => {
   const finalPrice: number = standardisePrice(price);
 
@@ -19,7 +19,7 @@ const getProductPrice = (
     originalPrice,
     finalPrice,
     priceMin: standardisePrice(priceMin),
-    priceMax: standardisePrice(priceMax)
+    priceMax: standardisePrice(priceMax),
   };
 };
 

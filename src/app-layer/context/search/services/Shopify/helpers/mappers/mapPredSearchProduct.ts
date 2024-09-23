@@ -1,14 +1,19 @@
-import standardisePrice from '../../../../../../util/standardisePrice';
-import { ISearchAndFilterProduct, ISearchAndFilterProductPrice } from '../../../../types';
-import { IPredSearchProduct } from '../../types';
-import getProductPrice from '../getProductPrice';
+import standardisePrice from "../../../../../../util/standardisePrice";
+import {
+  ISearchAndFilterProduct,
+  ISearchAndFilterProductPrice,
+} from "../../../../types";
+import { IPredSearchProduct } from "../../types";
+import getProductPrice from "../getProductPrice";
 
-const mapPredSearchProduct = (product: IPredSearchProduct): ISearchAndFilterProduct => {
+const mapPredSearchProduct = (
+  product: IPredSearchProduct,
+): ISearchAndFilterProduct => {
   const priceObj: ISearchAndFilterProductPrice = getProductPrice(
     product.price,
     product.compare_at_price_max,
     product.price_min,
-    product.price_max
+    product.price_max,
   );
 
   return {
@@ -24,7 +29,7 @@ const mapPredSearchProduct = (product: IPredSearchProduct): ISearchAndFilterProd
     url: product.url,
     images: [{ src: product.image }],
     price: standardisePrice(product.price),
-    priceObj: priceObj
+    priceObj: priceObj,
   };
 };
 

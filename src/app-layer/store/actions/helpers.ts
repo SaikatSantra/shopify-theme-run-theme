@@ -1,4 +1,4 @@
 export interface ActionReturnType {
-  type: string,
-  payload: any
+  type: string;
+  payload: any;
 }

@@ -1,5 +1,9 @@
-import { ISearchFilter, ISearchFilterOption, ISearchFilterRangeOption } from '../../../../types';
-import { IFilterResponse } from '../../types';
+import {
+  ISearchFilter,
+  ISearchFilterOption,
+  ISearchFilterRangeOption,
+} from "../../../../types";
+import { IFilterResponse } from "../../types";
 
 const mapFilters = (filtersInResp: IFilterResponse[]): ISearchFilter[] => {
   return filtersInResp.map((filterInResp: IFilterResponse) => {
@@ -12,32 +16,34 @@ const mapFilters = (filtersInResp: IFilterResponse[]): ISearchFilter[] => {
       options: [],
       raw: filterInResp,
       open: false,
-      presentation: null
+      presentation: null,
     };
 
     switch (filterInResp.type) {
-      case 'list':
-        mappedFilter.type = 'MULTI_OPTION';
+      case "list":
+        mappedFilter.type = "MULTI_OPTION";
         // This causes issues because any metaobject filter is returned as a swatch by Shopify
         // mappedFilter.displayType = filterInResp.presentation && filterInResp.presentation === 'swatch' ? 'SWATCH' : 'TEXT';
         // Instead we're checking the id, which should have 'swatch' in the name if the metafields have been setup correctly
-        mappedFilter.displayType = filterInResp.id.includes('swatch') ? 'SWATCH' : 'TEXT';
+        mappedFilter.displayType = filterInResp.id.includes("swatch")
+          ? "SWATCH"
+          : "TEXT";
 
-        mappedFilter.options = filterInResp.values.map(value => {
+        mappedFilter.options = filterInResp.values.map((value) => {
           return <ISearchFilterOption>{
             identifier: value.label,
             label: value.label,
             value: value.value,
             selected: false,
             active: false,
-            records: value.count
+            records: value.count,
           };
         });
 
         break;
-      case 'price_range':
-        mappedFilter.type = 'RANGE';
-        mappedFilter.displayType = 'RANGE';
+      case "price_range":
+        mappedFilter.type = "RANGE";
+        mappedFilter.displayType = "RANGE";
 
         // Shopify returns the price range in pence.
 
@@ -48,12 +54,12 @@ const mapFilters = (filtersInResp: IFilterResponse[]): ISearchFilter[] => {
           selectedMaximum: filterInResp.maxValue / 100,
           activeMinimum: filterInResp.minValue / 100,
           activeMaximum: filterInResp.maxValue / 100,
-          selected: false
+          selected: false,
         };
 
         break;
       default:
-        throw new Error('Shopify filter type not implemented.');
+        throw new Error("Shopify filter type not implemented.");
     }
 
     return mappedFilter;

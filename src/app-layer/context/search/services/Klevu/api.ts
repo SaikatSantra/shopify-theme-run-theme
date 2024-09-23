@@ -1,27 +1,23 @@
-import axios from 'axios';
+import axios from "axios";
 
 const KlevuApi = (apiKey: string, apiEndpoint: string) => {
-
   const axiosInstance = axios.create({
     baseURL: apiEndpoint,
-    headers: {'Content-type': 'application/json'}
+    headers: { "Content-type": "application/json" },
   });
 
-
   const request = async (query) => {
-    return await axiosInstance.post('search', {
+    return await axiosInstance.post("search", {
       context: {
-        apiKeys: [
-          apiKey
-        ],
+        apiKeys: [apiKey],
       },
-      ...query
-    })
-  }
+      ...query,
+    });
+  };
 
   return {
-    request
-  }
-}
+    request,
+  };
+};
 
-export default KlevuApi
+export default KlevuApi;

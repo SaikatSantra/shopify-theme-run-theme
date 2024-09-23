@@ -8,7 +8,7 @@ production:
   theme_id: ${SHOPIFY_PRODUCTION_THEME_ID}
   store: ${SHOPIFY_PRODUCTION_STORE}
   ignore_files:
-  - config/settings_data.json
+    - config/settings_data.json
 
 # --- Team setup
 

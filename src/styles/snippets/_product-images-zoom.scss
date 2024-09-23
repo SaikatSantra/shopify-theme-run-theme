@@ -58,36 +58,36 @@
       display: block;
       cursor: zoom-in;
 
-      &[data-zoomed='true'] {
+      &[data-zoomed="true"] {
         cursor: grab;
       }
 
-      &[data-zooming='out'],
-      &[data-zooming='in'] {
+      &[data-zooming="out"],
+      &[data-zooming="in"] {
         cursor: none;
       }
 
-      &[data-zooming='out'] {
+      &[data-zooming="out"] {
         transition:
           transform 0.2s linear,
           transform-origin 0s 0.2s;
       }
 
-      &[data-zooming='in'] {
+      &[data-zooming="in"] {
         transition: transform 0.2s linear;
       }
 
-      &[data-zoomed='true'] + .zoom-toggle {
+      &[data-zoomed="true"] + .zoom-toggle {
         transform: rotate(0);
         transition: transform 0.25s;
       }
     }
 
-    &[data-dragging='true'] {
+    &[data-dragging="true"] {
       cursor: grabbing;
 
       &::after {
-        content: '';
+        content: "";
         display: block;
         position: fixed;
         left: 0;

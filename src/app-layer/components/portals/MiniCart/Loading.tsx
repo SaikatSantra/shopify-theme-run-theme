@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const LoadingIcon: React.FunctionComponent = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
@@ -19,6 +19,5 @@ const LoadingIcon: React.FunctionComponent = () => (
     </path>
   </svg>
 );
-
 
 export default LoadingIcon;

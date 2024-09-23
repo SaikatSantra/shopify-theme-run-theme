@@ -1,12 +1,12 @@
 const boolFromString = (val) => {
   switch (val) {
-    case 'true':
-      return true
-    case 'false':
-      return false
+    case "true":
+      return true;
+    case "false":
+      return false;
     default:
-      return val
+      return val;
   }
-}
+};
 
-export default boolFromString
+export default boolFromString;

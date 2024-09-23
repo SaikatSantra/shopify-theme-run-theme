@@ -1,7 +1,6 @@
-
-import setZoom from './setZoom';
-import setUpPans from './setUpPans';
-import updateUrl from './updateUrl';
+import setZoom from "./setZoom";
+import setUpPans from "./setUpPans";
+import updateUrl from "./updateUrl";
 
 const toggleZoom = (coords, state) => {
   if (!state.zoomFlag) {
@@ -12,6 +11,6 @@ const toggleZoom = (coords, state) => {
   }
   state = updateUrl(state);
   return state;
-}
+};
 
 export default toggleZoom;

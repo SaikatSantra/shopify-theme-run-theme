@@ -1,4 +1,4 @@
-import safeJSONParse from '../utils/safeJsonParse';
+import safeJSONParse from "../utils/safeJsonParse";
 
 export const scrollTo = (selector, opts) => {
   //make smooth default:
@@ -7,7 +7,7 @@ export const scrollTo = (selector, opts) => {
   }
   const options = opts ? opts : {};
   if (!options.behavior) {
-    options.behavior = 'smooth';
+    options.behavior = "smooth";
   }
   const target = document.querySelector(selector);
   if (!options.top) {
@@ -21,10 +21,10 @@ export const scrollTo = (selector, opts) => {
 };
 
 export const scrollToEls = () => {
-  const els = document.querySelectorAll('[data-scroll-smooth]');
-  els.forEach(el => {
-    const href = el.getAttribute('href');
-    if (!href || href.substring(0, 1) !== '#') {
+  const els = document.querySelectorAll("[data-scroll-smooth]");
+  els.forEach((el) => {
+    const href = el.getAttribute("href");
+    if (!href || href.substring(0, 1) !== "#") {
       return;
     }
 
@@ -33,22 +33,24 @@ export const scrollToEls = () => {
       opts = safeJSONParse(el.dataset.scrollSmooth);
     }
 
-    const selector = href === '#' ? 'body' : href;
-    el.addEventListener('click', e => {
+    const selector = href === "#" ? "body" : href;
+    el.addEventListener("click", (e) => {
       // Header Top offset
       const target = document.querySelector(selector);
-      const header = document.querySelector('header.header');
+      const header = document.querySelector("header.header");
       const headerPosition = getComputedStyle(header).position;
-      const headerHeight = window['blubolt'].headerHeight ? window['blubolt'].headerHeight : header.offsetHeight;
+      const headerHeight = window["blubolt"].headerHeight
+        ? window["blubolt"].headerHeight
+        : header.offsetHeight;
       let headerOffset = 36;
       if (!target) {
         return;
       }
-      if (headerPosition === 'sticky' || headerPosition === 'fixed') {
+      if (headerPosition === "sticky" || headerPosition === "fixed") {
         headerOffset += headerHeight;
       }
 
-      opts['top'] = target.offsetTop - headerOffset;
+      opts["top"] = target.offsetTop - headerOffset;
       scrollTo(selector, opts);
       e.preventDefault();
     });

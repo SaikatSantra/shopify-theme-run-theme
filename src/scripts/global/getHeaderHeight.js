@@ -1,8 +1,8 @@
 const getHeaderHeight = () => {
-  const header = document.querySelector('header.header');
-  ['load', 'resize'].forEach(function (e) {
+  const header = document.querySelector("header.header");
+  ["load", "resize"].forEach(function (e) {
     window.addEventListener(e, () => {
-      window['blubolt'].headerHeight = header?.offsetHeight;
+      window["blubolt"].headerHeight = header?.offsetHeight;
     });
   });
 };

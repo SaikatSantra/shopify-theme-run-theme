@@ -1,14 +1,13 @@
-import { ProductVariant } from '../../../util/typings';
+import { ProductVariant } from "../../../util/typings";
 
 const getMatchingVariants = (
   options: string[],
   variants: ProductVariant[],
-) : ProductVariant[] => {
+): ProductVariant[] => {
   return variants.filter((variant) =>
     variant.options.every(
-      (variantOption, i) =>
-        !options[i] || variantOption === options[i]
-    )
+      (variantOption, i) => !options[i] || variantOption === options[i],
+    ),
   );
 };
 

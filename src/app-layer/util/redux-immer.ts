@@ -1,4 +1,4 @@
-import { IProduce } from 'immer/dist/internal';
+import { IProduce } from "immer/dist/internal";
 
 export const combineReducers = (produce: IProduce, reducers = {}): any => {
   const keys = Object.keys(reducers);

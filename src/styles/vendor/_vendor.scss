@@ -29,8 +29,8 @@
     background: $colorMain2;
 
     &::after {
-      content: '';
-      background: url('icon-arrow.svg') center / 18px 12px no-repeat;
+      content: "";
+      background: url("icon-arrow.svg") center / 18px 12px no-repeat;
       width: 18px;
       height: 12px;
       position: absolute;

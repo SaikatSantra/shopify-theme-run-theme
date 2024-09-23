@@ -1,5 +1,6 @@
-import { getSizedImageUrl } from '../../utils/image'
+import { getSizedImageUrl } from "../../utils/image";
 
-const getSizedImage = (url: string, size: string): string => getSizedImageUrl(url, size)
+const getSizedImage = (url: string, size: string): string =>
+  getSizedImageUrl(url, size);
 
-export default getSizedImage
+export default getSizedImage;

@@ -38,11 +38,11 @@
     }
 
     &::before {
-      content: '';
+      content: "";
       width: 25px;
       height: 25px;
       display: inline-block;
-      background-image: url('icon-add-address.svg');
+      background-image: url("icon-add-address.svg");
       background-size: 25px;
       background-repeat: no-repeat;
       margin-right: 8px;
@@ -395,7 +395,7 @@
   .customer-account-help a,
   .customer-account-logout a {
     &::before {
-      content: '';
+      content: "";
       width: 22px;
       height: 22px;
       margin-right: 26px;
@@ -408,20 +408,20 @@
     &::before {
       width: 20px;
       height: 20px;
-      background-image: url('customer-account-icon.svg');
+      background-image: url("customer-account-icon.svg");
     }
   }
 
   .personal-addresses a {
     &::before {
       height: 18px;
-      background-image: url('customer-details-icon.svg');
+      background-image: url("customer-details-icon.svg");
     }
   }
 
   .my-orders a {
     &::before {
-      background-image: url('customer-orders-icon.svg');
+      background-image: url("customer-orders-icon.svg");
     }
   }
 
@@ -429,26 +429,26 @@
     &::before {
       width: 21px;
       height: 20px;
-      background-image: url('customer-wishlist-icon.svg');
+      background-image: url("customer-wishlist-icon.svg");
     }
   }
 
   .customer-account-change_password a {
     &::before {
-      background-image: url('customer-password-icon.svg');
+      background-image: url("customer-password-icon.svg");
     }
   }
 
   .need-help a,
   .customer-account-help a {
     &::before {
-      background-image: url('customer-help-icon.svg');
+      background-image: url("customer-help-icon.svg");
     }
   }
 
   .customer-account-logout a {
     &::before {
-      background-image: url('customer-logout-icon.svg');
+      background-image: url("customer-logout-icon.svg");
     }
   }
 

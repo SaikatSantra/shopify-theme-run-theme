@@ -1,18 +1,17 @@
-import React from 'react'
-import getCurrentActiveFilters from '../../../context/search/helpers/getCurrentActiveFilters'
-import useSearch from '../../../context/search/useSearch'
-
+import React from "react";
+import getCurrentActiveFilters from "../../../context/search/helpers/getCurrentActiveFilters";
+import useSearch from "../../../context/search/useSearch";
 
 const SearchFilterCount: React.FC = () => {
-  const { searchFilters } = useSearch()
+  const { searchFilters } = useSearch();
   if (!searchFilters) {
-    return null
+    return null;
   }
-  const selectedFilters = getCurrentActiveFilters(searchFilters)
+  const selectedFilters = getCurrentActiveFilters(searchFilters);
   if (!selectedFilters || !selectedFilters.length) {
-    return null
+    return null;
   }
-  return <>({ selectedFilters.length })</>
-}
+  return <>({selectedFilters.length})</>;
+};
 
-export default SearchFilterCount
+export default SearchFilterCount;

@@ -5,7 +5,7 @@
     max-height: 500px;
 
     #{$b}__toggle {
-      background-image: url('icon-arrow-up.svg');
+      background-image: url("icon-arrow-up.svg");
     }
   }
 
@@ -23,7 +23,8 @@
     width: 100%;
     padding: 20px 24px;
     border-radius: 30px;
-    background: $colorMain3 url('icon-arrow-down.svg') right 24px center / 12px 8px no-repeat;
+    background: $colorMain3 url("icon-arrow-down.svg") right 24px center / 12px
+      8px no-repeat;
     cursor: pointer;
 
     .cta {

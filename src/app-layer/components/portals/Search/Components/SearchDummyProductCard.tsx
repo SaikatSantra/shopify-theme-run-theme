@@ -1,5 +1,4 @@
-import React from 'react'
-
+import React from "react";
 
 const SearchDummyProductCard: React.FC = () => (
   <div className="product-card">
@@ -30,7 +29,6 @@ const SearchDummyProductCard: React.FC = () => (
 
     <div className="product-card__quick-add"></div>
   </div>
+);
 
-)
-
-export default SearchDummyProductCard
+export default SearchDummyProductCard;

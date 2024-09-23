@@ -1,5 +1,5 @@
-import sortMap from '../../Shopify/helpers/sortMap';
-import { IGetProductsResultsQuery } from '../../../types';
+import sortMap from "../../Shopify/helpers/sortMap";
+import { IGetProductsResultsQuery } from "../../../types";
 
 // Set the sorting values that are sent over the request in sortMap.ts.
 // The values that are displayed on the front end are in shopify-sort-by-lang-strings-json.liquid.
@@ -9,7 +9,7 @@ const getSortKeyParams = (query: IGetProductsResultsQuery): string => {
     return `&sort_by=${sortMap[query.sortKey]}`;
   }
 
-  return '';
+  return "";
 };
 
 export default getSortKeyParams;

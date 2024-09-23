@@ -1,13 +1,20 @@
-import { ISearchAndFilterProduct, ISearchAndFilterProductPrice } from '../../../../types';
-import { ITemplateProductResponse } from '../../types';
-import getProductPrice from '../getProductPrice';
+import {
+  ISearchAndFilterProduct,
+  ISearchAndFilterProductPrice,
+} from "../../../../types";
+import { ITemplateProductResponse } from "../../types";
+import getProductPrice from "../getProductPrice";
 
-const mapProduct = (product: ITemplateProductResponse, index: number, pageIndex: number): ISearchAndFilterProduct => {
+const mapProduct = (
+  product: ITemplateProductResponse,
+  index: number,
+  pageIndex: number,
+): ISearchAndFilterProduct => {
   const priceObj: ISearchAndFilterProductPrice = getProductPrice(
     product.price / 100,
     product.compareAtPriceMax / 100,
     product.priceMin / 100,
-    product.priceMax / 100
+    product.priceMax / 100,
   );
 
   // It doesn't seem to be possible to get every Metafield of a product in Liquid or the Storefront API.
@@ -33,7 +40,7 @@ const mapProduct = (product: ITemplateProductResponse, index: number, pageIndex:
     compare_at_price_max: product.compareAtPriceMax,
     priceObj: priceObj,
     metafields: product.metafields,
-    variants: product.variants
+    variants: product.variants,
   };
 };
 
