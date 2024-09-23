@@ -16,18 +16,19 @@ const foldersToInclude = ['template'];
 
 const entry = {
   'bb-global': './src/scripts/global.js',
-  theme: './src/styles/theme.scss',
-  'bb-app-layer': './src/app-layer/index.js'
+  theme: './src/styles/theme.scss'
+  // ,
+  // 'bb-app-layer': './src/app-layer/index.js'
 };
 
-foldersToInclude.forEach(folder => {
-  readdirSync(`./src/scripts/${folder}`).forEach(
-    file => (entry[`sj-${folder}.${file.replace('.js', '')}`] = `./src/scripts/${folder}/${file}`)
-  );
-  readdirSync(`./src/styles/${folder}`).forEach(
-    file => (entry[`sc-${folder}.${file.replace('.scss', '')}`] = `./src/styles/${folder}/${file}`)
-  );
-});
+// foldersToInclude.forEach(folder => {
+//   readdirSync(`./src/scripts/${folder}`).forEach(
+//     file => (entry[`sj-${folder}.${file.replace('.js', '')}`] = `./src/scripts/${folder}/${file}`)
+//   );
+//   readdirSync(`./src/styles/${folder}`).forEach(
+//     file => (entry[`sc-${folder}.${file.replace('.scss', '')}`] = `./src/styles/${folder}/${file}`)
+//   );
+// });
 
 module.exports = env => {
   const themeDirectory = env.output ? `-${env.output}` : '';
@@ -35,9 +36,6 @@ module.exports = env => {
     target: 'web',
     entry: entry,
     plugins: [
-      // Currently webpack-fix-style-only-entries is not compatible with webpack5
-      // (https://github.com/fqborges/webpack-fix-style-only-entries/issues/31) so we will be using this fork temporarily.
-      // new FixStyleOnlyEntriesPlugin(),
       new RemoveEmptyScriptsPlugin(),
       new StylelintPlugin(),
       new ESLintPlugin({

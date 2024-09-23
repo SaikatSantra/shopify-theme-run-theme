@@ -17,7 +17,8 @@ const initAppLayer = () => {
   // Render some shit
   ReactDOM.render(
     <Provider store={store}>
-      <App config={{ ...config.config }}/>
+      <App/>
+      {/* <App config={{ ...config.config }}/> */} 
     </Provider>,
     appLayerWrapper
   );
