@@ -19,12 +19,16 @@ jobs:
         with:
           token: ${{ secrets.WF_ACTION_TOKEN }}
           fetch-depth: 0
+
       # GITHUB_REF print
       - name: Print GITHUB_REF
-        run: echo "The GITHUB_REF is: $GITHUB_REF"
+        run: |
+          echo "The GITHUB_REF is: $GITHUB_REF"
 
       - name: Extract branch name
-        run: echo "The branch name is: ${GITHUB_REF#refs/*/}"    
+        run: |
+           echo "The branch name is: ${GITHUB_REF#refs/*/}"    
+
       # Setup node
       - uses: actions/setup-node@v3
         with:
