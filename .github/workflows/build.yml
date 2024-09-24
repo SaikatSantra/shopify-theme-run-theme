@@ -61,6 +61,15 @@ jobs:
           git remote add -f theme-origin https://github.com/${GITHUB_REPOSITORY}-theme.git
           git subtree pull --prefix=theme theme-origin ${GITHUB_REF#refs/*/} --squash
 
+      - name: Update theme folder
+        run: |
+          git add theme
+          if [ "$(git diff --cached --quiet; echo $?)" -ne 0 ]; then
+              git commit -m "Update theme folder"
+          else
+              echo "No changes to commit"
+          fi
+          
       - name: Build assets
         run: |
           npm run build:assets
