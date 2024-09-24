@@ -1,0 +1,123 @@
+<div class="cw-announcement-wrap" style="overflow-x: hidden;">
+  <div id="cw-announcement-list" class="clearfix"  style="background-color: {{ section.settings.background_color }}; color: {{ section.settings.text_color }}
+  display: flex;
+  align-items: center; 
+  text-align: center;">
+    {% for block in section.blocks %}
+      <div class="cw-item"  style=" color: {{ block.settings.text_color }};" >{{ block.settings.announcement_text }}</div>
+    {% endfor %} 
+  </div>
+</div>
+<script>
+  let windowwidth = window.innerWidth;
+  let slideInterval = setInterval(slideNext, {{ section.settings.interval_time | times: 1000 }});
+let cwAnnouncementList = document.querySelector('#cw-announcement-list');
+let cwItems = document.querySelectorAll('.cw-item, .cw-announcement-wrap');
+function anncmnt(){  
+ 
+    windowwidth = window.innerWidth;
+      cwItems.forEach((item) => {
+        item.style.width = windowwidth + 'px';
+        item.style.transition = 'margin-left 1s, opacity 1s';
+      });
+    
+}
+  anncmnt();
+  window.onresize = function(event) {
+    $(".cw-announcement-wrap").width("auto");
+     setTimeout(anncmnt,50);
+};
+function slidePrev() {
+  let lastItem = cwAnnouncementList.lastElementChild;
+  let marginLeft = -windowwidth + 'px';
+  lastItem.style.marginLeft = marginLeft;
+  lastItem.style.opacity = '0';
+  lastItem.remove();
+  setTimeout(() => {
+    lastItem.style.marginLeft = '0px';
+    lastItem.style.opacity = '1';
+    cwAnnouncementList.insertBefore(lastItem, cwAnnouncementList.firstElementChild);
+  }, 1000);
+}
+
+function slideNext() {
+  let firstItem = cwAnnouncementList.firstElementChild;
+  let marginLeft = -windowwidth + 'px';
+  firstItem.style.marginLeft = marginLeft;
+  firstItem.style.opacity = '0';
+  setTimeout(() => {
+    firstItem.remove();
+    firstItem.style.marginLeft = '0px';
+    firstItem.style.opacity = '1';
+    cwAnnouncementList.appendChild(firstItem);
+  }, 1000);
+}
+document.addEventListener('shopify:section:load', function(event) {
+   if (event.detail.sectionId === 'shopify-section-annoucement-bar-custom') {
+     cwItems.forEach((item) => {
+        item.style.width = windowwidth + 'px';
+        item.style.transition = 'margin-left 1s, opacity 1s';
+      });
+   }
+  
+})
+                          
+ 
+
+  
+</script>
+{% schema %}
+{
+  "name": "Custom announcement",
+  "settings": [
+    {
+      "id": "background_color",
+      "type": "color",
+      "label": "Background color",
+      "default": "#F3F2F3"
+    },
+    {
+      "id": "interval_time",
+      "type": "range",
+      "label": "Slide interval time (seconds)",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "default": 3
+    }
+  ],
+  "blocks": [
+    {
+      "type": "header",
+      "name": "Announcement",
+      "settings": [
+        {
+          "id": "announcement_text",
+          "type": "text",
+          "label": "Announcement text",
+          "default": "Call attention to a special discount, feature or promotion here."
+        },
+        {
+          "id": "text_color",
+          "type": "color",
+          "label": "Text color",
+          "default": "#000000"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+/*Typeo CSS if no need so remove it Start*/
+
+
+
+
+{% endstylesheet %}
+
+{% javascript %}
+
+
+{% endjavascript %}

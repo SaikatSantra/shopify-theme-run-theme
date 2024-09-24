@@ -1,0 +1,71 @@
+<style>
+    .nav_menu li {
+        position: relative;
+        align-items: center;
+      list-style: none;
+    }
+
+.nav_menu li::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 87px !important;
+  background: #b9b8b8;
+  left: -16px;
+  margin-top: -76px !important;
+}
+
+    .nav_menu li:before {
+        width: 10px !important;
+        height: 10px;
+        background: #000;
+        border: 1px solid;
+        border-radius: unset !important;
+        content: '';
+        position: absolute;
+        left: -20px;
+        top: 11px;
+        z-index: 999;
+    }
+
+     .nav_menu li:last-child::after {
+       display:none;
+        top: -26px !important;
+    }
+/*       .nav_menu li:first-child::after{
+     margin-top: 0px !important;
+     }  */
+      @media only screen and (max-width:766px) {
+      .nav_menu li::after {
+      content: '';
+      position: absolute;
+      width: 2px;
+      height: 105px;
+      background: #b9b8b8;
+      left: -15px;
+      top: 21%;
+      }
+      .nav_menu p {
+      line-height: initial;
+      }
+      .nav_menu li:first-child::after {
+    margin-top: -57px !important;
+top: 8px;
+height: 173px !important;
+      }
+      }
+</style>
+
+
+
+
+<ul class="nav_menu">
+  <li>{{ settings.text_two }}</li>
+  <li>{{ settings.text_three }}</li>
+  <li>{{ settings.text_four }}</li>
+
+</ul>
+<div class="footer_content">
+
+<p>{{ section.settings.footer_id }}</p>
+</div>

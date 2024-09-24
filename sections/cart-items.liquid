@@ -1,0 +1,150 @@
+{% comment %}
+  this section HTML gose to minicart.liquid and minicart.liquid include in theme.liquid
+{% endcomment %}
+
+{{ 'component-cart.css' | asset_url | stylesheet_tag }}
+{{ 'component-mini-cart.css' | asset_url | stylesheet_tag }}
+
+<div class="mini-cart-con" id="mini__Cart">
+  <div class="cart-container-top">
+    <h2 class="cart-title">{{ 'sections.cart.title' | t }}</h2>
+    <a
+      id="closeBag"
+      class="btn close-bag"
+      tabindex="0"
+      href="javascript:void(0)"
+      onclick="HideFunction()"
+    >
+      {%- render 'icon-close' -%}
+    </a>
+  </div>
+  {% liquid
+    assign cart_total = cart.total_price
+    assign cartthreshhold = settings.freeshipping | times: 100.00
+    assign percent_main_value = cart_total | divided_by: cartthreshhold
+    assign main_percent = percent_main_value | times: 100.00
+    assign need_amount = cart_total | minus: cartthreshhold
+  %}
+  <style></style>
+  <div class="progress-warp">
+    <div class="progress-container h4">
+      <span class="progress-bar-money">
+        {%- if cart_total >= cartthreshhold -%}
+          {{ 'sections.cart.earned' | t }}
+        {% else %}
+          {{ 'sections.cart.you_are' | t }}
+          {{ need_amount | money_without_trailing_zeros | remove: '-' }}
+          {{ 'sections.cart.from' | t }}
+        {% endif -%}
+      </span>
+      {{ 'sections.cart.free_shipping' | t }}
+    </div>
+    <div class="shipping-indicator">
+      <div class="shipping-indicator-fill" style="width:{{ main_percent }}%; max-width:100%;"></div>
+    </div>
+  </div>
+
+  <hr class="cart-hr">
+
+  <div class="min-cart-items">
+    {% for item in cart.items %}
+      {% for tag in item.product.tags %}
+        {% if tag contains 'cart-group' %}
+        {% endif %}
+      {% endfor %}
+
+      <div class="min-cart-item" index="{{ forloop.index }}" data-key="{{ item.key }}">
+        <div class="mini-cart-item-container">
+          <div class="cart-img-container">
+            <img
+              src="{{ item.image | image_url: width: 250, height: 250 }}"
+              loading="lazy"
+              width="250"
+              height="250"
+            >
+          </div>
+          <div class="product-details-container">
+            <div class="inner-product-details-container">
+              <div class="mini-cart-line-items-container">
+                <h4>{{ item.product.title }}</h4>
+                {% if item.variant and item.selling_plan_allocation == blank %}
+                  {% assign variant_title = item.variant.title | split: '/' | join: ': ' %}
+                  <div class="mini-cart-item">{{ variant_title }}</div>
+                {% endif %}
+                <div class="mini-cart-item">{{ item.selling_plan_allocation.selling_plan.name }}</div>
+                <div class="mini-cart-item">{{ item.price | money }}</div>
+              </div>
+              <div class="mini-cart-price-container">
+                <div class="mini-cart-item h4 mini-cart-item-total">{{ item.price | money }}</div>
+              </div>
+            </div>
+
+            <div class="cart-item-quantity">
+              <div class="cart-quantity-selector quantity">
+                <button type="button" class="minus quantity__button">{% render 'icon-caret' %}</button>
+                <input class="quantity__input" name="updates[]" type="text" value="{{ item.quantity }}">
+                <button type="button" class="plus quantity__button">{% render 'icon-caret' %}</button>
+              </div>
+              <div class="buttons-div">
+                <a
+                  onclick="updateItemById('{{ item.id }}','0','cart-items')"
+                  href="javascript:void(0)"
+                  id="myBtn"
+                  ItemId="{{ item.id }}"
+                  line="{{ forloop.index }}"
+                  class="btn-remove cart-item--remove-link"
+                  data-cartitem-remove
+                >
+                  {% render 'icon-remove' -%}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="bottom-part">
+  <hr class="cart-hr">
+
+  <div class="subtotal">
+    <h2>{{ 'sections.cart.subtotal' | t }}</h2>
+    <h2 class="amount ">{{ cart.total_price | money }}</h2>
+  </div>
+  <p class="tax-text">{{ 'sections.cart.taxes_included_but_shipping_at_checkout' | t }}</p>
+
+  <div class="button-container">
+    <a
+      href="{{ routes.cart_url }}"
+      class="button mini-cart-button "
+    >
+      {{- 'sections.cart.view_cart' | t -}}
+      <span class="cart-amount">
+        (
+        {{- cart.item_count }})</span
+      >
+    </a>
+
+    <a
+      href="/checkout"
+      class="button mini-cart-button minicart-checkout-button"
+      {% if cart == empty %}
+        disabled
+      {% endif %}
+    >
+      {{- 'sections.cart.checkout' | t -}}
+    </a>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Cart items",
+  "settings": []
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}

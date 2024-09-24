@@ -1,0 +1,220 @@
+<link
+  rel="stylesheet"
+  href="{{ 'section-before-after-image.css' | asset_url }}"
+  media="print"
+  onload="this.media='all'"
+>
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+<section
+  class="Section Section--spacingNormal scroll-trigger animate--slide-in"
+  data-section-id="{{ section.id }}"
+  data-section-type="before-after-image"
+  data-component="image-comparison-slider"
+>
+  <div class="wrapper page-width page-width-desktop section-{{ section.id }}-padding">
+    {%- if section.settings.subheading != blank or section.settings.title != blank -%}
+      <header class="SectionHeader SectionHeader--center">
+        <div class="Container {% if section.settings.heading_alignment == 'center' %} center {% endif %}">
+          {%- if section.settings.subheading != blank -%}
+            <h3 class="SectionHeader__SubHeading h4">{{ section.settings.subheading | escape }}</h3>
+          {%- endif -%}
+          {%- if section.settings.title != blank -%}
+            <h2 class="SectionHeader__Heading">{{ section.settings.title | escape }}</h2>
+          {%- endif -%}
+        </div>
+      </header>
+    {%- endif -%}
+
+    <div class="maincontainer">
+      <div
+        class="image-container"
+        style="--desktop-height: {{ section.settings.desktop_height }}; --mob-height: {{ section.settings.mobile_height }}"
+      >
+        {% if section.settings.image1 %}
+          <div class="image-before">
+            <img
+              class="slider-image"
+              src="{{ section.settings.image1 | image_url: width: 1800 }}"
+              alt="{{ section.settings.image1.alt | escape }}"
+              loading="lazy"
+              width="{{ section.settings.image1.width }}"
+              height="{{ section.settings.image1.height }}"
+            >
+          </div>
+        {% else %}
+          <div class="image-before image-container-placeholder">
+            {{ 'product-1' | placeholder_svg_tag: 'slider-image' }}
+          </div>
+        {% endif %}
+        {% if section.settings.image2 %}
+          <img
+            class="image-after slider-image"
+            src="{{ section.settings.image2 | image_url: width: 1800 }}"
+            alt="{{ section.settings.image2.alt | escape }}"
+            loading="lazy"
+            width="{{ section.settings.image2.width }}"
+            height="{{ section.settings.image2.height }}"
+          >
+        {% else %}
+          <div class="image-container-placeholder">
+            {{ 'product-1' | placeholder_svg_tag: 'image-after slider-image' }}
+          </div>
+        {% endif %}
+      </div>
+      <!-- step="10" -->
+      <input
+        type="range"
+        min="0"
+        max="100"
+        value="50"
+        aria-label="Percentage of before photo shown"
+        class="rangeslider"
+      >
+      <div class="slider-line" aria-hidden="true"></div>
+      <div class="comparison-button" aria-hidden="true">
+        <span class="caret-left"> {% render 'icon-caret' %}</span>
+        <span class="caret-right">{% render 'icon-caret' %}</span>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  const container = document.querySelector('.maincontainer');
+  document.querySelector('.rangeslider').addEventListener('input', (e) => {
+    container.style.setProperty('--position', `${e.target.value}%`);
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Image Comparison",
+  "class": "shopify-section--bordered",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Image comparison"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Sub-heading",
+      "default": "Compare any two images"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.featured-blog.settings.heading_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.featured-blog.settings.heading_alignment.options__2.label"
+        }
+      ],
+      "default": "left",
+      "label": "t:sections.featured-blog.settings.heading_alignment.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "image1",
+      "label": "Image before",
+      "info": "975 x 1185px jpg recommended (vertical image) or 1200 x 1200px jpg recommended (square image)."
+    },
+    {
+      "type": "image_picker",
+      "id": "image2",
+      "label": "Image after",
+      "info": "975 x 1185px jpg recommended (vertical image) or 1200 x 1200px jpg recommended (square image)."
+    },
+    {
+      "type": "select",
+      "id": "desktop_height",
+      "options": [
+        {
+          "value": "550px",
+          "label": "550px"
+        },
+        {
+          "value": "650px",
+          "label": "650px"
+        },
+        {
+          "value": "750px",
+          "label": "750px"
+        }
+      ],
+      "default": "650px",
+      "label": "Desktop Height"
+    },
+    {
+      "type": "select",
+      "id": "mobile_height",
+      "options": [
+        {
+          "value": "250px",
+          "label": "350px"
+        },
+        {
+          "value": "350px",
+          "label": "450px"
+        },
+        {
+          "value": "450px",
+          "label": "550px"
+        }
+      ],
+      "default": "350px",
+      "label": "Mobile Height"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "category": "image",
+      "name": "Before After Image"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

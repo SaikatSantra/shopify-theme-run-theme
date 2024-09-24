@@ -1,0 +1,26 @@
+.product-grid .grid__item {
+  margin-bottom: 3rem;
+}
+
+.product-grid.negative-margin {
+  margin-bottom: 2rem;
+  margin-top: 0;
+}
+
+.product-grid.negative-margin--small {
+  margin-bottom: 2rem;
+  margin-top: 0;
+}
+
+@media screen and (min-width: 990px) {
+
+  .product-grid.negative-margin {
+    margin-bottom:  0;
+    margin-top: 0;
+  }
+
+  .product-grid.negative-margin--small {
+    margin-bottom: -1rem;
+    margin-top: 0;
+  }
+}

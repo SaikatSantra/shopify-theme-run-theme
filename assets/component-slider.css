@@ -1,0 +1,540 @@
+slider-component,
+main-slider-component {
+  position: relative;
+  display: block;
+}
+@media screen and (min-width: 990px) {
+  .featured-collection {
+    position: relative;
+  }
+}
+.featured-collection .slider-button--prev {
+    right: 48px;
+}
+.no-js slider-component .slider,
+.no-js main-slider-component .slider {
+  padding-bottom: 3rem;
+}
+@media screen and (max-width: 989px) {
+.slider__slide {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+
+  .slider.slider--mobile {
+    position: relative;
+    flex-wrap: inherit;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 1.5rem;
+  }
+  .slider-mobile-gutter .slider-buttons {
+    top: 0;
+    margin-right: 0;
+  }
+
+  /* .slider.slider--mobile .slider__slide {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  } */
+}
+.product--thumbnail_slider .slider.slider--mobile {
+  position: relative;
+  flex-wrap: inherit;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 1.5rem;
+}
+@media screen and (max-width: 989px) {
+  .product--thumbnail_slider .slider.slider--mobile {
+    /* overflow-x: unset; */
+    scroll-snap-type: unset;
+    margin-bottom: 0;
+  }
+}
+@media screen and (min-width: 990px) {
+  .mainSlider-image .product__media-list {
+    overflow-y: hidden;
+  }
+}
+
+@media screen and (max-width: 989px) {
+  .slider.slider--tablet {
+    position: relative;
+    flex-wrap: inherit;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scroll-padding-left: 1rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .slider.slider--tablet .slider__slide {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
+/* Scrollbar */
+
+.slider {
+  scrollbar-color: rgb(var(--color-foreground))
+    rgba(var(--color-foreground), 0.04);
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.slider::-webkit-scrollbar {
+  height: 0.4rem;
+  width: 0.4rem;
+  display: none;
+}
+
+.no-js .slider {
+  -ms-overflow-style: auto;
+  scrollbar-width: auto;
+}
+
+.no-js .slider::-webkit-scrollbar {
+  display: initial;
+}
+
+.slider::-webkit-scrollbar-thumb {
+  background-color: rgb(var(--color-foreground));
+  border-radius: 0.4rem;
+  border: 0;
+}
+
+.slider::-webkit-scrollbar-track {
+  background: rgba(var(--color-foreground), 0.04);
+  border-radius: 0.4rem;
+}
+
+.mainSlider-image main-slider-component .slider-buttons {
+  position: absolute;
+  z-index: 2;
+  bottom: 20px;
+  top: auto !important;
+  margin: 0 1.5rem !important;
+  width: calc(100% - 3rem);
+}
+
+.slider-mobile-gutter .slider-buttons {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.mainSlider-image .slideshow__control-wrapper {
+  width: 100%;
+  text-align: center;
+  gap: 10px;
+  display: flex;
+  margin-top: 16px;
+}
+
+.mainSlider-image .buttons {
+  display: flex;
+}
+
+.slider-counter {
+  display: none;
+}
+
+.slider-buttons--overlay .slider-counter {
+  margin-right: 0;
+  padding: 0 1.4rem;
+}
+
+.slider-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media screen and (min-width: 990px) {
+  .slider-buttons {
+    display: none;
+  }
+  .slider-mobile-gutter .slider-buttons {
+    margin-right: 0rem;
+  }
+}
+
+/* @media screen and (min-width: 990px) {
+  .slider--mobile + .slider-buttons {
+    display: none;
+  }
+} */
+
+.slider-button {
+  border: 0;
+  border-radius: var(--buttons-radius);
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  color: #020202;
+  border: 1px solid #e5e5e5 !important;
+}
+
+.slider-button:not([disabled]):hover {
+  opacity: 0.7;
+  z-index: 1;
+}
+
+/* .slider-button:first-of-type {
+  margin-left: 1rem;
+  position: relative;
+}
+
+.slider-buttons--overlay .slider-button {
+  margin-top: -1px;
+  margin-bottom: -1px;
+}
+
+.slider-buttons--overlay .slider-button + .slider-button {
+  margin-right: 3rem;
+} */
+
+.slider-button .icon {
+  height: 12px;
+}
+
+.slider-button[disabled] .icon {
+  color: rgba(var(--color-foreground), 0.3);
+}
+.slider-button[disabled] {
+  opacity: 0.2;
+  display: block;
+}
+
+/* .slider-button--next .icon {
+  transform: rotate(-90deg) translateX(0.15rem);
+}
+
+.slider-button--prev .icon {
+  margin-left: -0.2rem;
+  transform: rotate(90deg) translateX(-0.15rem);
+}
+
+.slider-button--next:not([disabled]):hover .icon {
+  transform: rotate(-90deg) translateX(0.15rem) scale(1.07);
+}
+
+.slider-button--prev:not([disabled]):hover .icon {
+  transform: rotate(90deg) translateX(-0.15rem) scale(1.07);
+} */
+
+.slider-button:focus-visible {
+  z-index: 1;
+}
+
+.slider-button--next {
+  margin-right: 0;
+  margin-left: 1rem;
+}
+
+button.slider-button.slick-btns {
+  margin: 0rem;
+}
+
+@media screen and (max-width: 989px) {
+  .hide-arrows-mob {
+    display: none !important;
+  }
+}
+
+.collection-slider {
+  overflow-x: scroll;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  overflow: hidden;
+}
+
+.view-all-container {
+  position: absolute;
+  width: 100%;
+  top: 0;
+}
+
+.add-cart-container {
+  display: flex;
+  justify-content: end;
+  position: relative;
+}
+
+.card__inner {
+  position: relative;
+}
+.quick-add-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: transparent;
+  padding: 0;
+  display: flex;
+  justify-content: end;
+  margin-bottom: 0.75rem;
+  margin-right: 0.5rem;
+}
+
+.add-to-cart-icon {
+  height: 60px;
+  width: 60px;
+}
+
+.flex-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 3.5rem;
+}
+
+.view-all {
+  margin: 0;
+}
+
+.title-collection {
+  margin: 0;
+}
+
+.image-container-placeholder {
+  background-color: rgba(var(--color-foreground), 0.04);
+}
+
+.complementary-slide-component {
+  margin: 1rem 0;
+}
+
+/* Arrows */
+.slick-prev,
+.slick-next {
+  font-size: 0;
+  line-height: 0;
+  position: absolute;
+  bottom: 0;
+  display: block;
+  padding: 0;
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  cursor: pointer;
+  color: transparent;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+.slick-prev:hover,
+.slick-prev:focus,
+.slick-next:hover,
+.slick-next:focus {
+  color: transparent;
+  outline: none;
+  background: transparent;
+}
+.slick-prev:hover:before,
+.slick-prev:focus:before,
+.slick-next:hover:before,
+.slick-next:focus:before {
+  opacity: 1;
+}
+.slick-prev.slick-disabled:before,
+.slick-next.slick-disabled:before {
+  opacity: 0.25;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-family: "slick";
+  font-size: 20px;
+  line-height: 1;
+  opacity: 0.75;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.slick-prev {
+  margin-right: 5rem;
+}
+
+/* @media screen and (min-width: 990px) {
+.slick-prev
+  {
+      left: 35%;
+  }
+} */
+[dir="rtl"] .slick-prev {
+  right: 0;
+  left: auto;
+}
+.slick-prev:before {
+  content: "←";
+}
+[dir="rtl"] .slick-prev:before {
+  content: "→";
+}
+
+.slick-next {
+  margin-left: 5rem;
+}
+/* @media screen and (min-width: 990px) {
+  .slick-next
+  {
+      right: 40%;
+  }
+} */
+
+[dir="rtl"] .slick-next {
+  right: auto;
+  left: 0;
+}
+.slick-next:before {
+  content: "→";
+}
+[dir="rtl"] .slick-next:before {
+  content: "←";
+}
+
+.prdSlider {
+  margin-top: 30px;
+}
+.prdSlider .slideInn {
+  width: 100%;
+  float: left;
+}
+.prdSlider .slideInn .mainSlider {
+  width: 100%;
+  float: right;
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (min-width: 990px) {
+  .prdSlider .slideInn .mainSlider {
+    width: 85%;
+  }
+}
+.prdSlider .slideInn .thumbSlider {
+  width: 10%;
+  float: left;
+}
+.slick-slide img {
+  max-width: 100%;
+}
+.thumbSlider .slick-current .slide_item {
+  border: 2px solid #000;
+}
+.thumbSlider .slide_item {
+  cursor: pointer;
+}
+.slick-arrow img {
+  max-width: 100%;
+}
+.mainSlider .slick-arrow {
+  z-index: 1;
+  height: auto;
+}
+.mainSlider .slick-arrow:before {
+  display: none;
+}
+
+.mainSlider-image button.slider-counter__link.slider-counter__link--dot .dot {
+  width: 100%;
+  height: 3px;
+
+  display: block;
+}
+
+.mainSlider .slide_item img {
+  margin-inline: auto;
+}
+.slider-mobile-thumbnail .product__media-list .product__media-item {
+  display: none;
+}
+.slider-mobile-thumbnail .product__media-list .product__media-item.is-active {
+  display: block;
+}
+.drawer_layer {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  background: rgb(var(--color-background));
+  left: 0;
+  z-index: 2;
+}
+body.menu-open .drawer_layerv {
+  display: block;
+}
+.prdSlider .slideInn .thumbSlider {
+  display: block;
+}
+.slider-mobile-gutter .slider-buttons {
+  justify-content: flex-end;
+}
+.mainSlider-image .slider-button.slider-button--prev .icon {
+  transform: rotate(90deg);
+}
+.mainSlider-image .slider-button.slider-button--next .icon {
+  transform: rotate(270deg);
+}
+
+/* Dots Styles */
+.slick-dots {
+  position: absolute;
+  bottom: -25px; /* Position dots below your slider */
+  left: 0;
+  right: 0;
+  display: flex; /* Use flexbox to distribute dots */
+  justify-content: center; /* Center dots horizontally */
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+  transform: none; /* No need to translate since flexbox is used */
+}
+
+.slick-dots li {
+  flex: 1; /* Flex each dot to fill the space */
+  margin: 0 4px; /* Add some space between dots */
+  display: flex; /* Use flexbox for the dots as well */
+  justify-content: center; /* Center the button in the dot */
+}
+
+.slick-dots li button {
+  font-size: 0;
+  line-height: 0;
+  width: 90%; /* Fill the dot's flex container */
+  height: 4px; /* Height of the dots */
+  cursor: pointer;
+  color: transparent;
+  border: none;
+  outline: none;
+  background: #ccc; /* Non-active dot color - light gray */
+  border-radius: 4px; /* Rounded corners */
+}
+
+/* Active dot */
+.slick-dots li.slick-active button {
+  background: #000; /* Active dot color - black */
+}
+
+/* Transition for smooth background color change */
+.slick-dots li button {
+  transition: background-color 0.3s;
+}
+
+@media screen and (max-width: 990px) {
+  .thumbSlider:not(.slick-initialized) {
+    display: none;
+  }
+}

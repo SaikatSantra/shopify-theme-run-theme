@@ -1,0 +1,304 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "text_zy7Gxm": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "body"
+          }
+        },
+        "d0d6aa5d-edb4-422d-929e-6a10220610cd": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "b5bf1e40-22d6-4ed7-a622-f0fdbea8f636": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "6cf9f6ac-279a-49b1-986f-6279e8c65255": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "show_color_swatch": true
+          }
+        },
+        "subscription_plus_subscription_plus_NexwW7": {
+          "type": "shopify:\/\/apps\/subscription-plus\/blocks\/subscription-plus\/79c17119-154e-465c-8480-a7e0399512ff",
+          "settings": {
+            "advance_widget": false,
+            "default_option": "subscription",
+            "template": "modern",
+            "text_color": "#000000",
+            "branding_color": "#000000",
+            "terms_page_link": "",
+            "one_time_translation": "One time purchase",
+            "widget_type": "widget_7",
+            "show_term_checkbox": true,
+            "subscription_policy_text": "You’re subscribing to receive this item multiple times, on a recurring basis (according to the frequency you select) with a discount on every recurring order. You may cancel or change your subscription at any time.",
+            "enable_benifits": true,
+            "tooltip_text": "You can edit, skip, cancel and reschedule the subscription at any time.",
+            "enable_shadow": true,
+            "delivery_text": "Select Delivery Frequency",
+            "selected_text_color": "",
+            "hover_text_color": "",
+            "radio_color": "",
+            "bg_color_selected": "",
+            "discount_bg": "",
+            "discount_text_color": "",
+            "border_color": "",
+            "default_font": true,
+            "fonts": "helvetica_n4",
+            "font_size_heading": 18,
+            "font_size_price": 30
+          }
+        },
+        "inventory_NVaFc7": {
+          "type": "inventory",
+          "settings": {
+            "inventory_threshold": 10
+          }
+        },
+        "customer_viewing_LAzYh3": {
+          "type": "customer-viewing",
+          "settings": {
+          }
+        },
+        "delivery_EqUhmC": {
+          "type": "delivery",
+          "settings": {
+            "delivery_text": "Order and Get it Between",
+            "delivery_timer": 2,
+            "delivery_timer_2": 4
+          }
+        },
+        "quantity_selector_9khJVN": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "e68a29ac-3729-4741-847b-a74114159eff": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_favourite_btn": true,
+            "button_bg": "#020202",
+            "button_text": "#ffffff",
+            "buy_button_bg": "#008540",
+            "buy_button_text": "#ffffff",
+            "fav_button_bg": "#ffffff",
+            "fav_button_text": "#020202"
+          }
+        },
+        "description_9img3U": {
+          "type": "description",
+          "settings": {
+          }
+        },
+        "payment_banner_3zEVTw": {
+          "type": "Payment-banner",
+          "settings": {
+            "payment_months": 3,
+            "payment_type": "ShopPay",
+            "klarna_label": "Learn more"
+          }
+        },
+        "share_6AJxxU": {
+          "type": "share",
+          "settings": {
+          }
+        },
+        "custom_message_rwDMJa": {
+          "type": "custom-message",
+          "disabled": true,
+          "settings": {
+            "custom-message-text": "Add custom text:",
+            "custom-message-check": "Add Engraving + $15,00"
+          }
+        },
+        "collapsible_tab_p4fUMV": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Product Details",
+            "content": "",
+            "page": "",
+            "icon": "none",
+            "enable_review": false,
+            "enable_description": true,
+            "enable_secondimage": true,
+            "layout": "text_first"
+          }
+        },
+        "collapsible_tab_XtgVbU": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Delivery",
+            "content": "<p>We have a 30-day return policy, which means you have 30 days after receiving your item to request a return.<br\/><br\/>To be eligible for a return, your item must be in the same condition that you received it, unworn or unused, with tags, and in its original packaging. You’ll also need the receipt or proof of purchase.<br\/><br\/>To start a return, you can contact us at. Please note that returns will need to be sent to the following address: [INSERT RETURN ADDRESS]<br\/><br\/>If your return is accepted, we’ll send you a return shipping label, as well as instructions on how and where to send your package. Items sent back to us without first requesting a return will not be accepted.<br\/><br\/>You can always contact us for any return question at<\/p>",
+            "page": "",
+            "icon": "none",
+            "enable_review": false,
+            "enable_description": false,
+            "enable_secondimage": false,
+            "layout": "image_first"
+          }
+        },
+        "collapsible_tab_xDzKcN": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Returns",
+            "content": "<p>We have a 30-day return policy, which means you have 30 days after receiving your item to request a return.<br\/><br\/>To be eligible for a return, your item must be in the same condition that you received it, unworn or unused, with tags, and in its original packaging. You’ll also need the receipt or proof of purchase.<br\/><br\/>To start a return, you can contact us at. Please note that returns will need to be sent to the following address: [INSERT RETURN ADDRESS]<br\/><br\/>If your return is accepted, we’ll send you a return shipping label, as well as instructions on how and where to send your package. Items sent back to us without first requesting a return will not be accepted.<br\/><br\/>You can always contact us for any return question at<\/p>",
+            "page": "",
+            "icon": "none",
+            "enable_review": false,
+            "enable_description": false,
+            "enable_secondimage": false,
+            "layout": "image_first"
+          }
+        },
+        "collapsible_tab_ykkRxz": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Reviews",
+            "content": "",
+            "page": "",
+            "icon": "none",
+            "enable_review": true,
+            "enable_description": false,
+            "enable_secondimage": false,
+            "layout": "image_first"
+          }
+        }
+      },
+      "block_order": [
+        "text_zy7Gxm",
+        "d0d6aa5d-edb4-422d-929e-6a10220610cd",
+        "b5bf1e40-22d6-4ed7-a622-f0fdbea8f636",
+        "6cf9f6ac-279a-49b1-986f-6279e8c65255",
+        "subscription_plus_subscription_plus_NexwW7",
+        "inventory_NVaFc7",
+        "customer_viewing_LAzYh3",
+        "delivery_EqUhmC",
+        "quantity_selector_9khJVN",
+        "e68a29ac-3729-4741-847b-a74114159eff",
+        "description_9img3U",
+        "payment_banner_3zEVTw",
+        "share_6AJxxU",
+        "custom_message_rwDMJa",
+        "collapsible_tab_p4fUMV",
+        "collapsible_tab_XtgVbU",
+        "collapsible_tab_xDzKcN",
+        "collapsible_tab_ykkRxz"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "media_size": "small",
+        "gallery_layout": "thumbnail_slider",
+        "arrow_selector": "center",
+        "hide_arrows": false,
+        "hide_mobile_dots": false,
+        "padding_top": 24,
+        "padding_bottom": 0
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "You might also like",
+        "image_ratio": "adapt",
+        "show_secondary_image": true,
+        "add_image_padding": false,
+        "show_image_outline": true,
+        "show_vendor": false
+      }
+    },
+    "faq_XAzTFc": {
+      "type": "faq",
+      "blocks": {
+        "block_1_9VwTEB": {
+          "type": "block-1",
+          "settings": {
+            "qstn": "<p>Use this to create a custom built accordion section for FAQ's and more.<\/p>",
+            "ans": "<p>Create FAQ's, give customers more information about your brand and much more.<\/p>",
+            "button_label": "Button label",
+            "button_link": ""
+          }
+        },
+        "block_1_LMmtAT": {
+          "type": "block-1",
+          "settings": {
+            "qstn": "<p>Use this to create a custom built accordion section for FAQ's and more.<\/p>",
+            "ans": "<p>Create FAQ's, give customers more information about your brand and much more.<\/p>",
+            "button_label": "Button label",
+            "button_link": ""
+          }
+        },
+        "block_1_8hRwrw": {
+          "type": "block-1",
+          "settings": {
+            "qstn": "<p>Use this to create a custom built accordion section for FAQ's and more.<\/p>",
+            "ans": "<p>Create FAQ's, give customers more information about your brand and much more.<\/p>",
+            "button_label": "Button label",
+            "button_link": ""
+          }
+        },
+        "block_1_rzC8rw": {
+          "type": "block-1",
+          "settings": {
+            "qstn": "<p>Use this to create a custom built accordion section for FAQ's and more.<\/p>",
+            "ans": "<p>Create FAQ's, give customers more information about your brand and much more.<\/p>",
+            "button_label": "Button label",
+            "button_link": ""
+          }
+        },
+        "block_1_pam3t4": {
+          "type": "block-1",
+          "settings": {
+            "qstn": "<p>Use this to create a custom built accordion section for FAQ's and more.<\/p>",
+            "ans": "<p>Create FAQ's, give customers more information about your brand and much more.<\/p>",
+            "button_label": "Button label",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "block_1_9VwTEB",
+        "block_1_LMmtAT",
+        "block_1_8hRwrw",
+        "block_1_rzC8rw",
+        "block_1_pam3t4"
+      ],
+      "settings": {
+        "heading_faq": "FAQ Section",
+        "subheading_faq": "Subheading",
+        "heading_alignment": "left",
+        "optional_description": "Optional description of the group of questions.",
+        "full_width": false,
+        "content_alignment": "left",
+        "button_label": "Button label",
+        "button_link": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product-recommendations",
+    "faq_XAzTFc"
+  ]
+}

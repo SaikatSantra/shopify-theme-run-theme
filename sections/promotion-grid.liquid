@@ -1,0 +1,476 @@
+{{ 'section-only-image-video-banner.css' | asset_url | stylesheet_tag }}
+
+{%- for block in section.blocks -%}
+  <style>
+    .promotion-grid .banner__heading h2,
+    .promotion-grid .banner__heading h1,
+    .promotion-grid .banner__text h3{
+      color:{{ settings.banner_color_text }};
+    }
+
+    @media(max-width:989px){
+      .promotion-grid .banner__heading h2,
+      .promotion-grid .banner__heading h1,
+      .promotion-grid .banner__text h3 {
+        color:{{ settings.banner_color_text_mob }};
+      }
+
+      .promotion-grid .banner__button {
+        background-color: {{ settings.mobile_btn_background_color }}!important;
+        color: {{ settings.mobile_btn_color_text }}!important;
+      }
+
+      .promotion-grid a.button.button--secondary-banner {
+        color: {{ settings.mobile_btn_background_color }}!important;
+        --alpha-button-background: 0;
+        border: 1px solid {{ settings.mobile_btn_background_color }}!important;
+      }
+
+      .promotion-grid a.button.button--primary.banner__button:hover {
+          background-color: {{ settings.mobile_btn_hover_color }}!important;
+          opacity: 0.5;
+          box-shadow: 0 0 0 0.1rem {{ settings.mobile_btn_hover_color }}!important;
+      }
+    }
+
+    @media(min-width:990px) {
+      .promotion-grid .banner__button  {
+        background-color: {{ settings.btn_background_color }}!important;
+        color: {{ settings.btn_color_text }}!important;
+    }
+
+    .promotion-grid a.button.button--secondary-banner {
+      color: {{ settings.btn_background_color }}!important;
+      --alpha-button-background: 0;
+      border: 1px solid {{ settings.btn_background_color }}!important;
+    }
+
+    .promotion-grid a.button.button--primary.banner__button:hover {
+        background-color: {{ settings.btn_hover_color }}!important;
+        opacity: 0.5;
+        box-shadow: 0 0 0 0.1rem {{ settings.btn_hover_color }}!important;
+    }
+    }
+
+    {% if section.settings.image_height == 0 %}
+
+    {% else %}
+      @media(min-width:990px){
+        .promotion-grid .banner-wrap,
+        .promotion-grid .banner-wrap .flickity-viewport {
+          max-height: {{ section.settings.image_height }}px!important;
+          height: {{ section.settings.image_height }}px!important;
+        }
+        .promotion-grid .banner-wrap .img_section .banner {min-height: 100%!important;height: 100%!important;flex-direction: unset;}
+        .promotion-grid .banner-wrap .img_section{height:100%;}
+        .promotion-grid .banner-wrap .img_section img {object-fit: cover!important;height: 100%!important;}
+      }
+      {% endif %}
+
+      {% if section.settings.image_height_mob > 0 %}
+      @media(max-width:989px){
+        .promotion-grid .banner-wrap .img_section .banner .banner__media{ height: {{ section.settings.image_height_mob }}px!important;}
+      }
+      {% endif %}
+  </style>
+  {%- style -%}
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+
+    .promotion-grid .banner--framed:after, {
+      position: relative;
+    }
+
+    .promotion-grid .banner--framed:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: auto;
+      border: 7px solid transparent;
+      box-shadow: inset 0 0 0 2px #fff;
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    @media screen and (min-width: 990px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+
+      .promotion-grid .banner-wrap {
+        display: flex;
+        gap: 20px;
+      }
+
+      .promotion-grid .banner--framed:after {
+        border-width: 10px;
+      }
+    }
+
+    @media screen and (max-width: 989px) {
+      .promotion-grid .banner-wrap .img_section .banner .banner__media img {
+        position: relative;
+      }
+
+      .promotion-grid .ooper.banner--stacked .banner__content {
+        position: relative !important;
+      }
+
+      .promotion-grid .img_section + .img_section {
+        margin-top: 5rem;
+      }
+    }
+  {%- endstyle -%}
+{%- endfor -%}
+<div class="section-{{ section.id }}-padding isolate page-width-desktop promotion-grid scroll-trigger animate--slide-in">
+  <div
+    sectionName="{{ section.name }}"
+
+    class="banner-wrap"
+    {% if section.blocks.size > 1 %}
+    {% endif %}
+  >
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'image' -%}
+          <div class="img_section" {{ block.shopify_attributes }}>
+            {%- style -%}
+              #Banner-{{ block.id }}::after {
+              opacity: {{ block.settings.image_overlay_opacity | divided_by: 100.0 }};
+              }
+            {%- endstyle -%}
+            {%- if section.settings.adapt_height_first_image and block.settings.image != blank -%}
+              {%- style -%}
+                @media screen and (max-width: 989px) {
+                #Banner-{{ block.id }}::before,
+                #Banner-{{ block.id }} .banner__media::before,
+                #Banner-{{ block.id }}:not(.banner--mobile-bottom) .banner__content::before {
+                padding-bottom: {{ 1 | divided_by: block.settings.image.aspect_ratio | times: 200 }}%;
+                content: '';
+                display: block;
+                }
+
+                .banner__media, .banner--mobile-bottom .banner__content{}
+                #Banner-{{ block.id }}{ display: block!important;}
+                  .hide_in_mobile{
+                  display:none!important;
+                }
+                .show_in_mobile{
+                  display:block;
+                }
+
+                }
+
+                @media screen and (min-width: 990px) {
+                #Banner-{{ block.id }}::before,
+                #Banner-{{ block.id }} .banner__media::before {
+                padding-bottom: {{ 1 | divided_by: block.settings.image.aspect_ratio | times: 100 }}%;
+                content: '';
+                display: block;
+                }
+                .hide_in_mobile{
+                display:block;
+                }
+                .show_in_mobile, .hide_in_desktop {
+                display:none!important;
+                }
+                }
+              {%- endstyle -%}
+            {%- endif -%}
+
+            {% capture bottomcontent %}
+        <div id="Banner-{{ block.id | remove: "-" }}" class="banner__content banner__content--{{ block.settings.desktop_text_box_position }} page-width">
+          <div class="banner__box color-{{ block.settings.color_scheme }}">
+            <div  class="mobcolor:{{ settings.banner_color_text_mob }}  color:{{settings.banner_color_text}} banner__heading" {{ block.shopify_attributes }}>
+              <h2 class="{% if block.settings.heading_size == 'medium' %}h1{% else %}h0{% endif %}">{{ block.settings.heading }}</h2>
+            </div>
+            <div class=" mobcolor:{{ settings.banner_color_text_mob }}  color:{{settings.banner_color_text}} banner__text" {{ block.shopify_attributes }}>
+              <h3 class="h2">{{ block.settings.text | escape }}</h3>
+            </div>
+            <div class="banner__buttons{% if block.settings.button_label_1 != blank and block.settings.button_link_1 != blank and block.settings.button_label_2 != blank and block.settings.button_link_2 != blank %} banner__buttons--multiple{% endif %}" {{ block.shopify_attributes }}>
+              {%- if block.settings.button_label_1 != blank -%}
+              <a{% if block.settings.button_link_1 != blank %} href="{{ block.settings.button_link_1 }}"{% endif %} class="button {% if block.settings.button_style_secondary_1 %} button--secondary-banner{% else %} banner__button{% endif %}"{% if block.settings.button_link_1 == blank %} aria-disabled="true"{% endif %}>{{ block.settings.button_label_1 | escape }}</a>
+              {%- endif -%}
+              {%- if block.settings.button_label_2 != blank -%}
+              <a{% if block.settings.button_link_2 != blank %} href="{{ block.settings.button_link_2 }}"{% endif %} class="button {% if block.settings.button_style_secondary_2 %} button--secondary-banner{% else %} banner__button{% endif %}"{% if block.settings.button_link_2 == blank %} aria-disabled="true"{% endif %}>{{ block.settings.button_label_2 | escape }}</a>
+              {%- endif -%}
+            </div>
+          </div>
+        </div>
+        {% endcapture %}
+
+            {%- liquid
+              assign image_height = section.settings.image.width | divided_by: section.settings.image.aspect_ratio
+              assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
+              assign sizes = '(min-width: 990px) 100vw, 75vw'
+
+              assign fetch_priority = 'auto'
+              if section.index == 1
+                assign fetch_priority = 'high'
+              endif
+            -%}
+
+            <div
+              id="Banner-{{ block.id }}"
+              class=" ooper banner banner__content banner__content--{{ block.settings.desktop_text_box_position }} {% if section.settings.stack_images_on_mobile and block.settings.image != blank %} banner--stacked {% endif %}{% if section.settings.adapt_height_first_image and block.settings.image != blank %} banner--adapt {% endif %}{% if block.settings.show_text_below %}{%- endif -%} banner--mobile-bottom{% if block.settings.show_text_box == false %} banner--desktop-transparent{% else %} banner-box{% endif %}"
+            >
+              {%- if block.settings.image != blank -%}
+                <div class="banner__media media{% if section.settings.image == blank %} placeholder{% endif %}{% if block.settings.frame %} banner--framed{% endif %}">
+                  {{
+                    block.settings.image
+                    | image_url: width: 3840
+                    | image_tag:
+                      width: block.settings.image.width,
+                      height: image_height,
+                      widths: widths,
+                      sizes: sizes,
+                      fetchpriority: fetch_priority
+                  }}
+                </div>
+              {%- endif -%}
+              {%- if block.settings.image == blank -%}
+                <div class="banner__media media {% if block.settings.frame %} banner--framed{% endif %}">
+                  {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                </div>
+              {%- endif -%}
+              {{ bottomcontent }}
+            </div>
+          </div>
+      {%- endcase -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Promotion grid",
+  "tag": "section",
+  "class": "spaced-section spaced-section--full-width",
+  "settings": [
+    {
+      "type": "range",
+      "id": "image_height",
+      "min": 0,
+      "max": 1000,
+      "step": 100,
+      "unit": "px",
+      "label": "Image height for desktop",
+      "info": "When height 0px image will show original height",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "image_height_mob",
+      "min": 0,
+      "max": 1000,
+      "step": 100,
+      "unit": "px",
+      "label": "Image height for mobile",
+      "info": "When height 0px image will show original height",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    },
+    {
+      "type": "header",
+      "content": "t:sections.image-banner.settings.header.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "stack_images_on_mobile",
+      "default": true,
+      "label": "t:sections.image-banner.settings.stack_images_on_mobile.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "t:sections.image-with-text.settings.image.label",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.image-banner.settings.image.label"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Announce Promotions",
+          "label": "t:sections.image-banner.blocks.heading.settings.heading.label"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "medium",
+              "label": "t:sections.image-banner.blocks.heading.settings.heading_size.options__1.label"
+            },
+            {
+              "value": "large",
+              "label": "t:sections.image-banner.blocks.heading.settings.heading_size.options__2.label"
+            }
+          ],
+          "default": "medium",
+          "label": "t:sections.image-banner.blocks.heading.settings.heading_size.label"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "default": "Let your customers know exactly what's going on",
+          "label": "t:sections.image-banner.blocks.text.settings.text.label"
+        },
+        {
+          "type": "text",
+          "id": "button_label_1",
+          "default": "Button label",
+          "label": "t:sections.image-banner.blocks.buttons.settings.button_label_1.label",
+          "info": "t:sections.image-banner.blocks.buttons.settings.button_label_1.info"
+        },
+        {
+          "type": "url",
+          "id": "button_link_1",
+          "label": "t:sections.image-banner.blocks.buttons.settings.button_link_1.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "button_style_secondary_1",
+          "default": false,
+          "label": "t:sections.image-banner.blocks.buttons.settings.button_style_secondary_1.label"
+        },
+        {
+          "type": "text",
+          "id": "button_label_2",
+          "default": "Button label",
+          "label": "t:sections.image-banner.blocks.buttons.settings.button_label_2.label",
+          "info": "t:sections.image-banner.blocks.buttons.settings.button_label_2.info"
+        },
+        {
+          "type": "url",
+          "id": "button_link_2",
+          "label": "t:sections.image-banner.blocks.buttons.settings.button_link_2.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "button_style_secondary_2",
+          "default": false,
+          "label": "t:sections.image-banner.blocks.buttons.settings.button_style_secondary_2.label"
+        },
+        {
+          "type": "select",
+          "id": "desktop_text_box_position",
+          "options": [
+            {
+              "value": "flex-start",
+              "label": "t:sections.image-banner.settings.desktop_text_box_position.options__1.label"
+            },
+            {
+              "value": "center",
+              "label": "t:sections.image-banner.settings.desktop_text_box_position.options__2.label"
+            },
+            {
+              "value": "flex-end",
+              "label": "t:sections.image-banner.settings.desktop_text_box_position.options__3.label"
+            }
+          ],
+          "default": "center",
+          "label": "t:sections.image-banner.settings.desktop_text_box_position.label"
+        },
+        {
+          "type": "range",
+          "id": "image_overlay_opacity",
+          "min": 0,
+          "max": 100,
+          "step": 10,
+          "unit": "%",
+          "label": "t:sections.image-banner.settings.image_overlay_opacity.label",
+          "default": 30
+        },
+        {
+          "type": "checkbox",
+          "id": "show_text_box",
+          "default": false,
+          "label": "t:sections.image-banner.settings.show_text_box.label"
+        },
+        {
+          "type": "select",
+          "id": "color_scheme",
+          "options": [
+            {
+              "value": "accent-1",
+              "label": "t:sections.image-banner.settings.color_scheme.options__1.label"
+            },
+            {
+              "value": "background-1",
+              "label": "t:sections.image-banner.settings.color_scheme.options__3.label"
+            },
+            {
+              "value": "background-2",
+              "label": "t:sections.image-banner.settings.color_scheme.options__4.label"
+            },
+            {
+              "value": "inverse",
+              "label": "t:sections.image-banner.settings.color_scheme.options__5.label"
+            }
+          ],
+          "default": "background-1",
+          "label": "t:sections.image-banner.settings.color_scheme.label",
+          "info": "t:sections.image-banner.settings.color_scheme.info"
+        },
+        {
+          "type": "header",
+          "content": "Design"
+        },
+        {
+          "type": "checkbox",
+          "id": "frame",
+          "default": true,
+          "label": "Add frame"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Promotion Grid",
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

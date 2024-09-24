@@ -1,0 +1,166 @@
+<style>
+  .sticky__wraper {
+    background: rgb(var(--color-background));
+    border-top: 1px solid rgba(var(--color-foreground), 0.2);
+    bottom: 0;
+    position: sticky;
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+  }
+  .sticky__wraper--show {
+    /* for show class */
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    z-index: 999;
+  }
+  .sticky__image-title-wrap .image-section {
+    width: 50px;
+    display: block;
+  }
+
+  .sticky__image-title-wrap img {
+    width: 100%;
+    height: 100%;
+  }
+  .sticky__image-title-wrap {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+  .page-width-desktop.sticky__wraper-grid {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  .sticky__price-btn-wrap {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  /*.title-brand-wrap h6 {
+    color: #757575;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0;
+  }*/
+  .title-brand-wrap h4 {
+    margin: 0;
+  }
+  @media screen and (max-width: 989px) {
+    .sticky__image-title-wrap {
+      display: none;
+    }
+    .sticky__price-btn-wrap,
+    .sticky__price-btn-wrap .atc-container {
+      width: 100%;
+      display: block;
+    }
+  }
+</style>
+{%- liquid
+  assign fetch_priority = 'auto'
+  if section.index == 1
+    assign fetch_priority = 'high'
+  endif
+  assign widths = '165, 360, 535, 750, 1070, 1500'
+  assign image_height = product.featured_image.width | divided_by: product.featured_image.aspect_ratio
+-%}
+{%- capture sizes -%}
+    (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px,
+    (min-width: 990px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)
+{%- endcapture -%}
+<div class="sticky__wraper">
+  <div class="page-width-desktop sticky__wraper-grid">
+    <div class="sticky__image-title-wrap">
+      <div
+        class="image-section"
+        data-imgheight="{{product.featured_image.width | divided_by: product.featured_image.aspect_ratio}}"
+      >
+        {{
+          product.featured_image
+          | image_url: width: 1500
+          | image_tag: sizes: sizes, widths: widths, height: image_height, fetchpriority: fetch_priority
+        }}
+      </div>
+      <div class="title-brand-wrap">
+        <h4 class="h4">{{ product.title }}</h4>
+        <h4 class="h4  light">{{ product.vendor }}</h4>
+      </div>
+    </div>
+    <div class="sticky__price-btn-wrap">
+      <div class="product-heading-container" {{ block.shopify_attributes }}>
+        <div
+          class="no-js-hidden"
+          id="price-{{ section.id }}"
+          {{ block.shopify_attributes }}
+        >
+          {%- render 'price', product: product, use_variant: true, show_badges: false, price_class: 'price--large' -%}
+        </div>
+      </div>
+      <div>
+        <div class="atc-container">
+          <button
+            type="submit"
+            name="add"
+            {% if product.variants.size > 1 %}
+              onclick="clickEvent()"
+            {% endif %}
+            class="
+              product-form__submit-dummy button button--full-width
+              {% if product.variants.size > 1 %} disabled{% endif %}
+              {% if block.settings.show_dynamic_checkout and product.selling_plan_groups == empty %}.sticky-atc-btn{% else %}button--primary{% endif %}
+            "
+            {% if product.selected_or_first_available_variant.available == false %}
+              disabled
+            {% endif %}
+          >
+            {%- if product.selected_or_first_available_variant.available -%}
+              {% if product.variants.size > 1 %}
+                Choose Option
+              {% else %}
+                {{ 'products.product.add_to_cart' | t }}
+              {% endif %}
+            {%- else -%}
+              {{ 'products.product.sold_out' | t }}
+            {%- endif -%}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function clickEvent() {
+    console.log(event);
+    // document.querySelector('#variant_radios').scrollIntoView({ behavior: 'smooth' });
+    var targetDiv = document.getElementById('variant_radios');
+    var targetPosition = targetDiv.getBoundingClientRect().top + window.pageYOffset;
+    var offsetPosition = targetPosition - 100;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth',
+    });
+
+    const get = document.getElementById('productform__submit');
+    get.click();
+  }
+  const toggleElement = document.querySelector('.sticky__wraper');
+  const toggleTrigger = document.querySelector('product-form');
+  let togglePosition = toggleTrigger.offsetTop;
+  window.addEventListener('resize', () => {
+    togglePosition = toggleTrigger.offsetTop;
+  });
+
+  document.addEventListener('scroll', () => {
+    const scrollPosition = window.scrollY;
+    if (scrollPosition > togglePosition) {
+      toggleElement.classList.add('sticky__wraper--show');
+    } else {
+      toggleElement.classList.remove('sticky__wraper--show');
+    }
+  });
+</script>

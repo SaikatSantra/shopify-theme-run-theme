@@ -1,5 +1,0 @@
-app-layer-*.js
-dist/assets/*.js
-*/assets/*.js
-webpack.*.js
-tools/

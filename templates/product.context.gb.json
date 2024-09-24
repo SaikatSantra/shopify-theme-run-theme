@@ -1,0 +1,19 @@
+{
+  "parent": "product.json",
+  "context": {
+    "market": "gb"
+  },
+  "sections": {
+    "main": {
+      "settings": {
+      },
+      "blocks": {
+        "text_zy7Gxm": {
+          "settings": {
+            "text_style": "body"
+          }
+        }
+      }
+    }
+  }
+}

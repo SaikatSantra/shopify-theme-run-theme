@@ -1,0 +1,31 @@
+.page-title {
+  margin-top: 0;
+  margin-bottom: 4rem;
+}
+
+.page-placeholder-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.page-placeholder {
+  width: 52.5rem;
+  height: 52.5rem;
+}
+
+@media screen and (min-width: 990px) {
+  .article-container {
+    width: 740px;
+  }
+}
+
+.full-width-article {
+  width: 100%;
+}
+
+.article-alignment_center {
+  margin: 0 auto;
+}
+.article-alignment_left {
+  margin: 0;
+}

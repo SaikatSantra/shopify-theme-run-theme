@@ -1,0 +1,81 @@
+{% comment %}
+    Shopify Wishlist
+    Usage:
+      - Replace the snippet name ('product-card') with your existing product card snippet
+      - Pass the product object as a snippet variable named 'product'
+
+  {%- render 'product-card', product: product -%}
+{% endcomment %}
+<ul
+  id="main-collection-product-grid "
+  data-id="{{ section.id }}"
+  class="grid grid--2-col negative-margin product-grid grid--3-col-tablet grid--one-third-max grid--4-col-desktop grid--quarter-max"
+>
+  <li class="grid__item product-card">
+    {% render 'product-card',
+      product_card_product: product,
+      media_size: section.settings.image_ratio,
+      show_secondary_image: section.settings.show_secondary_image,
+      add_image_padding: section.settings.add_image_padding,
+      show_vendor: section.settings.show_vendor,
+      show_image_outline: section.settings.show_image_outline
+    %}
+  </li>
+</ul>
+
+{% schema %}
+{
+  "name": "t:sections.main-collection-product-grid.name",
+  "class": "spaced-section collection-grid-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.main-collection-product-grid.settings.header__3.content"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.main-collection-product-grid.settings.image_ratio.options__1.label"
+        },
+        {
+          "value": "portrait",
+          "label": "t:sections.main-collection-product-grid.settings.image_ratio.options__2.label"
+        },
+        {
+          "value": "square",
+          "label": "t:sections.main-collection-product-grid.settings.image_ratio.options__3.label"
+        }
+      ],
+      "default": "adapt",
+      "label": "t:sections.main-collection-product-grid.settings.image_ratio.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_secondary_image",
+      "default": false,
+      "label": "t:sections.main-collection-product-grid.settings.show_secondary_image.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "add_image_padding",
+      "default": false,
+      "label": "t:sections.main-collection-product-grid.settings.add_image_padding.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_image_outline",
+      "default": true,
+      "label": "t:sections.main-collection-product-grid.settings.show_image_outline.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "default": false,
+      "label": "t:sections.main-collection-product-grid.settings.show_vendor.label"
+    }
+  ]
+}
+{% endschema %}

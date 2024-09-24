@@ -1,0 +1,32 @@
+<style>
+    {%- if section.settings.color_swatches_text != blank -%}
+        {%- assign swatch_color_raw_data = section.settings.color_swatches_text | split: '|' -%}
+        {%- for one_data in swatch_color_raw_data -%}
+            {%- assign swatch_label = one_data | split: ':' | first | handleize -%}
+            {%- assign swatch_color = one_data | split: ':' | last -%}
+            .color-{{- swatch_label -}} { background: {{- swatch_color -}}!important;}
+        {%- endfor -%}
+    {%- endif -%}
+</style>
+{% schema %}
+  {
+      "name": "Swatches",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Swatches"
+        },
+        {
+          "type": "textarea",
+          "id": "color_swatches_text",
+          "label": "Color label and Color",
+          "info": "Ex: Black:#000 | cobalt blue:#0047AB"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Swatches"
+        }
+      ]
+    }
+{% endschema %}
