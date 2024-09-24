@@ -17,18 +17,17 @@ const foldersToInclude = ["template"];
 const entry = {
   "bb-global": "./src/scripts/global.js",
   theme: "./src/styles/theme.scss",
-  // ,
-  // 'bb-app-layer': './src/app-layer/index.js'
+  'bb-app-layer': './src/app-layer/index.js'
 };
 
-// foldersToInclude.forEach(folder => {
-//   readdirSync(`./src/scripts/${folder}`).forEach(
-//     file => (entry[`sj-${folder}.${file.replace('.js', '')}`] = `./src/scripts/${folder}/${file}`)
-//   );
-//   readdirSync(`./src/styles/${folder}`).forEach(
-//     file => (entry[`sc-${folder}.${file.replace('.scss', '')}`] = `./src/styles/${folder}/${file}`)
-//   );
-// });
+foldersToInclude.forEach(folder => {
+  readdirSync(`./src/scripts/${folder}`).forEach(
+    file => (entry[`sj-${folder}.${file.replace('.js', '')}`] = `./src/scripts/${folder}/${file}`)
+  );
+  readdirSync(`./src/styles/${folder}`).forEach(
+    file => (entry[`sc-${folder}.${file.replace('.scss', '')}`] = `./src/styles/${folder}/${file}`)
+  );
+});
 
 module.exports = (env) => {
   const themeDirectory = env.output ? `-${env.output}` : "";
