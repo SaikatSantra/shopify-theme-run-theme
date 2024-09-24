@@ -48,7 +48,7 @@ jobs:
           git config user.email "<>"
           # setup alias to theme repo.
           git remote add -f theme-origin https://github.com/${GITHUB_REPOSITORY}-theme.git
-          git subtree pull --prefix=theme theme-origin ${GITHUB_HEAD_REF}
+          git subtree pull --prefix=theme theme-origin ${GITHUB_HEAD_REF} --squash
 
       # Setup git config not pull
       - name: setup git config not pull
@@ -59,7 +59,7 @@ jobs:
           git config user.email "<>"
           # setup alias to theme repo.
           git remote add -f theme-origin https://github.com/${GITHUB_REPOSITORY}-theme.git
-          git subtree pull --prefix=theme theme-origin ${GITHUB_REF#refs/*/}
+          git subtree pull --prefix=theme theme-origin ${GITHUB_REF#refs/*/} --squash
 
       - name: Build assets
         run: |
