@@ -37,7 +37,7 @@ jobs:
           git config user.email "<>"
           # setup alias to theme repo.
           git remote add -f theme-origin https://github.com/${GITHUB_REPOSITORY}-theme.git
-          git subtree pull --prefix=theme theme-origin main 
+          # git subtree pull --prefix=theme theme-origin main 
 
       # Setup git config
       - name: setup git config
@@ -48,7 +48,7 @@ jobs:
           git config user.email "<>"
           # setup alias to theme repo.
           git remote add -f theme-origin https://github.com/${GITHUB_REPOSITORY}-theme.git
-          git subtree pull --prefix=theme theme-origin main 
+          # git subtree pull --prefix=theme theme-origin main 
 
       - name: Build assets
         run: npm run build:assets
