@@ -1,0 +1,140 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "type": "header",
+  "name": "Header group",
+  "sections": {
+    "header": {
+      "type": "header",
+      "blocks": {
+        "megamenu_EEr6Gq": {
+          "type": "megamenu",
+          "settings": {
+            "position": "1",
+            "category_image": true
+          }
+        },
+        "megamenu_8JRQVx": {
+          "type": "megamenu",
+          "settings": {
+            "position": "2",
+            "category_image": true
+          }
+        }
+      },
+      "block_order": [
+        "megamenu_EEr6Gq",
+        "megamenu_8JRQVx"
+      ],
+      "settings": {
+        "logo": "shopify:\/\/shop_images\/0x0.png",
+        "logo_height": 70,
+        "logo_position": "middle-center",
+        "top_header_nav_color": "#edff00",
+        "menu": "main-menu",
+        "enable_currency_change": true,
+        "show_line_separator": false,
+        "hide_account_icon": false,
+        "enable_wishlist_icon": true,
+        "enable_sticky_header": true
+      }
+    },
+    "annoucement-bar-custom": {
+      "type": "annoucement-bar-custom",
+      "blocks": {
+        "180bd63e-09c7-4fc4-8505-78b5d6546eff": {
+          "type": "header",
+          "settings": {
+            "announcement_text": "Call attention to a special discount, feature or promotion here.",
+            "text_color": "#000000"
+          }
+        },
+        "0bdb6a30-3a76-4a2e-b705-be7be383a9b1": {
+          "type": "header",
+          "settings": {
+            "announcement_text": "Call attention to a special discount, feature or promotion here.",
+            "text_color": "#000000"
+          }
+        },
+        "56e6f615-0f16-4426-9e60-9eacfca07d77": {
+          "type": "header",
+          "settings": {
+            "announcement_text": "Call attention to a special discount, feature or promotion here.",
+            "text_color": "#000000"
+          }
+        }
+      },
+      "block_order": [
+        "180bd63e-09c7-4fc4-8505-78b5d6546eff",
+        "0bdb6a30-3a76-4a2e-b705-be7be383a9b1",
+        "56e6f615-0f16-4426-9e60-9eacfca07d77"
+      ],
+      "disabled": true,
+      "settings": {
+        "background_color": "#ffffff",
+        "interval_time": 3
+      }
+    },
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {
+        "align_text": "left",
+        "enable_breadcrumbs_desktop": true,
+        "enable_breadcrumbs_mobile": true,
+        "colorBackground": "#ffffff",
+        "colorText": "#090909",
+        "hoverText": "#ffffff",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "popups": {
+      "type": "popups",
+      "blocks": {
+        "9bb3baa0-9cbd-471c-a2cd-e3c7a421d4b7": {
+          "type": "Sticky_reminder",
+          "settings": {
+            "sticky_reminder_text": "Sticky reminder",
+            "color_scheme": "accent-1"
+          }
+        }
+      },
+      "block_order": [
+        "9bb3baa0-9cbd-471c-a2cd-e3c7a421d4b7"
+      ],
+      "disabled": true,
+      "settings": {
+        "pop_up_de": true,
+        "show_only_for_visitors": true,
+        "apparition_delay": 1,
+        "frequency": 1,
+        "title": "Built in Newsletter Pop-up",
+        "content": "<p>No need to slow your site down with extra apps!<\/p>",
+        "image_position": "left",
+        "show_newsletter": true,
+        "sumnit_btn": "Subscribe",
+        "color_scheme": "accent-1"
+      }
+    },
+    "swatches_zcdQtT": {
+      "type": "swatches",
+      "settings": {
+        "color_swatches_text": "Black:#000 | blue:#0047AB | red: #FF0000"
+      }
+    }
+  },
+  "order": [
+    "header",
+    "annoucement-bar-custom",
+    "breadcrumbs",
+    "popups",
+    "swatches_zcdQtT"
+  ]
+}

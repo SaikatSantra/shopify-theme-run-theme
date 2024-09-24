@@ -1,0 +1,23 @@
+{%- if product.variants.size > 1 -%}
+  {% for option in product.options_with_values %}
+    {% if option.name == 'Colour' or option.name == 'Color' %}
+      <div class="color-variant-label-container">
+        <span class="hidden">{{ option.name }}</span>
+        <div class="color-swatch-container">
+          {% assign swatch_counter = 0 %}
+          {% for value in option.values %}
+            {% if swatch_counter < 5 %}
+              {% assign present_color = value | handleize %}
+              <div class="swatch-item-content">
+                <div class="swatch-item color-{{- present_color -}}"></div>
+              </div>
+              {% assign swatch_counter = swatch_counter | plus: 1 %}
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+{%- endif -%}
+
+{% comment %} red:#FF0000 | yellow:#FFD700| blue:#0047AB {% endcomment %}

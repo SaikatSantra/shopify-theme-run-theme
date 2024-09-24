@@ -1,0 +1,99 @@
+<script src="{{ 'media-gallery.js' | asset_url }}" defer="defer"></script>
+<div class="card-quick-buttons button-{{ show_quick_cart }} {% if settings.card_button_alignment %} buttons-{{- settings.card_button_alignment -}}{% endif %}">
+  <div class="quick-add no-js-hidden quick-view-add__container">
+    {%- liquid
+      assign product_form_id = 'quick-add-' | append: section_id | append: product_card_product.id
+      assign qty_rules = false
+      if product_card_product.selected_or_first_available_variant.quantity_rule.min > 1 or product_card_product.selected_or_first_available_variant.quantity_rule.max != null or product_card_product.selected_or_first_available_variant.quantity_rule.increment > 1
+        assign qty_rules = true
+      endif
+    -%}
+    <modal-opener data-modal="#QuickAdd-{{ product_card_product.id }}">
+      <button
+        id="{{ product_form_id }}-submit"
+        type="submit"
+        name="add"
+        class="quick-add__submit quick-view__button black-icon rounded-icon-button {% if horizontal_quick_add %} card--horizontal__quick-add animate-arrow{% endif %}"
+        aria-haspopup="dialog"
+        aria-labelledby="{{ product_form_id }}-submit title-{{ section_id }}-{{ product_card_product.id }}"
+        data-product-url="{{ product_card_product.url }}"
+      >
+        <span class="quick-view ab-center-center">{% render 'icon-quick-view' %}</span>
+        {%- if horizontal_quick_add -%}
+          <span class="icon-wrap">{% render 'icon-arrow' %}</span>
+        {%- endif -%}
+        {%- render 'loading-spinner' -%}
+      </button>
+    </modal-opener>
+    <quick-add-modal id="QuickAdd-{{ product_card_product.id }}" class="quick-add-modal">
+      <div
+        role="dialog"
+        aria-label="{{ 'products.product.choose_product_options' | t: product_name: product_card_product.title | escape }}"
+        aria-modal="true"
+        class="quick-add-modal__content global-settings-popup"
+        tabindex="-1"
+      >
+        <button
+          id="ModalClose-{{ product_card_product.id }}"
+          type="button"
+          class="quick-add-modal__toggle"
+          aria-label="{{ 'accessibility.close' | t }}"
+        >
+          {% render 'icon-close' %}
+        </button>
+        <div id="QuickAddInfo-{{ product_card_product.id }}" class="quick-add-modal__content-info"></div>
+        <div class="view-product__details">
+          <form action="{{ product_card_product.url  }}" method="get" style="display:inline;">
+            <input type="hidden" name="redirect" value="{{ product_card_product.url  }}">
+            <button type="submit" class="link product-details__link">
+              <span>View Product Details</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </quick-add-modal>
+    <div class="quick-add__container">
+      {%- if product_card_product.variants.size > 1 -%}
+        <a
+          href="{{ product_card_product.url }}"
+          name="add"
+          class="quick-add__submit quick-add__button white-icon rounded-icon-button inverted-svg__icon button--primary"
+        >
+          <span class="quick-add ab-center-center">
+            {% render 'icon-quick-add' %}
+          </span>
+          {%- render 'loading-spinner' -%}
+        </a>
+      {%- else -%}
+        <product-card-form class="product-form">
+          {%- form 'product',
+            product_card_product,
+            id: product_form_id,
+            class: 'form',
+            novalidate: 'novalidate',
+            data-type: 'add-to-cart-form'
+          -%}
+            <input type="hidden" name="id" value="{{ product_card_product.selected_or_first_available_variant.id }}">
+            <div class="product-form__buttons">
+              <div class="quickView-atc-container">
+                <button
+                  type="submit"
+                  name="add"
+                  class="quick-add__submit quick-add__button white-icon rounded-icon-button inverted-svg__icon {% if block.settings.show_dynamic_checkout and product_card_product.selling_plan_groups == empty %}.sticky-atc-btn{% else %}button--primary{% endif %}"
+                  {% if product_card_product.selected_or_first_available_variant.available == false %}
+                    disabled
+                  {% endif %}
+                >
+                  <span class="quick-add ab-center-center">
+                    {% render 'icon-quick-add' %}
+                  </span>
+                  {%- render 'loading-spinner' -%}
+                </button>
+              </div>
+            </div>
+          {%- endform -%}
+        </product-card-form>
+      {%- endif -%}
+    </div>
+  </div>
+</div>

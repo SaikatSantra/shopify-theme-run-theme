@@ -1,0 +1,95 @@
+
+
+
+
+.card--extend-height.card--standard.card--text, .card--extend-height.card--media {
+    display: flex;
+    flex-direction: column;
+}
+.card--extend-height.card--standard.card--text .card__inner, .card--extend-height.card--media .card__inner {
+    flex-grow: 1;
+}
+.card--standard>.card__content {
+    padding: 0;
+}
+.card__content {
+    display: grid;
+    grid-template-rows: minmax(0,1fr) max-content minmax(0,1fr);
+    padding: 1rem;
+    width: 100%;
+}
+.card--standard>.card__content .card__information {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.card__media, .card .media {
+    bottom: 0;
+    position: absolute;
+    top: 0;
+}
+.card__media {
+    width: calc(100% - 2 * var(--card-image-padding));
+}
+.card--standard .card__media {
+    margin: var(--card-image-padding);
+}
+.card .card__inner .card__media {
+    overflow: hidden;
+    z-index: 0;
+}
+.card .media {
+    width: 100%;
+}
+.card--standard.card--media .card__inner .card__information, .card--standard.card--text>.card__content .card__heading, .card--standard>.card__content .card__badge, .card--standard.card--text.article-card>.card__content .card__information, .card--standard>.card__content .card__caption {
+    display: none;
+}
+.card--media .card__inner .card__content {
+    padding: calc(var(--card-image-padding) + 1rem);
+    position: relative;
+}
+.card__information {
+    grid-row-start: 2;
+    padding: 1.3rem 1rem;
+}
+.card-information {
+    width: 100%;
+}
+
+.card--card, .card--standard .card__inner {
+    border-radius: var(--card-corner-radius);
+    position: relative;
+    box-sizing: border-box;
+}
+.ratio:before {
+    content: "";
+    width: 0;
+    height: 0;
+    padding-bottom: var(--ratio-percent);
+}
+.card--extend-height {
+    height: 100%; height: 500px;
+}
+.card-wrapper {
+    color: inherit;
+    height: 100%;
+    position: relative;
+    text-decoration: none;
+}
+.card--card:after, .card--standard .card__inner:after {
+    content: "";
+    position: absolute;
+    width: calc(var(--card-border-width) * 2 + 100%);
+    height: calc(var(--card-border-width) * 2 + 100%);
+    top: calc(var(--card-border-width) * -1);
+    left: calc(var(--card-border-width) * -1);
+    z-index: -1;
+    border-radius: var(--card-corner-radius);
+    box-shadow: var(--card-shadow-horizontal-offset) var(--card-shadow-vertical-offset) var(--card-shadow-blur-radius) rgba(var(--color-shadow),var(--card-shadow-opacity));
+}
+
+
+
+
+
+/* full card*/

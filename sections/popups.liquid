@@ -1,0 +1,702 @@
+<style>
+  aside.modal.modal--newsletter {
+      position: fixed;
+      top: 0;
+      z-index: 999;
+      background: #00000080;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      visibility: hidden;
+      opacity: 0;
+  }
+  .ds-inner {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+  }
+  .popup-newsletter__close {
+      position: absolute;
+      right: 2rem;
+      top: 2rem;
+      border-radius: 50%;
+      border: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+  }
+
+  h3.popup-newsletter__title.heading {
+      text-align: center;
+      margin: 0 0 15px;
+      font-size: 24px;
+  }
+  .popup-newsletter__content.rte p {
+      margin-top: 20px;
+      font-size: 18px;
+      color: rgb(var(--color-foreground));
+      text-align: center;
+  }
+  #NewsletterForm--popups {
+      flex: 1 1 auto;
+      height: 45px;
+      line-height: 45px;
+      border-radius: var(--buttons-radius);
+  }
+
+    .ds-form {
+      width: 100%;
+      align-items: center;
+      margin: 5% 0;
+  }
+
+
+  #NewsletterForm--popups:focus-visible {
+      opacity: 0.9;
+  }
+  button.form__floating-label {
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: white;
+      background: black;
+      flex: 1 1 auto;
+      text-align: center;
+      height: 45px;
+      line-height: 45px;
+      cursor: pointer;
+  }
+   .ds-inner .ds-sub-inner .newsletter-form {
+      flex-wrap: wrap;
+  }
+  .ds-inner .ds-sub-inner .newsletter-form__button {
+      text-transform: capitalize;
+      letter-spacing: 0.1em;
+      padding: 15px 15px;
+      background-color: rgb(var(--color-foreground));
+      color: rgb(var(--color-background))!important;
+      border-radius: var(--buttons-radius);
+      width: 100%;
+      margin-top:  1rem;
+      border: none;
+      border: 1px solid transparent;
+  }
+
+  .form__input-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+      flex-direction: column;
+      gap: 15px;
+  }
+
+  .newsletter-field .popup_form_input {
+    box-shadow: 0 0 0 0.1rem rgba(var(--color-foreground));
+  }
+
+  aside.modal.modal--newsletter.gvs_popup{
+      {% unless section.settings.pop_up_de %}
+      display: none;
+      {% else %}
+      display: block;
+      {% endunless %}
+
+  }
+  aside.modal.modal--newsletter.ds_main {
+      visibility: visible !important;
+      opacity: inherit !important;
+      display: block !important;
+  }
+  .ds-inner .ds-sub-inner .ds-image img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
+      {% if section.settings.image_position == 'right' %}
+      border-radius: 0px;
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+      {% endif %}
+  }
+  .ds-inner .ds-sub-inner .modal__dialog {
+      margin: auto 0;
+  }
+  .sticky-reminder-main {
+      position: fixed;
+      bottom: 3%;
+      color: white;
+      padding: 1em 2em;
+      font-size: 1.5em;
+      z-index: 3;
+      left: 3%;
+      display: block;
+      cursor:pointer;
+      border-radius: 4px;
+      display:none;
+  }
+  .sticky-reminder-main svg {
+      position: absolute;
+      width: 20px;
+      top: 0px;
+      right: 0;
+      margin: 10px;
+      height: 20px;
+      cursor: pointer;
+  }
+  .ds-inner .ds-sub-inner .modal__dialog h3#ContactFooter-success {
+      margin: 0px;
+      width: 100%;
+      border: 1px solid;
+      padding: 1em;
+      background: #e7ffe7;
+      color: green;
+      display: flex;
+      justify-content: center;
+      position: inherit;
+  }
+  .ds-message--success {
+      width: 100%;
+  }
+  aside.modal.modal--newsletter.gvs_popup {
+      animation: apparition_delay 0s {{ section.settings.apparition_delay }}s forwards;
+  }
+
+  @keyframes apparition_delay {
+      to  { visibility: visible; opacity: inherit; }
+  }
+  /* Desktop  */
+  @media only screen and (min-width: 990px) {
+      .ds-inner .ds-sub-inner{
+          display: flex;
+          {% if section.settings.image_position == 'right' %}
+          flex-direction: row-reverse;
+          {% else %}
+          flex-direction: inherit;
+          {% endif %}
+      }
+      .ds-inner{
+          border-radius: 4px;
+          {% unless section.settings.image %}
+          width: 35%; padding: 45px;
+          {% endunless %}
+      }
+      .ds-inner .ds-sub-inner .modal__dialog {
+          {% if section.settings.image %}
+          width: 65%; padding: 2em;
+          {% endif %}
+      }
+      .ds-inner .ds-sub-inner .ds-image {
+          width: 35%!important;
+          color: red;
+      }
+      .ds-form {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      .ds-inner .ds-sub-inner .newsletter-form__button {
+       margin-top:  0;
+       width: 20rem;
+      }
+  }
+  @media only screen and (min-width: 990px) {
+      .ds-inner {
+          width: 80%;
+          max-width:calc(var(--page-width) * 0.8);
+      }
+  }
+
+
+  .container-no-image {
+    display:block!important;
+  }
+  /* media for mobile  */
+  @media only screen and (max-width: 989px) {
+      .ds-inner .ds-sub-inner .ds-image {
+          display:none;
+      }
+      .ds-inner {
+          width: 85%;
+          padding: 2em;
+          border-radius: 4px;
+      }
+  }
+  .modal.modal--newsletter.gvs_popup {
+    cursor: url("{{ 'icon-close.png' | asset_url }}"), auto;
+  }
+
+  .modal--newsletter * {
+    cursor: auto;
+  }
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .popup-newsletter__close:hover {
+    animation: rotation 2s linear 0.25;
+  }
+</style>
+<div data-section-id="{{ section.id }}" data-section-type="popups">
+  {%- unless section.settings.show_only_for_visitors and customer -%}
+    <aside
+      class="modal  modal--newsletter gvs_popup"
+      data-popup-type="newsletter"
+      data-popup-settings="{{ settings.popup }}"
+      aria-hidden="true"
+      {{ section.shopify_attributes }}
+    >
+      <div class="ds-inner color-{{ section.settings.color_scheme }}">
+        <div class="ds-sub-inner  {% if  section.settings.image == blank %} container-no-image {% endif %}">
+          {%- liquid
+            assign padding_multiplier = 1
+            assign desktop_tablet_padding = 100 | times: padding_multiplier | append: 'px'
+            assign mobile_padding = 30 | times: padding_multiplier | append: 'px'
+          -%}
+          {%- capture sizes -%}
+                  (min-width: {{ settings.page_width }}px) calc(({{ settings.page_width }}px - {{ desktop_tablet_padding }}) / 2),
+                  (min-width: 750px) calc((100vw - {{ desktop_tablet_padding }}) / 2),
+                  calc(100vw - {{ mobile_padding }})
+                {%- endcapture -%}
+          {% if section.settings.image %}
+            <div class="ds-image">
+              {{
+                section.settings.image
+                | image_url: width: 1200
+                | image_tag: widths: '150, 300, 600, 900, 1200, 1500, 1800', loading: 'lazy', sizes: sizes
+              }}
+            </div>
+          {% endif %}
+          <div class="modal__dialog" role="dialog">
+            <div class="popup-newsletter">
+              {%- if section.settings.title != blank -%}
+                <h3 class="popup-newsletter__title heading">{{ section.settings.title | escape }}</h3>
+              {%- endif -%}
+
+              <button
+                onclick="removeClass()"
+                class="popup-newsletter__close color-{{ section.settings.color_scheme }}"
+                data-action="close-popup"
+                aria-label="{{ 'general.accessibility.close' | t }}"
+              >
+                {%- render 'icon-close' -%}
+              </button>
+
+              {%- if section.settings.content != blank -%}
+                <div class="popup-newsletter__content rte">
+                  {{ section.settings.content }}
+                </div>
+              {%- endif -%}
+
+              {%- if section.settings.show_newsletter -%}
+                {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form' -%}
+                  <div class="ds-form">
+                    <input type="hidden" name="contact[tags]" value="newsletter">
+                    <div class="newsletter-form__field-wrapper" width="100%" height="100%">
+                      <div class="newsletter-field">
+                        <input
+                          id="NewsletterForm--{{ section.id }}"
+                          type="email"
+                          name="contact[email]"
+                          class="field__input color-{{ section.settings.color_scheme }} contact_form_input popup_form_input"
+                          value="{{ form.email }}"
+                          aria-required="true"
+                          autocorrect="off"
+                          autocapitalize="off"
+                          autocomplete="email"
+                          {% if form.errors %}
+                            autofocus
+                            aria-invalid="true"
+                            aria-describedby="ContactFooter-error"
+                          {% elsif form.posted_successfully? %}
+                            aria-describedby="ContactFooter-success"
+                          {% endif %}
+                          placeholder="{{ 'newsletter.label' | t }}"
+                          required
+                        >
+                        <label class="field__label" for="NewsletterForm--{{ section.id }}">
+                          {{ 'newsletter.label' | t }}
+                        </label>
+                      </div>
+                      {%- if form.errors -%}
+                        <small class="newsletter-form__message form__message" id="ContactFooter-error">
+                          {%- render 'icon-error' -%}
+                          {{- form.errors.translated_fields.email | capitalize }}
+                          {{ form.errors.messages.email -}}
+                        </small>
+                      {%- endif -%}
+                    </div>
+                    <button
+                      type="submit"
+                      class="newsletter-form__button button"
+                      name="commit"
+                      width="100"
+                      height="33"
+                      id="Popup-Subscribe"
+                      aria-label="popup subscribe"
+                    >
+                      {{ section.settings.sumnit_btn }}
+                    </button>
+                  </div>
+                  {%- if form.posted_successfully? -%}
+                    <div class="ds-message--success">
+                      <h3
+                        class="newsletter-form__message newsletter-form__message--success form__message"
+                        id="ContactFooter-success"
+                        tabindex="-1"
+                        autofocus
+                      >
+                        {% render 'icon-success' -%}
+                        {{- 'newsletter.success' | t }}
+                      </h3>
+                    </div>
+                  {%- endif -%}
+                {%- endform -%}
+              {%- endif -%}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% for block in section.blocks %}
+        <div class="sticky-reminder-main color-{{ block.settings.color_scheme }}">
+          {{ block.settings.sticky_reminder_text }}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            x="0px"
+            y="0px"
+            width="50"
+            height="50"
+            viewBox="0 0 50 50"
+            style=" fill:#fff;"
+          >
+            <path d="M 9.15625 6.3125 L 6.3125 9.15625 L 22.15625 25 L 6.21875 40.96875 L 9.03125 43.78125 L 25 27.84375 L 40.9375 43.78125 L 43.78125 40.9375 L 27.84375 25 L 43.6875 9.15625 L 40.84375 6.3125 L 25 22.15625 Z"></path>
+          </svg>
+        </div>
+      {% endfor %}
+    </aside>
+  {%- endunless -%}
+</div>
+{% assign afterdays = section.settings.frequency %}
+
+<script>
+  var element = document.getElementsByClassName("modal--newsletter")[0];
+    var sticky_reminder_main = document.getElementsByClassName("sticky-reminder-main")[0];
+  function removeClass() {
+      element = document.getElementsByClassName("modal--newsletter")[0];
+      element.classList.remove("gvs_popup");
+      element.classList.remove("ds_main");
+
+    element.style.animation="";
+    setTimeout(() => {
+      sticky_reminder_main.style.display="block";
+    }, 5000)
+
+  }
+  document.addEventListener('shopify:section:select', function(event) {
+      // console.log(event);
+      let code = event.detail.sectionId;
+      var result = code.match("popups");
+      if(result){
+          element.classList.add("ds_main");
+      }
+  });
+  document.addEventListener('shopify:section:deselect', function(event) {
+      let code = event.detail.sectionId;
+      var result = code.match("popups");
+      if(result){
+          element.classList.remove("ds_main");
+      }
+
+  });
+   document.querySelector('.sticky-reminder-main').addEventListener('click', (event) => {
+
+    element.classList.add("gvs_popup");
+      //$("aside.modal.modal--newsletter").addClass("gvs_popup");
+   sticky_reminder_main.style.display="none";
+      //$("aside.modal.modal--newsletter.gvs_popup").css("animation","apparition_delay 0s 0s forwards");
+
+   element.style.animation="apparition_delay 0s 0s forwards";
+
+      // $("div[data-section-id="popups"] aside.modal.modal--newsletter.gvs_popup").css("display","");
+  });
+
+
+  document.querySelector('.sticky-reminder-main svg').addEventListener('click', (event) => {
+       event.stopPropagation();
+     sticky_reminder_main.style.display="none";
+
+  });
+
+  //$(document).ready(function(){
+
+  let geturl  = window.location.href;
+    var url = '/?customer_posted=true';
+    if(geturl.match(url)){
+       element.classList.add("gvs_popup");
+    }
+    else{
+
+      function setCookie(cname,cvalue,days) {
+      const d = new Date();
+
+      d.setTime(d.getTime() + (days*24*60*60*1000));
+
+      let expires = "expires=" + d.toGMTString();
+      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+      }
+
+      function getCookie(cname) {
+      let name = cname + "=";
+      let decodedCookie = decodeURIComponent(document.cookie);
+      let ca = decodedCookie.split(';');
+      for(let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+      }
+      }
+      return "";
+      }
+      //setCookie("anyuser", user, "");
+      function checkCookie() {
+
+      let user = getCookie("anyuser");
+      if (user != "") {
+          element.classList.remove("gvs_popup");
+      //alert("Welcome again " + user);
+      } else {
+          user = "test";
+          if (user != "" && user != null) {
+
+          setCookie("anyuser", user, parseInt({{ afterdays }})); element.classList.add("gvs_popup");
+          }
+            else{
+              element.classList.remove("gvs_popup");
+          }
+      }
+      }
+      if(typeof user === 'undefined'  ){  checkCookie();  }
+
+
+      function instantClearCookie(cname,cvalue,days) {
+      const d = new Date();
+
+      d.setTime(d.getTime() + (days*24*60*60*1000)); //
+
+      let expires = "expires=" + d.toGMTString();
+      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+      }
+
+      instantClearCookie("anyuser","test",parseInt({{ afterdays }}));
+
+    }
+
+  var element = document.getElementsByClassName("modal--newsletter")[0];
+  var sticky_reminder_main = document.getElementsByClassName("sticky-reminder-main")[0];
+
+  function removeClass() {
+      element.classList.remove("gvs_popup");
+      element.classList.remove("ds_main");
+      element.style.animation = "";
+      setTimeout(() => {
+          sticky_reminder_main.style.display = "block";
+      }, 5000);
+  }
+
+  // closes pop up when clicked outside of popup
+  document.querySelector('.popup-newsletter__close').addEventListener('click', function(event) {
+      event.stopPropagation();
+      removeClass();
+  });
+
+  function handleInnerOuterClicks(element, innerSelector, callback) {
+      element.addEventListener('click', e => {
+          if (!element.querySelector(innerSelector).contains(e.target)) {
+              callback();
+          }
+      });
+  }
+
+  handleInnerOuterClicks(element, '.ds-inner', removeClass);
+</script>
+
+{% schema %}
+{
+  "name": "Pop-up",
+  "tag": "section",
+  "class": "popup",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "pop_up_de",
+      "label": "Enable popup",
+      "default": true,
+      "info": "Disappears in theme editor when disabled."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_only_for_visitors",
+      "label": "Disable for account holders",
+      "default": true,
+      "info": "Will not be shown to customers who have created an account on your shop."
+    },
+    {
+      "type": "range",
+      "id": "apparition_delay",
+      "min": 1,
+      "max": 60,
+      "step": 1,
+      "unit": "sec",
+      "label": "Delay",
+      "default": 5,
+      "info": "Delay is disabled in theme editor for visibility"
+    },
+    {
+      "type": "range",
+      "id": "frequency",
+      "label": "Frequency",
+      "unit": "day",
+      "min": 1,
+      "max": 30,
+      "step": 1,
+      "default": 1,
+      "info": "Number of days before a dismissed popup reappears"
+    },
+    {
+      "type": "header",
+      "content": "CONTENT"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Built in Newsletter Pop-up"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Text",
+      "default": "<p>No need to slow your site down with extra apps!</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "NEWSLETTER",
+      "info": "Every signup will create a Customer on your store. [View customers](https://yourstorename.myshopify.com/admin/customers?query=&accepts_marketing=1)"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_newsletter",
+      "label": "Enable newsletter",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "BUTTON"
+    },
+    {
+      "type": "text",
+      "id": "sumnit_btn",
+      "label": "Submit button label",
+      "default": "Subscribe"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "options": [
+        {
+          "value": "accent-1",
+          "label": "t:sections.all.colors.accent_1.label"
+        },
+        {
+          "value": "background-1",
+          "label": "t:sections.all.colors.background_1.label"
+        },
+        {
+          "value": "background-2",
+          "label": "t:sections.all.colors.background_2.label"
+        },
+        {
+          "value": "inverse",
+          "label": "t:sections.all.colors.inverse.label"
+        }
+      ],
+      "default": "accent-1"
+    }
+  ],
+  "max_blocks": 1,
+  "blocks": [
+    {
+      "name": "Sticky reminder",
+      "type": "Sticky_reminder",
+      "settings": [
+        {
+          "type": "text",
+          "id": "sticky_reminder_text",
+          "label": "Reminder label",
+          "info": "Appears when newsletter popup is closed."
+        },
+        {
+          "type": "select",
+          "id": "color_scheme",
+          "options": [
+            {
+              "value": "accent-1",
+              "label": "t:sections.all.colors.accent_1.label"
+            },
+            {
+              "value": "background-1",
+              "label": "t:sections.all.colors.background_1.label"
+            },
+            {
+              "value": "background-2",
+              "label": "t:sections.all.colors.background_2.label"
+            },
+            {
+              "value": "inverse",
+              "label": "t:sections.all.colors.inverse.label"
+            }
+          ],
+          "default": "accent-1",
+          "label": "t:sections.all.colors.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Pop-up",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

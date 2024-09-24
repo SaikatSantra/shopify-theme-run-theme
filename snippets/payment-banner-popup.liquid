@@ -1,0 +1,153 @@
+<style>
+.nav_menu li {
+position: relative;
+align-items: center;
+list-style: none;
+}
+
+.nav_menu li::after {
+content: '';
+position: absolute;
+width: 2px;
+height: 100%;
+background: #000;
+display: block;
+bottom: -28px !important;
+left: -20px;
+}
+.nav_menu {
+overflow: hidden;
+height: fit-content;
+display: flex;
+flex-direction: column;
+}
+.nav_menu li:first-child::after {
+bottom: -50% !important
+}
+.nav_menu li:last-child::after {
+bottom: 50% !important
+}
+.nav_menu li:before {
+width: 10px !important;
+height: 10px;
+background:#000;
+border: 1px solid;
+border-radius: unset !important;
+content: '';
+position: absolute;
+left: -24px;
+top: 24px;
+z-index: 999;
+}
+.footer_content {
+display: none;
+}
+
+.paymnt_prc .price {
+font-size: 40px !important;
+}
+.h2 {
+text-align: center;
+}
+.img_cls{
+display:flex;
+}
+
+
+
+li:last-child::after {
+content: '';
+display:none !important;
+}
+
+
+@media only screen and (max-width:440px) {
+.nav_menu li::before{
+left: -24px !important;
+}
+.img_cls {
+  display: block;
+}
+#model_boxcontent h1 {
+  width: 100%;
+}
+}
+#model_boxcontent h1 {
+  font-weight: 600;
+}
+
+.img_cls .paypal-logo {
+  top: 0;
+}
+.img_cls .shoppay-logo {
+  position: relative;
+  top: 2px;
+}
+
+.product-popup-modal__content-info h1.h2 {
+  color: grey;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+p.popup-footer {
+    font-size: 12px;
+}
+
+#cstm_link {
+margin-top: 40px;
+}
+#model_boxcontent h1 {
+width: 80%;
+}
+h1.paymnt_prc {
+margin-bottom: 0;
+margin-top: 1rem;
+}
+.paymnt_prc .price-item.price-item--regular {
+display: none;
+}
+.model_boxes .price__compare {
+  display: none;
+}
+.model_boxes .price{
+  font-size: 40px !important;
+}
+p.popup-subheading {
+    margin-top: 0;
+}
+</style>
+
+
+<p class="popup-subheading">{{ 'products.product.payment_banner.subheading_text' | t }}</p>
+<ul class="nav_menu">
+
+<li><p>{{ 'products.product.payment_banner.bulletpoint_1' | t }}</p></li>
+
+<li class="img_cls"><p>{{ 'products.product.payment_banner.bulletpoint_2' | t }}</p>
+&nbsp
+{% for block in section.blocks %}
+  {%- if block.settings.payment_type == 'klarna' -%}
+    <img src="{{ 'Klarna-logo.svg' | asset_url }}" class="klarna-logo-popup" width="50" height="" loading="lazy" alt="klarna logo">&nbsp
+  {%- endif -%}
+
+  {%- if block.settings.payment_type == 'ShopPay' -%}
+    <img src="{{ 'Shoppay-logo.svg' | asset_url }}" class="shoppay-logo-popup"  width="65" height="15.6" loading="lazy" alt="shoppay logo">.&nbsp
+  {%- endif -%}
+
+  {%- if block.settings.payment_type == 'Paypal' -%}
+    <img src="{{ 'Paypal-logo.svg' | asset_url }}" class="paypal-logo-popup" width="60" height="15.6" loading="lazy" alt="paypal logo">.&nbsp
+  {%- endif -%}
+{% endfor %}
+
+</li>
+<li><p>{{ 'products.product.payment_banner.bulletpoint_3' | t }}</p></li>
+<li class="lst_li">{{ 'products.product.payment_banner.bulletpoint_4' | t }} {% for block in section.blocks %}{{ block.settings.payment_months | minus: 1 | remove: "-1" }}{% endfor %} {{ 'products.product.payment_banner.bulletpoint_4b' | t }}</li>
+
+
+</ul>
+<p class="popup-footer">{{ 'products.product.payment_banner.terms_and_conditions' | t }}</p>
+<div class="footer_content">
+
+
+</div>

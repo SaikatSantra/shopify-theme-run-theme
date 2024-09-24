@@ -1,0 +1,144 @@
+
+.image-with-text__media {
+    display: flex;
+    align-items:center;
+    position: relative;
+    right:0rem;
+    width: calc(100% + 8rem);
+  }
+
+.single-image-media {
+  width: 100%;
+}
+@media screen and (min-width: 990px) {
+  .image-with-text__media {
+
+    width: calc(100% + 8rem);
+  }
+
+  .image-with-text-container {
+    display: grid;
+    gap: 1rem;
+    justify-content: flex-end;
+  }
+  .single-image-container {
+  justify-content: flex-start;
+  }
+  .image-with-text__grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "image text";
+    padding-right: 6rem;
+  }
+  .image_grid__item {
+    grid-area: image;
+  }
+  .text_grid__item {
+    grid-area: text;
+    align-self: center;
+  }
+  .image-with-text__grid--reverse {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "text image";
+  }
+}
+@media screen and (min-width: 1280px) {
+  .image-with-text-container {
+      gap: 8rem;
+  }
+  .image-with-text__grid {
+    padding-right: 16rem;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .image-with-text__media--small {
+    height: 31.4rem;
+    
+  }
+
+}
+
+
+  
+.image-with-text__sub-heading {
+  margin-bottom: 2rem;
+}
+
+.image-with-text__heading {
+  margin-top: 0;
+  margin-bottom: 2.4rem;
+}
+
+.image-with-text__text {
+  margin-bottom: 3rem;
+}
+
+@media screen and (min-width: 990px) {
+  .image-with-text__grid--reverse .image-with-text__content {
+    margin-left: auto;
+  }
+    .image-with-text__media {
+    display: flex;
+    align-items:center;
+    position: relative;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .image-with-text__content {
+    padding: 0;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .image-text-container {
+    position: relative;
+    z-index: 99;
+  }
+}
+
+.primary-image-container {
+    position: relative;
+    width: 36rem;
+    height: 45rem;
+    right: 8rem;
+    width: 100%;
+}
+img.primary-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.secondary-image-container {
+  position: relative;
+  width: 36rem;
+  height: 36rem;
+  z-index: 1;
+  border: 5px solid rgb(var(--color-background)); 
+  border-left: none;
+  width: 100%;
+}
+img.secondary-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* .text-content-first-media {
+  left: 8rem;
+} */
+.no-secondary-img {
+  right: 0;
+}
+
+.image-button-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.secondary-text-btn {
+  color: var(--secondary_button_color_text);
+  background-color: var(--secondary_button_color_background);
+  /* border: 1px solid var(--secondary_button_color_text); */
+}

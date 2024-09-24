@@ -1,0 +1,71 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "type": "footer",
+  "name": "Footer Group",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "footer-0": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Company",
+            "menu": "main-menu"
+          }
+        },
+        "9a115fd8-6040-4f1f-8450-7e6c78ce7376": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Shop",
+            "menu": "main-menu"
+          }
+        },
+        "8607523c-b7df-4e77-b95b-dc58cf259f16": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Help",
+            "menu": "main-menu"
+          }
+        },
+        "image_GdbFJM": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/beer-abk-hell-das-blue-20_pack.jpg",
+            "image_width": 100,
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "footer-0",
+        "9a115fd8-6040-4f1f-8450-7e6c78ce7376",
+        "8607523c-b7df-4e77-b95b-dc58cf259f16",
+        "image_GdbFJM"
+      ],
+      "settings": {
+        "newsletter_enable": true,
+        "newsletter_heading": "Signup to our emails for 5% off",
+        "enable_follow_on_shop": true,
+        "show_social": true,
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "shopify_disable": false,
+        "payment_enable": true,
+        "margin_top": 16,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}

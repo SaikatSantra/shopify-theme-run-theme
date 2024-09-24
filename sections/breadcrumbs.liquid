@@ -1,0 +1,165 @@
+<link rel="stylesheet" href="{{ 'breadcrumbs.css' | asset_url }}" media="print" onload="this.media='all'">
+
+{% unless template == 'index' %}
+  <div class="page-width-desktop">
+    <nav
+      class="
+        breadcrumbs {{ section.settings.align_text }}     {% if section.settings.enable_breadcrumbs_desktop %}enable-desktop{% endif %}
+        {% if section.settings.enable_breadcrumbs_mobile %}enable-mobile{% endif %}
+      "
+      role="navigation"
+      aria-label="breadcrumbs"
+      data-id="{{ section.id }}"
+    >
+      <a href="{{ routes.root_url }}" title="Home">Home</a>
+
+      {% if template contains 'page' %}
+        <span aria-hidden="true">&rsaquo;</span>
+
+        <span>{{ page.title }}</span>
+
+      {% elsif template contains 'product' %}
+        {% if collection.url %}
+          <span aria-hidden="true">&rsaquo;</span>
+
+          {{ collection.title | link_to: collection.url }}
+        {% endif %}
+
+        <span aria-hidden="true">&rsaquo;</span>
+
+        <span>{{ product.title }}</span>
+
+      {% elsif template contains 'collection' and collection.handle %}
+        <span aria-hidden="true">&rsaquo;</span>
+
+        {% if current_tags %}
+          {% capture url %}/collections/{{ collection.handle }}{% endcapture %}
+
+          {{ collection.title | link_to: url }}
+
+          <span aria-hidden="true">&rsaquo;</span>
+
+          <span>{{ current_tags | join: ' + ' }}</span>
+
+        {% else %}
+          <span>{{ collection.title }}</span>
+        {% endif %}
+
+      {% elsif template == 'blog' %}
+        <span aria-hidden="true">&rsaquo;</span>
+
+        {% if current_tags %}
+          {{ blog.title | link_to: blog.url }}
+
+          <span aria-hidden="true">&rsaquo;</span>
+
+          <span>{{ current_tags | join: ' + ' }}</span>
+
+        {% else %}
+          <span>{{ blog.title }}</span>
+        {% endif %}
+
+      {% elsif template == 'article' %}
+        <span aria-hidden="true">&rsaquo;</span>
+
+        {{ blog.title | link_to: blog.url }}
+
+        <span aria-hidden="true">&rsaquo;</span>
+
+        <span>{{ article.title }}</span>
+
+      {% else %}
+        <span aria-hidden="true">&rsaquo;</span>
+
+        <span>{{ page_title }}</span>
+      {% endif %}
+    </nav>
+  </div>
+{% endunless %}
+
+<style>
+  .breadcrumbs a:hover {
+    color: {{ section.settings.hoverText }};
+  }
+
+  .breadcrumbs {
+    background-color: {{ section.settings.colorBackground }};
+    color: {{ section.settings.colorText }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Breadcrumbs",
+  "settings": [
+    {
+      "type": "select",
+      "id": "align_text",
+      "label": "Breadcrumbs alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "left"
+        },
+        {
+          "value": "center",
+          "label": "center"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_breadcrumbs_desktop",
+      "label": "Enable breadcrumbs on desktop",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_breadcrumbs_mobile",
+      "label": "Enable breadcrumbs on mobile",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "colorBackground",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "colorText",
+      "label": "Text color",
+      "default": "#000"
+    },
+    {
+      "type": "color",
+      "id": "hoverText",
+      "label": "Link text hover color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ]
+}
+{% endschema %}

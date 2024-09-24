@@ -1,0 +1,81 @@
+<div class="product-badges{% unless show_product_badge %} no-card__badge{% endunless %}{% if settings.card_badge_alignment == 'right' %} wishlist-left{% else %} wishlist-right{% endif %}">
+  {%- if show_product_badge -%}
+    <div class="product-tags-container">
+      <div class="card__badge {% if settings.card_badge_alignment == 'right' %}card__badge_right{% endif %}">
+        {%- if product_card_product.available -%}
+          <!-- Capture whether any tag contains 'sticker:' or 'Sticker:' -->
+          {%- assign has_sticker_tag = false -%}
+          {% for tag in product_card_product.tags %}
+            {% if tag contains 'sticker:' or tag contains 'Sticker:' %}
+              {%- assign has_sticker_tag = true -%}
+              <span class="badge price__badge-sale other-badge" aria-hidden="true">
+                {{ tag | split: 'sticker:' | last }}
+              </span>
+            {% endif %}
+          {% endfor %}
+
+          {%- if settings.card_badge_type == 'sale' -%}
+            {%- if product_card_product.compare_at_price > product_card_product.price
+              and product_card_product.available
+            -%}
+              <span
+                class="badge sale-badge {% if has_sticker_tag == true and settings.card_badge_type == 'sale' %} hide-sale-bage {% endif %} badge--bottom-left"
+                aria-hidden="true"
+              >
+                {{- 'products.product.on_sale' | t -}}
+              </span>
+            {%- endif -%}
+          {%- elsif settings.card_badge_type == 'save_amount' -%}
+            {%- if product_card_product.compare_at_price > product_card_product.price -%}
+              {%- assign save_price = product_card_product.compare_at_price
+                | minus: product_card_product.price
+                | money_without_trailing_zeros
+              -%}
+              <span
+                class="badge sale-badge {% if has_sticker_tag == true and settings.card_badge_type == 'save_amount' %} hide-sale-bage {% endif %} badge--bottom-left"
+                aria-hidden="true"
+              >
+                {{- save_price }}
+                {{ 'products.product.off' | t -}}
+              </span>
+            {%- endif -%}
+          {%- elsif settings.card_badge_type == 'save_percentage' -%}
+            {%- if product_card_product.compare_at_price > product_card_product.price -%}
+              {%- assign save_price = product_card_product.compare_at_price
+                | minus: product_card_product.price
+                | times: 1
+              -%}
+              {% assign compared_price = product_card_product.compare_at_price | times: 1.00 %}
+              {%- assign save_percentage = save_price | divided_by: compared_price | times: 100 | round -%}
+              <span
+                class="badge sale-badge {% if has_sticker_tag == true and settings.card_badge_type == 'save_percentage' %} hide-sale-bage {% endif %} badge--bottom-left"
+                aria-hidden="true"
+              >
+                {{- save_percentage }}% {{ 'products.product.off' | t -}}
+              </span>
+            {%- endif -%}
+          {%- endif -%}
+
+        {%- else -%}
+          <span
+            class="badge sold-badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}"
+            aria-hidden="true"
+          >
+            {{- 'products.product.sold_out' | t -}}
+          </span>
+        {%- endif -%}
+      </div>
+    </div>
+  {%- endif -%}
+  <div class="favourite-wrapper-container">
+    {%- render 'button-wishlist-collection', product: product_card_product -%}
+  </div>
+</div>
+
+<style>
+  @media (max-width: 989px) {
+    .hide-sale-bage {
+      display: none;
+    }
+  }
+</style>

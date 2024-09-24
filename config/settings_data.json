@@ -1,0 +1,1045 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
+{
+  "current": {
+    "header_background_color": "#075811",
+    "header_content_color": "#ffffff",
+    "header_content_hover_color": "#edff00",
+    "footer_background_color": "#265494",
+    "footer_content_color": "#ffffff",
+    "footer_content_hover_color": "#cccccc",
+    "banner_color_text": "#ffffff",
+    "btn_background_color": "#020202",
+    "btn_color_text": "#ffffff",
+    "banner_color_text_mob": "#020202",
+    "mobile_btn_background_color": "#020202",
+    "mobile_btn_color_text": "#ffffff",
+    "colors_background_1": "#ff0000",
+    "colors_text": "#020202",
+    "colors_outline_button_labels": "#edff00",
+    "colors_solid_button_labels": "#edff00",
+    "colors_accent_1": "#265494",
+    "secondary_button_color_text": "#edff00",
+    "secondary_button_color_background": "#265494",
+    "colors_background_2": "#265494",
+    "colors_slider_button_background": "#cccccc",
+    "colors_slider_button": "#020202",
+    "freeshipping": "100",
+    "type_header_font": "roboto_n5",
+    "type_capitalize": false,
+    "type_body_font": "roboto_n4",
+    "sale_badge_color_background": "#ff0000",
+    "sale_badge_color_text": "#fff",
+    "sold_badge_color_background": "#020202",
+    "sold_badge_color_text": "#fafafa",
+    "favourite_icon_background": "#fafafa",
+    "favourite_icon_text": "#020202",
+    "accent_icons": "text",
+    "button_corner_radius": 30,
+    "inputs_radius": 30,
+    "image_ratio": "square",
+    "card_badge_alignment": "right",
+    "card_badge_type": "sale",
+    "show_quick_cart": "hover",
+    "card_button_alignment": "left",
+    "show_color_swatches": true,
+    "show_secondary_image": true,
+    "show_vendor": true,
+    "add_image_padding": false,
+    "page_width": 1600,
+    "show_mobile_social_icons": true,
+    "social_twitter_link": "https:\/\/twitter.com\/shopify",
+    "social_facebook_link": "https:\/\/facebook.com\/shopify",
+    "social_pinterest_link": "https:\/\/twitter.com\/shopify",
+    "social_instagram_link": "https:\/\/twitter.com\/shopify",
+    "social_tiktok_link": "https:\/\/twitter.com\/shopify",
+    "social_tumblr_link": "https:\/\/facebook.com\/shopify",
+    "social_snapchat_link": "https:\/\/facebook.com\/shopify",
+    "social_youtube_link": "https:\/\/facebook.com\/shopify",
+    "social_vimeo_link": "https:\/\/facebook.com\/shopify",
+    "predictive_search_show_vendor": true,
+    "predictive_search_show_price": true,
+    "favicon": "shopify:\/\/shop_images\/ABK-beer-Black-logo.png",
+    "currency_code_enabled": false,
+    "heading_scale": 100,
+    "checkout_logo_image": "shopify:\/\/shop_images\/ABK-beer-Black-logo-white.png",
+    "checkout_logo_position": "center",
+    "checkout_logo_size": "large",
+    "checkout_sidebar_background_color": "#020202",
+    "checkout_accent_color": "#cccccc",
+    "checkout_button_color": "#cccccc",
+    "breadcrumbs_enabled": true,
+    "btn_hover_color": "#000000",
+    "mobile_btn_hover_color": "#000000",
+    "solid_button_labels_hover": "#cb6d51",
+    "colors_accent_2": "#cb6d51",
+    "mobile_background_color": "#6518b9",
+    "banners_color_text": "#b91893",
+    "header_footer_background_color": "#1a1b18",
+    "header_footer_content_color": "#ffffff",
+    "header_footer_content_hover_color": "#fd7a29",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "logo_height": 100,
+          "logo_position": "middle-left",
+          "menu": "",
+          "show_line_separator": false,
+          "hide_account_icon": true,
+          "enable_wishlist_icon": true,
+          "enable_sticky_header": true
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "footer-0": {
+            "type": "link_list",
+            "settings": {
+              "heading": "Company",
+              "menu": ""
+            }
+          },
+          "9a115fd8-6040-4f1f-8450-7e6c78ce7376": {
+            "type": "link_list",
+            "settings": {
+              "heading": "Shop",
+              "menu": ""
+            }
+          },
+          "8607523c-b7df-4e77-b95b-dc58cf259f16": {
+            "type": "link_list",
+            "settings": {
+              "heading": "Help",
+              "menu": ""
+            }
+          }
+        },
+        "block_order": [
+          "footer-0",
+          "9a115fd8-6040-4f1f-8450-7e6c78ce7376",
+          "8607523c-b7df-4e77-b95b-dc58cf259f16"
+        ],
+        "settings": {
+          "newsletter_enable": true,
+          "newsletter_heading": "Signup to our emails for 5% off",
+          "show_social": true,
+          "enable_country_selector": true,
+          "enable_language_selector": true,
+          "shopify_disable": false,
+          "payment_enable": true,
+          "margin_top": 16,
+          "padding_top": 60,
+          "padding_bottom": 60
+        }
+      },
+      "popups": {
+        "type": "popups",
+        "blocks": {
+          "15e3cc09-1a3f-4c2c-a5fd-5137869b9f51": {
+            "type": "Sticky_reminder",
+            "settings": {
+              "sticky_reminder_text": "Optional sticky label",
+              "color_scheme": "accent-1"
+            }
+          }
+        },
+        "block_order": [
+          "15e3cc09-1a3f-4c2c-a5fd-5137869b9f51"
+        ],
+        "settings": {
+          "pop_up_de": false,
+          "show_only_for_visitors": false,
+          "apparition_delay": 1,
+          "frequency": 1,
+          "title": "Built in Newsletter Pop-up",
+          "content": "<p>No need to slow your site down with extra apps!<\/p>",
+          "image_position": "right",
+          "show_newsletter": true,
+          "sumnit_btn": "Subscribe",
+          "color_scheme": "background-1"
+        }
+      },
+      "breadcrumbs": {
+        "type": "breadcrumbs",
+        "settings": {
+          "colorBackground": "#ffffff",
+          "colorText": "#000000",
+          "hoverText": "#1a1b18",
+          "padding_top": 0,
+          "padding_bottom": 0
+        }
+      },
+      "annoucement-bar-custom": {
+        "type": "annoucement-bar-custom",
+        "blocks": {
+          "33221865-d2fc-4134-8bbd-c39d443d3943": {
+            "type": "header",
+            "settings": {
+              "announcement_text": "Call attention to a special discount ,",
+              "text_color": "#020202"
+            }
+          },
+          "d3007053-322e-49d6-b436-c646dba9a0a7": {
+            "type": "header",
+            "settings": {
+              "announcement_text": "Call attention to a special discount, feature or promotion here.",
+              "text_color": "#000000"
+            }
+          },
+          "ff5604d4-98c3-46c5-970e-7f3d495e9053": {
+            "type": "header",
+            "settings": {
+              "announcement_text": "Call attention to a special discount, feature or promotion here.",
+              "text_color": "#000000"
+            }
+          }
+        },
+        "block_order": [
+          "33221865-d2fc-4134-8bbd-c39d443d3943",
+          "d3007053-322e-49d6-b436-c646dba9a0a7",
+          "ff5604d4-98c3-46c5-970e-7f3d495e9053"
+        ],
+        "custom_css": [
+
+        ],
+        "settings": {
+          "background_color": "#cccccc",
+          "interval_time": 3
+        }
+      }
+    },
+    "content_for_index": [
+
+    ],
+    "blocks": {
+      "15683396631634586217": {
+        "type": "shopify:\/\/apps\/inbox\/blocks\/chat\/841fc607-4181-4ad1-842d-e24d7f8bad6b",
+        "disabled": true,
+        "settings": {
+          "button_color": "#202a36",
+          "secondary_color": "#FFFFFF",
+          "button_icon": "no_icon",
+          "button_text": "chat_with_us",
+          "button_horizontal_position": "bottom_right",
+          "button_vertical_position": "lowest",
+          "greeting_message": "👋 Hi, message us with any questions. We're happy to help!"
+        }
+      },
+      "6992340522935486548": {
+        "type": "shopify:\/\/apps\/subscription-plus\/blocks\/app\/79c17119-154e-465c-8480-a7e0399512ff",
+        "disabled": false,
+        "settings": {
+        }
+      }
+    }
+  },
+  "presets": {
+    "Power": {
+      "header_background_color": "#323c41",
+      "header_content_color": "#ffffff",
+      "header_content_hover_color": "#ff6600",
+      "footer_background_color": "#323c41",
+      "footer_content_color": "#ffffff",
+      "footer_content_hover_color": "#ff6600",
+      "banner_color_text": "#ffffff",
+      "btn_background_color": "#ff6600",
+      "btn_color_text": "#ffffff",
+      "banner_color_text_mob": "#020202",
+      "mobile_btn_background_color": "#ff6600",
+      "mobile_btn_color_text": "#ffffff",
+      "colors_background_1": "#f5f5f5",
+      "colors_text": "#000000",
+      "colors_outline_button_labels": "#ff6600",
+      "colors_solid_button_labels": "#ffffff",
+      "colors_accent_1": "#ff6600",
+      "colors_background_2": "#f5f5f5",
+      "colors_slider_button_background": "#323c41",
+      "colors_slider_button": "#ffffff",
+      "freeshipping": "100",
+      "breadcrumbs_enabled": true,
+      "type_header_font": "dm_sans_n4",
+      "heading_scale": 130,
+      "type_body_font": "dm_sans_n4",
+      "sale_badge_color_background": "#ff0000",
+      "sale_badge_color_text": "#fff",
+      "sold_badge_color_background": "#020202",
+      "sold_badge_color_text": "#fafafa",
+      "favourite_icon_background": "#fafafa",
+      "favourite_icon_text": "#020202",
+      "accent_icons": "text",
+      "page_width": 1400,
+      "social_twitter_link": "https:\/\/twitter.com\/shopify",
+      "social_facebook_link": "https:\/\/facebook.com\/shopify",
+      "social_pinterest_link": "https:\/\/pinterest.com\/shopify",
+      "social_instagram_link": "http:\/\/instagram.com\/shopify",
+      "social_tiktok_link": "https:\/\/tiktok.com\/@shopify",
+      "social_tumblr_link": "https:\/\/shopify.tumblr.com",
+      "social_snapchat_link": "https:\/\/www.snapchat.com\/add\/shopify",
+      "social_youtube_link": "https:\/\/www.youtube.com\/shopify",
+      "social_vimeo_link": "https:\/\/vimeo.com\/shopify",
+      "predictive_search_show_vendor": false,
+      "predictive_search_show_price": true,
+      "favicon": "shopify:\/\/shop_images\/ABK-beer-Black-logo.png",
+      "currency_code_enabled": false,
+      "checkout_logo_image": "shopify:\/\/shop_images\/ABK-beer-Black-logo-white.png",
+      "checkout_logo_position": "center",
+      "checkout_logo_size": "large",
+      "checkout_sidebar_background_color": "#020202",
+      "checkout_accent_color": "#cccccc",
+      "checkout_button_color": "#cccccc",
+      "btn_hover_color": "#000000",
+      "mobile_btn_hover_color": "#000000",
+      "solid_button_labels_hover": "#cb6d51",
+      "colors_accent_2": "#cb6d51",
+      "mobile_background_color": "#6518b9",
+      "banners_color_text": "#b91893",
+      "header_footer_background_color": "#1a1b18",
+      "header_footer_content_color": "#ffffff",
+      "header_footer_content_hover_color": "#fd7a29",
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "logo_height": 90,
+            "logo_position": "middle-left",
+            "menu": "",
+            "show_line_separator": false,
+            "hide_account_icon": true,
+            "enable_wishlist_icon": true,
+            "enable_sticky_header": true
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "footer-0": {
+              "type": "link_list",
+              "settings": {
+                "heading": "Company",
+                "menu": ""
+              }
+            },
+            "9a115fd8-6040-4f1f-8450-7e6c78ce7376": {
+              "type": "link_list",
+              "settings": {
+                "heading": "Shop",
+                "menu": ""
+              }
+            },
+            "8607523c-b7df-4e77-b95b-dc58cf259f16": {
+              "type": "link_list",
+              "settings": {
+                "heading": "Help",
+                "menu": ""
+              }
+            }
+          },
+          "block_order": [
+            "footer-0",
+            "9a115fd8-6040-4f1f-8450-7e6c78ce7376",
+            "8607523c-b7df-4e77-b95b-dc58cf259f16"
+          ],
+          "settings": {
+            "newsletter_enable": true,
+            "newsletter_heading": "Signup to our emails for 5% off",
+            "show_social": true,
+            "enable_country_selector": true,
+            "enable_language_selector": true,
+            "shopify_disable": true,
+            "payment_enable": true,
+            "margin_top": 16,
+            "padding_top": 60,
+            "padding_bottom": 60
+          }
+        },
+        "popups": {
+          "type": "popups",
+          "blocks": {
+            "15e3cc09-1a3f-4c2c-a5fd-5137869b9f51": {
+              "type": "Sticky_reminder",
+              "settings": {
+                "sticky_reminder_text": "Optional sticky label",
+                "color_scheme": "accent-1"
+              }
+            }
+          },
+          "block_order": [
+            "15e3cc09-1a3f-4c2c-a5fd-5137869b9f51"
+          ],
+          "settings": {
+            "pop_up_de": true,
+            "show_only_for_visitors": false,
+            "apparition_delay": 1,
+            "frequency": 1,
+            "title": "Built in Newsletter Pop-up",
+            "content": "<p>No need to slow your site down with extra apps!<\/p>",
+            "image_position": "right",
+            "show_newsletter": true,
+            "sumnit_btn": "Subscribe",
+            "color_scheme": "background-1"
+          }
+        },
+        "breadcrumbs": {
+          "type": "breadcrumbs",
+          "settings": {
+            "colorBackground": "#ffffff",
+            "colorText": "#000000",
+            "hoverText": "#1a1b18",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "annoucement-bar-custom": {
+          "type": "annoucement-bar-custom",
+          "blocks": {
+            "33221865-d2fc-4134-8bbd-c39d443d3943": {
+              "type": "header",
+              "settings": {
+                "announcement_text": "Call ashdb to a special discount ,",
+                "text_color": "#020202"
+              }
+            },
+            "d3007053-322e-49d6-b436-c646dba9a0a7": {
+              "type": "header",
+              "settings": {
+                "announcement_text": "Call attention to a special discount, feature or promotion here.",
+                "text_color": "#000000"
+              }
+            },
+            "ff5604d4-98c3-46c5-970e-7f3d495e9053": {
+              "type": "header",
+              "settings": {
+                "announcement_text": "Call attention to a special discount, feature or promotion here.",
+                "text_color": "#000000"
+              }
+            }
+          },
+          "block_order": [
+            "33221865-d2fc-4134-8bbd-c39d443d3943",
+            "d3007053-322e-49d6-b436-c646dba9a0a7",
+            "ff5604d4-98c3-46c5-970e-7f3d495e9053"
+          ],
+          "custom_css": [
+
+          ],
+          "settings": {
+            "background_color": "#cccccc",
+            "interval_time": 3
+          }
+        }
+      },
+      "content_for_index": [
+
+      ]
+    },
+    "Nature": {
+      "header_background_color": "#ffffff",
+      "header_content_color": "#000000",
+      "header_content_hover_color": "#447964",
+      "footer_background_color": "#f9ecd7",
+      "footer_content_color": "#000000",
+      "footer_content_hover_color": "#447964",
+      "banner_color_text": "#ffffff",
+      "btn_background_color": "#447964",
+      "btn_color_text": "#ffffff",
+      "banner_color_text_mob": "#020202",
+      "mobile_btn_background_color": "#447964",
+      "mobile_btn_color_text": "#ffffff",
+      "colors_background_1": "#ffffff",
+      "colors_text": "#000000",
+      "colors_outline_button_labels": "#447964",
+      "colors_solid_button_labels": "#ffffff",
+      "colors_accent_1": "#447964",
+      "colors_background_2": "#ffffff",
+      "colors_slider_button_background": "#000000",
+      "colors_slider_button": "#ffffff",
+      "freeshipping": "100",
+      "breadcrumbs_enabled": true,
+      "type_header_font": "serif",
+      "heading_scale": 130,
+      "type_body_font": "sans-serif",
+      "sale_badge_color_background": "#ff0000",
+      "sale_badge_color_text": "#fff",
+      "sold_badge_color_background": "#000000",
+      "sold_badge_color_text": "#ffffff",
+      "favourite_icon_background": "#ffffff",
+      "favourite_icon_text": "#000000",
+      "accent_icons": "text",
+      "page_width": 1400,
+      "social_twitter_link": "https:\/\/twitter.com\/shopify",
+      "social_facebook_link": "https:\/\/facebook.com\/shopify",
+      "social_pinterest_link": "https:\/\/pinterest.com\/shopify",
+      "social_instagram_link": "http:\/\/instagram.com\/shopify",
+      "social_tiktok_link": "https:\/\/tiktok.com\/@shopify",
+      "social_tumblr_link": "https:\/\/shopify.tumblr.com",
+      "social_snapchat_link": "https:\/\/www.snapchat.com\/add\/shopify",
+      "social_youtube_link": "https:\/\/www.youtube.com\/shopify",
+      "social_vimeo_link": "https:\/\/vimeo.com\/shopify",
+      "predictive_search_show_vendor": false,
+      "predictive_search_show_price": true,
+      "favicon": "shopify:\/\/shop_images\/ABK-beer-Black-logo.png",
+      "currency_code_enabled": false,
+      "checkout_logo_image": "shopify:\/\/shop_images\/ABK-beer-Black-logo-white.png",
+      "checkout_logo_position": "center",
+      "checkout_logo_size": "large",
+      "checkout_body_background_color": "#ffffff",
+      "checkout_sidebar_background_color": "#000000",
+      "checkout_accent_color": "#447964",
+      "checkout_button_color": "#000000",
+      "checkout_error_color": "#ff0000",
+      "btn_hover_color": "#000000",
+      "mobile_btn_hover_color": "#000000",
+      "solid_button_labels_hover": "#cb6d51",
+      "colors_accent_2": "#cb6d51",
+      "mobile_background_color": "#6518b9",
+      "banners_color_text": "#b91893",
+      "header_footer_background_color": "#1a1b18",
+      "header_footer_content_color": "#ffffff",
+      "header_footer_content_hover_color": "#fd7a29",
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "logo_height": 90,
+            "logo_position": "middle-left",
+            "menu": "main-menu",
+            "show_line_separator": false,
+            "hide_account_icon": true,
+            "enable_wishlist_icon": true,
+            "enable_sticky_header": true
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "footer-0": {
+              "type": "link_list",
+              "settings": {
+                "heading": "Company",
+                "menu": ""
+              }
+            },
+            "9a115fd8-6040-4f1f-8450-7e6c78ce7376": {
+              "type": "link_list",
+              "settings": {
+                "heading": "Shop",
+                "menu": ""
+              }
+            },
+            "8607523c-b7df-4e77-b95b-dc58cf259f16": {
+              "type": "link_list",
+              "settings": {
+                "heading": "Help",
+                "menu": ""
+              }
+            }
+          },
+          "block_order": [
+            "footer-0",
+            "9a115fd8-6040-4f1f-8450-7e6c78ce7376",
+            "8607523c-b7df-4e77-b95b-dc58cf259f16"
+          ],
+          "settings": {
+            "newsletter_enable": true,
+            "newsletter_heading": "Signup to our emails for 5% off",
+            "show_social": true,
+            "enable_country_selector": true,
+            "enable_language_selector": true,
+            "shopify_disable": true,
+            "payment_enable": true,
+            "margin_top": 16,
+            "padding_top": 60,
+            "padding_bottom": 60
+          }
+        },
+        "popups": {
+          "type": "popups",
+          "blocks": {
+            "15e3cc09-1a3f-4c2c-a5fd-5137869b9f51": {
+              "type": "Sticky_reminder",
+              "settings": {
+                "sticky_reminder_text": "Optional sticky label",
+                "color_scheme": "accent-1"
+              }
+            }
+          },
+          "block_order": [
+            "15e3cc09-1a3f-4c2c-a5fd-5137869b9f51"
+          ],
+          "settings": {
+            "pop_up_de": true,
+            "show_only_for_visitors": false,
+            "apparition_delay": 1,
+            "frequency": 1,
+            "title": "Built in Newsletter Pop-up",
+            "content": "<p>No need to slow your site down with extra apps!<\/p>",
+            "image_position": "right",
+            "show_newsletter": true,
+            "sumnit_btn": "Subscribe",
+            "color_scheme": "background-1"
+          }
+        },
+        "breadcrumbs": {
+          "type": "breadcrumbs",
+          "settings": {
+            "colorBackground": "#ffffff",
+            "colorText": "#000000",
+            "hoverText": "#447964",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "annoucement-bar-custom": {
+          "type": "annoucement-bar-custom",
+          "blocks": {
+            "33221865-d2fc-4134-8bbd-c39d443d3943": {
+              "type": "header",
+              "settings": {
+                "announcement_text": "Call attention to a special discount, feature or promotion here.",
+                "text_color": "#000000"
+              }
+            },
+            "d3007053-322e-49d6-b436-c646dba9a0a7": {
+              "type": "header",
+              "settings": {
+                "announcement_text": "Oh and there is an option for another announcement. You're welcome.",
+                "text_color": "#000000"
+              }
+            },
+            "ff5604d4-98c3-46c5-970e-7f3d495e9053": {
+              "type": "header",
+              "settings": {
+                "announcement_text": "And you can change the slider delay.",
+                "text_color": "#000000"
+              }
+            }
+          },
+          "block_order": [
+            "33221865-d2fc-4134-8bbd-c39d443d3943",
+            "d3007053-322e-49d6-b436-c646dba9a0a7",
+            "ff5604d4-98c3-46c5-970e-7f3d495e9053"
+          ],
+          "custom_css": [
+
+          ],
+          "settings": {
+            "background_color": "#f9ecd7",
+            "interval_time": 5
+          }
+        }
+      },
+      "content_for_index": [
+
+      ]
+    },
+    "Loyal": {
+      "header_background_color": "#00551c",
+      "header_content_color": "#ffffff",
+      "header_content_hover_color": "#01bf5d",
+      "footer_background_color": "#f5f5f5",
+      "footer_content_color": "#000000",
+      "footer_content_hover_color": "#01bf5d",
+      "banner_color_text": "#ffffff",
+      "btn_background_color": "#01bf5d",
+      "btn_color_text": "#ffffff",
+      "banner_color_text_mob": "#000000",
+      "mobile_btn_background_color": "#01bf5d",
+      "mobile_btn_color_text": "#ffffff",
+      "colors_background_1": "#ffffff",
+      "colors_text": "#000000",
+      "colors_outline_button_labels": "#01bf5d",
+      "colors_solid_button_labels": "#ffffff",
+      "colors_accent_1": "#01bf5d",
+      "colors_background_2": "#f5f5f5",
+      "colors_slider_button_background": "#00551c",
+      "colors_slider_button": "#ffffff",
+      "freeshipping": "100",
+      "breadcrumbs_enabled": true,
+      "type_header_font": "arvo_n4",
+      "heading_scale": 130,
+      "type_body_font": "arvo_n4",
+      "sale_badge_color_background": "#ff0000",
+      "sale_badge_color_text": "#fff",
+      "sold_badge_color_background": "#000000",
+      "sold_badge_color_text": "#ffffff",
+      "favourite_icon_background": "#ffffff",
+      "favourite_icon_text": "#000000",
+      "accent_icons": "text",
+      "page_width": 1400,
+      "social_twitter_link": "https:\/\/twitter.com\/shopify",
+      "social_facebook_link": "https:\/\/facebook.com\/shopify",
+      "social_pinterest_link": "https:\/\/pinterest.com\/shopify",
+      "social_instagram_link": "http:\/\/instagram.com\/shopify",
+      "social_tiktok_link": "https:\/\/tiktok.com\/@shopify",
+      "social_tumblr_link": "https:\/\/shopify.tumblr.com",
+      "social_snapchat_link": "https:\/\/www.snapchat.com\/add\/shopify",
+      "social_youtube_link": "https:\/\/www.youtube.com\/shopify",
+      "social_vimeo_link": "https:\/\/vimeo.com\/shopify",
+      "predictive_search_show_vendor": false,
+      "predictive_search_show_price": true,
+      "favicon": "shopify:\/\/shop_images\/ABK-beer-Black-logo.png",
+      "currency_code_enabled": false,
+      "checkout_logo_image": "shopify:\/\/shop_images\/ABK-beer-Black-logo-white.png",
+      "checkout_logo_position": "center",
+      "checkout_logo_size": "large",
+      "checkout_body_background_color": "#ffffff",
+      "checkout_sidebar_background_color": "#00551c",
+      "checkout_accent_color": "#01bf5d",
+      "checkout_button_color": "#01bf5d",
+      "checkout_error_color": "#ff0000",
+      "btn_hover_color": "#000000",
+      "mobile_btn_hover_color": "#000000",
+      "solid_button_labels_hover": "#cb6d51",
+      "colors_accent_2": "#cb6d51",
+      "mobile_background_color": "#6518b9",
+      "banners_color_text": "#b91893",
+      "header_footer_background_color": "#1a1b18",
+      "header_footer_content_color": "#ffffff",
+      "header_footer_content_hover_color": "#fd7a29",
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "logo_height": 90,
+            "logo_position": "middle-left",
+            "menu": "main-menu",
+            "show_line_separator": false,
+            "hide_account_icon": true,
+            "enable_wishlist_icon": true,
+            "enable_sticky_header": true
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "footer-0": {
+              "type": "link_list",
+              "settings": {
+                "heading": "Company",
+                "menu": ""
+              }
+            },
+            "9a115fd8-6040-4f1f-8450-7e6c78ce7376": {
+              "type": "link_list",
+              "settings": {
+                "heading": "Shop",
+                "menu": ""
+              }
+            },
+            "8607523c-b7df-4e77-b95b-dc58cf259f16": {
+              "type": "link_list",
+              "settings": {
+                "heading": "Help",
+                "menu": ""
+              }
+            }
+          },
+          "block_order": [
+            "footer-0",
+            "9a115fd8-6040-4f1f-8450-7e6c78ce7376",
+            "8607523c-b7df-4e77-b95b-dc58cf259f16"
+          ],
+          "settings": {
+            "newsletter_enable": true,
+            "newsletter_heading": "Signup to our emails for 5% off",
+            "show_social": true,
+            "enable_country_selector": true,
+            "enable_language_selector": true,
+            "shopify_disable": true,
+            "payment_enable": true,
+            "margin_top": 16,
+            "padding_top": 60,
+            "padding_bottom": 60
+          }
+        },
+        "popups": {
+          "type": "popups",
+          "blocks": {
+            "15e3cc09-1a3f-4c2c-a5fd-5137869b9f51": {
+              "type": "Sticky_reminder",
+              "settings": {
+                "sticky_reminder_text": "Optional sticky label",
+                "color_scheme": "accent-1"
+              }
+            }
+          },
+          "block_order": [
+            "15e3cc09-1a3f-4c2c-a5fd-5137869b9f51"
+          ],
+          "settings": {
+            "pop_up_de": true,
+            "show_only_for_visitors": false,
+            "apparition_delay": 1,
+            "frequency": 1,
+            "title": "Built in Newsletter Pop-up",
+            "content": "<p>No need to slow your site down with extra apps!<\/p>",
+            "image_position": "right",
+            "show_newsletter": true,
+            "sumnit_btn": "Subscribe",
+            "color_scheme": "background-1"
+          }
+        },
+        "breadcrumbs": {
+          "type": "breadcrumbs",
+          "settings": {
+            "colorBackground": "#ffffff",
+            "colorText": "#000000",
+            "hoverText": "#01bf5d",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "annoucement-bar-custom": {
+          "type": "annoucement-bar-custom",
+          "blocks": {
+            "33221865-d2fc-4134-8bbd-c39d443d3943": {
+              "type": "header",
+              "settings": {
+                "announcement_text": "Call attention to a special discount, feature or promotion here.",
+                "text_color": "#000000"
+              }
+            },
+            "d3007053-322e-49d6-b436-c646dba9a0a7": {
+              "type": "header",
+              "settings": {
+                "announcement_text": "Oh and there is an option for another announcement. You're welcome.",
+                "text_color": "#000000"
+              }
+            },
+            "ff5604d4-98c3-46c5-970e-7f3d495e9053": {
+              "type": "header",
+              "settings": {
+                "announcement_text": "And you can change the slider delay.",
+                "text_color": "#000000"
+              }
+            }
+          },
+          "block_order": [
+            "33221865-d2fc-4134-8bbd-c39d443d3943",
+            "d3007053-322e-49d6-b436-c646dba9a0a7",
+            "ff5604d4-98c3-46c5-970e-7f3d495e9053"
+          ],
+          "custom_css": [
+
+          ],
+          "settings": {
+            "background_color": "#f5f5f5",
+            "interval_time": 3
+          }
+        }
+      },
+      "content_for_index": [
+
+      ]
+    },
+    "Fresh": {
+      "header_background_color": "#ffffff",
+      "header_content_color": "#000000",
+      "header_content_hover_color": "#4d4d4d",
+      "footer_background_color": "#000000",
+      "footer_content_color": "#ffffff",
+      "footer_content_hover_color": "#4d4d4d",
+      "banner_color_text": "#ffffff",
+      "btn_background_color": "#000000",
+      "btn_color_text": "#ffffff",
+      "banner_color_text_mob": "#000000",
+      "mobile_btn_background_color": "#000000",
+      "mobile_btn_color_text": "#ffffff",
+      "colors_background_1": "#ffffff",
+      "colors_text": "#000000",
+      "colors_outline_button_labels": "#4d4d4d",
+      "colors_solid_button_labels": "#ffffff",
+      "colors_accent_1": "#000000",
+      "colors_background_2": "#ffffff",
+      "colors_slider_button_background": "#000000",
+      "colors_slider_button": "#ffffff",
+      "freeshipping": "100",
+      "breadcrumbs_enabled": true,
+      "type_header_font": "helvetica_n7",
+      "heading_scale": 130,
+      "type_body_font": "sans-serif",
+      "sale_badge_color_background": "#ff0000",
+      "sale_badge_color_text": "#fff",
+      "sold_badge_color_background": "#000000",
+      "sold_badge_color_text": "#ffffff",
+      "favourite_icon_background": "#ffffff",
+      "favourite_icon_text": "#000000",
+      "accent_icons": "text",
+      "page_width": 1400,
+      "social_twitter_link": "https:\/\/twitter.com\/shopify",
+      "social_facebook_link": "https:\/\/facebook.com\/shopify",
+      "social_pinterest_link": "https:\/\/pinterest.com\/shopify",
+      "social_instagram_link": "http:\/\/instagram.com\/shopify",
+      "social_tiktok_link": "https:\/\/tiktok.com\/@shopify",
+      "social_tumblr_link": "https:\/\/shopify.tumblr.com",
+      "social_snapchat_link": "https:\/\/www.snapchat.com\/add\/shopify",
+      "social_youtube_link": "https:\/\/www.youtube.com\/shopify",
+      "social_vimeo_link": "https:\/\/vimeo.com\/shopify",
+      "predictive_search_show_vendor": false,
+      "predictive_search_show_price": true,
+      "favicon": "shopify:\/\/shop_images\/ABK-beer-Black-logo.png",
+      "currency_code_enabled": false,
+      "checkout_logo_image": "shopify:\/\/shop_images\/ABK-beer-Black-logo-white.png",
+      "checkout_logo_position": "center",
+      "checkout_logo_size": "large",
+      "checkout_body_background_color": "#ffffff",
+      "checkout_sidebar_background_color": "#000000",
+      "checkout_accent_color": "#4d4d4d",
+      "checkout_button_color": "#000000",
+      "checkout_error_color": "#ff0000",
+      "btn_hover_color": "#000000",
+      "mobile_btn_hover_color": "#000000",
+      "solid_button_labels_hover": "#cb6d51",
+      "colors_accent_2": "#cb6d51",
+      "mobile_background_color": "#6518b9",
+      "banners_color_text": "#b91893",
+      "header_footer_background_color": "#1a1b18",
+      "header_footer_content_color": "#ffffff",
+      "header_footer_content_hover_color": "#fd7a29",
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "logo_height": 90,
+            "logo_position": "middle-left",
+            "menu": "main-menu",
+            "show_line_separator": false,
+            "hide_account_icon": true,
+            "enable_wishlist_icon": true,
+            "enable_sticky_header": true
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "footer-0": {
+              "type": "link_list",
+              "settings": {
+                "heading": "Company",
+                "menu": ""
+              }
+            },
+            "9a115fd8-6040-4f1f-8450-7e6c78ce7376": {
+              "type": "link_list",
+              "settings": {
+                "heading": "Shop",
+                "menu": ""
+              }
+            },
+            "8607523c-b7df-4e77-b95b-dc58cf259f16": {
+              "type": "link_list",
+              "settings": {
+                "heading": "Help",
+                "menu": ""
+              }
+            }
+          },
+          "block_order": [
+            "footer-0",
+            "9a115fd8-6040-4f1f-8450-7e6c78ce7376",
+            "8607523c-b7df-4e77-b95b-dc58cf259f16"
+          ],
+          "settings": {
+            "newsletter_enable": true,
+            "newsletter_heading": "Signup to our emails for 5% off",
+            "show_social": true,
+            "enable_country_selector": true,
+            "enable_language_selector": true,
+            "shopify_disable": true,
+            "payment_enable": true,
+            "margin_top": 16,
+            "padding_top": 60,
+            "padding_bottom": 60
+          }
+        },
+        "popups": {
+          "type": "popups",
+          "blocks": {
+            "15e3cc09-1a3f-4c2c-a5fd-5137869b9f51": {
+              "type": "Sticky_reminder",
+              "settings": {
+                "sticky_reminder_text": "Optional sticky label",
+                "color_scheme": "accent-1"
+              }
+            }
+          },
+          "block_order": [
+            "15e3cc09-1a3f-4c2c-a5fd-5137869b9f51"
+          ],
+          "settings": {
+            "pop_up_de": true,
+            "show_only_for_visitors": false,
+            "apparition_delay": 1,
+            "frequency": 1,
+            "title": "Built in Newsletter Pop-up",
+            "content": "<p>No need to slow your site down with extra apps!<\/p>",
+            "image_position": "right",
+            "show_newsletter": true,
+            "sumnit_btn": "Subscribe",
+            "color_scheme": "background-1"
+          }
+        },
+        "breadcrumbs": {
+          "type": "breadcrumbs",
+          "settings": {
+            "colorBackground": "#ffffff",
+            "colorText": "#000000",
+            "hoverText": "#cccccc",
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "annoucement-bar-custom": {
+          "type": "annoucement-bar-custom",
+          "blocks": {
+            "33221865-d2fc-4134-8bbd-c39d443d3943": {
+              "type": "header",
+              "settings": {
+                "announcement_text": "Call attention to a special discount, feature or promotion here.",
+                "text_color": "#ffffff"
+              }
+            },
+            "d3007053-322e-49d6-b436-c646dba9a0a7": {
+              "type": "header",
+              "settings": {
+                "announcement_text": "Oh and there is an option for another announcement. You're welcome.",
+                "text_color": "#ffffff"
+              }
+            },
+            "ff5604d4-98c3-46c5-970e-7f3d495e9053": {
+              "type": "header",
+              "settings": {
+                "announcement_text": "And you can change the slider delay.",
+                "text_color": "#ffffff"
+              }
+            }
+          },
+          "block_order": [
+            "33221865-d2fc-4134-8bbd-c39d443d3943",
+            "d3007053-322e-49d6-b436-c646dba9a0a7",
+            "ff5604d4-98c3-46c5-970e-7f3d495e9053"
+          ],
+          "custom_css": [
+
+          ],
+          "settings": {
+            "background_color": "#000000",
+            "interval_time": 5
+          }
+        }
+      },
+      "content_for_index": [
+
+      ]
+    }
+  }
+}

@@ -1,0 +1,52 @@
+<div class="filters-applied__container small-hide {% if section.settings.filter_type == "horizontal" %} horizontal-filter-active {% endif %}">
+  <div class="active-facets active-facets-desktop">
+    {%- for filter in collection.filters -%}
+      {%- for value in filter.active_values -%}
+        <facet-remove>
+          <a href="{{ value.url_to_remove }}" class="active-facets__button active-facets__button--light">
+            <span class="active-facets__button-inner h4">
+              {{ value.label | escape }}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                focusable="false"
+                role="presentation"
+                class="icon icon-close collection-close"
+                viewBox="0 0 48 48"
+              >
+                <g transform="matrix(2,0,0,2,0,0)"><defs><style>.a{stroke-width:1.5px;}</style></defs><title>close</title><line class="a" x1="0.75" y1="23.249" x2="23.25" y2="0.749"></line><line class="a" x1="23.25" y1="23.249" x2="0.75" y2="0.749"></line></g>
+              </svg>
+            </span>
+          </a>
+        </facet-remove>
+      {%- endfor -%}
+      {% if filter.type == 'price_range' %}
+        {%- if filter.min_value.value != null or filter.max_value.value != null -%}
+          <facet-remove>
+            <a href="{{ filter.url_to_remove }}" class="active-facets__button active-facets__button--light">
+              <span class="active-facets__button-inner h4">
+                {%- if filter.min_value.value -%}
+                  {{ filter.min_value.value | money }}
+                {%- else -%}
+                  {{ 0 | money }}
+                {%- endif -%}
+                -
+                {%- if filter.max_value.value -%}
+                  {{ filter.max_value.value | money }}
+                {%- else -%}
+                  {{ filter.range_max | money }}
+                {%- endif -%}
+                {% render 'icon-close-small' %}
+              </span>
+            </a>
+          </facet-remove>
+        {%- endif -%}
+      {% endif %}
+    {%- endfor -%}
+    <facet-remove class="active-facets__button-wrapper h4">
+      <a href="{{ collection.url }}?sort_by={{ sort_by }}" class="underlined-link base-text-color">
+        <span>{{ 'sections.collection_template.remove_all' | t }}</span>
+      </a>
+    </facet-remove>
+  </div>
+</div>

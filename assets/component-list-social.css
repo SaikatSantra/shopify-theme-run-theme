@@ -1,0 +1,41 @@
+.list-social {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+@media only screen and (max-width: 989px) {
+  .list-social {
+    justify-content: center;
+  }
+}
+
+.list-social__item .icon {
+  height: 2rem;
+  width: 2rem;
+}
+
+
+.list-social__link {
+  align-items: center;
+  display: flex;
+  padding: 0.5rem;
+  border-radius: 50%;
+}
+
+.list-social__link:hover .icon {
+  transform: scale(1.07);
+}
+
+.social_link_page {
+  background-color: rgb(var(--color-foreground));
+  border-radius: 50%;
+  color: rgb(var(--color-background));
+}
+
+.share-button__main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,338 @@
+.main-search-container {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(var(--color-background));
+
+}
+.predictive-results-main-wrapper {
+  padding: 0;
+}
+@media (min-width: 990px) {
+.predictive-results-main-wrapper {
+    padding: 0 4rem;
+  }
+}
+
+.predictive-search {
+  display: none;
+  position: absolute;
+  top: calc(100% + 0.1rem);
+  left: -0.1rem;
+  border-width: var(--popup-border-width);
+  border-style: solid;
+  border-color: rgba(var(--color-foreground), var(--popup-border-opacity));
+  background-color: rgb(var(--color-background));
+  z-index: 3;
+  border-bottom-right-radius: var(--popup-corner-radius);
+  border-bottom-left-radius: var(--popup-corner-radius);
+  box-shadow: var(--popup-shadow-horizontal-offset) var(--popup-shadow-vertical-offset) var(--popup-shadow-blur-radius)
+    rgba(var(--color-shadow), var(--popup-shadow-opacity));
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.predictive-search.predictive-search--header {
+  border-top:0.1rem solid rgba(var(--color-foreground), 0.08);
+}
+.predictive-search--search-template {
+  z-index: 2;
+  width: calc(100% + 0.2rem);
+}
+
+.predictive-search__results-groups-wrapper {
+  display: flex;
+  margin-top: 4rem;
+}
+@media (min-width: 990px) {
+  .predictive-search__results-groups-wrapper {
+      margin-top: 4rem;
+  }
+}
+
+.predictive-search__results-list {
+  display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    gap: 2rem;
+}
+.predictive-search-hr { /* Or the class you give to your div line */
+  width: 100vw; /* Set the width to 100% of the viewport width */
+  margin-left: -50vw;  
+  margin-right: -50vw; 
+  position: relative; 
+  left: 50%; 
+  border-top: 1px solid #ccc; /* Adjust the border style as needed */
+  margin-top: 1rem;  
+  margin-bottom: 1rem; 
+}
+
+
+
+.predictive-card {
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  max-width: 100%;
+}
+
+.predictive-search__results-suggestions {
+  flex-direction: column;
+}
+.predictive-search__list-item {
+  width: 100%;
+}
+
+  .predictive-search--header {
+    right: 0;
+    left: 0;
+    top: 100%;
+  }
+
+  .predictive-search__results-groups-wrapper:not(.predictive-search__results-groups-wrapper--no-suggestions) {
+    /* On mobile, when there are no suggestions the first .predictive-search__results-groups-wrapper
+     * is virtually empty due to a display: hidden on the predictive-search__pages-wrapper child.
+     * This causes the gap to render and look like a big top margin */
+    gap: 7rem;
+  }
+@media (max-width: 989px) {
+    .predictive-search__results-groups-wrapper {
+    flex-direction: column;
+  }
+}
+
+/* @media screen and (min-width: 1750px) {
+  .predictive-search {
+    border-top: none;
+    width: calc(100% + 0.2rem);
+  }
+
+  .header predictive-search {
+    position: relative;
+  }
+} */
+
+predictive-search[open] .predictive-search,
+predictive-search[loading] .predictive-search {
+  display: block;
+}
+
+.predictive-search__result-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  gap: 2rem;
+}
+.predictive-search__result-group:first-child {
+  margin-left: 2rem;
+ }
+
+.predictive-search__result-group:first-child .predictive-search__pages-wrapper {
+  display: none;
+}
+.predictive-search__pages-wrapper {
+    margin-left: 2rem;
+}
+
+@media screen and (min-width: 990px) {
+    .predictive-search__pages-wrapper {
+    margin-left: 0rem;
+}
+  .predictive-search__results-groups-wrapper--no-products .predictive-search__result-group:nth-child(2),
+  .predictive-search__result-group:last-child .predictive-search__pages-wrapper {
+    display: none;
+  }
+  .predictive-search__result-group:first-child .predictive-search__pages-wrapper {
+    display: initial;
+    margin-top: 1.6rem;
+  }
+  .predictive-search__result-group:first-child {
+    flex: 0 0 20rem;
+    margin-left: 0;
+  }
+  .predictive-search__results-groups-wrapper--no-products .predictive-search__result-group:first-child,
+  .predictive-search__result-group:only-child {
+    flex-grow: 1;
+  }
+}
+
+.predictive-search__heading, .predictive-search__item {
+  margin: 0;
+  padding: 0;
+}
+
+
+
+predictive-search .spinner {
+  width: 1.5rem;
+  height: 1.5rem;
+  line-height: 0;
+}
+
+predictive-search:not([loading]) .predictive-search__loading-state,
+predictive-search:not([loading]) .predictive-search-status__loading {
+  display: none;
+}
+
+predictive-search[loading] .predictive-search__loading-state {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+predictive-search[loading] .predictive-search__search-for-button {
+  display: none;
+  justify-self: center;
+  display: flex;
+}
+
+predictive-search[loading] .predictive-search__results-groups-wrapper ~ .predictive-search__loading-state {
+  display: none;
+}
+
+predictive-search[loading] .predictive-search__results-groups-wrapper ~ .predictive-search__search-for-button {
+  display: initial;
+}
+.predictive-search__search-for-button {
+  justify-content: center;
+  display: flex;
+  width: 100%;
+  margin: 1rem 2rem;
+  padding: 0 2rem;
+  
+}
+
+.search__close-button {
+  text-transform: capitalize;
+}
+
+.predictive-search__list-item[aria-selected='true'] > *,
+.predictive-search__list-item:hover > *,
+.predictive-search__item[aria-selected='true'], {
+  color: rgb(var(--color-foreground));
+  background-color: rgba(var(--color-foreground), 0.04);
+}
+
+.predictive-search__list-item[aria-selected='true'] .predictive-search__item-heading,
+.predictive-search__list-item:hover .predictive-search__item-heading {
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+}
+
+.predictive-search__item {
+  display: flex;
+  text-align: left;
+  text-decoration: none;
+  width: 100%;
+}
+@media screen and (min-width: 990px) {
+  .predictive-search__item--term {
+    width: 25%;
+  }
+}
+
+.predictive-search__item--link-with-thumbnail {
+  display: flex;
+  flex-direction: column; 
+  grid-column-gap: 2rem;
+  grid-template-areas: 'product-image product-content';
+}
+
+.predictive-search__item-content {
+  grid-area: product-content;
+  display: flex;
+  flex-direction: column;
+}
+
+.text-container-no-image {
+  margin-left: 2rem;
+}
+@media screen and (min-width: 990px) {
+  .text-container-no-image {
+    margin-left: 0rem;
+  }
+}
+
+.predictive-search__item-content--centered {
+  justify-content: center;
+}
+
+.predictive-search__item-vendor {
+  margin: 0.6rem 0 0;
+
+}
+
+
+.predictive-search__item-heading {
+  margin: 2rem 0 0;
+  text-transform: capitalize;
+}
+
+.predictive-search__item-query-result *:not(mark) {
+  color: rgba(var(--color-foreground), 0.6);
+  font-size: 2rem;
+  font-weight: 400;
+
+
+}
+
+.predictive-search__item-query-result mark {
+  color: rgba(var(--color-foreground));
+}
+
+.predictive-search__item-query-result mark {
+  background-color: transparent;
+  text-transform: capitalize;
+}
+
+.predictive-search__item .price {
+  color: rgba(var(--color-foreground));
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.predictive-search__item-vendor + .predictive-search__item-heading,
+.predictive-search .price {
+  margin: 1.6rem 0 0;
+}
+
+.predictive-search__item--term {
+  justify-content: center;
+  align-items: center;
+  padding: 1.3rem 2rem;
+  word-break: break-all;
+  line-height: calc(1 + 0.4 / var(--font-body-scale));
+}
+
+
+.predictive-search__item--term .icon-arrow {
+  width: calc(var(--font-heading-scale) * 1.4rem);
+  height: calc(var(--font-heading-scale) * 1.4rem);
+  flex-shrink: 0;
+  margin-left: calc(var(--font-heading-scale) * 2rem);
+  color: rgb(var(--color-link));
+}
+
+.predictive-search__image {
+  grid-area: product-image;
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+}
+
+
+
+/* custom  */
+.predictive-search__item--term .icon-arrow {
+    width: 10px;
+    height: 10px;
+    flex-shrink: 0;
+    margin-left: 10px;
+    color: #000;
+}
+
+.predictive-search.predictive-search--header {
+    height: auto;
+}
+
+.predictive-search__item--term span {
+    line-height: 0;
+}
