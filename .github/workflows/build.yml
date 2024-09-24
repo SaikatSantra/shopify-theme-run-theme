@@ -24,6 +24,7 @@ jobs:
       - name: Print GITHUB_REF
         run: |
           echo "The GITHUB_REF is: $GITHUB_REF"
+          echo "The GITHUB_REPOSITORY is: $GITHUB_REPOSITORY"
 
       - name: Extract branch name
         run: |
@@ -38,7 +39,7 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      # Setup git config
+      # Setup git config pull
       - name: setup git config
         if: ${{ contains(github.ref, 'pull') }}
         run: |
@@ -49,7 +50,7 @@ jobs:
           git remote add -f theme-origin https://github.com/${GITHUB_REPOSITORY}-theme.git
           git subtree pull --prefix=theme theme-origin ${GITHUB_HEAD_REF} --squash
 
-      # Setup git config
+      # Setup git config not pull
       - name: setup git config
         if: ${{ !contains(github.ref, 'pull') }}
         run: |
