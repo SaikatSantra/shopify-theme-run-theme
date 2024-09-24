@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const SearchDummyProductCard: React.FC = () => (
   <div className="product-card">

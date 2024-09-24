@@ -1,22 +1,22 @@
-import React, { useEffect, useRef, useState } from "react";
-import CartLineItem from "./CartLineItem";
-import GiftProduct from "./GiftProduct";
-import { useCart } from "../../../hooks/useCart";
-import getRoute from "../../../../scripts/utils/getRoute";
+import React, { useEffect, useRef, useState } from 'react';
+import CartLineItem from './CartLineItem';
+import GiftProduct from './GiftProduct';
+import { useCart } from '../../../hooks/useCart';
+import getRoute from '../../../../scripts/utils/getRoute';
 
-import LoadingIcon from "./Loading";
-import Money from "../../Money";
+import LoadingIcon from './Loading';
+import Money from '../../Money';
 
-import { Interweave } from "interweave";
-import useLangStrings from "../../../hooks/useLangStrings";
-import { CartUpsells } from "../CartUpsells/CartUpsells";
-import PromoBar from "../PromoBar/PromoBar";
+import { Interweave } from 'interweave';
+import useLangStrings from '../../../hooks/useLangStrings';
+import { CartUpsells } from '../CartUpsells/CartUpsells';
+import PromoBar from '../PromoBar/PromoBar';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import { Autoplay } from "swiper/modules";
-import { SwiperSlide, Swiper } from "swiper/react";
-import GiftWithPurchaseProduct from "./GiftWithPurchaseProduct";
+import { Autoplay } from 'swiper/modules';
+import { SwiperSlide, Swiper } from 'swiper/react';
+import GiftWithPurchaseProduct from './GiftWithPurchaseProduct';
 
 interface Props {
   dataSet: DOMStringMap;
@@ -142,9 +142,9 @@ const MiniCart: React.FunctionComponent<Props> = ({ dataSet }: Props) => {
         <header className="minicart__header">
           <div className="minicart__title-wrap">
             <h4 className="minicart__title heading-2">
-              {title} {updating ? <LoadingIcon /> : ""}
+              {title} {updating ? <LoadingIcon /> : ''}
             </h4>
-            <p className="paragraph--md">{`${cart.item_count} ${cart.item_count === 1 ? "Item" : "Items"}`}</p>
+            <p className="paragraph--md">{`${cart.item_count} ${cart.item_count === 1 ? 'Item' : 'Items'}`}</p>
           </div>
           <button
             ref={closeButton}
@@ -160,7 +160,7 @@ const MiniCart: React.FunctionComponent<Props> = ({ dataSet }: Props) => {
 
           {shippingRows.length > 0 && (
             <div
-              className={`delivery-info__container${isDeliveryInfoOpen ? " delivery-info__container--open" : ""}`}
+              className={`delivery-info__container${isDeliveryInfoOpen ? ' delivery-info__container--open' : ''}`}
             >
               <button
                 className="delivery-info__toggle"
@@ -198,8 +198,8 @@ const MiniCart: React.FunctionComponent<Props> = ({ dataSet }: Props) => {
             <div
               className={
                 cartItems
-                  ? "minicart__main"
-                  : "minicart__main minicart__main--empty"
+                  ? 'minicart__main'
+                  : 'minicart__main minicart__main--empty'
               }
             >
               {cartItems ? (
@@ -245,9 +245,9 @@ const MiniCart: React.FunctionComponent<Props> = ({ dataSet }: Props) => {
             {cartItems ? <CartUpsells dataSet={dataSet} /> : null}
           </div>
         </div>
-        {cartItems && dataSet.cartNotes === "true" ? (
+        {cartItems && dataSet.cartNotes === 'true' ? (
           <div
-            className={`minicart__accordion${isOrderNoteOpen ? " minicart__accordion--open" : ""}`}
+            className={`minicart__accordion${isOrderNoteOpen ? ' minicart__accordion--open' : ''}`}
           >
             <button
               className="minicart__accordion-toggle"
@@ -275,14 +275,14 @@ const MiniCart: React.FunctionComponent<Props> = ({ dataSet }: Props) => {
                 ></textarea>
               </div>
               <p className="small">
-                {noteSupportText.replace("{{ max }}", dataSet.cartNotesLength)}
+                {noteSupportText.replace('{{ max }}', dataSet.cartNotesLength)}
               </p>
             </div>
           </div>
         ) : null}
-        {cartItems && dataSet.giftMessage === "true" ? (
+        {cartItems && dataSet.giftMessage === 'true' ? (
           <div
-            className={`minicart__accordion${isGiftMessageOpen ? " minicart__accordion--open" : ""}`}
+            className={`minicart__accordion${isGiftMessageOpen ? ' minicart__accordion--open' : ''}`}
           >
             <button
               className="minicart__accordion-toggle"
@@ -311,7 +311,7 @@ const MiniCart: React.FunctionComponent<Props> = ({ dataSet }: Props) => {
               </div>
               <p className="small">
                 {giftMessageSupportText.replace(
-                  "{{ max }}",
+                  '{{ max }}',
                   dataSet.giftMessageLength,
                 )}
               </p>
@@ -350,7 +350,7 @@ const MiniCart: React.FunctionComponent<Props> = ({ dataSet }: Props) => {
             <div className="minicart__ctas">
               <a
                 href={`${getRoute()}checkout`}
-                className={`btn btn--secondary minicart__cta ${enableCheckout ? "" : "btn--disabled"}`}
+                className={`btn btn--secondary minicart__cta ${enableCheckout ? '' : 'btn--disabled'}`}
               >
                 {proccedCta}
               </a>

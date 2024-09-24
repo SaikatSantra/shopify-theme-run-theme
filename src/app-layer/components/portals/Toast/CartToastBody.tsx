@@ -1,10 +1,10 @@
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../../../store/reducers";
-import { dismissToast } from "../../../store/actions/toast";
-import Price from "../../Price";
-import getRoute from "../../../../scripts/utils/getRoute";
-import Image from "../../Image";
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from '../../../store/reducers';
+import { dismissToast } from '../../../store/actions/toast';
+import Price from '../../Price';
+import getRoute from '../../../../scripts/utils/getRoute';
+import Image from '../../Image';
 
 interface CartToastBodyProp {
   productIds: any;
@@ -24,11 +24,11 @@ const CartToastBody = (props: CartToastBodyProp): JSX.Element => {
       (accumulator, currentValue) => accumulator + currentValue,
     );
   }
-  const pluralise = itemCount > 1 ? "s" : "";
+  const pluralise = itemCount > 1 ? 's' : '';
 
   const title = cartTitleText
-    .replace("{{ item_count }}", itemCount)
-    .replace("{{ pluralise }}", pluralise);
+    .replace('{{ item_count }}', itemCount)
+    .replace('{{ pluralise }}', pluralise);
   const products = cartItems.filter(
     (cartItem) => productIds.indexOf(cartItem.id) > -1,
   );
@@ -43,7 +43,7 @@ const CartToastBody = (props: CartToastBodyProp): JSX.Element => {
         className="product-image"
       />
     ) : (
-      ""
+      ''
     );
   };
 
@@ -61,7 +61,7 @@ const CartToastBody = (props: CartToastBodyProp): JSX.Element => {
       <div className="toast__body">
         <ul className="list-products">
           {products.map((product, i) => (
-            <li className="product" key={"cart-product-" + i}>
+            <li className="product" key={'cart-product-' + i}>
               {renderImage(product)}
               <div className="product-detail">
                 <p className="title">{product.title}</p>

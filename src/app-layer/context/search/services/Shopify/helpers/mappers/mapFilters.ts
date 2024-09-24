@@ -2,8 +2,8 @@ import {
   ISearchFilter,
   ISearchFilterOption,
   ISearchFilterRangeOption,
-} from "../../../../types";
-import { IFilterResponse } from "../../types";
+} from '../../../../types';
+import { IFilterResponse } from '../../types';
 
 const mapFilters = (filtersInResp: IFilterResponse[]): ISearchFilter[] => {
   return filtersInResp.map((filterInResp: IFilterResponse) => {
@@ -20,14 +20,14 @@ const mapFilters = (filtersInResp: IFilterResponse[]): ISearchFilter[] => {
     };
 
     switch (filterInResp.type) {
-      case "list":
-        mappedFilter.type = "MULTI_OPTION";
+      case 'list':
+        mappedFilter.type = 'MULTI_OPTION';
         // This causes issues because any metaobject filter is returned as a swatch by Shopify
         // mappedFilter.displayType = filterInResp.presentation && filterInResp.presentation === 'swatch' ? 'SWATCH' : 'TEXT';
         // Instead we're checking the id, which should have 'swatch' in the name if the metafields have been setup correctly
-        mappedFilter.displayType = filterInResp.id.includes("swatch")
-          ? "SWATCH"
-          : "TEXT";
+        mappedFilter.displayType = filterInResp.id.includes('swatch')
+          ? 'SWATCH'
+          : 'TEXT';
 
         mappedFilter.options = filterInResp.values.map((value) => {
           return <ISearchFilterOption>{
@@ -41,9 +41,9 @@ const mapFilters = (filtersInResp: IFilterResponse[]): ISearchFilter[] => {
         });
 
         break;
-      case "price_range":
-        mappedFilter.type = "RANGE";
-        mappedFilter.displayType = "RANGE";
+      case 'price_range':
+        mappedFilter.type = 'RANGE';
+        mappedFilter.displayType = 'RANGE';
 
         // Shopify returns the price range in pence.
 
@@ -59,7 +59,7 @@ const mapFilters = (filtersInResp: IFilterResponse[]): ISearchFilter[] => {
 
         break;
       default:
-        throw new Error("Shopify filter type not implemented.");
+        throw new Error('Shopify filter type not implemented.');
     }
 
     return mappedFilter;

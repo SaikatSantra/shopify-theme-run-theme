@@ -3,17 +3,17 @@ import {
   IGetProductsResult,
   IGetProductsResultsQuery,
   ISearchFilter,
-} from "../../../types";
-import getTemplateJSON from "../../../../../../scripts/utils/getTemplateJSON";
-import mapFilters from "../helpers/mappers/mapFilters";
+} from '../../../types';
+import getTemplateJSON from '../../../../../../scripts/utils/getTemplateJSON';
+import mapFilters from '../helpers/mappers/mapFilters';
 import {
   ICollTemplateResponse,
   ISearchTemplateResponse,
   ITemplateProductResponse,
-} from "../types";
-import mapProduct from "../helpers/mappers/mapProduct";
-import getFilteredUrlParams from "../helpers/getFilteredUrlParams";
-import getSortKeyParams from "../helpers/getSortKeyParams";
+} from '../types';
+import mapProduct from '../helpers/mappers/mapProduct';
+import getFilteredUrlParams from '../helpers/getFilteredUrlParams';
+import getSortKeyParams from '../helpers/getSortKeyParams';
 
 const GetProductResults = async (
   searchFilters: ISearchFilter[],
@@ -38,11 +38,11 @@ const GetProductResults = async (
 
     // If the query term is empty here, we're on a collection page, otherwise we're on the search page.
 
-    if (query.term === "") {
+    if (query.term === '') {
       templateData = await getTemplateJSON<ICollTemplateResponse>(
-        "collections",
+        'collections',
         activeCollection.handle,
-        "sf-data",
+        'sf-data',
         `&page=${pageIndex}${urlParams}`,
       );
 
@@ -51,9 +51,9 @@ const GetProductResults = async (
       urlParams += `&q=${query.term}&type=product`;
 
       templateData = await getTemplateJSON<ISearchTemplateResponse>(
-        "search",
-        "",
-        "sf-data",
+        'search',
+        '',
+        'sf-data',
         `&page=${pageIndex}${urlParams}`,
       );
 

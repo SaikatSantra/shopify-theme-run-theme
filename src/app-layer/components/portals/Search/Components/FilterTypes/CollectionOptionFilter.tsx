@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 import {
   ISearchFilter,
   ISearchFilterOption,
-} from "../../../../../context/search/types";
-import TextFilter from "../FilterDisplayTypes/TextFilter";
-import useSearch from "../../../../../context/search/useSearch";
-import ClearAndApplyButton from "../ClearAndApplyButton";
-import handleModalClose from "../../../../../util/handleModalClose";
-import handleize from "../../../../../../scripts/utils/handleize";
+} from '../../../../../context/search/types';
+import TextFilter from '../FilterDisplayTypes/TextFilter';
+import useSearch from '../../../../../context/search/useSearch';
+import ClearAndApplyButton from '../ClearAndApplyButton';
+import handleModalClose from '../../../../../util/handleModalClose';
+import handleize from '../../../../../../scripts/utils/handleize';
 
 interface ISingleOptionFilter {
   filterIndex: number;
@@ -39,18 +39,18 @@ const CollectionOptionFilter: React.FC<ISingleOptionFilter> = ({
         {(filter.options as ISearchFilterOption[]).map(
           (option: ISearchFilterOption, index: number) => {
             const optionId =
-              typeof option.identifier === "string"
+              typeof option.identifier === 'string'
                 ? option.identifier
                 : option.label;
             const handle = handleize(optionId);
-            const collectionUrl = window["theme"]["collections"][handle]?.url;
+            const collectionUrl = window['theme']['collections'][handle]?.url;
             const disabled = option.records < 1 && !option.selected;
             const newUrl = window.location.search
               ? collectionUrl + window.location.search
               : collectionUrl;
             return collectionUrl ? (
               <div
-                className={`filter__option filter__option--single ${window.location.pathname === collectionUrl || window.location.pathname === collectionUrl + "/filtered" ? "filter__option--selected" : ""} ${disabled ? " filter__option--disabled" : ""} filter__option--${filter.displayType.toLowerCase()}`}
+                className={`filter__option filter__option--single ${window.location.pathname === collectionUrl || window.location.pathname === collectionUrl + '/filtered' ? 'filter__option--selected' : ''} ${disabled ? ' filter__option--disabled' : ''} filter__option--${filter.displayType.toLowerCase()}`}
                 key={index}
               >
                 <a href={newUrl}>
@@ -71,7 +71,7 @@ const CollectionOptionFilter: React.FC<ISingleOptionFilter> = ({
           afterClear={() => setFiltersChanged(true)}
           afterApply={() => {
             inputEventHandlers.handleToggleFilterOpen(filterIndex, false);
-            handleModalClose(["filters-open"]);
+            handleModalClose(['filters-open']);
           }}
           filterIndexToClear={filterIndex}
         />

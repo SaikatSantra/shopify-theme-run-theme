@@ -1,5 +1,5 @@
-import React from "react";
-import { ISearchFilterOption } from "../../../../../context/search/types";
+import React from 'react';
+import { ISearchFilterOption } from '../../../../../context/search/types';
 
 interface IRatingFilter {
   option: ISearchFilterOption;
@@ -21,18 +21,18 @@ const Star: React.FunctionComponent<IRatingStar> = ({ colour }) => {
 };
 
 const colours = {
-  on: "#000",
-  off: "#ccc",
+  on: '#000',
+  off: '#ccc',
 };
 
 const RatingFilter: React.FunctionComponent<IRatingFilter> = ({ option }) => {
-  const stars = Math.round(parseFloat(option.identifier.split("-")[0]));
+  const stars = Math.round(parseFloat(option.identifier.split('-')[0]));
   return (
     <div className="filter__rating">
       <ul className="filter__stars">
         {Array.from({ length: 5 }).map((_u, i) => (
           <li key={i}>
-            <Star colour={i < stars ? colours["on"] : colours["off"]} />
+            <Star colour={i < stars ? colours['on'] : colours['off']} />
           </li>
         ))}
       </ul>

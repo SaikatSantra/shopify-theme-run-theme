@@ -1,6 +1,6 @@
-import React from "react";
-import { useDispatch } from "react-redux";
-import { dismissToast } from "../../../store/actions/toast";
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { dismissToast } from '../../../store/actions/toast';
 
 interface ErrorToastBodyProp {
   data: any;

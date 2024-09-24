@@ -1,5 +1,5 @@
-import { IQuickSearchResultCollection } from "../../../../types";
-import { IPredSearchCollection } from "../../types";
+import { IQuickSearchResultCollection } from '../../../../types';
+import { IPredSearchCollection } from '../../types';
 
 const mapCollection = (
   collInResponse: IPredSearchCollection,

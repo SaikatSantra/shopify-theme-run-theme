@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import { Navigation, Pagination, FreeMode } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-import parseJson from "json-parse-better-errors";
-import SearchProductCard from "../Search/Components/SearchProductCard";
-import useProductData from "../../../hooks/useProductData";
+import { Navigation, Pagination, FreeMode } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import parseJson from 'json-parse-better-errors';
+import SearchProductCard from '../Search/Components/SearchProductCard';
+import useProductData from '../../../hooks/useProductData';
 
 interface RecentlyViewedProps {
   dataSet: {
@@ -82,12 +82,12 @@ const RecentlyViewed: React.FunctionComponent<RecentlyViewedProps> = ({
           spaceBetween={16}
           freeMode={true}
           navigation={{
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
           }}
           pagination={{
-            el: ".swiper-pagination",
-            type: "progressbar",
+            el: '.swiper-pagination',
+            type: 'progressbar',
           }}
           breakpoints={{
             768: {
@@ -103,12 +103,12 @@ const RecentlyViewed: React.FunctionComponent<RecentlyViewedProps> = ({
         >
           {filteredProductData?.length
             ? filteredProductData.map((product, index: number) => {
-                return (
-                  <SwiperSlide key={index}>
-                    <SearchProductCard product={product} simple={true} />
-                  </SwiperSlide>
-                );
-              })
+              return (
+                <SwiperSlide key={index}>
+                  <SearchProductCard product={product} simple={true} />
+                </SwiperSlide>
+              );
+            })
             : null}
           <button
             aria-label="Previous Slide"

@@ -1,5 +1,5 @@
-import React from "react";
-import { ISearchFilterOption } from "../../../../../context/search/types";
+import React from 'react';
+import { ISearchFilterOption } from '../../../../../context/search/types';
 
 interface ITextFilter {
   option: ISearchFilterOption;

@@ -1,7 +1,7 @@
-import React from "react";
-import getCurrentActiveFilters from "../../../context/search/helpers/getCurrentActiveFilters";
-import useSearch from "../../../context/search/useSearch";
-import Money from "../../Money";
+import React from 'react';
+import getCurrentActiveFilters from '../../../context/search/helpers/getCurrentActiveFilters';
+import useSearch from '../../../context/search/useSearch';
+import Money from '../../Money';
 
 const NUMBER_TO_SHOW = 2;
 
@@ -16,7 +16,7 @@ const SearchFilterQuickRemoves: React.FC = (): JSX.Element => {
 
     return searchFilters.map((filter, filterIndex) => {
       // Output for range options
-      if (filter.type === "RANGE") {
+      if (filter.type === 'RANGE') {
         if (maxOptionsCount) {
           i++;
           if (i > maxOptionsCount) {
@@ -48,12 +48,12 @@ const SearchFilterQuickRemoves: React.FC = (): JSX.Element => {
             key={filterIndex}
           >
             {filter.label}
-            {": "}
+            {': '}
             <Money
               withCurrency={false}
               amount={rangeOption.activeMinimum * 100}
             />
-            {" - "}
+            {' - '}
             <Money
               withCurrency={false}
               amount={rangeOption.activeMaximum * 100}
@@ -63,7 +63,7 @@ const SearchFilterQuickRemoves: React.FC = (): JSX.Element => {
         );
 
         // Output for single and multi options
-      } else if (["MULTI_OPTION", "SINGLE_OPTION"].indexOf(filter.type) > -1) {
+      } else if (['MULTI_OPTION', 'SINGLE_OPTION'].indexOf(filter.type) > -1) {
         if (maxOptionsCount) {
           if (i > maxOptionsCount) {
             return null;
@@ -72,8 +72,8 @@ const SearchFilterQuickRemoves: React.FC = (): JSX.Element => {
 
         return filter.options.map((option, optionIndex) => {
           const label =
-            filter.displayType === "SWATCH"
-              ? option.label.replace(config.swatchPrefix, "")
+            filter.displayType === 'SWATCH'
+              ? option.label.replace(config.swatchPrefix, '')
               : option.label;
 
           if (!option.active) return null;
@@ -88,7 +88,7 @@ const SearchFilterQuickRemoves: React.FC = (): JSX.Element => {
           return (
             <button
               onClick={() => {
-                if (filter.type === "SINGLE_OPTION") {
+                if (filter.type === 'SINGLE_OPTION') {
                   inputEventHandlers.handleToggleSingleOption(
                     filterIndex,
                     optionIndex,
@@ -121,7 +121,7 @@ const SearchFilterQuickRemoves: React.FC = (): JSX.Element => {
   if (!searchFilters) return null;
   if (activeFiltersLength < 1) return null;
   return (
-    <div className={"filter__quick-removes"}>
+    <div className={'filter__quick-removes'}>
       <div className="filter__quick-removes-label">Refine:</div>
       {searchFilters.length && (
         <>
@@ -146,14 +146,14 @@ const SearchFilterQuickRemoves: React.FC = (): JSX.Element => {
         <a
           className="filter__quick-removes-clear"
           href={
-            window.location.href.includes("search")
+            window.location.href.includes('search')
               ? window.location.href.replace(
-                  window.location.href,
-                  window.location.href.split("&filter")[0],
-                )
+                window.location.href,
+                window.location.href.split('&filter')[0],
+              )
               : window.location.href
-                  .replace(window.location.search, "")
-                  .replace(config.searchFilterDummyTag, "")
+                .replace(window.location.search, '')
+                .replace(config.searchFilterDummyTag, '')
           }
         >
           Clear all

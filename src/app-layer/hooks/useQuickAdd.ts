@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 // import { useCart } fshrom './useCart'
-import axios from "axios";
-import getMatchingVariants from "../components/portals/QuickAdd/getMatchingVariants";
-import { OptionList, Product, ProductVariant } from "../util/typings";
-import safeJSONParse from "../../scripts/utils/safeJsonParse";
-import getRoute from "../../scripts/utils/getRoute";
+import axios from 'axios';
+import getMatchingVariants from '../components/portals/QuickAdd/getMatchingVariants';
+import { OptionList, Product, ProductVariant } from '../util/typings';
+import safeJSONParse from '../../scripts/utils/safeJsonParse';
+import getRoute from '../../scripts/utils/getRoute';
 
 interface QuickAddHookResponse {
   product: Product;
@@ -31,7 +31,7 @@ export const useQuickAdd = (): QuickAddHookResponse => {
   // const { addToCart } = useCart();
 
   const setDOMHelpers = () => {
-    window["blubolt"].quickadd = {
+    window['blubolt'].quickadd = {
       open: (handle, settings) => {
         setLoading(handle);
         let stockMap = {};
@@ -55,10 +55,10 @@ export const useQuickAdd = (): QuickAddHookResponse => {
       const button = document.querySelector(
         `[data-quick-add-btn="${loading}"]`,
       );
-      button.classList.add("loading");
+      button.classList.add('loading');
     } else {
-      const buttons = document.querySelectorAll("[data-quick-add-btn]");
-      buttons.forEach((btn) => btn.classList.remove("loading"));
+      const buttons = document.querySelectorAll('[data-quick-add-btn]');
+      buttons.forEach((btn) => btn.classList.remove('loading'));
     }
   }, [loading]);
 
@@ -90,8 +90,8 @@ export const useQuickAdd = (): QuickAddHookResponse => {
     let unmounted = false;
     if (handle) {
       const route = getRoute();
-      let currencyQuery = "";
-      if (route !== "/") {
+      let currencyQuery = '';
+      if (route !== '/') {
         // getting odd redirect pattern happening without confirming currency
         // within url here
         currencyQuery = `?currency=${window.Shopify.currency.active}`;

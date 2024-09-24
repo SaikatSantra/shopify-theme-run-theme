@@ -1,11 +1,11 @@
-import { IHandleQuickSearchResult } from "../../../types";
-import queryPredictiveSearchApi from "../../../../../../scripts/utils/queryPredictiveSearchApi";
-import { IPredSearchResponse } from "../types";
-import mapPage from "../helpers/mappers/mapPage";
-import mapArticle from "../helpers/mappers/mapArticle";
-import mapCollection from "../helpers/mappers/mapCollection";
-import mapSuggestion from "../helpers/mappers/mapSuggestion";
-import mapPredSearchProduct from "../helpers/mappers/mapPredSearchProduct";
+import { IHandleQuickSearchResult } from '../../../types';
+import queryPredictiveSearchApi from '../../../../../../scripts/utils/queryPredictiveSearchApi';
+import { IPredSearchResponse } from '../types';
+import mapPage from '../helpers/mappers/mapPage';
+import mapArticle from '../helpers/mappers/mapArticle';
+import mapCollection from '../helpers/mappers/mapCollection';
+import mapSuggestion from '../helpers/mappers/mapSuggestion';
+import mapPredSearchProduct from '../helpers/mappers/mapPredSearchProduct';
 
 const HandleSearch = async (
   searchTerm: string,

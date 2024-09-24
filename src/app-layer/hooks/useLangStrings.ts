@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import safeJSONParse from "../../scripts/utils/safeJsonParse";
+import { useEffect, useState } from 'react';
+import safeJSONParse from '../../scripts/utils/safeJsonParse';
 
 const useLangStrings = (langStringData: string): Record<string, string> => {
   const [langStrings, setLangStrings] = useState({} as Record<string, string>);

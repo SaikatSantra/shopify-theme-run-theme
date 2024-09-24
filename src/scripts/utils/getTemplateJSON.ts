@@ -1,4 +1,4 @@
-import getCurrencyRoute from "./getCurrencyRoute";
+import getCurrencyRoute from './getCurrencyRoute';
 /*
   This can be used to get extra data from a Liquid template that returns JSON.
 

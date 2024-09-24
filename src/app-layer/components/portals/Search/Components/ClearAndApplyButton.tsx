@@ -1,5 +1,5 @@
-import React from "react";
-import useSearch from "../../../../context/search/useSearch";
+import React from 'react';
+import useSearch from '../../../../context/search/useSearch';
 
 interface Props {
   showClear?: boolean;
@@ -38,7 +38,7 @@ const ClearAndApplyButton: React.FunctionComponent<Props> = ({
           Clear
         </button>
       ) : (
-        ""
+        ''
       )}
       {showApply ? (
         <button
@@ -56,10 +56,10 @@ const ClearAndApplyButton: React.FunctionComponent<Props> = ({
           !isNaN(pendingProductCount) &&
           pendingProductCount > 0
             ? ` (${pendingProductCount})`
-            : ""}
+            : ''}
         </button>
       ) : (
-        ""
+        ''
       )}
     </>
   );

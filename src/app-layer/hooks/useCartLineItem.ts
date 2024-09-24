@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-import { useCart } from "./useCart";
-import { LineItem } from "../util/typings";
-import { useDebounce } from "use-debounce";
+import { useState, useEffect } from 'react';
+import { useCart } from './useCart';
+import { LineItem } from '../util/typings';
+import { useDebounce } from 'use-debounce';
 
 const useCartLineItem = (lineItem: LineItem): Record<string, any> => {
   const { updateItem, updating } = useCart();
@@ -47,7 +47,7 @@ const useCartLineItem = (lineItem: LineItem): Record<string, any> => {
 
   return {
     changeQuantity: (val: any) => safelySetPendingQuantity(parseInt(val)),
-    displayQuantity: pendingQuantity > 0 ? pendingQuantity : "",
+    displayQuantity: pendingQuantity > 0 ? pendingQuantity : '',
     increment,
     decrement,
     remove,

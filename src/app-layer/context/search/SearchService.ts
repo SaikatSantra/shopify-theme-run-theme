@@ -1,4 +1,4 @@
-import { ISearchService } from "./types";
+import { ISearchService } from './types';
 
 /**
  * Import the appropriate search provider server here based on store configuration
@@ -25,7 +25,7 @@ import { ISearchService } from "./types";
 
 // import Service from './services/Klevu';
 // import Service from './services/BoostCommerce';
-import Service from "./services/Shopify";
+import Service from './services/Shopify';
 
 const SearchService: ISearchService = {
   methods: {

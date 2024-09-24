@@ -19,7 +19,7 @@ const contains = (parent: HTMLElement, child: HTMLElement): boolean => {
 const findAncestor = (el: HTMLElement, prop: string): HTMLElement | null => {
   while (el && el.parentElement) {
     el = el.parentElement;
-    if (typeof el.dataset[prop] !== "undefined") {
+    if (typeof el.dataset[prop] !== 'undefined') {
       return el;
     }
   }

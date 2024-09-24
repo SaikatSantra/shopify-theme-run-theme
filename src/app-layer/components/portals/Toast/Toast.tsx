@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../../../store/reducers";
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from '../../../store/reducers';
 import {
   hideToast,
   dismissToast,
   showToast,
-} from "../../../store/actions/toast";
-import CartToastBody from "./CartToastBody";
-import ErrorToastBody from "./ErrorToastBody";
+} from '../../../store/actions/toast';
+import CartToastBody from './CartToastBody';
+import ErrorToastBody from './ErrorToastBody';
 
 const initialCounter = 5;
 
@@ -62,14 +62,14 @@ const Toast = (props: ToastProp): JSX.Element => {
   }
 
   const progress = ((initialCounter - counter) * 100) / initialCounter;
-  let toastClasses = "toast";
+  let toastClasses = 'toast';
   if (isShowing) {
-    toastClasses += " toast--visible";
+    toastClasses += ' toast--visible';
   }
 
   let body = null;
   switch (type) {
-    case "cart":
+    case 'cart':
       body = (
         <CartToastBody
           quantities={quantities}
@@ -79,7 +79,7 @@ const Toast = (props: ToastProp): JSX.Element => {
         />
       );
       break;
-    case "error":
+    case 'error':
       body = (
         <ErrorToastBody
           data={data}
@@ -105,7 +105,7 @@ const Toast = (props: ToastProp): JSX.Element => {
         <div className="toast__loading-bar">
           <div
             className="toast__progress"
-            style={{ width: progress + "%" }}
+            style={{ width: progress + '%' }}
           ></div>
         </div>
       </footer>

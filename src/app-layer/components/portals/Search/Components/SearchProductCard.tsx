@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 
 import {
   ISearchAndFilterProduct,
   ISearchAndFilterProductImage,
-} from "../../../../context/search/types";
+} from '../../../../context/search/types';
 
-import Price from "../../../Price";
-import getRoute from "../../../../../scripts/utils/getRoute";
-import getTemplateJSON from "../../../../../scripts/utils/getTemplateJSON";
-import SearchProductStickers from "./SearchProductStickers";
-import SearchProductSwatches from "./SearchProductSwatches";
-import Image from "../../../Image";
+import Price from '../../../Price';
+import getRoute from '../../../../../scripts/utils/getRoute';
+import getTemplateJSON from '../../../../../scripts/utils/getTemplateJSON';
+import SearchProductStickers from './SearchProductStickers';
+import SearchProductSwatches from './SearchProductSwatches';
+import Image from '../../../Image';
 interface ISearchResultsProductCardComponent {
   product: ISearchAndFilterProduct;
   dataSet?: DOMStringMap;
@@ -28,7 +28,7 @@ const SearchProductCard: React.FC<ISearchResultsProductCardComponent> = ({
   // In that case the product.images is pretty useless as it it just an array of strings
   // Here we filter the media so we only get images (not videos or 3D models)
   const productImageArray = product.media
-    ? product.media.filter((media) => media.media_type === "image")
+    ? product.media.filter((media) => media.media_type === 'image')
     : product.images;
   const currCollHandle = dataSet?.currCollectionHandle
     ? dataSet.currCollectionHandle
@@ -41,7 +41,7 @@ const SearchProductCard: React.FC<ISearchResultsProductCardComponent> = ({
       const img: ISearchAndFilterProductImage = productImageArray[i];
       if (!img.alt) continue;
       const imgAlt: string = img.alt;
-      const imgAlts = imgAlt.split(",");
+      const imgAlts = imgAlt.split(',');
       if (!currCollHandle) continue;
 
       const matchedHandle = imgAlts.find((alt) => alt === currCollHandle);
@@ -56,7 +56,7 @@ const SearchProductCard: React.FC<ISearchResultsProductCardComponent> = ({
 
   const productHandle = product.handle
     ? product.handle
-    : product.url.split("products/")[1];
+    : product.url.split('products/')[1];
 
   const productUrl = `${getRoute()}products/${productHandle}`;
 
@@ -68,9 +68,9 @@ const SearchProductCard: React.FC<ISearchResultsProductCardComponent> = ({
     const storeAllProductsData = async (): Promise<void> => {
       // Relevant metafields need to be setup manually within templates/product.json-data.liquid
       const data = await getTemplateJSON<any>(
-        "products",
+        'products',
         productHandle,
-        "json-data",
+        'json-data',
       );
       if (data) {
         setProductMetafields(data.metafields);
@@ -82,12 +82,12 @@ const SearchProductCard: React.FC<ISearchResultsProductCardComponent> = ({
 
   return productMetafields ? (
     <div
-      className={`product-card product-card--react${simple ? " product-card--simple" : ""}`}
+      className={`product-card product-card--react${simple ? ' product-card--simple' : ''}`}
     >
       <div className="product-card__image-container">
         <a
           href={
-            dataSet.customer === "logged-in" ? productUrl : "/account/login"
+            dataSet.customer === 'logged-in' ? productUrl : '/account/login'
           }
         >
           <div className="product-card__image">
@@ -112,8 +112,8 @@ const SearchProductCard: React.FC<ISearchResultsProductCardComponent> = ({
             {productMetafields &&
             productMetafields.stickers &&
             Object.values(productMetafields.stickers).length ? (
-              <SearchProductStickers stickers={productMetafields.stickers} />
-            ) : null}
+                <SearchProductStickers stickers={productMetafields.stickers} />
+              ) : null}
           </div>
         </a>
       </div>
@@ -121,7 +121,7 @@ const SearchProductCard: React.FC<ISearchResultsProductCardComponent> = ({
         <h3 className="product-card__title">
           <a
             href={
-              dataSet.customer === "logged-in" ? productUrl : "/account/login"
+              dataSet.customer === 'logged-in' ? productUrl : '/account/login'
             }
           >
             {product.name}
@@ -157,8 +157,8 @@ const SearchProductCard: React.FC<ISearchResultsProductCardComponent> = ({
         {productMetafields &&
         productMetafields.swatches &&
         Object.values(productMetafields.swatches).length ? (
-          <SearchProductSwatches swatches={productMetafields.swatches} />
-        ) : null}
+            <SearchProductSwatches swatches={productMetafields.swatches} />
+          ) : null}
 
         {product.available && !simple ? (
           <>

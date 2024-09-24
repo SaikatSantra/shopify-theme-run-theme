@@ -2,10 +2,10 @@ import {
   IActiveCollection,
   IGetFiltersResult,
   ISearchFilter,
-} from "../../../types";
-import { ICollTemplateResponse } from "../types";
-import mapFilters from "../helpers/mappers/mapFilters";
-import getTemplateJSON from "../../../../../../scripts/utils/getTemplateJSON";
+} from '../../../types';
+import { ICollTemplateResponse } from '../types';
+import mapFilters from '../helpers/mappers/mapFilters';
+import getTemplateJSON from '../../../../../../scripts/utils/getTemplateJSON';
 
 const GetFilters = async (
   activeCollection: IActiveCollection,
@@ -14,14 +14,14 @@ const GetFilters = async (
 
   // Make sure the all collection is present in Shopify which should be the case by default.
   if (!collHandle) {
-    collHandle = "all";
+    collHandle = 'all';
   }
 
   try {
     const templateData = await getTemplateJSON<ICollTemplateResponse>(
-      "collections",
+      'collections',
       collHandle,
-      "sf-data",
+      'sf-data',
     );
 
     const filters: ISearchFilter[] = mapFilters(templateData.filters);

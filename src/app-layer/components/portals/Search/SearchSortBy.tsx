@@ -1,6 +1,6 @@
-import React from "react";
-import useSearch, { SORT_TYPE_VALS } from "../../../context/search/useSearch";
-import useLangStrings from "../../../hooks/useLangStrings";
+import React from 'react';
+import useSearch, { SORT_TYPE_VALS } from '../../../context/search/useSearch';
+import useLangStrings from '../../../hooks/useLangStrings';
 
 interface Props {
   dataSet: DOMStringMap;
@@ -22,7 +22,7 @@ const SearchSortBy: React.FC<Props> = ({ dataSet }: Props): JSX.Element => {
         </option>
         {SORT_TYPE_VALS.map((val, i) =>
           langStrings[val] ? (
-            <option key={i} value={val} className={val.replace(/_/g, "-")}>
+            <option key={i} value={val} className={val.replace(/_/g, '-')}>
               {langStrings[val]}
             </option>
           ) : null,

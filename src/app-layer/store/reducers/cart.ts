@@ -1,6 +1,6 @@
-import initialState from "../state/cart";
-import { produce } from "immer";
-import CONSTANTS from "../../_constants";
+import initialState from '../state/cart';
+import { produce } from 'immer';
+import CONSTANTS from '../../_constants';
 
 export default produce((draft, action) => {
   switch (action.type) {

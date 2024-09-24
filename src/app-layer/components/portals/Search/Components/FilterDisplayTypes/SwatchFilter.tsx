@@ -1,6 +1,6 @@
-import React from "react";
-import { ISearchFilterOption } from "../../../../../context/search/types";
-import useSearch from "../../../../../context/search/useSearch";
+import React from 'react';
+import { ISearchFilterOption } from '../../../../../context/search/types';
+import useSearch from '../../../../../context/search/useSearch';
 
 interface ISwatchFilter {
   option: ISearchFilterOption;
@@ -54,7 +54,7 @@ const SwatchFilter: React.FunctionComponent<ISwatchFilter> = ({ option }) => {
       <SwatchFilterWrap option={option}>
         <span
           className="filter__swatch filter__swatch--bg"
-          style={{ backgroundColor: swatch?.color ?? "none" }}
+          style={{ backgroundColor: swatch?.color ?? 'none' }}
         ></span>
       </SwatchFilterWrap>
     );

@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import Price from "../../Price";
-import LoadingIcon from "./Loading";
-import { LineItem } from "../../../util/typings";
-import useCartLineItem from "../../../hooks/useCartLineItem";
-import getRoute from "../../../../scripts/utils/getRoute";
-import getTemplateJSON from "../../../../scripts/utils/getTemplateJSON";
-import Image from "../../Image";
+import React, { useEffect, useState } from 'react';
+import Price from '../../Price';
+import LoadingIcon from './Loading';
+import { LineItem } from '../../../util/typings';
+import useCartLineItem from '../../../hooks/useCartLineItem';
+import getRoute from '../../../../scripts/utils/getRoute';
+import getTemplateJSON from '../../../../scripts/utils/getTemplateJSON';
+import Image from '../../Image';
 
 type Props = {
   lineItem: LineItem;
@@ -38,7 +38,7 @@ const CartLineItem: React.FunctionComponent<Props> = ({
         className="minicart__item-img"
       />
     ) : (
-      ""
+      ''
     );
   };
 
@@ -46,9 +46,9 @@ const CartLineItem: React.FunctionComponent<Props> = ({
     const storeAllProductsData = async (): Promise<void> => {
       // Relevant metafields need to be setup manually within templates/product.json-data.liquid
       const data = await getTemplateJSON<any>(
-        "products",
+        'products',
         lineItem.handle,
-        "json-data",
+        'json-data',
       );
       if (data) {
         setProductMetafields(data.metafields);
@@ -60,7 +60,7 @@ const CartLineItem: React.FunctionComponent<Props> = ({
 
   return (
     productMetafields && (
-      <li className={`minicart__item ${removing ? "removing" : ""}`}>
+      <li className={`minicart__item ${removing ? 'removing' : ''}`}>
         <div className="minicart__item-image-wrap">
           <a href={`${getRoute()}products/${lineItem.handle}`}>
             {renderImage(lineItem)}
@@ -69,9 +69,9 @@ const CartLineItem: React.FunctionComponent<Props> = ({
         <div className="minicart__item-details">
           <h5 className="minicart__item-title">
             <a href={`${getRoute()}products/${lineItem.handle}`}>
-              {" "}
+              {' '}
               {lineItem.product_title}
-              {lineItem.variant_title ? ` - ${lineItem.variant_title}` : ""}
+              {lineItem.variant_title ? ` - ${lineItem.variant_title}` : ''}
             </a>
           </h5>
           <Price
@@ -93,7 +93,7 @@ const CartLineItem: React.FunctionComponent<Props> = ({
                 aria-label="-"
               ></button>
               <span className="minicart__item-quantity-number">
-                {itemUpdating ? <LoadingIcon /> : ""}
+                {itemUpdating ? <LoadingIcon /> : ''}
                 <input
                   className="quantity-selector__input"
                   type="number"

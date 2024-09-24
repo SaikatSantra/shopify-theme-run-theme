@@ -1,5 +1,5 @@
-import configState from "../state/config";
-import produce from "immer";
+import configState from '../state/config';
+import produce from 'immer';
 
 export default produce((draftState, action) => {
   switch (action.type) {

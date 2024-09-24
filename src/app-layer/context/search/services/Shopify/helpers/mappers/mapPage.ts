@@ -1,5 +1,5 @@
-import { IQuickSearchResultPage } from "../../../../types";
-import { ITemplatePageResponse } from "../../types";
+import { IQuickSearchResultPage } from '../../../../types';
+import { ITemplatePageResponse } from '../../types';
 
 const mapPage = (pageInResp: ITemplatePageResponse): IQuickSearchResultPage => {
   return {

@@ -1,10 +1,10 @@
-import standardisePrice from "../../../../../../util/standardisePrice";
+import standardisePrice from '../../../../../../util/standardisePrice';
 import {
   ISearchAndFilterProduct,
   ISearchAndFilterProductPrice,
-} from "../../../../types";
-import { IPredSearchProduct } from "../../types";
-import getProductPrice from "../getProductPrice";
+} from '../../../../types';
+import { IPredSearchProduct } from '../../types';
+import getProductPrice from '../getProductPrice';
 
 const mapPredSearchProduct = (
   product: IPredSearchProduct,

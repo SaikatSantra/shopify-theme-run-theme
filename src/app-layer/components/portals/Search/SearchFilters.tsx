@@ -1,15 +1,15 @@
-import React from "react";
-import useSearch from "../../../context/search/useSearch";
-import SearchFilter from "./Components/SearchFilter";
-import ClearAndApplyButton from "./Components/ClearAndApplyButton";
-import handleModalClose from "../../../util/handleModalClose";
+import React from 'react';
+import useSearch from '../../../context/search/useSearch';
+import SearchFilter from './Components/SearchFilter';
+import ClearAndApplyButton from './Components/ClearAndApplyButton';
+import handleModalClose from '../../../util/handleModalClose';
 
 const SearchFilters: React.FC = (): JSX.Element => {
   const { inputEventHandlers, searchFilters } = useSearch();
 
   return (
     <>
-      <div className={"filter__container"}>
+      <div className={'filter__container'}>
         {!searchFilters && <div>Loading Filters...</div>}
         {searchFilters && (
           <>
@@ -31,11 +31,11 @@ const SearchFilters: React.FC = (): JSX.Element => {
           afterClear={() => {
             inputEventHandlers.handleClearAllFilters();
             inputEventHandlers.handleApply();
-            handleModalClose(["filters-open"]);
+            handleModalClose(['filters-open']);
           }}
           afterApply={() => {
             inputEventHandlers.handleApply();
-            handleModalClose(["filters-open"]);
+            handleModalClose(['filters-open']);
           }}
         />
       </div>

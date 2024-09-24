@@ -1,6 +1,6 @@
-import React from "react";
-import { Product, OptionList } from "../../../util/typings";
-import getMatchingVariants from "./getMatchingVariants";
+import React from 'react';
+import { Product, OptionList } from '../../../util/typings';
+import getMatchingVariants from './getMatchingVariants';
 
 interface Props {
   selectedOptions: OptionList;
@@ -50,22 +50,22 @@ const Options: React.FunctionComponent<Props> = ({
                 matchingVariant &&
                   stockMap &&
                   stockMap[matchingVariant.id.toString()] &&
-                  stockMap[matchingVariant.id.toString()]["availability"] ===
-                    "low",
+                  stockMap[matchingVariant.id.toString()]['availability'] ===
+                    'low',
               );
               const preOrder = Boolean(
                 matchingVariant &&
                   stockMap &&
                   stockMap[matchingVariant.id.toString()] &&
-                  stockMap[matchingVariant.id.toString()]["availability"] ===
-                    "pre-order",
+                  stockMap[matchingVariant.id.toString()]['availability'] ===
+                    'pre-order',
               );
-              let variantOptionClass = "variant-option__option--oos";
+              let variantOptionClass = 'variant-option__option--oos';
               if (lowStock) {
-                variantOptionClass = "variant-option__option--low-stock";
+                variantOptionClass = 'variant-option__option--low-stock';
               }
               if (preOrder) {
-                variantOptionClass = "variant-option__option--pre-order";
+                variantOptionClass = 'variant-option__option--pre-order';
               }
               return (
                 <div

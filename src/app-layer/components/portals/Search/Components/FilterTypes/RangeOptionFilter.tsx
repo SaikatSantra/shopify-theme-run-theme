@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 import {
   ISearchFilter,
   ISearchFilterRangeOption,
-} from "../../../../../context/search/types";
+} from '../../../../../context/search/types';
 
-import useSearch from "../../../../../context/search/useSearch";
-import Money from "../../../../Money";
-import DualRangeSlider from "../../../../RangeSliders/DualRangeSlider";
-import ClearAndApplyButton from "../ClearAndApplyButton";
-import handleModalClose from "../../../../../util/handleModalClose";
+import useSearch from '../../../../../context/search/useSearch';
+import Money from '../../../../Money';
+import DualRangeSlider from '../../../../RangeSliders/DualRangeSlider';
+import ClearAndApplyButton from '../ClearAndApplyButton';
+import handleModalClose from '../../../../../util/handleModalClose';
 
 interface IMultiOptionFilter {
   filterIndex: number;
@@ -64,8 +64,8 @@ const RangeOptionFilter: React.FC<IMultiOptionFilter> = ({
 
   return (
     <>
-      <div className={"filter__options filter__options--range"}>
-        <div className={"filter__items filter__items--range"}>
+      <div className={'filter__options filter__options--range'}>
+        <div className={'filter__items filter__items--range'}>
           {(filter.options as ISearchFilterRangeOption[]).map(
             (option: ISearchFilterRangeOption, index) => {
               return (
@@ -96,7 +96,7 @@ const RangeOptionFilter: React.FC<IMultiOptionFilter> = ({
             afterClear={() => setFiltersChanged(true)}
             afterApply={() => {
               inputEventHandlers.handleToggleFilterOpen(filterIndex, false);
-              handleModalClose(["filters-open"]);
+              handleModalClose(['filters-open']);
             }}
             filterIndexToClear={filterIndex}
           />

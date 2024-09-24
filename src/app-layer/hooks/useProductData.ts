@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import { Product } from "../../app-layer/util/typings";
-import axiosGetFullProductJSON from "../../scripts/sections/product/axiosGetFullProductJSON";
+import { useEffect, useState } from 'react';
+import { Product } from '../../app-layer/util/typings';
+import axiosGetFullProductJSON from '../../scripts/sections/product/axiosGetFullProductJSON';
 
 //@TODO 👇 this should be typed to Product but as it shares the SearchProductCard the typings will need to be
 //refactored, so theres x1 React Product Card shared across the site
@@ -21,7 +21,7 @@ const useProductData = (handles: string[]): Product[] => {
             return null;
           } catch (error) {
             console.error(
-              "couldnt get product data, check your handles",
+              'couldnt get product data, check your handles',
               handle,
               error,
             );

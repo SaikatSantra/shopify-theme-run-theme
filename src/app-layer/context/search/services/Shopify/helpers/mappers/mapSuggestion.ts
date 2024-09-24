@@ -1,6 +1,6 @@
-import { IQuickSearchResultSuggestion } from "../../../../types";
-import { IPredSearchQuery } from "../../types";
-import buildSuggestionQuery from "../buildSuggestionQuery";
+import { IQuickSearchResultSuggestion } from '../../../../types';
+import { IPredSearchQuery } from '../../types';
+import buildSuggestionQuery from '../buildSuggestionQuery';
 
 const mapSuggestion = (
   queryInResp: IPredSearchQuery,

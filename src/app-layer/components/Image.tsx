@@ -1,5 +1,5 @@
-import React from "react";
-import { getSizedImageUrl } from "../../scripts/utils/image";
+import React from 'react';
+import { getSizedImageUrl } from '../../scripts/utils/image';
 
 interface ImageProps {
   src: string;
@@ -23,7 +23,7 @@ const Image: React.FunctionComponent<ImageProps> = ({
   // with a srcset
 
   // Get the array from window.theme object
-  let sizesArray = window["theme"].sizesArray;
+  let sizesArray = window['theme'].sizesArray;
   // Double the width
   const twoTimes = width * 2;
   // Add the initial width and the two times width to the array
@@ -53,11 +53,11 @@ const Image: React.FunctionComponent<ImageProps> = ({
 
   return (
     <img
-      loading={noLazy ? "eager" : "lazy"}
-      className={className ? className : ""}
+      loading={noLazy ? 'eager' : 'lazy'}
+      className={className ? className : ''}
       height={height}
       width={width}
-      alt={alt ? alt : "image"}
+      alt={alt ? alt : 'image'}
       srcSet={sizesArray.map((sizesWidth) => {
         const aspectRatio = width / height;
         const sizesHeight = Math.round(sizesWidth / aspectRatio);
@@ -68,9 +68,9 @@ const Image: React.FunctionComponent<ImageProps> = ({
         noLazy
           ? getSizedImageUrl(src, `${width}x${height}`)
           : getSizedImageUrl(
-              src,
-              `${Math.round(width / placeholderScale)}x${Math.round(height / placeholderScale)}`,
-            )
+            src,
+            `${Math.round(width / placeholderScale)}x${Math.round(height / placeholderScale)}`,
+          )
       }
     />
   );

@@ -1,4 +1,4 @@
-import { Cart, LineItem } from "../../util/typings";
+import { Cart, LineItem } from '../../util/typings';
 
 interface IFReduxCart {
   cartActive: boolean;
@@ -9,8 +9,8 @@ interface IFReduxCart {
 }
 
 const cart: Cart = {
-  token: "",
-  note: "",
+  token: '',
+  note: '',
   attributes: {},
   total_price: 0,
   total_weight: 0,
@@ -18,7 +18,7 @@ const cart: Cart = {
   original_total_price: 0,
   item_count: 0,
   requires_shipping: true,
-  currency: "",
+  currency: '',
   items: [],
 };
 

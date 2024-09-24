@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 import {
   ISearchFilter,
   ISearchFilterOption,
-} from "../../../../../context/search/types";
-import useSearch from "../../../../../context/search/useSearch";
-import ClearAndApplyButton from "../ClearAndApplyButton";
-import FilterDisplayTypes from "../FilterDisplayTypes/FilterDisplayTypes";
-import handleModalClose from "../../../../../util/handleModalClose";
+} from '../../../../../context/search/types';
+import useSearch from '../../../../../context/search/useSearch';
+import ClearAndApplyButton from '../ClearAndApplyButton';
+import FilterDisplayTypes from '../FilterDisplayTypes/FilterDisplayTypes';
+import handleModalClose from '../../../../../util/handleModalClose';
 
 interface IMultiOptionFilter {
   filterIndex: number;
@@ -46,7 +46,7 @@ const MultiOptionFilter: React.FC<IMultiOptionFilter> = ({
             const disabled = option.records < 1 && !option.selected;
             return (
               <label
-                className={`filter__option filter__option--multi  ${option.selected ? "filter__option--selected" : ""} ${disabled ? "filter__option--disabled" : ""} filter__option--${filter.displayType.toLowerCase()}`}
+                className={`filter__option filter__option--multi  ${option.selected ? 'filter__option--selected' : ''} ${disabled ? 'filter__option--disabled' : ''} filter__option--${filter.displayType.toLowerCase()}`}
                 key={index}
               >
                 <input
@@ -97,7 +97,7 @@ const MultiOptionFilter: React.FC<IMultiOptionFilter> = ({
             afterClear={() => setFiltersChanged(true)}
             afterApply={() => {
               inputEventHandlers.handleToggleFilterOpen(filterIndex, false);
-              handleModalClose(["filters-open"]);
+              handleModalClose(['filters-open']);
             }}
             filterIndexToClear={filterIndex}
           />

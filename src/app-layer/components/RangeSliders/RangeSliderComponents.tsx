@@ -1,12 +1,12 @@
-import * as React from "react";
-import * as CSS from "csstype";
+import * as React from 'react';
+import * as CSS from 'csstype';
 
 import {
   GetRailProps,
   GetHandleProps,
   GetTrackProps,
   SliderItem,
-} from "react-compound-slider";
+} from 'react-compound-slider';
 
 interface SliderRailProps {
   getRailProps: GetRailProps;
@@ -32,9 +32,9 @@ interface HandleProps {
 }
 
 export const sliderStyle: CSS.Properties = {
-  position: "relative",
-  width: "100%",
-  touchAction: "none",
+  position: 'relative',
+  width: '100%',
+  touchAction: 'none',
 };
 
 export const Handle: React.FC<HandleProps> = ({
@@ -55,15 +55,15 @@ export const Handle: React.FC<HandleProps> = ({
         className="dual-range-slider__handle dual-range-slider__handle--area"
         style={
           {
-            "--left": `${percent}%`,
+            '--left': `${percent}%`,
           } as React.CSSProperties
         }
       />
       <div
-        className={`dual-range-slider__handle dual-range-slider__handle--handle${disabled ? " dual-range-slider__handle--disabled" : ""}`}
+        className={`dual-range-slider__handle dual-range-slider__handle--handle${disabled ? ' dual-range-slider__handle--disabled' : ''}`}
         style={
           {
-            "--left": `${percent}%`,
+            '--left': `${percent}%`,
           } as React.CSSProperties
         }
       />
@@ -83,10 +83,10 @@ export const KeyboardHandle: React.FC<HandleProps> = ({
       aria-valuemin={min}
       aria-valuemax={max}
       aria-valuenow={value}
-      className={`dual-range-slider__keyboard-handle${disabled ? " dual-range-slider__keyboard-handle--disabled" : ""}`}
+      className={`dual-range-slider__keyboard-handle${disabled ? ' dual-range-slider__keyboard-handle--disabled' : ''}`}
       style={
         {
-          "--left": `${percent}%`,
+          '--left': `${percent}%`,
         } as React.CSSProperties
       }
       {...getHandleProps(id)}
@@ -109,11 +109,11 @@ export const Track: React.FC<TrackProps> = ({
 }) => {
   return (
     <div
-      className={`dual-range-slider__track${disabled ? " dual-range-slider__track--disabled" : ""}`}
+      className={`dual-range-slider__track${disabled ? ' dual-range-slider__track--disabled' : ''}`}
       style={
         {
-          "--left": `${source.percent}%`,
-          "--width": `${target.percent - source.percent}%`,
+          '--left': `${source.percent}%`,
+          '--width': `${target.percent - source.percent}%`,
         } as React.CSSProperties
       }
       {...getTrackProps()}

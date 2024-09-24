@@ -1,4 +1,4 @@
-import { ProductVariant } from "../../../util/typings";
+import { ProductVariant } from '../../../util/typings';
 
 const getMatchingVariants = (
   options: string[],

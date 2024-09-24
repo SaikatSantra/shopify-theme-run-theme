@@ -9,12 +9,12 @@ declare global {
 const getRoute = (stripped = false): string => {
   if (window.Shopify.routes.root) {
     return stripped
-      ? window.Shopify.routes.root.split("/")[1]
-        ? window.Shopify.routes.root.split("/")[1]
-        : "/"
+      ? window.Shopify.routes.root.split('/')[1]
+        ? window.Shopify.routes.root.split('/')[1]
+        : '/'
       : window.Shopify.routes.root;
   } else {
-    return "/";
+    return '/';
   }
 };
 

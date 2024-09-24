@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 const useGiftProduct = (): string => {
   const [giftProductHandle, setGiftProductHandle] = useState<
@@ -7,7 +7,7 @@ const useGiftProduct = (): string => {
 
   useEffect(() => {
     const giftProductElem = <HTMLElement>(
-      document.querySelector("[data-gift-product]")
+      document.querySelector('[data-gift-product]')
     );
     const giftProduct = giftProductElem.dataset.giftProduct;
     setGiftProductHandle(giftProduct);

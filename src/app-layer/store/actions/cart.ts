@@ -1,6 +1,6 @@
-import { Cart } from "../../util/typings";
-import CONSTANTS from "../../_constants";
-import { ActionReturnType } from "./helpers";
+import { Cart } from '../../util/typings';
+import CONSTANTS from '../../_constants';
+import { ActionReturnType } from './helpers';
 
 export const setCartActive = (value: boolean): ActionReturnType => ({
   type: CONSTANTS.CART_ACTIVE,

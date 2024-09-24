@@ -1,6 +1,6 @@
-import React from "react";
-import getCurrentActiveFilters from "../../../context/search/helpers/getCurrentActiveFilters";
-import useSearch from "../../../context/search/useSearch";
+import React from 'react';
+import getCurrentActiveFilters from '../../../context/search/helpers/getCurrentActiveFilters';
+import useSearch from '../../../context/search/useSearch';
 
 const SearchFilterCount: React.FC = () => {
   const { searchFilters } = useSearch();

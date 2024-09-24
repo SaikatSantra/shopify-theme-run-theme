@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import { Navigation, Pagination, FreeMode } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Product } from "../../../util/typings";
-import Price from "../../Price";
-import CartRecommendedSelect from "../CartRecommendedSelect";
-import axios from "axios";
-import { useCart } from "../../../hooks/useCart";
-import useLangStrings from "../../../hooks/useLangStrings";
-import Image from "../../Image";
+import { Navigation, Pagination, FreeMode } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Product } from '../../../util/typings';
+import Price from '../../Price';
+import CartRecommendedSelect from '../CartRecommendedSelect';
+import axios from 'axios';
+import { useCart } from '../../../hooks/useCart';
+import useLangStrings from '../../../hooks/useLangStrings';
+import Image from '../../Image';
 
 // Can be disabled in theme Settings > Cart > Show Shopify Upsells
 
@@ -44,7 +44,7 @@ export const CartUpsells: React.FunctionComponent<Props> = ({
       });
   }, [items]);
 
-  if (dataSet.showShopifyUpsells !== "true") {
+  if (dataSet.showShopifyUpsells !== 'true') {
     return <></>;
   }
 
@@ -71,12 +71,12 @@ export const CartUpsells: React.FunctionComponent<Props> = ({
         slidesPerView={1}
         spaceBetween={16}
         navigation={{
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
         }}
         pagination={{
-          el: ".swiper-pagination",
-          type: "progressbar",
+          el: '.swiper-pagination',
+          type: 'progressbar',
         }}
         breakpoints={{
           1024: {

@@ -1,6 +1,6 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import { RootState } from "../../store/reducers";
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store/reducers';
 
 const CartCountBadge = (): JSX.Element => {
   const cartItemCount = useSelector(

@@ -1,8 +1,8 @@
 const boolFromString = (val) => {
   switch (val) {
-    case "true":
+    case 'true':
       return true;
-    case "false":
+    case 'false':
       return false;
     default:
       return val;

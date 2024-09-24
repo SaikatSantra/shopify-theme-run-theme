@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import { Navigation, Pagination, FreeMode } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-import axios from "axios";
-import SearchProductCard from "./Search/Components/SearchProductCard";
+import { Navigation, Pagination, FreeMode } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import axios from 'axios';
+import SearchProductCard from './Search/Components/SearchProductCard';
 
 interface ProductRecomendationsProps {
   dataSet: {
@@ -51,12 +51,12 @@ const ProductRecommendations = (
           spaceBetween={16}
           freeMode={true}
           navigation={{
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
           }}
           pagination={{
-            el: ".swiper-pagination",
-            type: "progressbar",
+            el: '.swiper-pagination',
+            type: 'progressbar',
           }}
           breakpoints={{
             768: {

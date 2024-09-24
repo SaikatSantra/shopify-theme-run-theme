@@ -1,4 +1,4 @@
-import parseJson from "json-parse-better-errors";
+import parseJson from 'json-parse-better-errors';
 
 type sjP = (
   str: string,
@@ -6,7 +6,7 @@ type sjP = (
 ) => boolean | Record<string, unknown> | any[];
 
 const safeJSONParse: sjP = (str: string, respondWithOnFail: any = false) => {
-  if (typeof str !== "string") {
+  if (typeof str !== 'string') {
     return respondWithOnFail;
   }
   try {

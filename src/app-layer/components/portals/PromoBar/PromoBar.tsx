@@ -1,6 +1,6 @@
-import React from "react";
-import { formatMoney } from "../../../../scripts/utils/currency";
-import { Interweave } from "interweave";
+import React from 'react';
+import { formatMoney } from '../../../../scripts/utils/currency';
+import { Interweave } from 'interweave';
 
 type Props = {
   dataSet: DOMStringMap;
@@ -21,7 +21,7 @@ const PromoBar: React.FunctionComponent<Props> = ({
   }
 
   const activePromoData = promoData.find(
-    (data: any) => data.code === window["Shopify"].currency.active,
+    (data: any) => data.code === window['Shopify'].currency.active,
   );
 
   if (!activePromoData) {
@@ -42,10 +42,10 @@ const PromoBar: React.FunctionComponent<Props> = ({
   );
   const remainingAmount = formatMoney(
     max - currentCartTotal,
-    window["theme"] ? window["theme"]["moneyFormat"] : "{{amount}}",
+    window['theme'] ? window['theme']['moneyFormat'] : '{{amount}}',
   );
   const remainingTextUpdated = dataSet.promoBarText?.replace(
-    "{amount}",
+    '{amount}',
     `<strong class="label--md">${remainingAmount}</strong>`,
   );
   const successText = dataSet.promoBarTextSuccess;
@@ -53,7 +53,7 @@ const PromoBar: React.FunctionComponent<Props> = ({
   return (
     <>
       {dataSet.promoBarEnable ? (
-        <div className={"promo-bar"}>
+        <div className={'promo-bar'}>
           <p className="label label--sm">
             {currentCartTotal >= max ? (
               <Interweave content={successText} noWrap={true} />
@@ -63,13 +63,13 @@ const PromoBar: React.FunctionComponent<Props> = ({
           </p>
           <div className="promo-bar__progress">
             <div
-              className={`promo-bar__progress-inner ${currentCartTotal >= max ? "promo-bar__progress-inner--success" : ""}`}
-              style={{ "--width": `${percentageLeft}%` } as React.CSSProperties}
+              className={`promo-bar__progress-inner ${currentCartTotal >= max ? 'promo-bar__progress-inner--success' : ''}`}
+              style={{ '--width': `${percentageLeft}%` } as React.CSSProperties}
             ></div>
           </div>
         </div>
       ) : (
-        ""
+        ''
       )}
     </>
   );

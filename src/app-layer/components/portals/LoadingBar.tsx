@@ -1,5 +1,5 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React from 'react';
+import { useSelector } from 'react-redux';
 
 const LoadingBar = (): JSX.Element => {
   const loading = useSelector((state: any) => state.loading);

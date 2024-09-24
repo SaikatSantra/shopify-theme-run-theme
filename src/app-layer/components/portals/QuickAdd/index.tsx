@@ -1,11 +1,11 @@
-import React from "react";
-import { useQuickAdd } from "../../../hooks/useQuickAdd";
-import { useCart } from "../../../hooks/useCart";
-import Options from "./Options";
-import Price from "../../Price";
-import useLangStrings from "../../../hooks/useLangStrings";
-import getRoute from "../../../../scripts/utils/getRoute";
-import Image from "../../Image";
+import React from 'react';
+import { useQuickAdd } from '../../../hooks/useQuickAdd';
+import { useCart } from '../../../hooks/useCart';
+import Options from './Options';
+import Price from '../../Price';
+import useLangStrings from '../../../hooks/useLangStrings';
+import getRoute from '../../../../scripts/utils/getRoute';
+import Image from '../../Image';
 
 interface Props {
   dataSet: any;
@@ -40,7 +40,7 @@ const QuickAdd: React.FunctionComponent<Props> = ({ dataSet }: Props) => {
     currentVariant &&
       stockMap &&
       stockMap[currentVariant.id.toString()] &&
-      stockMap[currentVariant.id.toString()]["availability"] === "low",
+      stockMap[currentVariant.id.toString()]['availability'] === 'low',
   );
   // const preOrder = Boolean(currentVariant && stockMap && stockMap[currentVariant.id.toString()] && stockMap[currentVariant.id.toString()]['availability'] === 'pre-order');
   const close = () => setHandle(null);
@@ -50,11 +50,11 @@ const QuickAdd: React.FunctionComponent<Props> = ({ dataSet }: Props) => {
   );
 
   const singleOptionRemaining =
-    optionsRemaining.length === 1 ? optionsRemaining[0].name : "";
+    optionsRemaining.length === 1 ? optionsRemaining[0].name : '';
 
   const pleaseSelectTextReplaced = pleaseSelectText
-    ? pleaseSelectText.replace("{{ option_name }}", singleOptionRemaining)
-    : "";
+    ? pleaseSelectText.replace('{{ option_name }}', singleOptionRemaining)
+    : '';
 
   const actText = currentVariant
     ? currentVariant.available
@@ -128,28 +128,28 @@ const QuickAdd: React.FunctionComponent<Props> = ({ dataSet }: Props) => {
                   {pleaseSelectTextReplaced}
                 </span>
               ) : (
-                ""
+                ''
               )}
               {inStock && !lowStock ? (
                 <span className="label variant-option__stock variant-option__stock--in-stock">
                   {inStockText}
                 </span>
               ) : (
-                ""
+                ''
               )}
               {lowStock ? (
                 <span className="label variant-option__stock variant-option__stock--low-stock">
                   {lowStockText}
                 </span>
               ) : (
-                ""
+                ''
               )}
               {currentVariant && !inStock ? (
                 <span className="label variant-option__stock variant-option__stock--out-of-stock">
                   {oosText}
                 </span>
               ) : (
-                ""
+                ''
               )}
               {/* <span className="label variant-option__stock variant-option__stock--out-of-stock">{unavailableText}</span> */}
             </div>

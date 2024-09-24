@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import useSearch from "../../../context/search/useSearch";
+import React, { useEffect } from 'react';
+import useSearch from '../../../context/search/useSearch';
 
 interface ISearchInputComponent {
   dataSet: DOMStringMap;
@@ -20,8 +20,8 @@ const SearchInput: React.FC<ISearchInputComponent> = ({
 
   const setBodyClass = (show) => {
     show
-      ? document.body.classList.add("search-open", "modal-open")
-      : document.body.classList.remove("search-open", "modal-open");
+      ? document.body.classList.add('search-open', 'modal-open')
+      : document.body.classList.remove('search-open', 'modal-open');
   };
 
   const handleKeyDown = (e) => {
@@ -44,11 +44,11 @@ const SearchInput: React.FC<ISearchInputComponent> = ({
   // }
 
   useEffect(() => {
-    window.addEventListener("blubolt:close-search", () => {
-      setQuickSearchTerm("");
+    window.addEventListener('blubolt:close-search', () => {
+      setQuickSearchTerm('');
       handleOnChange({
         target: {
-          value: "",
+          value: '',
         },
       });
     });
@@ -57,11 +57,11 @@ const SearchInput: React.FC<ISearchInputComponent> = ({
   // console.log(`quickSearchTerm-length - ${quickSearchTerm.length},isSearching - ${!isSearching} `);
   return (
     <>
-      <div className={"search__input-container"}>
+      <div className={'search__input-container'}>
         <input
           tabIndex={0}
-          className={"search__input tsx-class"}
-          id={"search__input"}
+          className={'search__input tsx-class'}
+          id={'search__input'}
           type="text"
           placeholder={langSearchInputPlaceholder}
           value={quickSearchTerm ? quickSearchTerm : langSearchInputValue}
@@ -70,16 +70,16 @@ const SearchInput: React.FC<ISearchInputComponent> = ({
           onKeyDown={handleKeyDown}
           onChange={handleOnChange}
         />
-        {isSearching && <div className={"search__is-searching"}></div>}
+        {isSearching && <div className={'search__is-searching'}></div>}
 
         {quickSearchTerm && quickSearchTerm.length && !isSearching && (
           <button
             onClick={(e) => {
-              setQuickSearchTerm("");
+              setQuickSearchTerm('');
               handleOnChange(e);
               setBodyClass(false);
             }}
-            className={"search__clear"}
+            className={'search__clear'}
           >
             {langSearchClear}
           </button>

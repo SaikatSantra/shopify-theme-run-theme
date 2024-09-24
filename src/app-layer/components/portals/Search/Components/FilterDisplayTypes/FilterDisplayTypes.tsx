@@ -1,16 +1,16 @@
-import React from "react";
-import FILTER_SEARCH from "../../../../../context/search/consts";
+import React from 'react';
+import FILTER_SEARCH from '../../../../../context/search/consts';
 import {
   ISearchFilter,
   ISearchFilterOption,
-} from "../../../../../context/search/types";
-import RatingFilter from "./RatingFilter";
-import SwatchFilter from "./SwatchFilter";
-import TextFilter from "./TextFilter";
+} from '../../../../../context/search/types';
+import RatingFilter from './RatingFilter';
+import SwatchFilter from './SwatchFilter';
+import TextFilter from './TextFilter';
 
 interface IFilterDisplayTypes {
   option: ISearchFilterOption;
-  displayType: ISearchFilter["displayType"];
+  displayType: ISearchFilter['displayType'];
 }
 
 const FilterDisplayTypes: React.FunctionComponent<IFilterDisplayTypes> = ({

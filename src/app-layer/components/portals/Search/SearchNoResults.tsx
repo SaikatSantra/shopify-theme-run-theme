@@ -1,5 +1,5 @@
-import React from "react";
-import useSearch from "../../../context/search/useSearch";
+import React from 'react';
+import useSearch from '../../../context/search/useSearch';
 
 interface ISearchNoResultsComponent {
   dataSet: DOMStringMap;
@@ -13,7 +13,7 @@ const SearchNoResults: React.FC<ISearchNoResultsComponent> = ({
 
   return quickSearchResultsProducts && !quickSearchResultsProducts.length ? (
     <p className="paragraph">
-      {" "}
+      {' '}
       {noResults.replace(/\[\[searchword\]\]/g, `${quickSearchTerm}`)}
     </p>
   ) : null;

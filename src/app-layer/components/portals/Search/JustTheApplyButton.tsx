@@ -1,5 +1,5 @@
-import React from "react";
-import useSearch from "../../../context/search/useSearch";
+import React from 'react';
+import useSearch from '../../../context/search/useSearch';
 
 const JustTheApplyButton: React.FunctionComponent = () => {
   const { pendingProductCount, inputEventHandlers } = useSearch();
@@ -11,15 +11,15 @@ const JustTheApplyButton: React.FunctionComponent = () => {
         disabled={!pendingProductCount}
         onClick={() => {
           inputEventHandlers.handleApply();
-          document.body.classList.remove("filters-open");
+          document.body.classList.remove('filters-open');
         }}
       >
-        Apply{" "}
+        Apply{' '}
         {pendingProductCount &&
         !isNaN(pendingProductCount) &&
         pendingProductCount > 0
           ? `(${pendingProductCount})`
-          : ""}
+          : ''}
       </button>
     </>
   );

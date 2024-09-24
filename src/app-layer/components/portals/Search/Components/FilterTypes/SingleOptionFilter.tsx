@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 
-import handleize from "../../../../../../scripts/utils/handleize";
+import handleize from '../../../../../../scripts/utils/handleize';
 import {
   ISearchFilter,
   ISearchFilterOption,
-} from "../../../../../context/search/types";
-import useSearch from "../../../../../context/search/useSearch";
-import ClearAndApplyButton from "../ClearAndApplyButton";
-import FilterDisplayTypes from "../FilterDisplayTypes/FilterDisplayTypes";
-import handleModalClose from "../../../../../util/handleModalClose";
+} from '../../../../../context/search/types';
+import useSearch from '../../../../../context/search/useSearch';
+import ClearAndApplyButton from '../ClearAndApplyButton';
+import FilterDisplayTypes from '../FilterDisplayTypes/FilterDisplayTypes';
+import handleModalClose from '../../../../../util/handleModalClose';
 
 interface ISingleOptionFilter {
   filterIndex: number;
@@ -47,14 +47,14 @@ const SingleOptionFilter: React.FC<ISingleOptionFilter> = ({
           {(filter.options as ISearchFilterOption[]).map(
             (option: ISearchFilterOption, index: number) => {
               const optionId =
-                typeof option.identifier === "string"
+                typeof option.identifier === 'string'
                   ? option.identifier
                   : option.label;
               const handle = `${handleize(optionId)}-${index}`;
               const disabled = option.records < 1 && !option.selected;
               return (
                 <div
-                  className={`filter__option filter__option--single  ${option.selected ? "filter__option--selected" : ""} ${disabled ? "filter__option--disabled" : ""} filter__option--${filter.displayType.toLowerCase()}`}
+                  className={`filter__option filter__option--single  ${option.selected ? 'filter__option--selected' : ''} ${disabled ? 'filter__option--disabled' : ''} filter__option--${filter.displayType.toLowerCase()}`}
                   key={index}
                 >
                   <input
@@ -147,7 +147,7 @@ const SingleOptionFilter: React.FC<ISingleOptionFilter> = ({
             afterClear={() => setFiltersChanged(true)}
             afterApply={() => {
               inputEventHandlers.handleToggleFilterOpen(filterIndex, false);
-              handleModalClose(["filters-open"]);
+              handleModalClose(['filters-open']);
             }}
             filterIndexToClear={filterIndex}
           />

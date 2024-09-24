@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { useCart } from "../../../hooks/useCart";
-import { LineItem, Product, ProductVariant } from "../../../util/typings";
-import { setMinicart } from "../../../store/actions/cart";
-import Price from "../../Price";
-import axiosGetFullProductJSON from "../../../../scripts/sections/product/axiosGetFullProductJSON";
-import Image from "../../Image";
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { useCart } from '../../../hooks/useCart';
+import { LineItem, Product, ProductVariant } from '../../../util/typings';
+import { setMinicart } from '../../../store/actions/cart';
+import Price from '../../Price';
+import axiosGetFullProductJSON from '../../../../scripts/sections/product/axiosGetFullProductJSON';
+import Image from '../../Image';
 // import getTemplateJSON from '../../../../scripts/utils/getTemplateJSON';
 
 type Props = {
@@ -100,7 +100,7 @@ const GiftWithPurchaseProduct: React.FunctionComponent<Props> = ({
             src={giftWithPurchaseProduct.image.src}
           />
         ) : (
-          ""
+          ''
         )}
         <div className="minicart__gwp-content">
           <div className="minicart__gwp-info">

@@ -1,20 +1,20 @@
-import * as themeCart from "../../scripts/utils/themeCart";
+import * as themeCart from '../../scripts/utils/themeCart';
 import {
   getCartSuccess,
   addToCartFail,
   setCartActive,
   setMinicart,
   setCartUpdating,
-} from "../store/actions/cart";
-import { Cart } from "../util/typings";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { RootState } from "../store/reducers";
-import { dispatchToast } from "../store/actions/toast";
-import { LineItem } from "../util/typings";
-import CONSTANTS from "../_constants";
-import assignRemainingAvailablities from "../util/assignRemainingAvailablities";
-import getCartVariantsAtLimit from "../util/getCartVariantsAtLimit";
+} from '../store/actions/cart';
+import { Cart } from '../util/typings';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { RootState } from '../store/reducers';
+import { dispatchToast } from '../store/actions/toast';
+import { LineItem } from '../util/typings';
+import CONSTANTS from '../_constants';
+import assignRemainingAvailablities from '../util/assignRemainingAvailablities';
+import getCartVariantsAtLimit from '../util/getCartVariantsAtLimit';
 
 export interface ICartItem {
   id: number;
@@ -89,9 +89,9 @@ export const useCart = (): ICartHook => {
   };
 
   useEffect(() => {
-    document.body.classList.toggle("minicart-open", minicartOpen);
-    document.body.classList.toggle("modal-open", minicartOpen);
-    document.querySelector("html").classList.toggle("modal-open", minicartOpen);
+    document.body.classList.toggle('minicart-open', minicartOpen);
+    document.body.classList.toggle('modal-open', minicartOpen);
+    document.querySelector('html').classList.toggle('modal-open', minicartOpen);
   }, [minicartOpen]);
 
   useEffect(() => {
@@ -158,7 +158,7 @@ export const useCart = (): ICartHook => {
         //you probably want to disable adding more than available at the liquid/component level, but for other cases:
         dispatch(addToCartFail(error));
         const err = await error.json();
-        dispatch(dispatchToast("error", { customMessage: err.description }));
+        dispatch(dispatchToast('error', { customMessage: err.description }));
       }
     }
 
@@ -168,9 +168,9 @@ export const useCart = (): ICartHook => {
     }
     if (itemsAddedArray.length > 0) {
       if (notify) {
-        window["blubolt"].minicart
+        window['blubolt'].minicart
           ? openMinicart()
-          : dispatch(dispatchToast("cart", itemsAddedArray, quantityArray));
+          : dispatch(dispatchToast('cart', itemsAddedArray, quantityArray));
       }
       if (callback) {
         callback(newCart);
@@ -185,7 +185,7 @@ export const useCart = (): ICartHook => {
   // Update one item
   const updateCartByKey = async (key: string, opts: ICartUpdateByKey) => {
     if (!key || !opts) {
-      return console.error("A key or options are required to update the cart");
+      return console.error('A key or options are required to update the cart');
     }
 
     dispatch(setCartUpdating(true));
@@ -217,7 +217,7 @@ export const useCart = (): ICartHook => {
         if (updatedItem.quantity < opts.quantity) {
           possibleShortStock = true;
           dispatch(
-            dispatchToast("error", {
+            dispatchToast('error', {
               customMessage: `Cannot add more than ${updatedItem.quantity} of ${updatedItem.title}`,
             }),
           );
@@ -226,7 +226,7 @@ export const useCart = (): ICartHook => {
       dispatch(setCartUpdating(false));
       return { newCart, possibleShortStock };
     } catch (error) {
-      console.error("Error updating cart:", error.message);
+      console.error('Error updating cart:', error.message);
       dispatch(setCartUpdating(false));
     }
   };
@@ -235,7 +235,7 @@ export const useCart = (): ICartHook => {
   const removeByKey = async (key) => {
     dispatch(setCartUpdating(true));
     if (!key) {
-      return console.error("A key is required to remove item from the cart");
+      return console.error('A key is required to remove item from the cart');
     }
     try {
       await themeCart.removeItem(key);
@@ -243,7 +243,7 @@ export const useCart = (): ICartHook => {
       dispatch(setCartUpdating(false));
       return newCart;
     } catch (error) {
-      console.error("Error removing item from cart:", error.message);
+      console.error('Error removing item from cart:', error.message);
       dispatch(setCartUpdating(false));
     }
   };
@@ -254,7 +254,7 @@ export const useCart = (): ICartHook => {
       await themeCart.clearItems();
       return true;
     } catch (error) {
-      console.error("Error clearing cart items cart:", error.message);
+      console.error('Error clearing cart items cart:', error.message);
       return false;
     }
   };
@@ -263,7 +263,7 @@ export const useCart = (): ICartHook => {
     const themeHasMinicart = Boolean(
       document.querySelector(`[${CONSTANTS.PORTALS.MINICART}]`),
     );
-    window["blubolt"].cart = {
+    window['blubolt'].cart = {
       currentCart: cart,
       getCartState,
       addToCart,
@@ -272,7 +272,7 @@ export const useCart = (): ICartHook => {
       clear: clearCart,
     };
     if (themeHasMinicart) {
-      window["blubolt"].minicart = {
+      window['blubolt'].minicart = {
         clickOpen: (e: Event) => {
           // Uncomment if you want an empty cart to redirect straight to cart page
           // if (!cart.item_count) {

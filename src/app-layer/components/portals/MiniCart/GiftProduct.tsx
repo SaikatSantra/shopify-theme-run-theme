@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { RootState } from "../../../store/reducers";
-import { useDispatch, useSelector } from "react-redux";
-import axiosGetFullProductJSON from "../../../../scripts/sections/product/axiosGetFullProductJSON";
-import Price from "../../Price";
-import { setMinicart } from "../../../store/actions/cart";
-import { ProductVariant, Product } from "../../../util/typings";
-import useGiftProduct from "../../../hooks/useGiftProduct";
-import { useCart } from "../../../hooks/useCart";
-import Image from "../../Image";
+import React, { useEffect, useState } from 'react';
+import { RootState } from '../../../store/reducers';
+import { useDispatch, useSelector } from 'react-redux';
+import axiosGetFullProductJSON from '../../../../scripts/sections/product/axiosGetFullProductJSON';
+import Price from '../../Price';
+import { setMinicart } from '../../../store/actions/cart';
+import { ProductVariant, Product } from '../../../util/typings';
+import useGiftProduct from '../../../hooks/useGiftProduct';
+import { useCart } from '../../../hooks/useCart';
+import Image from '../../Image';
 
 type Props = {
   langStrings: Record<string, string>;
@@ -26,9 +26,9 @@ const GiftProduct: React.FunctionComponent<Props> = ({
   } = langStrings;
 
   const [giftProductData, setGiftProductData] = useState<Product>(null);
-  const [dropdownValue, setdropdownValue] = useState<string>("");
+  const [dropdownValue, setdropdownValue] = useState<string>('');
   const [selectedVariant, setSelectedVariant] = useState<ProductVariant>(null);
-  const [message, setMessage] = useState<string>("");
+  const [message, setMessage] = useState<string>('');
   const [showModal, setShowModal] = useState<boolean>(false);
 
   const giftProductHandle = useGiftProduct();
@@ -132,7 +132,7 @@ const GiftProduct: React.FunctionComponent<Props> = ({
                       ? selectedVariant.featured_image.src
                       : giftProductData.images && giftProductData.images[0]
                         ? giftProductData.images[0]
-                        : ""
+                        : ''
                   }
                 />
                 <div className="gift-product__info">
@@ -202,7 +202,7 @@ const GiftProduct: React.FunctionComponent<Props> = ({
           </div>
         </div>
       ) : (
-        ""
+        ''
       )}
     </div>
   ) : null;

@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
-import { useDispatch } from "react-redux";
-import { useCart } from "../../hooks/useCart";
-import { setMinicart } from "../../store/actions/cart";
-import { Product, ProductVariant } from "../../util/typings";
+import React, { useEffect, useRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useCart } from '../../hooks/useCart';
+import { setMinicart } from '../../store/actions/cart';
+import { Product, ProductVariant } from '../../util/typings';
 
 interface CartRecommendedSelectProps {
   product: Product;
@@ -14,10 +14,10 @@ const CartRecommendedSelect = (
   const { product } = props;
   const { addToCart } = useCart();
   const dispatch = useDispatch();
-  const [dropdownValue, setdropdownValue] = useState<string>("");
+  const [dropdownValue, setdropdownValue] = useState<string>('');
   const [selectedVariant, setSelectedVariant] = useState<ProductVariant>(null);
   const atcButton = useRef(null as HTMLButtonElement);
-  const optString = `${window["theme"].strings.select} ${window["theme"].strings.cartRecsOpts}`;
+  const optString = `${window['theme'].strings.select} ${window['theme'].strings.cartRecsOpts}`;
 
   const addSelectedVariant = (selectedVariantId: string) => {
     const variantData =
@@ -50,15 +50,15 @@ const CartRecommendedSelect = (
     const { variantAvailable } = selectedOption.dataset;
 
     if (!selectedOption.value) {
-      atcBtn.setAttribute("disabled", "disabled");
+      atcBtn.setAttribute('disabled', 'disabled');
     } else {
       setdropdownValue(selectedOption.value);
-      atcBtn.setAttribute("data-atc-product-id", selectedOption.value);
+      atcBtn.setAttribute('data-atc-product-id', selectedOption.value);
 
-      if (variantAvailable === "true") {
-        atcBtn.textContent = atcBtn.getAttribute("data-atc-text");
+      if (variantAvailable === 'true') {
+        atcBtn.textContent = atcBtn.getAttribute('data-atc-text');
       } else {
-        atcBtn.textContent = atcBtn.getAttribute("data-atc-oos-text");
+        atcBtn.textContent = atcBtn.getAttribute('data-atc-oos-text');
       }
     }
   };
@@ -89,13 +89,13 @@ const CartRecommendedSelect = (
             {product.variants.map((variant) => {
               return (
                 <option
-                  key={variant["id"]}
-                  value={variant["id"]}
-                  data-variant-available={variant["available"]}
+                  key={variant['id']}
+                  value={variant['id']}
+                  data-variant-available={variant['available']}
                 >
-                  {variant["available"]
-                    ? variant["title"]
-                    : window["theme"].strings.soldOut}
+                  {variant['available']
+                    ? variant['title']
+                    : window['theme'].strings.soldOut}
                 </option>
               );
             })}
@@ -108,10 +108,10 @@ const CartRecommendedSelect = (
           className="btn btn--primary-outline btn--fit"
           data-aid="product-upsell-atc"
           data-add-to-cart-with-variant
-          data-atc-quantity-input={`#upsell-quantity-${product["handle"]}`}
+          data-atc-quantity-input={`#upsell-quantity-${product['handle']}`}
           data-atc-product-id={product.id}
-          data-atc-text={window["theme"].strings.addToCart}
-          data-atc-oos-text={window["theme"].strings.soldOut}
+          data-atc-text={window['theme'].strings.addToCart}
+          data-atc-oos-text={window['theme'].strings.soldOut}
           onClick={() => {
             addToCart(
               [
@@ -133,15 +133,15 @@ const CartRecommendedSelect = (
     selectMarkUp = (
       <>
         <button
-          disabled={!product["available"]}
+          disabled={!product['available']}
           type="submit"
           className="btn btn--primary-outline btn--fit"
           data-aid="product-upsell-atc"
           data-add-to-cart-with-variant
-          data-atc-quantity-input={`#upsell-quantity-${product["handle"]}`}
+          data-atc-quantity-input={`#upsell-quantity-${product['handle']}`}
           data-atc-product-id={product.variants[0].id}
-          data-atc-text={window["theme"].strings.addToCart}
-          data-atc-oos-text={window["theme"].strings.soldOut}
+          data-atc-text={window['theme'].strings.addToCart}
+          data-atc-oos-text={window['theme'].strings.soldOut}
           onClick={() => {
             addToCart(
               [
@@ -155,9 +155,9 @@ const CartRecommendedSelect = (
             );
           }}
         >
-          {product["available"]
-            ? window["theme"].strings.addToCart
-            : window["theme"].soldOut}
+          {product['available']
+            ? window['theme'].strings.addToCart
+            : window['theme'].soldOut}
         </button>
       </>
     );

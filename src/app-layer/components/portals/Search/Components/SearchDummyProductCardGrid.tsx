@@ -1,5 +1,5 @@
-import React from "react";
-import SearchDummyProductCard from "./SearchDummyProductCard";
+import React from 'react';
+import SearchDummyProductCard from './SearchDummyProductCard';
 
 interface Props {
   count: number;

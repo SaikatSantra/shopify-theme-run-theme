@@ -1,5 +1,5 @@
-import React from "react";
-import { ISwatch } from "../../../../context/search/types";
+import React from 'react';
+import { ISwatch } from '../../../../context/search/types';
 
 interface Props {
   swatches: ISwatch[];
@@ -16,14 +16,14 @@ const SearchProductSwatches: React.FC<Props> = ({ swatches }) => {
       {Object.values(swatches).map((swatch, i) => (
         <li key={i}>
           <span
-            className={`product-swatches__swatch ${swatch.active ? " product-swatches__swatch--active" : ""}`}
+            className={`product-swatches__swatch ${swatch.active ? ' product-swatches__swatch--active' : ''}`}
             style={
               {
-                "--bg": swatch.pattern
+                '--bg': swatch.pattern
                   ? `url("${swatch.pattern}")`
                   : swatch.colors[0]
                     ? swatch.colors[0]
-                    : "",
+                    : '',
               } as React.CSSProperties
             }
             title={swatch.title}

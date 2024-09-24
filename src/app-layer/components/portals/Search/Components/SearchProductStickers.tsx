@@ -1,5 +1,5 @@
-import React from "react";
-import { ISticker } from "../../../../context/search/types";
+import React from 'react';
+import { ISticker } from '../../../../context/search/types';
 
 interface Props {
   stickers: ISticker[];
@@ -14,8 +14,8 @@ const SearchProductStickers: React.FC<Props> = ({ stickers }) => {
           className="product-stickers__sticker"
           style={
             {
-              "--bg": sticker.backgroundColor,
-              "--color": sticker.textColor,
+              '--bg': sticker.backgroundColor,
+              '--color': sticker.textColor,
             } as React.CSSProperties
           }
         >

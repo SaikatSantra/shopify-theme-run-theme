@@ -1,5 +1,5 @@
-import standardisePrice from "../../../../../util/standardisePrice";
-import { ISearchAndFilterProductPrice } from "../../../types";
+import standardisePrice from '../../../../../util/standardisePrice';
+import { ISearchAndFilterProductPrice } from '../../../types';
 
 const getProductPrice = (
   price: number | string,

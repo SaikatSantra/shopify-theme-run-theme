@@ -8,7 +8,7 @@
  *
  */
 
-const moneyFormat = "${{amount}}";
+const moneyFormat = '${{amount}}';
 
 /**
  * Format money values based on your shop currency settings
@@ -18,47 +18,47 @@ const moneyFormat = "${{amount}}";
  * @return {String} value - formatted value
  */
 export function formatMoney(cents: number | string, format: string): string {
-  if (typeof cents === "string") {
-    cents = cents.replace(".", "");
+  if (typeof cents === 'string') {
+    cents = cents.replace('.', '');
   }
-  let value = "";
+  let value = '';
   const placeholderRegex = /\{\{\s*(\w+)\s*\}\}/;
   const formatString = format || moneyFormat;
 
   function formatWithDelimiters(
     number,
     precision = 2,
-    thousands = ",",
-    decimal = ".",
+    thousands = ',',
+    decimal = '.',
   ) {
     if (isNaN(number) || number === null) {
-      return "0";
+      return '0';
     }
 
     number = (number / 100.0).toFixed(precision);
 
-    const parts = number.split(".");
+    const parts = number.split('.');
     const dollarsAmount = parts[0].replace(
       /(\d)(?=(\d\d\d)+(?!\d))/g,
       `$1${thousands}`,
     );
-    const centsAmount = parts[1] ? decimal + parts[1] : "";
+    const centsAmount = parts[1] ? decimal + parts[1] : '';
 
     return dollarsAmount + centsAmount;
   }
 
   switch (formatString.match(placeholderRegex)[1]) {
-    case "amount":
+    case 'amount':
       value = formatWithDelimiters(cents, 2);
       break;
-    case "amount_no_decimals":
+    case 'amount_no_decimals':
       value = formatWithDelimiters(cents, 0);
       break;
-    case "amount_with_comma_separator":
-      value = formatWithDelimiters(cents, 2, ".", ",");
+    case 'amount_with_comma_separator':
+      value = formatWithDelimiters(cents, 2, '.', ',');
       break;
-    case "amount_no_decimals_with_comma_separator":
-      value = formatWithDelimiters(cents, 0, ".", ",");
+    case 'amount_no_decimals_with_comma_separator':
+      value = formatWithDelimiters(cents, 0, '.', ',');
       break;
   }
 

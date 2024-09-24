@@ -1,4 +1,4 @@
-import getRoute from "./getRoute";
+import getRoute from './getRoute';
 
 declare global {
   interface Window {
@@ -8,10 +8,10 @@ declare global {
 
 const getCurrencyRoute = (endPoint: string): string => {
   const route = getRoute();
-  let currencyQuery = "";
-  if (route !== "/") {
+  let currencyQuery = '';
+  if (route !== '/') {
     // always append currency parameter
-    currencyQuery = `${endPoint.includes("?") ? "&" : "?"}currency=${window.Shopify.currency.active}`;
+    currencyQuery = `${endPoint.includes('?') ? '&' : '?'}currency=${window.Shopify.currency.active}`;
   }
   return `${route}${endPoint}${currencyQuery}`;
 };

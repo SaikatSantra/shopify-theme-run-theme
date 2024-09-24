@@ -1,6 +1,6 @@
-import { produce } from "immer";
-import CONSTANTS from "../../_constants";
-import { ToastStateInterface, toastInitialState } from "../state/toast";
+import { produce } from 'immer';
+import CONSTANTS from '../../_constants';
+import { ToastStateInterface, toastInitialState } from '../state/toast';
 
 export default produce((draft: ToastStateInterface, action) => {
   switch (action.type) {
@@ -23,7 +23,7 @@ export default produce((draft: ToastStateInterface, action) => {
 
     case CONSTANTS.TOAST_DISMISS:
       draft.active = false;
-      draft.type = "";
+      draft.type = '';
       draft.data = [];
       draft.quantities = [];
       break;

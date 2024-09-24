@@ -1,6 +1,6 @@
-import React from "react";
-import useSearch from "../../../context/search/useSearch";
-import getRoute from "../../../../scripts/utils/getRoute";
+import React from 'react';
+import useSearch from '../../../context/search/useSearch';
+import getRoute from '../../../../scripts/utils/getRoute';
 
 interface ISearchInputComponent {
   dataSet: DOMStringMap;
@@ -25,7 +25,7 @@ const SearchSubmit: React.FC<ISearchInputComponent> = ({
     <>
       <a
         className="btn btn--search btn--lg btn--primary"
-        href={`${getRoute()}search?q=${quickSearchTerm.replace(/ /g, "+")}`}
+        href={`${getRoute()}search?q=${quickSearchTerm.replace(/ /g, '+')}`}
       >
         {submitText.replace(/\[\[terms\]\]/g, quickSearchTerm)}
       </a>

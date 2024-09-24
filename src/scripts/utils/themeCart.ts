@@ -1,6 +1,6 @@
-import getCurrencyRoute from "./getCurrencyRoute";
+import getCurrencyRoute from './getCurrencyRoute';
 
-("use strict");
+('use strict');
 
 export {};
 
@@ -22,10 +22,10 @@ interface ICartAttributes {
 function getDefaultRequestConfig() {
   return JSON.parse(
     JSON.stringify({
-      credentials: "same-origin",
+      credentials: 'same-origin',
       headers: {
-        "X-Requested-With": "XMLHttpRequest",
-        "Content-Type": "application/json;",
+        'X-Requested-With': 'XMLHttpRequest',
+        'Content-Type': 'application/json;',
       },
     }),
   );
@@ -41,13 +41,13 @@ function fetchJSON(url, config) {
 }
 
 function cart() {
-  return fetchJSON(getCurrencyRoute("cart.js"), getDefaultRequestConfig());
+  return fetchJSON(getCurrencyRoute('cart.js'), getDefaultRequestConfig());
 }
 
 function cartAdd(id, quantity, properties, sellingPlan?) {
   const config = getDefaultRequestConfig();
 
-  config.method = "POST";
+  config.method = 'POST';
   config.body = JSON.stringify({
     id: id,
     quantity: quantity,
@@ -55,17 +55,17 @@ function cartAdd(id, quantity, properties, sellingPlan?) {
     selling_plan: sellingPlan,
   });
 
-  return fetchJSON(getCurrencyRoute("cart/add.js"), config);
+  return fetchJSON(getCurrencyRoute('cart/add.js'), config);
 }
 
 function cartAddFromForm(formData) {
   const config = getDefaultRequestConfig();
-  delete config.headers["Content-Type"];
+  delete config.headers['Content-Type'];
 
-  config.method = "POST";
+  config.method = 'POST';
   config.body = formData;
 
-  return fetchJSON(getCurrencyRoute("cart/add.js"), config);
+  return fetchJSON(getCurrencyRoute('cart/add.js'), config);
 }
 
 function cartChange(line, options) {
@@ -73,94 +73,94 @@ function cartChange(line, options) {
 
   options = options || {};
 
-  config.method = "POST";
+  config.method = 'POST';
   config.body = JSON.stringify({
     line: line,
     quantity: options.quantity,
     properties: options.properties,
   });
 
-  return fetchJSON(getCurrencyRoute("cart/change.js"), config);
+  return fetchJSON(getCurrencyRoute('cart/change.js'), config);
 }
 
 function cartClear() {
   const config = getDefaultRequestConfig();
-  config.method = "POST";
+  config.method = 'POST';
 
-  return fetchJSON(getCurrencyRoute("cart/clear.js"), config);
+  return fetchJSON(getCurrencyRoute('cart/clear.js'), config);
 }
 
 function cartUpdate(body) {
   const config = getDefaultRequestConfig();
 
-  config.method = "POST";
+  config.method = 'POST';
   config.body = JSON.stringify(body);
 
-  return fetchJSON(getCurrencyRoute("cart/update.js"), config);
+  return fetchJSON(getCurrencyRoute('cart/update.js'), config);
 }
 
 function cartShippingRates() {
   return fetchJSON(
-    getCurrencyRoute("cart/shipping_rates.json"),
+    getCurrencyRoute('cart/shipping_rates.json'),
     getDefaultRequestConfig(),
   );
 }
 
 function key(key) {
-  if (typeof key !== "string" || key.split(":").length !== 2) {
+  if (typeof key !== 'string' || key.split(':').length !== 2) {
     throw new TypeError(
-      "Theme Cart: Provided key value is not a string with the format xxx:xxx",
+      'Theme Cart: Provided key value is not a string with the format xxx:xxx',
     );
   }
 }
 
 function quantity(quantity) {
-  if (typeof quantity !== "number" || isNaN(quantity)) {
+  if (typeof quantity !== 'number' || isNaN(quantity)) {
     throw new TypeError(
-      "Theme Cart: An object which specifies a quantity or properties value is required",
+      'Theme Cart: An object which specifies a quantity or properties value is required',
     );
   }
 }
 
 function id(id) {
-  if (typeof id !== "number" || isNaN(id)) {
-    throw new TypeError("Theme Cart: Variant ID must be a number");
+  if (typeof id !== 'number' || isNaN(id)) {
+    throw new TypeError('Theme Cart: Variant ID must be a number');
   }
 }
 
 function properties(properties) {
-  if (typeof properties !== "object") {
-    throw new TypeError("Theme Cart: Properties must be an object");
+  if (typeof properties !== 'object') {
+    throw new TypeError('Theme Cart: Properties must be an object');
   }
 }
 
 function form(form) {
   if (!(form instanceof HTMLFormElement)) {
     throw new TypeError(
-      "Theme Cart: Form must be an instance of HTMLFormElement",
+      'Theme Cart: Form must be an instance of HTMLFormElement',
     );
   }
 }
 
 function options(options) {
-  if (typeof options !== "object") {
-    throw new TypeError("Theme Cart: Options must be an object");
+  if (typeof options !== 'object') {
+    throw new TypeError('Theme Cart: Options must be an object');
   }
 
   if (
-    typeof options.quantity === "undefined" &&
-    typeof options.properties === "undefined"
+    typeof options.quantity === 'undefined' &&
+    typeof options.properties === 'undefined'
   ) {
     throw new Error(
-      "Theme Cart: You muse define a value for quantity or properties",
+      'Theme Cart: You muse define a value for quantity or properties',
     );
   }
 
-  if (typeof options.quantity !== "undefined") {
+  if (typeof options.quantity !== 'undefined') {
     quantity(options.quantity);
   }
 
-  if (typeof options.properties !== "undefined") {
+  if (typeof options.properties !== 'undefined') {
     properties(options.properties);
   }
 }
@@ -198,7 +198,7 @@ export function getItemIndex(key$$1: string): Promise<number> {
 
     if (index === -1) {
       return Promise.reject(
-        new Error("Theme Cart: Unable to match line item with provided key"),
+        new Error('Theme Cart: Unable to match line item with provided key'),
       );
     }
 
@@ -223,7 +223,7 @@ export function getItem(key$$1: string): Promise<any> {
 
     if (lineItem === null) {
       return Promise.reject(
-        new Error("Theme Cart: Unable to match line item with provided key"),
+        new Error('Theme Cart: Unable to match line item with provided key'),
       );
     }
 
@@ -265,7 +265,7 @@ export function addItemFromForm(form$$1: any): Promise<any> {
   form(form$$1);
 
   const formData = new FormData(form$$1);
-  const entryValue = formData.get("id");
+  const entryValue = formData.get('id');
   if (!(entryValue instanceof File)) {
     id(parseInt(entryValue, 10));
     return cartAddFromForm(formData);
@@ -339,7 +339,7 @@ export function updateAttributes(attributes: ICartAttributes): Promise<any> {
 export function clearAttributes(): Promise<any> {
   return getAttributes().then(function (attributes) {
     for (const key$$1 in attributes) {
-      attributes[key$$1] = "";
+      attributes[key$$1] = '';
     }
     return updateAttributes(attributes);
   });
@@ -368,7 +368,7 @@ export function updateNote(note: string): Promise<any> {
  * @returns {Promise} Resolves with the cart state object
  */
 export function clearNote(): Promise<any> {
-  return cartUpdate({ note: "" });
+  return cartUpdate({ note: '' });
 }
 
 /**

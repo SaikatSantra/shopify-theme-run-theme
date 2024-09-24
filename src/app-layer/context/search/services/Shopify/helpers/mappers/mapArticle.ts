@@ -1,5 +1,5 @@
-import { IQuickSearchResultArticle } from "../../../../types";
-import { ITemplateArticleResponse } from "../../types";
+import { IQuickSearchResultArticle } from '../../../../types';
+import { ITemplateArticleResponse } from '../../types';
 
 const mapArticle = (
   articleInResp: ITemplateArticleResponse,

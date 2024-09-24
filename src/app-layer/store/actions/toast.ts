@@ -1,5 +1,5 @@
-import { ActionReturnType } from "./helpers";
-import CONSTANTS from "../../_constants";
+import { ActionReturnType } from './helpers';
+import CONSTANTS from '../../_constants';
 
 export const dispatchToast = (type: string, data: any, quantities?: any) => ({
   type: CONSTANTS.TOAST_DISPATCH,

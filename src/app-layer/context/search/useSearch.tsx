@@ -5,8 +5,8 @@ import React, {
   useContext,
   useEffect,
   useState,
-} from "react";
-import SearchService from "./SearchService";
+} from 'react';
+import SearchService from './SearchService';
 import {
   IHandleQuickSearchResult,
   ISearchProviderConfig,
@@ -26,15 +26,15 @@ import {
   ISwatch,
   ISearchFilterStandard,
   ISearchFilterRange,
-} from "./types";
-import { useDebouncedCallback } from "use-debounce";
-import updateLocationQuery from "./helpers/updateLocationQuery";
-import getCurrentActiveFilters from "./helpers/getCurrentActiveFilters";
+} from './types';
+import { useDebouncedCallback } from 'use-debounce';
+import updateLocationQuery from './helpers/updateLocationQuery';
+import getCurrentActiveFilters from './helpers/getCurrentActiveFilters';
 
-import FILTER_SEARCH from "./consts";
+import FILTER_SEARCH from './consts';
 
-import getRoute from "../../../scripts/utils/getRoute";
-import axios from "axios";
+import getRoute from '../../../scripts/utils/getRoute';
+import axios from 'axios';
 
 export interface IFFetchContext {
   children: any;
@@ -102,8 +102,8 @@ interface ContextValue {
   eventHandlers;
 }
 
-export const FILTER_QUERY_PARAM_PREFIX = "filter_";
-export const FILTER_QUERY_PARAM_SEPARATOR = ",";
+export const FILTER_QUERY_PARAM_PREFIX = 'filter_';
+export const FILTER_QUERY_PARAM_SEPARATOR = ',';
 
 export const SORT_TYPE_VALS = Object.values(FILTER_SEARCH.SORT_TYPES);
 
@@ -117,8 +117,8 @@ export const SearchProvider: React.FC<IFFetchContext> = ({
   // control
   const [isSearching, setIsSearching] = useState<boolean>(false);
   // input
-  const [searchTerm, setSearchTerm] = useState<string>("");
-  const [quickSearchTerm, setQuickSearchTerm] = useState<string>("");
+  const [searchTerm, setSearchTerm] = useState<string>('');
+  const [quickSearchTerm, setQuickSearchTerm] = useState<string>('');
   const [pageIndex, setPageIndex] = useState<number>(null);
 
   // data
@@ -213,8 +213,8 @@ export const SearchProvider: React.FC<IFFetchContext> = ({
             ...option,
             ...(activate
               ? {
-                  active: option.selected,
-                }
+                active: option.selected,
+              }
               : {}),
             records: newOption ? newOption.records : 0,
           };
@@ -226,9 +226,9 @@ export const SearchProvider: React.FC<IFFetchContext> = ({
   };
 
   const wipeLiquidProducts = (): void => {
-    const liquidProducts = document.querySelector("[data-liquid-products]");
+    const liquidProducts = document.querySelector('[data-liquid-products]');
     if (liquidProducts) {
-      liquidProducts.innerHTML = "";
+      liquidProducts.innerHTML = '';
     }
   };
 
@@ -249,9 +249,9 @@ export const SearchProvider: React.FC<IFFetchContext> = ({
   };
 
   const setResultsClass = (): void => {
-    const resultsEl = document.querySelector(".search-results");
+    const resultsEl = document.querySelector('.search-results');
     if (resultsEl) {
-      resultsEl.classList.add("search__results--loaded");
+      resultsEl.classList.add('search__results--loaded');
     }
   };
 
@@ -301,7 +301,7 @@ export const SearchProvider: React.FC<IFFetchContext> = ({
       state[checkPageIndex] = productData;
     }
 
-    if (config.rLoadMoreMode !== "paginate" && checkPageIndex) {
+    if (config.rLoadMoreMode !== 'paginate' && checkPageIndex) {
       // infinite scroll set all productResult data (state[0] is undefined, hence .filter)
       const allData = state
         .filter((def) => def)
@@ -367,10 +367,10 @@ export const SearchProvider: React.FC<IFFetchContext> = ({
   }, 1000);
 
   const setLoadingAndExecuteFilteredSearch = () => {
-    const liquidProducts = document.querySelector("[data-liquid-products]");
+    const liquidProducts = document.querySelector('[data-liquid-products]');
 
     if (liquidProducts) {
-      liquidProducts.classList.add("is-loading");
+      liquidProducts.classList.add('is-loading');
     }
 
     setFiltersLoading(true);
@@ -382,13 +382,13 @@ export const SearchProvider: React.FC<IFFetchContext> = ({
     pageIndex: number,
     triggerFiltering: boolean,
     silent: boolean,
-    historyMethod: "pushState" | "replaceState" = "pushState",
+    historyMethod: 'pushState' | 'replaceState' = 'pushState',
   ) => {
     if (
-      window["theme"].template === "search" ||
-      window["theme"].template === "collection" ||
-      window["ShopifyAnalytics"].meta.page.pageType === "collection" ||
-      window["ShopifyAnalytics"].meta.page.pageType === "search"
+      window['theme'].template === 'search' ||
+      window['theme'].template === 'collection' ||
+      window['ShopifyAnalytics'].meta.page.pageType === 'collection' ||
+      window['ShopifyAnalytics'].meta.page.pageType === 'search'
     ) {
       let forceSilentIndex = null;
       setNewPageLoading(true);
@@ -398,10 +398,10 @@ export const SearchProvider: React.FC<IFFetchContext> = ({
 
         // set url param
         updateLocationQuery({
-          key: "page",
+          key: 'page',
           historyMethod,
           value: pageIndex.toString(),
-          action: "set",
+          action: 'set',
         });
       } else {
         // silent update
@@ -421,41 +421,40 @@ export const SearchProvider: React.FC<IFFetchContext> = ({
     filterUpdated: (params: { filterIndex: number; optionIndex: number }) => {
       // get the filter
       const filter = searchFilters[params.filterIndex];
-      if (["SINGLE_OPTION", "MULTI_OPTION"].includes(filter.type)) {
+      if (['SINGLE_OPTION', 'MULTI_OPTION'].includes(filter.type)) {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
-        const options: ISearchFilterOption[] = filter.options
-          .map((option: ISearchFilterOption) => {
-            // Shopify needs to use the option value rather than identifier
-            return option.selected
+        const options: ISearchFilterOption[] = filter.options;
+        options.map((option: ISearchFilterOption) => {
+          // Shopify needs to use the option value rather than identifier
+          return option.selected
+            ? option.value
               ? option.value
-                ? option.value
-                : option.identifier
-              : false;
-          })
-          .filter((option) => option);
+              : option.identifier
+            : false;
+        }).filter((option) => option);
 
         if (options.length) {
           updateLocationQuery({
             key: `${FILTER_QUERY_PARAM_PREFIX}${filter.identifier}`,
             value: options.join(FILTER_QUERY_PARAM_SEPARATOR),
-            action: "set",
+            action: 'set',
           });
         } else {
           if (options.length > 0) {
             updateLocationQuery({
               key: `${FILTER_QUERY_PARAM_PREFIX}${filter.identifier}`,
               value: options.join(FILTER_QUERY_PARAM_SEPARATOR),
-              action: "set",
+              action: 'set',
             });
           } else {
             updateLocationQuery({
               key: `${FILTER_QUERY_PARAM_PREFIX}${filter.identifier}`,
-              action: "delete",
+              action: 'delete',
             });
           }
         }
-      } else if (["RANGE"].includes(filter.type)) {
+      } else if (['RANGE'].includes(filter.type)) {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         const option: ISearchFilterRangeOption =
@@ -467,35 +466,35 @@ export const SearchProvider: React.FC<IFFetchContext> = ({
           updateLocationQuery({
             key: `${FILTER_QUERY_PARAM_PREFIX}${filter.identifier}`,
             value: `${option.selectedMinimum}:${option.selectedMaximum}`,
-            action: "set",
+            action: 'set',
           });
         } else {
           updateLocationQuery({
             key: `${FILTER_QUERY_PARAM_PREFIX}${filter.identifier}`,
-            action: "delete",
+            action: 'delete',
           });
         }
       } else {
-        throw "Unhandled filter type";
+        throw 'Unhandled filter type';
       }
 
-      updatePageIndex(1, false, false, "replaceState");
+      updatePageIndex(1, false, false, 'replaceState');
       // invalidate paginated state
       setProductResultsState([]);
     },
 
     sortByUpdated: (params: { sortKey: string }) => {
       if (!SORT_TYPE_VALS.includes(params.sortKey)) {
-        console.info("Incorrect sort type");
+        console.info('Incorrect sort type');
       }
 
       updateLocationQuery({
-        key: "sort",
+        key: 'sort',
         value: params.sortKey,
-        action: "set",
+        action: 'set',
       });
       setSortKey(params.sortKey);
-      updatePageIndex(1, false, false, "replaceState");
+      updatePageIndex(1, false, false, 'replaceState');
       // invalidate paginated state
       setProductResultsState([]);
     },
@@ -538,7 +537,7 @@ export const SearchProvider: React.FC<IFFetchContext> = ({
       // remove any HTML which may have been added to the suggestion result
       const suggestion = quickSearchResultsSuggestions[index].value.replace(
         /(<([^>]+)>)/gi,
-        "",
+        '',
       );
       setIsSearching(true);
       setSearchTerm(suggestion);
@@ -584,7 +583,7 @@ export const SearchProvider: React.FC<IFFetchContext> = ({
       ] as ISearchFilterOption;
 
       updatedOption.selected =
-        typeof forceValue === "undefined"
+        typeof forceValue === 'undefined'
           ? !updatedOption.selected
           : forceValue;
 
@@ -640,7 +639,7 @@ export const SearchProvider: React.FC<IFFetchContext> = ({
       triggerFiltering: boolean,
       silent: boolean,
     ) => {
-      updatePageIndex(pageIndex, triggerFiltering, silent, "pushState");
+      updatePageIndex(pageIndex, triggerFiltering, silent, 'pushState');
     },
 
     handleSortByChange: (val: string) => {
@@ -653,7 +652,7 @@ export const SearchProvider: React.FC<IFFetchContext> = ({
     handleClearSpecificFilter: (filterIndex: number) => {
       const updatedFilters = [...searchFilters];
       const filterToClear = updatedFilters[filterIndex];
-      if (filterToClear.type === "RANGE") {
+      if (filterToClear.type === 'RANGE') {
         const option = filterToClear.options[0] as ISearchFilterRangeOption;
         option.selectedMaximum = Math.ceil(option.maximum);
         option.selectedMinimum = Math.floor(option.minimum);
@@ -687,7 +686,7 @@ export const SearchProvider: React.FC<IFFetchContext> = ({
       for (let i = 0; i < updatedFilters.length; i++) {
         const filter: ISearchFilter = updatedFilters[i];
 
-        if (filter.type === "RANGE") {
+        if (filter.type === 'RANGE') {
           const option: ISearchFilterRangeOption = filter.options[0];
           option.selectedMaximum = Math.ceil(option.maximum);
           option.selectedMinimum = Math.floor(option.minimum);
@@ -706,7 +705,7 @@ export const SearchProvider: React.FC<IFFetchContext> = ({
     },
 
     handleToggleFilterOpen: (filterIndex: number, value?: boolean) => {
-      const isDesktop = window.matchMedia("(min-width: 768px)").matches
+      const isDesktop = window.matchMedia('(min-width: 768px)').matches
         ? true
         : false;
       const updatedFilters = [...searchFilters].map((filter, index) => {
@@ -723,7 +722,7 @@ export const SearchProvider: React.FC<IFFetchContext> = ({
         } else {
           return {
             ...filter,
-            open: typeof value !== "undefined" ? value : !filter.open,
+            open: typeof value !== 'undefined' ? value : !filter.open,
           };
         }
       });
@@ -747,25 +746,25 @@ export const SearchProvider: React.FC<IFFetchContext> = ({
   };
 
   const getCurrentUrlWithTagSet = (tag: string, val: boolean) => {
-    const path = window.location.pathname.split("/").filter((part) => part);
-    let newPath = `/${path.join("/")}`;
+    const path = window.location.pathname.split('/').filter((part) => part);
+    let newPath = `/${path.join('/')}`;
     if (val && path[path.length - 1] !== tag) {
       // needs to add
-      newPath = `/${path.join("/")}/${tag}`;
+      newPath = `/${path.join('/')}/${tag}`;
     } else if (!val && path[path.length - 1] === tag) {
       // needs to remove
-      newPath = `/${path.slice(0, -1).join("/")}`;
+      newPath = `/${path.slice(0, -1).join('/')}`;
     }
     return `${window.location.origin}${newPath}${window.location.search}${window.location.hash}`;
   };
 
   const handlePopState = () => {
     const params = new URLSearchParams(window.location.search);
-    const pageParam = params.get("page");
+    const pageParam = params.get('page');
     const page =
       pageParam && !isNaN(parseInt(pageParam)) ? parseInt(pageParam) : 1;
     if (page) {
-      updatePageIndex(page, true, false, "replaceState");
+      updatePageIndex(page, true, false, 'replaceState');
     }
   };
 
@@ -773,34 +772,34 @@ export const SearchProvider: React.FC<IFFetchContext> = ({
   useEffect(() => {
     //check if url includes filtered as getting weird safari bug, SearchFilteredProducts component was kicking in on PLP when back clicked
     if (window.location.pathname.includes(config.searchFilterDummyTag)) {
-      window.addEventListener("popstate", () => handlePopState());
+      window.addEventListener('popstate', () => handlePopState());
     }
-    if (window["swatches"] && Object.keys(window["swatches"]).length) {
-      const swatches = SearchService.methods.getSwatchData(window["swatches"]);
+    if (window['swatches'] && Object.keys(window['swatches']).length) {
+      const swatches = SearchService.methods.getSwatchData(window['swatches']);
       setFilterSwatches(swatches);
     }
 
     // added in date logic and local storage to aid efficeiency of collection retrieval
     const now = new Date();
     const localCollections = JSON.parse(
-      window.localStorage.getItem("bb-collections"),
+      window.localStorage.getItem('bb-collections'),
     );
     if (
       !localCollections ||
       (localCollections &&
-        localCollections["00-timer"] &&
-        now > localCollections["00-timer"])
+        localCollections['00-timer'] &&
+        now > localCollections['00-timer'])
     ) {
       const storageTimeMinutes = 10;
       // used to populate list of collection urls and their ids for use in collecitonOptionFilter
       axios
-        .get("/collections/all?view=json")
+        .get('/collections/all?view=json')
         .then((res) => {
           if (res.data?.collections) {
             // add an additional timer element to the array so we can store for later checking and invalidate after a time
-            window["theme"]["collections"] = {
+            window['theme']['collections'] = {
               ...{
-                "00-timer": new Date(
+                '00-timer': new Date(
                   now.getTime() + storageTimeMinutes * 60000,
                 ),
               },
@@ -808,16 +807,16 @@ export const SearchProvider: React.FC<IFFetchContext> = ({
             };
             // This is not pretty but is the easiest fix for now - sorry
             axios
-              .get("/collections/all?page=2&view=json")
+              .get('/collections/all?page=2&view=json')
               .then((res) => {
                 if (res.data?.collections) {
-                  window["theme"]["collections"] = {
-                    ...window["theme"]["collections"],
+                  window['theme']['collections'] = {
+                    ...window['theme']['collections'],
                     ...res.data.collections,
                   };
                   window.localStorage.setItem(
-                    "bb-collections",
-                    JSON.stringify(window["theme"]["collections"]),
+                    'bb-collections',
+                    JSON.stringify(window['theme']['collections']),
                   );
                   // Uncomment the below line to view all collections object
                   // console.log(window['theme']['collections'])
@@ -832,7 +831,7 @@ export const SearchProvider: React.FC<IFFetchContext> = ({
           console.error(e);
         });
     } else {
-      window["theme"]["collections"] = localCollections;
+      window['theme']['collections'] = localCollections;
     }
   }, []);
 
@@ -846,28 +845,28 @@ export const SearchProvider: React.FC<IFFetchContext> = ({
     let executeSearch = false;
     let localSearchTerm = null;
     if (!searchTerm) {
-      if (params.get("q")) {
-        localSearchTerm = params.get("q");
+      if (params.get('q')) {
+        localSearchTerm = params.get('q');
         setSearchTerm(localSearchTerm);
         executeSearch = true;
       }
     }
 
     if (!pageIndex) {
-      if (params.get("page")) setPageIndex(parseInt(params.get("page")));
+      if (params.get('page')) setPageIndex(parseInt(params.get('page')));
       else setPageIndex(1);
     }
 
     if (!sortKey) {
-      if (params.get("sort")) {
-        setSortKey(params.get("sort"));
+      if (params.get('sort')) {
+        setSortKey(params.get('sort'));
         executeSearch = true;
       }
     }
 
-    if (!cmsSearchResults && params.get("q")) {
+    if (!cmsSearchResults && params.get('q')) {
       SearchService.methods
-        .getCmsContent(params.get("q"), config)
+        .getCmsContent(params.get('q'), config)
         .then((response) => {
           setCmsSearchResults(response);
         })
@@ -879,23 +878,23 @@ export const SearchProvider: React.FC<IFFetchContext> = ({
 
     if (
       !searchFilters &&
-      (window["theme"].template === "search" ||
-        window["theme"].template === "collection")
+      (window['theme'].template === 'search' ||
+        window['theme'].template === 'collection')
     ) {
       SearchService.methods
         .getFilters(activeCollection, localSearchTerm, config)
         .then((response) => {
           //klevu min & max ranges coming back as strings and breaking range slider
           const rangeFilters = response.filters.find(
-            (filter) => filter.displayType === "RANGE",
+            (filter) => filter.displayType === 'RANGE',
           );
           if (rangeFilters?.options?.length > 0) {
             const rangeOption = rangeFilters
               .options[0] as ISearchFilterRangeOption;
-            if (typeof rangeOption.maximum === "string") {
+            if (typeof rangeOption.maximum === 'string') {
               rangeOption.maximum = parseFloat(rangeOption.maximum);
             }
-            if (typeof rangeOption.minimum === "string") {
+            if (typeof rangeOption.minimum === 'string') {
               rangeOption.minimum = parseFloat(rangeOption.minimum);
             }
           }
@@ -904,7 +903,7 @@ export const SearchProvider: React.FC<IFFetchContext> = ({
           const selectedFilters = [];
           params.forEach((values, key) => {
             if (key.startsWith(FILTER_QUERY_PARAM_PREFIX)) {
-              values.split(",").forEach((value) => {
+              values.split(',').forEach((value) => {
                 selectedFilters.push({
                   filterKey: key,
                   optionKey: value,
@@ -929,7 +928,7 @@ export const SearchProvider: React.FC<IFFetchContext> = ({
 
                 // toggle the option
                 if (
-                  ["SINGLE_OPTION", "MULTI_OPTION"].includes(
+                  ['SINGLE_OPTION', 'MULTI_OPTION'].includes(
                     response.filters[filterIndex].type,
                   )
                 ) {
@@ -952,16 +951,16 @@ export const SearchProvider: React.FC<IFFetchContext> = ({
                     executeSearch = true;
                   }
                 } else if (
-                  ["RANGE"].includes(response.filters[filterIndex].type)
+                  ['RANGE'].includes(response.filters[filterIndex].type)
                 ) {
                   const option = (
                     response.filters[filterIndex] as ISearchFilterRange
                   ).options[0];
                   option.selectedMinimum = parseFloat(
-                    selectedFilter.optionKey.split(":")[0],
+                    selectedFilter.optionKey.split(':')[0],
                   );
                   option.selectedMaximum = parseFloat(
-                    selectedFilter.optionKey.split(":")[1],
+                    selectedFilter.optionKey.split(':')[1],
                   );
                   option.activeMinimum = option.selectedMinimum;
                   option.activeMaximum = option.selectedMaximum;
@@ -990,7 +989,7 @@ export const SearchProvider: React.FC<IFFetchContext> = ({
       updateUrlWithTag,
     );
     if (window.history && window.location.toString() !== url) {
-      window.history.replaceState({ ...window.history.state }, "", url);
+      window.history.replaceState({ ...window.history.state }, '', url);
     }
   }, [productSearchResult, searchTerm, sortKey]);
 

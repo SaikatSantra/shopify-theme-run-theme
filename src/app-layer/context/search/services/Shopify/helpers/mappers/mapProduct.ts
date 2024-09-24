@@ -1,9 +1,9 @@
 import {
   ISearchAndFilterProduct,
   ISearchAndFilterProductPrice,
-} from "../../../../types";
-import { ITemplateProductResponse } from "../../types";
-import getProductPrice from "../getProductPrice";
+} from '../../../../types';
+import { ITemplateProductResponse } from '../../types';
+import getProductPrice from '../getProductPrice';
 
 const mapProduct = (
   product: ITemplateProductResponse,

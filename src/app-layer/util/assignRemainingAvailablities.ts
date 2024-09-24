@@ -1,4 +1,4 @@
-import { Cart, ICart } from "./typings";
+import { Cart, ICart } from './typings';
 
 const assignRemainingAvailablities = (
   cartState: Cart,
