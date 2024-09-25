@@ -1,0 +1,163 @@
+<section class="multicolumn-section">
+  <div class="container">
+    <div class="multicolumn-section__content">
+      {% if section.settings.heading != blank %}
+        <h2 class="heading-1">{{ section.settings.heading }}</h2>
+      {% endif %}
+      {% if section.settings.content != blank %}
+        <div class="multicolumn-section__rte">
+          {{ section.settings.content }}
+        </div>
+      {% endif %}
+      {% if section.settings.cta_link != blank %}
+        <a href="{{ section.settings.cta_link }}" class="btn">{{ section.settings.cta_text }}</a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Multicolumn section",
+  "settings": [
+    {
+      "type": "text",
+      "label": "Heading ",
+      "id": "heading"
+    },
+    {
+      "type": "select",
+      "label": "t:sections.featured-blog.settings.heading_alignment.label",
+      "id": "heading_alignment",
+      "options": [
+        {
+          "label": "t:sections.featured-blog.settings.heading_alignment.options__1.label",
+          "value": "left"
+        },
+        {
+          "label": "t:sections.featured-blog.settings.heading_alignment.options__2.label",
+          "value": "center"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "label": "Number of columns on desktop ",
+      "id": "number_of_columns_on_desktop",
+      "default": 3,
+      "min": 1,
+      "max": 6,
+      "step": 1
+    },
+    {
+      "type": "select",
+      "label": "t:sections.all.colors.label",
+      "id": "t:sections.all.colors.label",
+      "default": "background-1",
+      "info": "t:sections.all.colors.has_cards_info",
+      "options": [
+        {
+          "label": "t:sections.all.colors.accent_1.label",
+          "value": "accent1"
+        },
+        {
+          "label": "t:sections.all.colors.background_1.label",
+          "value": "background-1"
+        },
+        {
+          "label": "t:sections.all.colors.background_2.label",
+          "value": "background-2"
+        },
+        {
+          "label": "t:sections.all.colors.inverse.label",
+          "value": "inverse"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "label": "t:sections.all.padding.padding_top",
+      "id": "padding_top",
+      "default": 36,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "label": "t:sections.all.padding.padding_bottom",
+      "id": "padding_bottom",
+      "default": 36,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image_with_text",
+      "name": "Image with Text ",
+      "settings": [
+        {
+          "type": "image_picker",
+          "label": "Image ",
+          "id": "image"
+        },
+        {
+          "type": "text",
+          "label": "Heading ",
+          "id": "heading"
+        },
+        {
+          "type": "richtext",
+          "label": "Description ",
+          "id": "description"
+        },
+        {
+          "type": "select",
+          "label": "t:sections.collection-list.settings.image_ratio.label",
+          "id": "image_ratio",
+          "default": "square",
+          "info": "t:sections.collection-list.settings.image_ratio.info",
+          "options": [
+            {
+              "label": "t:sections.collection-list.settings.image_ratio.options__1.label",
+              "value": "adapt"
+            },
+            {
+              "label": "t:sections.collection-list.settings.image_ratio.options__2.label",
+              "value": "portrait"
+            },
+            {
+              "label": "t:sections.collection-list.settings.image_ratio.options__3.label",
+              "value": "square"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": []
+    },
+    {
+      "type": "products",
+      "name": "Products",
+      "settings": []
+    }
+  ],
+  "presets": [
+    {
+      "name": "Multicolumn section",
+      "category": "Baseline"
+    }
+  ]
+}
+{% endschema %}
