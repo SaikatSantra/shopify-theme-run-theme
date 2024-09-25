@@ -9,8 +9,20 @@
 */
 {
   "sections": {
+    "multicolumn_section_wxGgjt": {
+      "type": "multicolumn-section",
+      "settings": {
+        "heading": "Multicolumn section",
+        "heading_alignment": "left",
+        "number_of_columns_on_desktop": 3,
+        "t:sections.all.colors.label": "background-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "1ecb29d1-1ced-4ff5-a2e2-07b2a8fb0719": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "Featured collection",
         "collection": "bottoms",
@@ -28,7 +40,6 @@
         "template--19298219196725__a8085361-4f2e-4a39-89fa-fed4abccd28e-image-1": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/pexels-arnie-chou-1229042_1.jpg",
             "heading": "Tell Your Story Clearly",
             "heading_size": "medium",
             "text": "Give customers more informantion with optional subtext",
@@ -47,7 +58,6 @@
         "image_VjfRjz": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/pexels-arnie-chou-1229042_1.jpg",
             "heading": "Tell Your Story Clearly",
             "heading_size": "medium",
             "text": "Give customers more informantion with optional subtext",
@@ -68,6 +78,7 @@
         "template--19298219196725__a8085361-4f2e-4a39-89fa-fed4abccd28e-image-1",
         "image_VjfRjz"
       ],
+      "disabled": true,
       "settings": {
         "image_height": 0,
         "image_height_mob": 0,
@@ -78,11 +89,11 @@
     },
     "db469ede-7411-4bfb-b40f-2a83748de63f": {
       "type": "shop-look",
+      "disabled": true,
       "settings": {
         "title": "Shop the look",
         "subheading": "Use this to showcase lifestyle images",
         "title_alignment": "center",
-        "image": "shopify:\/\/shop_images\/25511f075696e8af6da1bc8288d40144.png",
         "image_alignment": "left",
         "product_1": "this-is-the-product-name",
         "product_1_horizontal_position": 55,
@@ -99,6 +110,7 @@
     },
     "page_X4dMAE": {
       "type": "page",
+      "disabled": true,
       "settings": {
         "page": "default-test",
         "heading_size": "h1",
@@ -111,12 +123,11 @@
     },
     "f1db8106-9b0e-4d24-b9a1-5a771e92d8d0": {
       "type": "before-after-image",
+      "disabled": true,
       "settings": {
         "title": "Image comparison",
         "subheading": "Compare any two images",
         "heading_alignment": "left",
-        "image1": "shopify:\/\/shop_images\/beer-abk-hell-das-blue-20x500ml-29417818030277_700x_58f93eb0-32ff-4f0d-b07f-64d6f0088aac.png",
-        "image2": "shopify:\/\/shop_images\/769d04fc41f12980437733321a85306a.png",
         "desktop_height": "650px",
         "mobile_height": "350px",
         "padding_top": 36,
@@ -125,6 +136,7 @@
     },
     "featured_blog_C4iXrm": {
       "type": "featured-blog",
+      "disabled": true,
       "settings": {
         "heading": "Blog posts",
         "heading_size": "h2",
@@ -144,9 +156,10 @@
     },
     "contact_form_qReP89": {
       "type": "contact-form",
+      "disabled": true,
       "settings": {
         "heading": "Contact form",
-        "text": "<p>Have a question? Fill in the form below and we will get back to you as soon as we can.<\/p>",
+        "text": "<p>Have a question? Fill in the form below and we will get back to you as soon as we can.</p>",
         "heading_size": "h1",
         "title_alignment": "center",
         "article_alignment": "center",
@@ -226,6 +239,7 @@
         "template--14146467496067__345e405b-0d7a-4d53-a6a0-23d491243984-1677585490b3d11bb8-0",
         "template--14146467496067__345e405b-0d7a-4d53-a6a0-23d491243984-1677585490b3d11bb8-1"
       ],
+      "disabled": true,
       "settings": {
         "image_height": 0,
         "image_height_mob": 0,
@@ -261,6 +275,7 @@
         "featured_collection_Wi6MnK",
         "featured_collection_9yXTYz"
       ],
+      "disabled": true,
       "settings": {
         "title": "Collections",
         "image_ratio": "square",
@@ -284,7 +299,7 @@
         "template--19298219196725__8a495412-75b6-4508-8349-d0619ff7b608-text-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Create captivating storytelling sections throughout your site<\/p>"
+            "text": "<p>Create captivating storytelling sections throughout your site</p>"
           }
         },
         "template--19298219196725__8a495412-75b6-4508-8349-d0619ff7b608-button-1": {
@@ -304,9 +319,8 @@
         "template--19298219196725__8a495412-75b6-4508-8349-d0619ff7b608-text-1",
         "template--19298219196725__8a495412-75b6-4508-8349-d0619ff7b608-button-1"
       ],
+      "disabled": true,
       "settings": {
-        "image": "shopify:\/\/shop_images\/close-up-of-female-yoga-outfit.jpg",
-        "secondary_image": "shopify:\/\/shop_images\/beer-abk-hell-das-blue-20_pack.jpg",
         "layout": "text_first",
         "article_alignment": "left",
         "color_scheme": "background-1",
@@ -327,7 +341,7 @@
         "template--14146467496067__3b19d748-5c6b-4e06-9740-44a51182d53e-16770691939a98b411-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Create captivating storytelling sections throughout your site<\/p>"
+            "text": "<p>Create captivating storytelling sections throughout your site</p>"
           }
         },
         "template--14146467496067__3b19d748-5c6b-4e06-9740-44a51182d53e-16770691939a98b411-2": {
@@ -347,9 +361,8 @@
         "template--14146467496067__3b19d748-5c6b-4e06-9740-44a51182d53e-16770691939a98b411-1",
         "template--14146467496067__3b19d748-5c6b-4e06-9740-44a51182d53e-16770691939a98b411-2"
       ],
+      "disabled": true,
       "settings": {
-        "image": "shopify:\/\/shop_images\/4-6-02__54715.jpg",
-        "secondary_image": "shopify:\/\/shop_images\/4-6-50__21578.jpg",
         "layout": "text_first",
         "article_alignment": "left",
         "color_scheme": "background-1",
@@ -364,9 +377,8 @@
         "template--14146467496067__3b72d293-cc29-4594-b950-fdb2b4899d1c-167758234251e5ffac-0": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Buy-ABK-Dunkel-Lager-Beer-compressed.webp",
             "title": "Column",
-            "text": "<p>Use text or images or a combination of both to highlight products, your brand and more.<\/p>",
+            "text": "<p>Use text or images or a combination of both to highlight products, your brand and more.</p>",
             "link_label": "",
             "link": ""
           }
@@ -374,9 +386,8 @@
         "column_KjtGaA": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/beer-abk-hell-das-blue-20_pack.jpg",
             "title": "Column",
-            "text": "<p>Use text or images or a combination of both to highlight products, your brand and more.<\/p>",
+            "text": "<p>Use text or images or a combination of both to highlight products, your brand and more.</p>",
             "link_label": "",
             "link": ""
           }
@@ -386,8 +397,9 @@
         "template--14146467496067__3b72d293-cc29-4594-b950-fdb2b4899d1c-167758234251e5ffac-0",
         "column_KjtGaA"
       ],
+      "disabled": true,
       "settings": {
-        "title": "Image\/Text Column",
+        "title": "Image/Text Column",
         "heading_size": "h1",
         "image_width": "full",
         "image_ratio": "square",
@@ -410,7 +422,7 @@
           "type": "video",
           "settings": {
             "video_link": "",
-            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
             "description": "",
             "full_width": false,
             "heading": "Video banner",
@@ -427,7 +439,7 @@
           "type": "video",
           "settings": {
             "video_link": "",
-            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
             "description": "",
             "full_width": false,
             "heading": "Video banner",
@@ -445,6 +457,7 @@
         "a7e98085-0a0f-4855-a777-e36db5e453aa",
         "9f18bb30-926f-462d-9859-0a732b6d45d0"
       ],
+      "disabled": true,
       "settings": {
         "adapt_height_first_image": false
       }
@@ -455,8 +468,8 @@
         "template--19298219196725__5f055c10-1d99-45e8-8e57-56df2809112a-block-1-1": {
           "type": "block-1",
           "settings": {
-            "qstn": "<p>Use this to create a custom built accordion section for FAQ's and more.<\/p>",
-            "ans": "<p>Create FAQ's, give customers more information about your brand and much more.<\/p>",
+            "qstn": "<p>Use this to create a custom built accordion section for FAQ's and more.</p>",
+            "ans": "<p>Create FAQ's, give customers more information about your brand and much more.</p>",
             "button_label": "Button label",
             "button_link": ""
           }
@@ -464,8 +477,8 @@
         "template--19298219196725__5f055c10-1d99-45e8-8e57-56df2809112a-block-1-2": {
           "type": "block-1",
           "settings": {
-            "qstn": "<p>Use this to create a custom built accordion section for FAQ's and more.<\/p>",
-            "ans": "<p>Create FAQ's, give customers more information about your brand and much more.<\/p>",
+            "qstn": "<p>Use this to create a custom built accordion section for FAQ's and more.</p>",
+            "ans": "<p>Create FAQ's, give customers more information about your brand and much more.</p>",
             "button_label": "Button label",
             "button_link": ""
           }
@@ -473,8 +486,8 @@
         "template--19298219196725__5f055c10-1d99-45e8-8e57-56df2809112a-block-1-3": {
           "type": "block-1",
           "settings": {
-            "qstn": "<p>Use this to create a custom built accordion section for FAQ's and more.<\/p>",
-            "ans": "<p>Create FAQ's, give customers more information about your brand and much more.<\/p>",
+            "qstn": "<p>Use this to create a custom built accordion section for FAQ's and more.</p>",
+            "ans": "<p>Create FAQ's, give customers more information about your brand and much more.</p>",
             "button_label": "Button label",
             "button_link": ""
           }
@@ -482,8 +495,8 @@
         "template--19298219196725__5f055c10-1d99-45e8-8e57-56df2809112a-block-1-4": {
           "type": "block-1",
           "settings": {
-            "qstn": "<p>Use this to create a custom built accordion section for FAQ's and more.<\/p>",
-            "ans": "<p>Create FAQ's, give customers more information about your brand and much more.<\/p>",
+            "qstn": "<p>Use this to create a custom built accordion section for FAQ's and more.</p>",
+            "ans": "<p>Create FAQ's, give customers more information about your brand and much more.</p>",
             "button_label": "Button label",
             "button_link": ""
           }
@@ -491,8 +504,8 @@
         "template--19298219196725__5f055c10-1d99-45e8-8e57-56df2809112a-block-1-5": {
           "type": "block-1",
           "settings": {
-            "qstn": "<p>Use this to create a custom built accordion section for FAQ's and more.<\/p>",
-            "ans": "<p>Create FAQ's, give customers more information about your brand and much more.<\/p>",
+            "qstn": "<p>Use this to create a custom built accordion section for FAQ's and more.</p>",
+            "ans": "<p>Create FAQ's, give customers more information about your brand and much more.</p>",
             "button_label": "Button label",
             "button_link": ""
           }
@@ -505,6 +518,7 @@
         "template--19298219196725__5f055c10-1d99-45e8-8e57-56df2809112a-block-1-4",
         "template--19298219196725__5f055c10-1d99-45e8-8e57-56df2809112a-block-1-5"
       ],
+      "disabled": true,
       "settings": {
         "heading_faq": "FAQ Section",
         "subheading_faq": "Subheading",
@@ -530,7 +544,7 @@
         "paragraph_U4MC99": {
           "type": "paragraph",
           "settings": {
-            "paragraph": "<p>Be the first to know about new collections and exclusive offers.<\/p>"
+            "paragraph": "<p>Be the first to know about new collections and exclusive offers.</p>"
           }
         },
         "email_form_jWBMCd": {
@@ -544,6 +558,7 @@
         "paragraph_U4MC99",
         "email_form_jWBMCd"
       ],
+      "disabled": true,
       "settings": {
         "color_scheme": "background-1",
         "padding_top": 36,
@@ -612,6 +627,7 @@
         "buy_buttons_9bfQWT",
         "share_UmLpW7"
       ],
+      "disabled": true,
       "settings": {
         "product": "",
         "color_scheme": "background-1",
@@ -624,6 +640,7 @@
     }
   },
   "order": [
+    "multicolumn_section_wxGgjt",
     "1ecb29d1-1ced-4ff5-a2e2-07b2a8fb0719",
     "a8085361-4f2e-4a39-89fa-fed4abccd28e",
     "db469ede-7411-4bfb-b40f-2a83748de63f",
