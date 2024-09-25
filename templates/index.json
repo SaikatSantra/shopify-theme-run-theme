@@ -11,11 +11,65 @@
   "sections": {
     "multicolumn_section_wxGgjt": {
       "type": "multicolumn-section",
+      "blocks": {
+        "image_with_text_K9JBhV": {
+          "type": "image_with_text",
+          "settings": {
+            "image": "shopify://shop_images/lunarcirque_gunmetal.jpg",
+            "heading": "",
+            "description": "",
+            "image_width": "full",
+            "image_ratio": "square",
+            "column_alignment": "left",
+            "background_style": "primary",
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary_2": false
+          }
+        },
+        "image_with_text_GdWhLW": {
+          "type": "image_with_text",
+          "settings": {
+            "image": "shopify://shop_images/guaranteed_navy.jpg",
+            "heading": "",
+            "description": "",
+            "image_width": "full",
+            "image_ratio": "square",
+            "column_alignment": "left",
+            "background_style": "primary",
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary_2": false
+          }
+        },
+        "image_with_text_ePWUNL": {
+          "type": "image_with_text",
+          "settings": {
+            "image": "shopify://shop_images/product_lifestyle-59.jpg",
+            "heading": "",
+            "description": "",
+            "image_width": "full",
+            "image_ratio": "square",
+            "column_alignment": "left",
+            "background_style": "primary",
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "image_with_text_K9JBhV",
+        "image_with_text_GdWhLW",
+        "image_with_text_ePWUNL"
+      ],
       "settings": {
-        "heading": "Multicolumn section",
+        "title": "",
         "heading_alignment": "left",
         "number_of_columns_on_desktop": 3,
-        "t:sections.all.colors.label": "background-1",
+        "color_scheme": "background-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
         "padding_top": 36,
         "padding_bottom": 36
       }
