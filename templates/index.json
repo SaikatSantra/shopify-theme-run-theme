@@ -16,8 +16,8 @@
           "type": "image_with_text",
           "settings": {
             "image": "shopify://shop_images/lunarcirque_gunmetal.jpg",
-            "heading": "",
-            "description": "",
+            "heading": "Image with Text 1",
+            "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at eros at nisi pellentesque condimentum. </p>",
             "image_width": "full",
             "image_ratio": "square",
             "column_alignment": "left",
@@ -31,8 +31,8 @@
           "type": "image_with_text",
           "settings": {
             "image": "shopify://shop_images/guaranteed_navy.jpg",
-            "heading": "",
-            "description": "",
+            "heading": "Image with Text 2",
+            "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at eros at nisi pellentesque condimentum. </p>",
             "image_width": "full",
             "image_ratio": "square",
             "column_alignment": "left",
@@ -46,8 +46,8 @@
           "type": "image_with_text",
           "settings": {
             "image": "shopify://shop_images/product_lifestyle-59.jpg",
-            "heading": "",
-            "description": "",
+            "heading": "Image with Text 3",
+            "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas at eros at nisi pellentesque condimentum. </p>",
             "image_width": "full",
             "image_ratio": "square",
             "column_alignment": "left",
@@ -64,7 +64,7 @@
         "image_with_text_ePWUNL"
       ],
       "settings": {
-        "title": "",
+        "title": "Multicolumn section",
         "heading_alignment": "left",
         "number_of_columns_on_desktop": 3,
         "color_scheme": "background-1",
