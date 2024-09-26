@@ -190,7 +190,6 @@
     },
     "featured_blog_C4iXrm": {
       "type": "featured-blog",
-      "disabled": true,
       "settings": {
         "heading": "Blog posts",
         "heading_size": "h2",
