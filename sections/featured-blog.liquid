@@ -31,7 +31,7 @@
   endif
 -%}
 <div
-  class="multicolumn color-{{ section.settings.color_scheme }} gradient background-{{ section.settings.background_style }}{% if section.settings.title == blank %} no-heading{% endif %} scroll-trigger animate--slide-in"
+  class="multicolumn color-{{ section.settings.color_scheme }} gradient {% if section.settings.title == blank %} no-heading{% endif %} scroll-trigger animate--slide-in"
 >
   <div class="section-{{ section.id }}-padding isolate page-width-desktop">
     <div class="blog {% if section.settings.heading == blank %} no-heading{% endif %}">
