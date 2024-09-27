@@ -1,3 +1,8 @@
+{% liquid
+  if block.settings.image.aspect_ratio > highest_ratio
+    assign highest_ratio = block.settings.image.aspect_ratio
+  endif
+%}
 <div class="img-text-card content-container background-{{ block.settings.background_style }}">
   {%- if block.settings.image != blank -%}
     {% if block.settings.image_ratio == 'adapt' or block.settings.image_ratio == 'circle' %}

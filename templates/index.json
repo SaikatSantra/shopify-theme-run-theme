@@ -56,17 +56,24 @@
             "button_link": "",
             "button_style_secondary": false
           }
+        },
+        "products_mJtMyR": {
+          "type": "products",
+          "settings": {
+            "product": "5-panel-hat"
+          }
         }
       },
       "block_order": [
         "image_with_text_K9JBhV",
         "image_with_text_GdWhLW",
-        "image_with_text_ePWUNL"
+        "image_with_text_ePWUNL",
+        "products_mJtMyR"
       ],
       "settings": {
         "title": "Multicolumn section",
         "heading_alignment": "left",
-        "columns_desktop": 3,
+        "columns_desktop": 4,
         "color_scheme": "accent-1",
         "columns_mobile": "1",
         "swipe_on_mobile": true,
@@ -92,41 +99,25 @@
             "button_style_secondary": true
           }
         },
-        "image_with_text_z68jbN": {
-          "type": "image_with_text",
+        "products_RwwgxN": {
+          "type": "products",
           "settings": {
-            "image": "shopify://shop_images/guaranteed_navy.jpg",
-            "heading": "Image with Text 2",
-            "description": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "image_width": "full",
-            "image_ratio": "square",
-            "column_alignment": "left",
-            "background_style": "primary",
-            "button_label": "Button label",
-            "button_link": "shopify://blogs/news/shopify-best-practices-for-e-commerce-success",
-            "button_style_secondary": false
+            "product": "5-panel-hat"
           }
         },
-        "image_with_text_i6N48Y": {
-          "type": "image_with_text",
+        "collection_HTwB8w": {
+          "type": "collection",
           "settings": {
-            "image": "shopify://shop_images/product_lifestyle-59.jpg",
-            "heading": "Image with Text 3",
-            "description": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "image_width": "full",
-            "image_ratio": "square",
-            "column_alignment": "left",
-            "background_style": "primary",
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false
+            "collection": "featured-collecction",
+            "image_ratio": "adapt",
+            "column_alignment": "center"
           }
         }
       },
       "block_order": [
         "image_with_text_HRb3dD",
-        "image_with_text_z68jbN",
-        "image_with_text_i6N48Y"
+        "products_RwwgxN",
+        "collection_HTwB8w"
       ],
       "settings": {
         "title": "Multicolumn section",
@@ -157,6 +148,14 @@
             "button_style_secondary": true
           }
         },
+        "collection_gidQN8": {
+          "type": "collection",
+          "settings": {
+            "collection": "featured-collecction",
+            "image_ratio": "adapt",
+            "column_alignment": "center"
+          }
+        },
         "image_with_text_V4KcdJ": {
           "type": "image_with_text",
           "settings": {
@@ -172,31 +171,23 @@
             "button_style_secondary": false
           }
         },
-        "image_with_text_arTA7e": {
-          "type": "image_with_text",
+        "products_qPMNQ3": {
+          "type": "products",
           "settings": {
-            "image": "shopify://shop_images/product_lifestyle-59.jpg",
-            "heading": "Image with Text 3",
-            "description": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "image_width": "full",
-            "image_ratio": "square",
-            "column_alignment": "left",
-            "background_style": "primary",
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false
+            "product": "5-panel-hat"
           }
         }
       },
       "block_order": [
         "image_with_text_nbGmHB",
+        "collection_gidQN8",
         "image_with_text_V4KcdJ",
-        "image_with_text_arTA7e"
+        "products_qPMNQ3"
       ],
       "settings": {
         "title": "Multicolumn section",
         "heading_alignment": "left",
-        "columns_desktop": 3,
+        "columns_desktop": 4,
         "color_scheme": "background-2",
         "columns_mobile": "1",
         "swipe_on_mobile": true,
@@ -207,49 +198,12 @@
     "multicolumn_section_LYXjB6": {
       "type": "multicolumn-section",
       "blocks": {
-        "image_with_text_bnVwgc": {
-          "type": "image_with_text",
+        "collection_pdmDEd": {
+          "type": "collection",
           "settings": {
-            "image": "shopify://shop_images/lunarcirque_gunmetal.jpg",
-            "heading": "Column",
-            "description": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "image_width": "full",
-            "image_ratio": "square",
-            "column_alignment": "center",
-            "background_style": "primary",
-            "button_label": "Button label",
-            "button_link": "shopify://collections/frontpage",
-            "button_style_secondary": true
-          }
-        },
-        "image_with_text_pBGUxL": {
-          "type": "image_with_text",
-          "settings": {
-            "image": "shopify://shop_images/guaranteed_navy.jpg",
-            "heading": "Image with Text 2",
-            "description": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "image_width": "full",
-            "image_ratio": "square",
-            "column_alignment": "left",
-            "background_style": "primary",
-            "button_label": "Button label",
-            "button_link": "shopify://blogs/news",
-            "button_style_secondary": false
-          }
-        },
-        "image_with_text_xrtXXD": {
-          "type": "image_with_text",
-          "settings": {
-            "image": "shopify://shop_images/product_lifestyle-59.jpg",
-            "heading": "Image with Text 3",
-            "description": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "image_width": "full",
-            "image_ratio": "square",
-            "column_alignment": "left",
-            "background_style": "primary",
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false
+            "collection": "featured-collecction",
+            "image_ratio": "adapt",
+            "column_alignment": "center"
           }
         },
         "image_with_text_B6XHLz": {
@@ -266,13 +220,25 @@
             "button_link": "shopify://blogs/news",
             "button_style_secondary": false
           }
+        },
+        "products_fpVLKE": {
+          "type": "products",
+          "settings": {
+            "product": "5-panel-hat"
+          }
+        },
+        "products_D3DTWt": {
+          "type": "products",
+          "settings": {
+            "product": "long-sleeve-swing"
+          }
         }
       },
       "block_order": [
-        "image_with_text_bnVwgc",
-        "image_with_text_pBGUxL",
-        "image_with_text_xrtXXD",
-        "image_with_text_B6XHLz"
+        "collection_pdmDEd",
+        "image_with_text_B6XHLz",
+        "products_fpVLKE",
+        "products_D3DTWt"
       ],
       "settings": {
         "title": "Multicolumn section",
@@ -281,6 +247,19 @@
         "color_scheme": "inverse",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "1ecb29d1-1ced-4ff5-a2e2-07b2a8fb0719": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Featured collection",
+        "collection": "featured-collecction",
+        "products_to_show": 8,
+        "show_view_all": true,
+        "swipe_collection": true,
+        "view_all_alignment": "above",
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -379,20 +358,6 @@
         "padding_top": 36,
         "padding_bottom": 36,
         "stack_images_on_mobile": true
-      }
-    },
-    "1ecb29d1-1ced-4ff5-a2e2-07b2a8fb0719": {
-      "type": "featured-collection",
-      "disabled": true,
-      "settings": {
-        "title": "Featured collection",
-        "collection": "bottoms",
-        "products_to_show": 8,
-        "show_view_all": true,
-        "swipe_collection": true,
-        "view_all_alignment": "above",
-        "padding_top": 36,
-        "padding_bottom": 36
       }
     },
     "a8085361-4f2e-4a39-89fa-fed4abccd28e": {
@@ -519,19 +484,19 @@
         "featured_collection_maAEjQ": {
           "type": "featured_collection",
           "settings": {
-            "collection": ""
+            "collection": "featured-collecction"
           }
         },
         "featured_collection_Wi6MnK": {
           "type": "featured_collection",
           "settings": {
-            "collection": ""
+            "collection": "frontpage"
           }
         },
         "featured_collection_9yXTYz": {
           "type": "featured_collection",
           "settings": {
-            "collection": ""
+            "collection": "featured-collecction"
           }
         }
       },
@@ -540,7 +505,6 @@
         "featured_collection_Wi6MnK",
         "featured_collection_9yXTYz"
       ],
-      "disabled": true,
       "settings": {
         "title": "Collections",
         "image_ratio": "square",
@@ -662,6 +626,7 @@
         "template--14146467496067__3b72d293-cc29-4594-b950-fdb2b4899d1c-167758234251e5ffac-0",
         "column_KjtGaA"
       ],
+      "disabled": true,
       "settings": {
         "title": "Image/Text Column",
         "heading_size": "h1",
@@ -908,9 +873,9 @@
     "multicolumn_section_zWA3bF",
     "multicolumn_section_iHCgqC",
     "multicolumn_section_LYXjB6",
+    "1ecb29d1-1ced-4ff5-a2e2-07b2a8fb0719",
     "featured_blog_C4iXrm",
     "345e405b-0d7a-4d53-a6a0-23d491243984",
-    "1ecb29d1-1ced-4ff5-a2e2-07b2a8fb0719",
     "a8085361-4f2e-4a39-89fa-fed4abccd28e",
     "db469ede-7411-4bfb-b40f-2a83748de63f",
     "page_X4dMAE",

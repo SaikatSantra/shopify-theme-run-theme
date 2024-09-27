@@ -1,0 +1,73 @@
+{% liquid
+  if block.settings.collection.featured_image.aspect_ratio > highest_ratio
+    assign highest_ratio = block.settings.collection.featured_image.aspect_ratio
+  endif
+%}
+{% if block.settings.image_ratio == 'adapt' %}
+  {%- if block.settings.collection.title != blank -%}
+    <a href="{{ block.settings.collection.url }}" class="button--primary button">
+      {{- block.settings.collection.title | escape -}}
+    </a>
+  {%- endif -%}
+{% else %}
+  <a
+    href="{{ block.settings.collection.url }}"
+    class="
+            card animate-arrow link{% if block.settings.collection.featured_image != blank %} card--media{% else %}{% if section.settings.image_ratio != 'adapt' %} card--stretch{% endif %}{% endif %}
+    "
+  >
+    <div class="card--stretch card-colored color-{{ section.settings.color_scheme }}">
+      {%- if block.settings.collection.featured_image != blank -%}
+        {% if block.settings.image_ratio == 'adapt' %}
+          {% assign spaced_image = true %}
+        {% endif %}
+
+        <div
+          class="
+                      {% if section.settings.image_padding %}card__media-spacer  {% endif %}
+            {% if spaced_image %} img-text-card-spacing{% endif %}
+          "
+        >
+          <div
+            class="media media--transparent media--{{ block.settings.image_ratio }}"
+            {% if block.settings.image_ratio == 'adapt' %}
+              style="padding-bottom: {{ 1 | divided_by: highest_ratio | times: 100 }}%;"
+            {% endif %}
+          >
+            {%- liquid
+              assign number_of_columns = section.settings.columns_desktop
+              assign number_of_columns_mobile = section.settings.columns_mobile
+              assign grid_space_desktop = number_of_columns | minus: 1 | times: settings.spacing_grid_horizontal | plus: 100 | append: 'px'
+              assign grid_space_tablet = number_of_columns_mobile | minus: 1 | times: settings.spacing_grid_horizontal | plus: 100 | append: 'px'
+              assign grid_space_mobile = number_of_columns_mobile | minus: 1 | times: settings.spacing_grid_horizontal | divided_by: 2 | plus: 30 | append: 'px'
+              assign image_width = 1
+            -%}
+            {% capture sizes %}
+            (min-width: {{ settings.page_width }}px) calc(({{ settings.page_width }}px - {{ grid_space_desktop }}) * {{ image_width }} /  {{ number_of_columns }}),
+            (min-width: 990px) calc((100vw - {{ grid_space_desktop }}) * {{ image_width }} / {{ number_of_columns }}),
+            (min-width: 750px) calc((100vw - {{ grid_space_tablet }}) * {{ image_width }} / {{ number_of_columns_mobile }}),
+            calc((100vw - {{ grid_space_mobile }}) * {{ image_width }} / {{ number_of_columns_mobile }})
+          {% endcapture %}
+            {{
+              block.settings.collection.featured_image
+              | image_url: width: 3200
+              | image_tag:
+                loading: 'lazy',
+                widths: '50, 75, 100, 150, 200, 300, 400, 500, 750, 1000, 1250, 1500, 1750, 2000, 2250, 2500, 2750, 3000, 3200',
+                sizes: sizes,
+                class: 'collection-featured__image motion-reduce'
+            }}
+          </div>
+        </div>
+
+        <div class="card__text card__text-spacing card-colored card__text-hover{% if section.settings.image_padding == false %} color-{{ section.settings.color_scheme }}{% endif %}">
+          <h3>
+            {%- if block.settings.collection.title != blank -%}
+              {{- block.settings.collection.title | escape -}}
+            {%- endif -%}
+          </h3>
+        </div>
+      {%- endif -%}
+    </div>
+  </a>
+{% endif %}

@@ -47,3 +47,42 @@
 .img-text-card.background-primary .img-text-card__info h3 {
   margin-top: 0;
 }
+
+/* multicolumn product  */
+.multicolumn-section .favourite-wrapper-container {
+  margin: 0;
+}
+
+.multicolumn-section .card-quick-buttons {
+  width: calc(100% - 20px);
+}
+
+/* multicolumn collection  */
+.multicolumn-section__list--collection-item {
+  background-image: var(--backgroundimage);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  display: flex;
+}
+.multicolumn-section__list--collection-item .button {
+  position: absolute;
+  bottom: 20px;
+
+  /* right: 0; */
+}
+
+.multicolumn-section__list--collection-item.center {
+  justify-content: center;
+}
+
+.multicolumn-section__list--collection-item:not(.center) .button {
+  left: 20px;
+}
+.multicolumn-section__list--collection-item .card {
+  width: 100%;
+}
+.multicolumn-section__list--collection-item .card .card__text {
+  padding-left: 0;
+}

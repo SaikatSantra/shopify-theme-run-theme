@@ -47,6 +47,7 @@
           id="Slider-{{ section.id }}"
           role="list"
         >
+          {%- assign highest_ratio = 0 -%}
           {%- liquid
             assign highest_ratio = 0
             for block in section.blocks
@@ -56,13 +57,39 @@
             endfor
           -%}
           {%- for block in section.blocks -%}
-            <li
-              id="Slide-{{ section.id }}-{{ forloop.index }}"
-              class="multicolumn-section__list--item grid__item{% if section.settings.swipe_on_mobile %} slider__slide{% endif %}{% if block.settings.column_alignment == 'center' %} center{% endif %}"
-              {{ block.shopify_attributes }}
-            >
-              {% render 'image-with-text-card', block: block %}
-            </li>
+            {% case block.type %}
+              {% when 'image_with_text' %}
+                <li
+                  id="Slide-{{ section.id }}-{{ forloop.index }}"
+                  class="multicolumn-section__list--item grid__item{% if section.settings.swipe_on_mobile %} slider__slide{% endif %}{% if block.settings.column_alignment == 'center' %} center{% endif %}"
+                  {{ block.shopify_attributes }}
+                >
+                  {% render 'image-with-text-card', block: block, highest_ratio: highest_ratio %}
+                </li>
+              {% when 'collection' %}
+                <li
+                  id="Slide-{{ section.id }}-{{ forloop.index }}"
+                  class="
+                    multicolumn-section__list--item multicolumn-section__list--collection-item grid__item {% if section.settings.swipe_on_mobile %} slider__slide {% endif %}
+                    {% if block.settings.column_alignment == 'center' %} center{% endif %}
+                  "
+                  {{ block.shopify_attributes }}
+                  {% if block.settings.image_ratio == 'adapt' %}
+                    style="--backgroundimage: url('{{ block.settings.collection.featured_image | image_url: width: 3200 }}');"
+                  {% endif %}
+                >
+                  {% render 'collection-card', block: block, highest_ratio: highest_ratio %}
+                </li>
+              {% when 'products' %}
+                {% assign product = block.settings.product %}
+                <li
+                  id="Slide-{{ section.id }}-{{ forloop.index }}"
+                  class="multicolumn-section__list--item grid__item{% if section.settings.swipe_on_mobile %} slider__slide {% endif %}{% if block.settings.column_alignment == 'center' %} center{% endif %}"
+                  {{ block.shopify_attributes }}
+                >
+                  {% render 'product-card', product_card_product: product %}
+                </li>
+            {% endcase %}
           {%- endfor -%}
         </ul>
 
