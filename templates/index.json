@@ -9,50 +9,51 @@
 */
 {
   "sections": {
-    "multicolumn_section_E8n6Az": {
+    "multicolumn_section_wxGgjt": {
       "type": "multicolumn-section",
       "blocks": {
-        "image_with_text_9HxiyD": {
+        "image_with_text_K9JBhV": {
           "type": "image_with_text",
           "settings": {
-            "image": "shopify://shop_images/4-6-50__21578.jpg",
-            "heading": "Image With Text",
+            "image": "shopify://shop_images/lunarcirque_gunmetal.jpg",
+            "heading": "Column",
             "description": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
             "image_width": "full",
             "image_ratio": "square",
             "column_alignment": "center",
             "background_style": "primary",
             "button_label": "Button label",
-            "button_link": "shopify://products/3d-watch",
+            "button_link": "shopify://collections/frontpage",
             "button_style_secondary": true
           }
         },
-        "collection_BrqqAy": {
-          "type": "collection",
-          "settings": {
-            "collection": "women",
-            "image_ratio": "adapt",
-            "column_alignment": "left"
-          }
-        },
-        "products_69AtMk": {
-          "type": "products",
-          "settings": {
-            "product": "this-is-the-product-name-var"
-          }
-        },
-        "image_with_text_jREMmf": {
+        "image_with_text_GdWhLW": {
           "type": "image_with_text",
           "settings": {
-            "image": "shopify://shop_images/4-6-49__17274.jpg",
-            "heading": "Image With Text",
+            "image": "shopify://shop_images/guaranteed_navy.jpg",
+            "heading": "Image with Text 2",
             "description": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
             "image_width": "full",
             "image_ratio": "square",
             "column_alignment": "left",
             "background_style": "none",
             "button_label": "Button label",
-            "button_link": "shopify://pages/wishlist",
+            "button_link": "shopify://pages/contact",
+            "button_style_secondary": false
+          }
+        },
+        "image_with_text_ePWUNL": {
+          "type": "image_with_text",
+          "settings": {
+            "image": "shopify://shop_images/product_lifestyle-59.jpg",
+            "heading": "Image with Text 3",
+            "description": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "image_width": "full",
+            "image_ratio": "square",
+            "column_alignment": "left",
+            "background_style": "primary",
+            "button_label": "Button label",
+            "button_link": "",
             "button_style_secondary": false
           }
         },
@@ -107,7 +108,7 @@
         "collection_HTwB8w": {
           "type": "collection",
           "settings": {
-            "collection": "featured-collecction",
+            "collection": "category",
             "image_ratio": "adapt",
             "column_alignment": "center"
           }
@@ -150,7 +151,7 @@
         "collection_gidQN8": {
           "type": "collection",
           "settings": {
-            "collection": "featured-collecction",
+            "collection": "category",
             "image_ratio": "adapt",
             "column_alignment": "center"
           }
@@ -200,7 +201,7 @@
         "collection_pdmDEd": {
           "type": "collection",
           "settings": {
-            "collection": "featured-collecction",
+            "collection": "category",
             "image_ratio": "adapt",
             "column_alignment": "center"
           }
@@ -243,7 +244,7 @@
         "title": "Multicolumn section",
         "heading_alignment": "left",
         "columns_desktop": 4,
-        "color_scheme": "accent-1",
+        "color_scheme": "inverse",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
         "padding_top": 36,
@@ -254,7 +255,7 @@
       "type": "featured-collection",
       "settings": {
         "title": "Featured collection",
-        "collection": "featured-collecction",
+        "collection": "category",
         "products_to_show": 8,
         "show_view_all": true,
         "swipe_collection": true,
@@ -285,34 +286,78 @@
     "345e405b-0d7a-4d53-a6a0-23d491243984": {
       "type": "promotion-grid",
       "blocks": {
-        "image_with_text_wq77Lw": {
-          "type": "image_with_text",
+        "image_Kc7nDq": {
+          "type": "image",
           "settings": {
-            "image": "shopify://shop_images/young-woman-with-bright-smile.jpg",
-            "heading": "",
-            "description": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "image_width": "full",
-            "image_ratio": "square",
-            "column_alignment": "left",
-            "background_style": "primary",
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false
+            "image": "shopify://shop_images/product_lifestyle-28.jpg",
+            "heading": "Announce Promotions",
+            "heading_size": "medium",
+            "text": "Let your customers know exactly what's going on",
+            "button_label_1": "Button label",
+            "button_link_1": "#",
+            "button_style_secondary_1": false,
+            "button_label_2": "Button label",
+            "button_link_2": "#",
+            "button_style_secondary_2": true,
+            "desktop_text_box_position": "center",
+            "image_overlay_opacity": 30,
+            "show_text_box": false,
+            "color_scheme": "background-1",
+            "frame": true
+          }
+        },
+        "template--14146467496067__345e405b-0d7a-4d53-a6a0-23d491243984-1677585490b3d11bb8-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/product_lifestyle-59.jpg",
+            "heading": "Announce Promotions",
+            "heading_size": "medium",
+            "text": "Let your customers know exactly what's going on",
+            "button_label_1": "Button label",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "desktop_text_box_position": "center",
+            "image_overlay_opacity": 30,
+            "show_text_box": false,
+            "color_scheme": "background-1",
+            "frame": true
+          }
+        },
+        "template--14146467496067__345e405b-0d7a-4d53-a6a0-23d491243984-1677585490b3d11bb8-1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Julie38_SiteSquare.jpg",
+            "heading": "Announce Promotions",
+            "heading_size": "medium",
+            "text": "Let your customers know exactly what's going on",
+            "button_label_1": "Button label",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "desktop_text_box_position": "center",
+            "image_overlay_opacity": 30,
+            "show_text_box": false,
+            "color_scheme": "background-1",
+            "frame": true
           }
         }
       },
       "block_order": [
-        "image_with_text_wq77Lw"
+        "image_Kc7nDq",
+        "template--14146467496067__345e405b-0d7a-4d53-a6a0-23d491243984-1677585490b3d11bb8-0",
+        "template--14146467496067__345e405b-0d7a-4d53-a6a0-23d491243984-1677585490b3d11bb8-1"
       ],
       "settings": {
-        "title": "Multicolumn section",
-        "heading_alignment": "left",
-        "columns_desktop": 3,
-        "color_scheme": "background-1",
-        "columns_mobile": "1",
-        "swipe_on_mobile": true,
+        "image_height": 0,
+        "image_height_mob": 0,
         "padding_top": 36,
-        "padding_bottom": 36
+        "padding_bottom": 36,
+        "stack_images_on_mobile": true
       }
     },
     "a8085361-4f2e-4a39-89fa-fed4abccd28e": {
@@ -439,7 +484,7 @@
         "featured_collection_maAEjQ": {
           "type": "featured_collection",
           "settings": {
-            "collection": "featured-collecction"
+            "collection": "category"
           }
         },
         "featured_collection_Wi6MnK": {
@@ -451,7 +496,7 @@
         "featured_collection_9yXTYz": {
           "type": "featured_collection",
           "settings": {
-            "collection": "featured-collecction"
+            "collection": "category"
           }
         }
       },

@@ -219,28 +219,7 @@
     },
     "content_for_index": [
 
-    ],
-    "blocks": {
-      "15683396631634586217": {
-        "type": "shopify://apps/inbox/blocks/chat/841fc607-4181-4ad1-842d-e24d7f8bad6b",
-        "disabled": true,
-        "settings": {
-          "button_color": "#202a36",
-          "secondary_color": "#FFFFFF",
-          "button_icon": "no_icon",
-          "button_text": "chat_with_us",
-          "button_horizontal_position": "bottom_right",
-          "button_vertical_position": "lowest",
-          "greeting_message": "👋 Hi, message us with any questions. We're happy to help!"
-        }
-      },
-      "6992340522935486548": {
-        "type": "shopify://apps/subscription-plus/blocks/app/79c17119-154e-465c-8480-a7e0399512ff",
-        "disabled": true,
-        "settings": {
-        }
-      }
-    }
+    ]
   },
   "presets": {
     "Power": {
