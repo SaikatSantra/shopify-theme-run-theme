@@ -1403,6 +1403,7 @@ input#Search-In-Modal {
   opacity: 1;
   box-shadow: none;
   color: #000;
+  border: none;
 }
 
 .text-area,
@@ -1422,6 +1423,11 @@ input#Search-In-Modal {
   top: 50%;
   right: 0;
   transform: translateY(-50%);
+}
+
+.customer select + svg {
+  height: 1rem;
+  right: 2rem;
 }
 
 .select__select,

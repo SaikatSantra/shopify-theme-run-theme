@@ -34,7 +34,7 @@
         "megamenu_8JRQVx"
       ],
       "settings": {
-        "logo": "shopify:\/\/shop_images\/0x0.png",
+        "logo": "shopify://shop_images/0x0.png",
         "logo_height": 70,
         "logo_position": "middle-center",
         "top_header_nav_color": "#edff00",
@@ -116,7 +116,7 @@
         "apparition_delay": 1,
         "frequency": 1,
         "title": "Built in Newsletter Pop-up",
-        "content": "<p>No need to slow your site down with extra apps!<\/p>",
+        "content": "<p>No need to slow your site down with extra apps!</p>",
         "image_position": "left",
         "show_newsletter": true,
         "sumnit_btn": "Subscribe",
@@ -126,7 +126,7 @@
     "swatches_zcdQtT": {
       "type": "swatches",
       "settings": {
-        "color_swatches_text": "Black:#000 | blue:#0047AB | red: #FF0000"
+        "color_swatches_text": "Black:#000 | blue:#0047AB | red: #FF0000 | green: #06402b"
       }
     }
   },

@@ -751,7 +751,7 @@
     /* Field inputs throughout site */
 
     .field__input, .account_input {
-      box-shadow: 0 0 0 0.1rem rgba(var(--color-foreground),0.1);
+      border: 1px solid rgba(var(--color-foreground),0.1);
     }
 
     .footer .field__input:focus {
@@ -769,6 +769,9 @@
     }
 
 
+     .newsletter_footer_form {
+      border:  1px solid {{ settings.footer_content_color }};
+      }
 
     .localization-selector.link, .footer .field__label,.copyright__content, .newsletter-form__message--success{
       color: {{ settings.footer_content_color }};

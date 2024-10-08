@@ -1827,10 +1827,10 @@ input[name="Engraving"][value="Yes"]:not(:checked)
 }
 
 .product__info-collapsible-tab .product__accordion.accordion {
-  border-top: 1px solid #f7f7f7;
+  border-top: 1px solid rgb(var(--color-foreground));
 }
 .product__info-container.product__info-collapsible-tab {
-  border-bottom: 1px solid #f7f7f7;
+  border-bottom: 1px solid rgb(var(--color-foreground));
   margin-bottom: 90px;
 }
 /* .product__info-collapsible-tab .accordion details[open]>summary .icon-caret {
