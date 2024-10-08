@@ -78,7 +78,7 @@
                     style="--backgroundimage: url('{{ block.settings.collection.featured_image | image_url: width: 3200 }}');"
                   {% endif %}
                 >
-                  {% render 'multicolumn-collection-card', block: block, highest_ratio: highest_ratio %}
+                  {% render 'collection-card', block: block, highest_ratio: highest_ratio %}
                 </li>
               {% when 'products' %}
                 {% assign product = block.settings.product %}
