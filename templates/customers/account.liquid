@@ -133,7 +133,7 @@
       <h3 class="customer-title">{{ customer.default_address.name }}</h3>
       <p class="customer-email-account">{{ customer.email }}</p>
 
-      {{ customer.default_address | format_address | | remove: customer.default_address.name }}
+      {{ customer.default_address | format_address | remove: customer.default_address.name }}
       <div class="view-account-container">
         <a href="{{ routes.account_addresses_url }}" class="button--secondary button account-view-btn">
           {{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})
@@ -142,3 +142,15 @@
     </div>
   </div>
 </div>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{{ customer.default_address | format_address | | remove: customer.default_address.name
+    }}"
+  to: "{{ customer.default_address | format_address | remove: customer.default_address.name
+    }}"
+  position: 5811..5898
+{% endcomment %}
